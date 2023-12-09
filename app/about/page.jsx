@@ -29,7 +29,7 @@ function page() {
               AT PORTFOLIO GENERATOR OUR MISSION IS TO PROVIDE A USER-FRIENDLY
               AND INNOVATIVE PLATFORM THAT ENAVLES INDIVIDUALS TO CREATE
               STUNNING PORTFOLIOS EFFORTLESSLY . WE BELIEVE IN THE POWER OF
-              SHOWCASING ONE'S UNIQUE SKILSS AND EXPERIENCES TO MAKE A LASTING
+              SHOWCASING ONES UNIQUE SKILSS AND EXPERIENCES TO MAKE A LASTING
               IMPRESSION IN THE PROFESSIONAL WORLD
             </p>
           </div>
@@ -38,7 +38,7 @@ function page() {
       <section   className="hidden lg:block">
        <div className="l-about flex  justify-around w-full h-screen ">
         <div className="img w-[40%] h-[100%] pt-40">
-     <Image src={about} />
+     <Image src={about} alt="About"/>
         </div>
         <div className="info w-[40%] flex flex-col justify-center gap-10">
         <p className=" text-justify px-4 font-bold text-xl text-[#192733]">
@@ -53,7 +53,7 @@ function page() {
               AT PORTFOLIO GENERATOR OUR MISSION IS TO PROVIDE A USER-FRIENDLY
               AND INNOVATIVE PLATFORM THAT ENAVLES INDIVIDUALS TO CREATE
               STUNNING PORTFOLIOS EFFORTLESSLY . WE BELIEVE IN THE POWER OF
-              SHOWCASING ONE'S UNIQUE SKILSS AND EXPERIENCES TO MAKE A LASTING
+              SHOWCASING ONES UNIQUE SKILSS AND EXPERIENCES TO MAKE A LASTING
               IMPRESSION IN THE PROFESSIONAL WORLD
             </p>
         </div>

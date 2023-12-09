@@ -84,7 +84,7 @@ function Login() {
             LOGIN
           </button>
           <p className="text-white font-bold">
-            DON'T HAVE AN ACCOUNT ?{" "}
+            DONT HAVE AN ACCOUNT ?{" "}
             <a href="/register" className="text-orange-400 ">
               REGISTER
             </a>
@@ -137,7 +137,7 @@ function Login() {
               LOGIN
             </button>
             <p>
-              Don't Have An Account ?{" "}
+              Dont Have An Account ?{" "}
               <a href="/register" className="text-orange-400">
                 {" "}
                 Register

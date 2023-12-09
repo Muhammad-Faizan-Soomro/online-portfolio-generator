@@ -33,7 +33,7 @@ function Navbar() {
 
   return (
     <>
-      <section className="  hidden  w-screen h-16 lg:flex justify-between items-center bg-[#fef4ea]">
+      <section className="  hidden  w-screen h-16 lg:flex justify-between items-center border-2">
         <div className="lg-nav"></div>
         <div className="flex nav w-[350px] h-16  items-center justify-between  ">
           <a
@@ -52,7 +52,7 @@ function Navbar() {
 
         <div className="img">
           <a href="/">
-          <Image src={logo} width={180} height={200} />
+          <Image src={logo} width={180} height={200} alt="Logo.png" />
           </a>
         </div>
         <div className="tags h-16 w-[750px] flex items-center justify-between">
@@ -63,7 +63,7 @@ function Navbar() {
             About Us
           </a>
           <a
-            href=""
+            href="/contact"
             className="font-bold font-serif text-[#ff5c35] hover:scale-110 text-xl"
           >
             Contact Us
@@ -84,7 +84,7 @@ function Navbar() {
       <div className="nav lg:hidden h-16 w-screen bg-[#fef4ea] ">
         <div className="items flex items-center justify-evenly">
           <a href="/">
-          <Image src={logo} width={220} height={200} />
+          <Image src={logo} width={220} height={200} alt="logo.png" />
           </a>
       
           <button onClick={() => sethide(!hide)}>
@@ -106,7 +106,7 @@ function Navbar() {
           <a href="/about" className="text-[#ff5c35] font-bold text-xl">
             About Us
           </a>
-          <a href="#" className="text-[#ff5c35] font-bold text-xl">
+          <a href="/contact" className="text-[#ff5c35] font-bold text-xl">
             Contact Us
           </a>
           <button
