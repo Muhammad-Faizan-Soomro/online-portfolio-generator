@@ -27,7 +27,7 @@ function Login() {
         })
         if(res.ok){
           toast.success("Login Successfully")
-          router.push('/home')
+          router.replace('/home')
         }
         else{
           toast.warn("Invalid Credentials")

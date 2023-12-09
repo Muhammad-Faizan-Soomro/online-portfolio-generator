@@ -8,7 +8,7 @@ import { User } from "@/app/models/user";
 export async function POST(request){
     await ConnectDB();
     const {username,email,password}=await request.json();
-    const existinguser= await User.findOne({email})
+    const existinguser= await User.findOne({username})
     if(existinguser){
         return NextResponse.json({
             message:'User Already Exsists',

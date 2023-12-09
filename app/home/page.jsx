@@ -1,9 +1,14 @@
-import React from 'react'
+"use client";
+import React from "react";
+import Navbar from "../components/Navbar";
+import Loader from '../components/Loader'
 
-function page() {
+function Page() {
+ 
   return (
-    <div>page</div>
-  )
+      <Navbar />
+  
+  );
 }
 
-export default page;
+export default Page;
