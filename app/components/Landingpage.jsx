@@ -12,25 +12,27 @@ function Landingpage() {
       <section>
         <div className="m-landing md:hidden">
           <Navbar />
-          <div className="content w-screen h-full flex">
-            <div className="content1 w-[50%] h-[screen] gap-4 pt-40 flex flex-col">
+          <div className="content w-screen h-screen flex  pt-20  bg-orange-100">
+            <div className="content1 w-[50%] h-[screen] gap-4 pt-20 flex flex-col">
               <h1 className="font-bold text-orange-400 text-3xl px-2">
                 PORTFOLIO GENERATOR
               </h1>
               <p className="text-blue-900 font-bold px-2">
-                Show Off Your With Just One CLick
+                Show Off Your Skills  With Just One CLick
               </p>
+              <p className="font-bold text-xl px-2 text-blue-900">Join Us Now....</p>
+              <Link href={"/register"}>
+            <button className="w-[180px] py-3 bg-red-500 text-white font-bold rounded-md ml-2">
+              Create An Account
+            </button>
+          </Link>
             </div>
-            <div className="content2 w-[50%] h-[screen] px-2 pt-20">
+            <div className="content2 w-[50%] h-[screen] px-6 pt-20">
               <Image src={lp2} alt="lp2.png" />
             </div>
           </div>
 
-          <Link href={"/register"}>
-            <button className="px-4 py-3 bg-red-500 text-white font-bold mt-8 rounded-full  ml-28">
-              Create An Account
-            </button>
-          </Link>
+         
         </div>
 
         <div className="l-landing hidden md:block">
@@ -41,7 +43,7 @@ function Landingpage() {
                 PORTFOLIO GENERATOR
               </h1>
               <p className="text-blue-900 font-bold text-xl">
-                SHOW OFF YOUR SKILSS WITH JUST ONE CLICK
+                SHOW OFF YOUR SKILLS WITH JUST ONE CLICK
               </p>
               <Link href={"/register"}>
                 <button className="px-6 py-4 text-white font-bold rounded-full bg-red-500">

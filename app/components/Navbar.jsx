@@ -4,6 +4,7 @@ import Image from "next/image";
 import logo from "../../public/logo.png";
 import Link from "next/link";
 import { FaBars } from "react-icons/fa";
+import { GiCancel } from "react-icons/gi"
 
 function Navbar() {
   const [hide, sethide] = useState(true);
@@ -20,7 +21,7 @@ function Navbar() {
             </button>
           </Link>
           <button onClick={() => sethide(!hide)}>
-            <FaBars />
+         {hide?<FaBars/>:<GiCancel/>}
           </button>
         </div>
         <div
@@ -34,7 +35,7 @@ function Navbar() {
           <Link href={"/contact"} className="text-xl font-bold text-orange-400">
             Contact Us
           </Link>{" "}
-          <Link href="#" className="text-xl font-bold text-orange-400">
+          <Link href={"/features"} className="text-xl font-bold text-orange-400">
             Features
           </Link>
         </div>
@@ -61,7 +62,7 @@ function Navbar() {
             Contact Us
           </Link>
 
-          <Link href="#" className="text-orange-400 font-bold hover:scale-110 ">
+          <Link href={"/features"} className="text-orange-400 font-bold hover:scale-110 ">
             Features
           </Link>
 
