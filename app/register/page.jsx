@@ -26,13 +26,16 @@ function Register() {
    }
    else{
     try {
-      let res = await fetch("https://portfolio-generator-delta.vercel.app/api/register", {
+      let res = await fetch("http://localhost:3000/api/register", {
           method: "POST",
           body: JSON.stringify({
             username: user.username,
             email: user.email,
             password: user.password,
           }),
+          headers: {
+            "Content-Type": "application/json",
+          },
         }),
         res1 = await res.json();
       if (res1.status === 401) {
