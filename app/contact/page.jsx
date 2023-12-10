@@ -9,7 +9,7 @@ import { FaLinkedin } from "react-icons/fa";
 function page() {
   return (
     <>
-      <Navbar />
+    <Navbar/>
       <section className="lg:hidden">
         <form
           method="POST"
