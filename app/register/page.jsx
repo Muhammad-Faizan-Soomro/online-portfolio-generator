@@ -43,7 +43,7 @@ function Register() {
       }
       if (res1.status === 200) {
         toast.success("Account Created");
-        router.push('/')
+        router.push('/home')
       }
       if (res1.status === 500) {
         toast.warn("Pls Try Again");
