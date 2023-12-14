@@ -2,6 +2,7 @@
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { toast } from "react-toastify";
+import Navbar from "../components/Navbar";
 
 function Register() {
   const [user, setuser] = useState({
@@ -54,7 +55,9 @@ function Register() {
    }
   }
   return (
-    <section>
+    <>
+    <Navbar/>
+     <section>
       <div className=" lg:hidden container w-screen h-screen flex justify-center items-center">
         <form   onSubmit={UserAdd} className="form h-[580px] w-[350px] bg-gray-700 flex flex-col gap-4  items-center justify-center">
           <h1 className="font-bold text-orange-400 text-2xl">
@@ -129,7 +132,7 @@ function Register() {
           </button>
           <p className="text-white font-bold">
             ALREADY HAVE AN ACCOUNT ?{" "}
-            <a href="/" className="text-orange-400">
+            <a href="/login" className="text-orange-400">
               Sign In
             </a>
           </p>
@@ -205,9 +208,9 @@ function Register() {
             >
               Register
             </button>
-            <p>
+            <p className="dark:text-black">
               Already Have An Account ?{" "}
-              <a href="/" className="text-orange-400 ">
+              <a href="/login" className="text-orange-400 ">
                 {" "}
                 Sign In
               </a>
@@ -215,14 +218,17 @@ function Register() {
           </form>
         </div>
         <div className="div1 h-screen w-[50%]">
-          <div className="bubble w-full h-[700px] bg-gray-600 rounded-tl-full">
-            <h1 className="text-orange-400 text-5xl px-8 pt-[400px] pl-31 font-bold text-center font-serif ml-32 ">
+          <div className="bubble w-full h-[700px] dark:bg-blue-400 bg-gray-600 rounded-tl-full">
+            <h1 className="text-orange-400 dark:text-white text-5xl px-8 pt-[400px] pl-31 font-bold text-center font-serif ml-32 ">
               Welcome To Portfolio Generator
             </h1>
           </div>
         </div>
       </div>
     </section>
+    </>
+
+   
   );
 }
 
