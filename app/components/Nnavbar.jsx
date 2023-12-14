@@ -2,15 +2,22 @@
 import React, { useState } from "react";
 import logo from "../../public/logo.png";
 import Image from "next/image";
-import { FaUser } from "react-icons/fa";
 import { signOut, useSession } from "next-auth/react";
 import { FaBars } from "react-icons/fa";
 import Loader from "./Loader";
+import { FaMoon } from "react-icons/fa";
+import { LuSunMoon } from "react-icons/lu";
+import { useTheme } from "next-themes";
+import Link from "next/link";
+import logo1 from "../../public/logodark.png";
+
+
 
 
 function Navbar() {
   const [hide, sethide] = useState(true);
   const { data: session, status } = useSession();
+  const { theme, setTheme } = useTheme();
 
   if (status === "loading") {
     // While the session is loading, show a loading message or spinner
@@ -33,35 +40,50 @@ function Navbar() {
 
   return (
     <>
-      <section className="  hidden  w-screen h-16 lg:flex justify-between items-center border-2">
-        <div className="lg-nav"></div>
-        <div className="flex nav w-[350px] h-16  items-center justify-between  ">
-          <a
+      <section className="  hidden  w-screen h-16 lg:flex justify-between items-center border-b-2 dark:border-b-0 dark:bg-[#0b1120]">
+      
+        <div className="flex nav w-[350px] h-16  items-center justify-between ">
+         <Link
             href="#"
-            className="font-bold font-serif text-orange-400 hover:scale-110 text-xl"
+            className="font-bold font-serif text-orange-400 hover:scale-110 text-xl dark:text-white"
           >
             Create Portfolios
-          </a>
-          <a
+          </Link>
+         <Link
             href="#"
-            className="font-bold font-serif text-orange-400 hover:scale-110 text-xl"
+            className="font-bold font-serif text-orange-400 hover:scale-110 text-xl dark:text-white"
           >
             My Portfolios
-          </a>
+          </Link>
         </div>
 
         <div className="img">
-          <a href="/home">
-          <Image src={logo} width={180} height={200} alt="Logo.png" />
-          </a>
+        {theme === "dark" ? (
+            <Link href={"/"}>
+              <Image src={logo1} width={200} alt="logo.png" />
+            </Link>
+          ) : (
+            <Link href={"/"}>
+              <Image src={logo} width={200} alt="logo.png" />
+            </Link>
+          )}
         </div>
         <div className="tags h-16 w-[750px] flex items-center justify-between">
    
-          <p className="font-bold font-serif text-orange-400 text-xl">
+          <p className="font-bold font-serif text-orange-400 text-xl dark:text-white">
             Welcome,{email}
           </p>
+          {theme === "dark" ? (
+            <LuSunMoon size={40} onClick={() => setTheme("light")} />
+          ) : (
+            <FaMoon size={30}
+              onClick={() => {
+                setTheme("dark");
+              }}
+            />
+          )}
           <button
-            className="px-3 mr-20 h-10 rounded-sm bg-orange-400 text-white font-bold "
+            className="px-3 mr-20 h-10 rounded-sm bg-orange-400 text-white font-bold dark:bg-blue-400 "
             onClick={() => signOut()}
           >
             Logout
@@ -69,12 +91,26 @@ function Navbar() {
         </div>
       </section>
 
-      <div className="nav lg:hidden h-16 w-screen border-2 ">
+      <div className="nav lg:hidden h-16 w-screen border-2 dark:border-0 dark:bg-[#0b1120] ">
         <div className="items flex items-center justify-evenly">
-          <a href="/">
-          <Image src={logo} width={200} height={200} alt="logo.png" />
-          </a>
-      
+        {theme === "dark" ? (
+            <Link href={"/"}>
+              <Image src={logo1} width={150} alt="logo.png" />
+            </Link>
+          ) : (
+            <Link href={"/"}>
+              <Image src={logo} width={150} alt="logo.png" />
+            </Link>
+          )}
+         {theme === "dark" ? (
+            <LuSunMoon  onClick={() => setTheme("light")} />
+          ) : (
+            <FaMoon 
+              onClick={() => {
+                setTheme("dark");
+              }}
+            />
+          )}
           <button onClick={() => sethide(!hide)}>
             <FaBars />
           </button>
@@ -83,16 +119,16 @@ function Navbar() {
         <div
           className={`${
             hide ? "hidden" : "flex"
-          } div w-screen z-50 relative  bg-[#fef4ea] opacity-90 h-screen border-t-4  flex-col items-center justify-evenly`}
+          } div w-screen z-50 relative  bg-[#fef4ea] opacity-90 h-screen border-t-4 dark:bg-white  flex-col items-center justify-evenly`}
         >
-          <a href="#" className="text-orange-400 font-bold text-xl">
+         <Link href="#" className="text-orange-400 font-bold text-xl dark:text-black">
             Create Portfolios
-          </a>
-          <a href="#" className="text-orange-400 font-bold text-xl">
+          </Link>
+         <Link href="#" className="text-orange-400 font-bold text-xl dark:text-black">
             My Portfolio
-          </a>
+          </Link>
           <button
-            className="w-[100px] h-[50px] bg-orange-400 text-white font-bold rounded-sm"
+            className="w-[100px] h-[50px] bg-orange-400 text-white font-bold rounded-sm dark:bg-blue-400"
             onClick={() => signOut()}
           >
             LOGOUT

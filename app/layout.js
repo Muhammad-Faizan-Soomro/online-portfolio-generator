@@ -2,6 +2,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import ToastifyNotifications from "./components/ToastifyNotifications";
 import { AuthProvider } from "./Provider";
+import Providers from './Providers'
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -13,11 +14,13 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className="dark:bg-[#0b1120]">
+        <Providers>
         <AuthProvider>
         {children}
         </AuthProvider>
         <ToastifyNotifications />
+        </Providers>
       </body>
     </html>
   );

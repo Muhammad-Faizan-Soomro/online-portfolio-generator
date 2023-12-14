@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import {signIn} from 'next-auth/react'
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
+import Navbar from "../components/Navbar";
 
 
 function Login() {
@@ -42,6 +43,8 @@ function Login() {
 
   }
   return (
+    <>
+    <Navbar/>
     <section>
       <div className="lg:hidden container w-screen h-screen flex justify-center items-center">
         <form onSubmit={HandleSignIn} className="form h-[580px] w-[350px] bg-gray-700 flex flex-col gap-8 items-center justify-center">
@@ -93,8 +96,8 @@ function Login() {
       </div>
       <div className="  container1 hidden md:flex">
         <div className="div1 h-screen w-[50%]">
-          <div className="bubble w-[700px] h-[700px] bg-gray-600 rounded-br-full">
-            <h1 className="text-orange-400 text-5xl pt-52 font-bold text-center font-serif">
+          <div className="bubble w-[700px] h-[700px] bg-gray-600 rounded-br-full dark:bg-blue-400">
+            <h1 className="text-orange-400 text-5xl pt-52 font-bold text-center dark:text-white font-serif">
               Welcome To Portfolio Generator
             </h1>
           </div>
@@ -120,7 +123,7 @@ function Login() {
               name="password"
               id="pass"
               placeholder="Password"
-              className="w-[480px] rounded-md bg-gray-200 h-10"
+              className="w-[480px] rounded-md bg-gray-200 h-10 dark:text-black"
               value={user.password}
               onChange={(e) => {
                 setuser({
@@ -136,7 +139,7 @@ function Login() {
             <button className="w-[400px] m-10 py-4 text-white font-bold bg-blue-400">
               LOGIN
             </button>
-            <p>
+            <p className="dark:text-black">
               Dont Have An Account ?{" "}
               <a href="/register" className="text-orange-400">
                 {" "}
@@ -147,6 +150,7 @@ function Login() {
         </div>
       </div>
     </section>
+    </>
   );
 }
 
