@@ -9,8 +9,14 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.5.1",
+    "@fortawesome/free-brands-svg-icons": "^6.5.1",
+    "@fortawesome/free-solid-svg-icons": "^6.5.1",
+    "@fortawesome/react-fontawesome": "^0.2.0",
     "@heroicons/react": "^2.0.18",
     "bcryptjs": "^2.4.3",
+    "font-awesome": "^4.7.0",
+    "framer-motion": "^10.16.16",
     "mongoose": "^8.0.2",
     "next": "14.0.3",
     "next-auth": "^4.24.5",

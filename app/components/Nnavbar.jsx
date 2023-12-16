@@ -20,7 +20,6 @@ function Navbar() {
   const { theme, setTheme } = useTheme();
 
   if (status === "loading") {
-    // While the session is loading, show a loading message or spinner
     return (
       <div>
        <Loader/>
@@ -42,13 +41,8 @@ function Navbar() {
     <>
       <section className="  hidden  w-screen h-16 lg:flex justify-between items-center border-b-2 dark:border-b-0 dark:bg-[#0b1120]">
       
-        <div className="flex nav w-[350px] h-16  items-center justify-between ">
-         <Link
-            href="#"
-            className="font-bold font-serif text-orange-400 hover:scale-110 text-xl dark:text-white"
-          >
-            Create Portfolios
-          </Link>
+        <div className="flex nav w-[350px] h-16  items-center justify-center ">
+     
          <Link
             href="#"
             className="font-bold font-serif text-orange-400 hover:scale-110 text-xl dark:text-white"
@@ -119,11 +113,9 @@ function Navbar() {
         <div
           className={`${
             hide ? "hidden" : "flex"
-          } div w-screen z-50 relative  bg-[#fef4ea] opacity-90 h-screen border-t-4 dark:bg-white  flex-col items-center justify-evenly`}
+          } div w-screen z-50 relative  bg-[#fef4ea] opacity-90 h-screen border-t-4 dark:bg-white  flex-col items-center justify-center gap-10`}
         >
-         <Link href="#" className="text-orange-400 font-bold text-xl dark:text-black">
-            Create Portfolios
-          </Link>
+        
          <Link href="#" className="text-orange-400 font-bold text-xl dark:text-black">
             My Portfolio
           </Link>
