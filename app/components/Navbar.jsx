@@ -49,17 +49,17 @@ function Navbar() {
         <div
           className={`${
             hide ? "hidden" : "block"
-          } links w-screen h-screen bg-gray-100 absolute  gap-8 opacity-90 flex flex-col items-center justify-center`}
+          } links w-screen h-screen bg-gray-100 absolute dark:bg-blue-950   gap-8 opacity-90 flex flex-col items-center justify-center`}
         >
-          <Link href={"/about"} className="text-xl font-bold text-orange-400">
+          <Link href={"/about"} className="text-xl font-bold text-orange-400 dark:text-white">
             About Us
           </Link>
-          <Link href={"/contact"} className="text-xl font-bold text-orange-400">
+          <Link href={"/contact"} className="text-xl font-bold text-orange-400 dark:text-white">
             Contact Us
           </Link>{" "}
           <Link
             href={"/features"}
-            className="text-xl font-bold text-orange-400"
+            className="text-xl font-bold text-orange-400 dark:text-white"
           >
             Features
           </Link>

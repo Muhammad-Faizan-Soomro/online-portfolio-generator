@@ -4,6 +4,7 @@ import ToastifyNotifications from "./components/ToastifyNotifications";
 import { AuthProvider } from "./Provider";
 import Providers from './Providers'
 
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
