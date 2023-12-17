@@ -1,5 +1,5 @@
 'use client'
-import React, { useEffect } from "react";
+import React, { useEffect ,useState} from "react";
 import Script from "next/script";
 import './style.css'
 import dynamic from "next/dynamic";
@@ -30,21 +30,41 @@ import {
 
 
  function Page() {
-  useEffect(() => {
-    [...document.querySelectorAll(".control")].forEach((button) => {
-      button.addEventListener("click", function () {
-        document
-          .querySelector(".active-btn")
-          .classList.remove("active-btn");
-        this.classList.add("active-btn");
-        document.querySelector(".active").classList.remove("active");
-        document.getElementById(button.dataset.id).classList.add("active");
-      });
-    });
-    document.querySelector(".theme-btn").addEventListener("click", () => {
-      document.body.classList.toggle("light-mode");
-    });
-  }, []);
+
+  // const [parentElement, setParentElement] = useState(null);
+  // const [childElement, setChildElement] = useState(null);
+
+  // useEffect(() => {
+  //   setParentElement(document.getElementById("parent"));
+  //   setChildElement(document.getElementById("child"));
+  // }, []);
+
+  // useEffect(() => {
+  //   [...document.querySelectorAll(".control")].forEach((button) => {
+  //     button.addEventListener("click", function () {
+  //       document
+  //         .querySelector(".active-btn")
+  //         .classList.remove("active-btn");
+  //       this.classList.add("active-btn");
+  //       document.querySelector(".active").classList.remove("active");
+  //       document.getElementById(button.dataset.id).classList.add("active");
+  //     });
+  //   });
+  //   document.querySelector(".theme-btn").addEventListener("click", () => {
+  //     document.body.classList.toggle("light-mode");
+  //   });
+
+  //   var parentElement = document.getElementById("parent");
+  //   var childElement = document.getElementById("child");
+
+  //   if (parentElement && childElement) {
+  //     if (parentElement.contains(childElement)) {
+  //       parentElement.removeChild(childElement);
+  //     } else {
+  //       console.error("Child element not found in the parent node.");
+  //     }
+  //   }
+  // }, []);
 
   return (
     <>
@@ -61,10 +81,23 @@ import {
     document.querySelector(".theme-btn").addEventListener("click", () => {
         document.body.classList.toggle("light-mode");
     })
-})();`}
+})();
+var parentElement = document.getElementById("parent");
+var childElement = document.getElementById("child");
+
+if (parentElement && childElement) {
+  if (parentElement.contains(childElement)) {
+    parentElement.removeChild(childElement);
+  } else {
+    console.error("Child element not found in the parent node.");
+  }
+}
+
+
+`}
       </Script>
 
-      <body className="main-content">
+      <body className="main-content ">
         <header className="container header active" id="home">
           <div className="header-content">
             <div className="left-header">

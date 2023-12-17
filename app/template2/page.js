@@ -1,6 +1,5 @@
 import React from "react";
 import "./index.css";
-import Script from "next/script";
 import p1 from "../../public/template5/bullseye.png";
 import p2 from "../../public/template5/chippy.png";
 import p3 from "../../public/template5/fastlane.png";
@@ -20,47 +19,7 @@ import Image from "next/image";
 function page() {
   return (
     <>
-      {/* <Script>
-        {`      
-      const handleFirstTab = (e) => {
-        if(e.key === 'Tab') {
-          document.body.classList.add('user-is-tabbing')
-          window.removeEventListener('keydown', handleFirstTab)
-          window.addEventListener('mousedown', handleMouseDownOnce)
-        }
-      }
-      const handleMouseDownOnce = () => {
-        document.body.classList.remove('user-is-tabbing')
-      
-        window.removeEventListener('mousedown', handleMouseDownOnce)
-        window.addEventListener('keydown', handleFirstTab)
-      }
-      
-      window.addEventListener('keydown', handleFirstTab)
-      
-      const backToTopButton = document.querySelector(".back-to-top");
-      let isBackToTopRendered = false;
-      
-      let alterStyles = (isBackToTopRendered) => {
-        backToTopButton.style.visibility = isBackToTopRendered ? "visible" : "hidden";
-        backToTopButton.style.opacity = isBackToTopRendered ? 1 : 0;
-        backToTopButton.style.transform = isBackToTopRendered
-          ? "scale(1)"
-          : "scale(0)";
-      };
-      
-      window.addEventListener("scroll", () => {
-        if (window.scrollY > 700) {
-          isBackToTopRendered = true;
-          alterStyles(isBackToTopRendered);
-        } else {
-          isBackToTopRendered = false;
-          alterStyles(isBackToTopRendered);
-        }
-      });
-      
-        `}
-      </Script> */}
+    
       <header className="header" role="banner" id="top">
         <div className="row">
           <nav className="nav" role="navigation">
