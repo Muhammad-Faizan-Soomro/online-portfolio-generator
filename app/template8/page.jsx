@@ -331,8 +331,10 @@ function Page() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-12 sm:px-2 gap-8  lg:ml-[350px] mt-20 ">
               {skills.map((items) => (
                 <div
+                key={items.index}
                   className={`card w-full h-full flex flex-col bg-black hover:scale-105 duration-200 mt-2  shadow-md ${items.color} rounded-lg items-center`}
-                >
+               
+               >
                   <div className="im ">
                     <Image
                       src={items.src}
@@ -363,7 +365,7 @@ function Page() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-12 sm:px-2 gap-8 max-w-screen-lg lg:ml-56">
             {proj.map((item) => (
-              <div className="card w-full h-full flex flex-col bg-black hover:scale-105 duration-200 mt-2 shadow-md shadow-gray-600 rounded-lg ">
+              <div key={item.index} className="card w-full h-full flex flex-col bg-black hover:scale-105 duration-200 mt-2 shadow-md shadow-gray-600 rounded-lg ">
                 <div className="im ">
                   <Image
                     src={item.src}
