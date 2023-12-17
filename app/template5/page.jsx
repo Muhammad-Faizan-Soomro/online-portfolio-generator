@@ -2,7 +2,6 @@ import React from "react";
 import './style.css'
 import p1 from '../../public/template6/1385382.jpg'
 import p2 from '../../public/template6/austin-poon-JO_S6ewBqAk-unsplash.jpg'
-// import p3 from '../../public/template6/image3.jpg'
 import p4 from '../../public/template6/jan-vlacuha-Rns_A8bJ_dQ-unsplash.jpg'
 import p5 from '../../public/template6/kevin-canlas-QYHehJ9Iovs-unsplash.jpg'
 import p6 from '../../public/template6/nubelson-fernandes--Xqckh_XVU4-unsplash.jpg'
