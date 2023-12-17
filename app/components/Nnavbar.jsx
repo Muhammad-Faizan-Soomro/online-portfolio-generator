@@ -39,7 +39,7 @@ function Navbar() {
 
   return (
     <>
-      <section className="  hidden  w-screen h-16 lg:flex justify-between items-center border-b-2 dark:border-b-0 dark:bg-[#0b1120]">
+      <section className="  hidden  w-screen h-16 lg:flex justify-between items-center border-b-2 dark:border-b-1 dark:bg-[#0b1120]">
       
         <div className="flex nav w-[350px] h-16  items-center justify-center ">
      
@@ -85,8 +85,8 @@ function Navbar() {
         </div>
       </section>
 
-      <div className="nav lg:hidden h-16 w-screen border-2 dark:border-0 dark:bg-[#0b1120] ">
-        <div className="items flex items-center justify-evenly">
+      <div className="nav lg:hidden h-16 w-screen border-2 dark:border-b-1 dark:border-white dark:bg-[#0b1120] flex justify-center ">
+        <div className="items flex items-center justify-evenly gap-10">
         {theme === "dark" ? (
             <Link href={"/"}>
               <Image src={logo1} width={150} alt="logo.png" />
