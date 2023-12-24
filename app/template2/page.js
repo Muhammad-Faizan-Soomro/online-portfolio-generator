@@ -1,5 +1,4 @@
 import React from "react";
-import "./style.css";
 import Image from "next/image";
 import Link from "next/link";
 import pic from "../../public/template2/logo.png";
