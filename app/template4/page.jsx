@@ -1,409 +1,509 @@
-import React from 'react'
-import './main.css'
-import pic1 from '../../public/template4/hero.jpg'
-import pic2 from '../../public/template4/hero1.jpeg'
-import pic3 from '../../public/template4/images.jpeg'
-import pr1 from '../../public/template4/project1.jpg'
-import pr2 from '../../public/template4/project2.jpg'
-import pr3 from '../../public/template4/project3.jpg'
-import t1 from '../../public/template4/testimonial1.jpg'
-import t2 from '../../public/template4/testimonial2.jpg'
-import t3 from '../../public/template4/testimonial3.jpg'
-import Image from 'next/image'
+"use client";
+import Link from "next/link";
+import { useState } from "react";
+import { FaCode } from "react-icons/fa";
+import { FaBars } from "react-icons/fa";
+import pic from "../../public/template4/pic.svg";
+import Image from "next/image";
+import { FaGithub } from "react-icons/fa";
+import { FaLinkedin } from "react-icons/fa";
+import { FaFacebook } from "react-icons/fa";
+import { IoMdMail } from "react-icons/io";
+import { FaHtml5 } from "react-icons/fa";
+import { FaCss3 } from "react-icons/fa";
+import { FaReact } from "react-icons/fa";
+import { DiDjango } from "react-icons/di";
+import { TbBrandNextjs } from "react-icons/tb";
+import { FaDatabase } from "react-icons/fa";
+import { FaPython } from "react-icons/fa";
+import { IoLogoJavascript } from "react-icons/io";
+import pic12 from "../../public/template4/pic1.svg";
+import pic2 from "../../public/template4/pic2.svg";
+import pic3 from "../../public/template4/pic3.png";
+import pic4 from "../../public/template4/pic4.png";
+import pic5 from "../../public/template4/pic5.png";
+import pic1 from "../../public/template9/projects/login.png";
+import { CiLocationArrow1 } from "react-icons/ci";
+import { ImCross } from "react-icons/im";
 
-
-function page() {
+export default function Page() {
+  const [hide, sethide] = useState(true);
   return (
- <>
- 
-    <header id="header" class="header">
-        <div class="container">
-            <nav class="nav">
-                <a href="index.html" class="nav__brand">
-                    <i class="ri-code-s-slash-line"></i>Developer
-                </a>
-                <div class="nav__menu" id="nav-menu">
-                    <ul class="nav__list">
-                        <li class="nav__item">
-                            <a href="#hero" class="nav__link">Home</a>
-                        </li>
-                        <li class="nav__item">
-                            <a href="#about" class="nav__link">About</a>
-                        </li>
-                        <li class="nav__item">
-                            <a href="#qualification" class="nav__link">Qualification</a>
-                        </li>
-                        <li class="nav__item">
-                            <a href="#service" class="nav__link">Services</a>
-                        </li>
-                        <li class="nav__item">
-                            <a href="#project" class="nav__link">Projects</a>
-                        </li>
-                        <li class="nav__item">
-                            <a href="#contact" class="nav__link">Contact</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="nav__toggle">
-                    <i id="nav-toggle" class="ri-menu-3-line"></i>
-                </div>
-            </nav>
+    <>
+      <section className="every dark:bg-[#171c28] dark:text-white">
+        <div className="nav  w-screen h-14 flex items-center justify-evenly border-b-2">
+          <h1 className="text-[#551a8b] font-serif flex items-center text-xl md:text-3xl">
+            SHEHRYAR NASIR <FaCode />{" "}
+          </h1>
+
+          <button
+            className="md:hidden"
+            onClick={() => {
+              sethide(!hide);
+            }}
+          >
+           {hide?<FaBars/>:<ImCross/>}
+          </button>
+
+          <div className="links hidden text-xl  md:flex items-center  gap-20">
+            <Link
+              href={"#about"}
+              className="hover:text-[#551a8b] hover:border-b-2  hover:border-[#551a8b]"
+            >
+              About Me
+            </Link>
+
+            <Link
+              href={"#skills"}
+              className="hover:text-[#551a8b] hover:border-b-2  hover:border-[#551a8b]"
+            >
+              Skills
+            </Link>
+
+            <Link
+              href={"#proj"}
+              className="hover:text-[#551a8b] hover:border-b-2  hover:border-[#551a8b]"
+            >
+              Projects
+            </Link>
+
+            <Link
+              href={"#contact"}
+              className="hover:text-[#551a8b] hover:border-b-2  hover:border-[#551a8b]"
+            >
+              Contact
+            </Link>
+
+            <Link
+              href={"#exp"}
+              className="hover:text-[#551a8b] hover:border-b-2  hover:border-[#551a8b]"
+            >
+              Experience
+            </Link>
+          </div>
         </div>
-    </header>
-   
-    <main class="main">
-     
-        <section id="hero" class="hero">
-            <div class="container">
-                <div class="d-grid hero__wrapper">
-                    <div class="hero__content">
-                        <h1 class="hero__title">Hi, I am Shri,<br/>Web Developer.</h1>
-                        <p class="hero__description">A portfolio website is a unique way to showcase your work and let
-                            others know about yourself. It’s like an evergreen platform for your projects, case studies,
-                            and information about you. In addition, it’s one of the best ways to express your
-                            personality, experience, and capabilities .</p>
-                        <div class="hero__info">
-                            <div class="hero__info-wrapper">
-                                <p class="hero__info-number">01</p>
-                                <h2 class="hero__info-title">Years<br/>Experience</h2>
-                            </div>
-                            <div class="hero__info-wrapper">
-                                <p class="hero__info-number">10+</p>
-                                <h2 class="hero__info-title">Projects<br/>Completed</h2>
-                            </div>
-                            <div class="hero__info-wrapper">
-                                <p class="hero__info-number">02+</p>
-                                <h2 class="hero__info-title">Companies<br/> Worked</h2>
-                            </div>
-                        </div>
-                    </div>
-                   <Image src={pic2} alt='pic2.jpeg'/>
-                </div>
-            </div>
-        </section>
+        <div
+          className={` absolute bg-gray-400 ${
+            hide
+              ? "hidden"
+              : "block"
+          }  m-links w-screen text-xl flex flex-col items-center justify-evenly  h-[400px] `}
+        >
+          <Link
+            href={"#about"}
+            className="hover:text-[#551a8b] hover:border-b-2  hover:border-[#551a8b]"
+          >
+            About Me
+          </Link>
 
-       
-        <section id="about" class="section about">
-            <div class="container">
-                <div class="section__header">
-                    <h2 class="section__title">About Me</h2>
-                    <span class="section__subtitle">Who am I</span>
-                </div>
-                <div class="d-grid about__wrapper">
-                    <div class="about__content">
-                        <h3 class="about__title">I'm a Professional and Experienced Frontend Developer.</h3>
-                        <p class="about__description">A portfolio website is a unique way to showcase your work and let
-                            others know about yourself. It’s like an evergreen platform for your projects, case studies,
-                            and information about you. In addition, it’s one of the best ways to express your
-                            personality, experience, and capabilities .</p>
-                        <a href="#" class="btn btn--primary">Know More</a>
-                    </div>
-                    <div class="skills">
-                        <h3 class="skills__title">Technologies I've been working with:</h3>
-                        <div class="skills__wrapper">
-                            <div class="skills__content">
-                                <h4 class="skills__subtitle">Backend</h4>
-                                <ul class="skills__list">
-                                    <li class="skills__item"><i class="ri-arrow-right-s-fill"></i>
-                                        Python</li>
-                                    <li class="skills__item"><i class="ri-arrow-right-s-fill"></i>
-                                        PHP</li>
-                                    <li class="skills__item"><i class="ri-arrow-right-s-fill"></i>
-                                        Node.js</li>
-                                    <li class="skills__item"><i class="ri-arrow-right-s-fill"></i>
-                                        Firebase</li>
-                                    <li class="skills__item"><i class="ri-arrow-right-s-fill"></i>
-                                        MongoDB</li>
-                                    <li class="skills__item"><i class="ri-arrow-right-s-fill"></i>
-                                        MySQL</li>
-                                </ul>
-                            </div>
-                            <div class="skills__content">
-                                <h4 class="skills__subtitle">Frontend</h4>
-                                <ul class="skills__list">
-                                    <li class="skills__item"><i class="ri-arrow-right-s-fill"></i>
-                                        HTML</li>
-                                    <li class="skills__item"><i class="ri-arrow-right-s-fill"></i>
-                                        CSS/Sass</li>
-                                    <li class="skills__item"><i class="ri-arrow-right-s-fill"></i>
-                                        JavaScript</li>
-                                    <li class="skills__item"><i class="ri-arrow-right-s-fill"></i>
-                                        Bootstrap</li>
-                                    <li class="skills__item"><i class="ri-arrow-right-s-fill"></i>
-                                        React</li>
-                                    <li class="skills__item"><i class="ri-arrow-right-s-fill"></i>
-                                        Vue.js</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+          <Link
+            href={"#skills"}
+            className="hover:text-[#551a8b] hover:border-b-2  hover:border-[#551a8b]"
+          >
+            Skills
+          </Link>
 
-       
-        <section id="qualification" class="section qualification">
-            <div class="container">
-                <div class="section__header">
-                    <h2 class="section__title">Qualification</h2>
-                    <span class="section__subtitle">Experience & Education</span>
-                </div>
-              
-                <div class="qualification__wrapper">
-                    <h3 class="qualification__name">
-                        <i class="ri-briefcase-fill"></i>
-                        Professional Experience
-                    </h3>
-                    <div class="d-grid qualification__content">
-                       
-                        <div class="qualification__item">
-                            <h3 class="qualification__title">Web Developer at Oracle</h3>
-                            <p class="qualification__description"> It provides a convenient way for potential clients to
-                                view your work while also allowing you to expand on your skills and services.</p>
-                            <span class="qualification__date">Jan 2022 - Present</span>
-                        </div>
-                       
-                        <div class="qualification__item">
-                            <h3 class="qualification__title">Frontend Lead at Google</h3>
-                            <p class="qualification__description"> It provides a convenient way for potential clients to
-                                view your work while also allowing you to expand on your skills and services.</p>
-                            <span class="qualification__date">2020 - 2022</span>
-                        </div>
-                       
-                        <div class="qualification__item">
-                            <h3 class="qualification__title">UI/UX Designer at Facebook</h3>
-                            <p class="qualification__description"> It provides a convenient way for potential clients to
-                                view your work while also allowing you to expand on your skills and services.</p>
-                            <span class="qualification__date">2018 - 2020</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="qualification__wrapper">
-                    <h3 class="qualification__name">
-                        <i class="ri-booklet-fill"></i>
-                        Education
-                    </h3>
-                    <div class="d-grid qualification__content">
-                    
-                        <div class="qualification__item">
-                            <h3 class="qualification__title">UI/UX Designer</h3>
-                            <p class="qualification__description"> It provides a convenient way for potential clients to
-                                view your work while also allowing you to expand on your skills and services.</p>
-                            <span class="qualification__date">2018 - 2019</span>
-                        </div>
-                       
-                        <div class="qualification__item">
-                            <h3 class="qualification__title">Master In Web Development</h3>
-                            <p class="qualification__description"> It provides a convenient way for potential clients to
-                                view your work while also allowing you to expand on your skills and services.</p>
-                            <span class="qualification__date">2015 - 2017</span>
-                        </div>
-                   
-                        <div class="qualification__item">
-                            <h3 class="qualification__title">Software Engineer</h3>
-                            <p class="qualification__description"> It provides a convenient way for potential clients to
-                                view your work while also allowing you to expand on your skills and services.</p>
-                            <span class="qualification__date">2011 - 2015</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="qualification__footer">
-                    <p class="qualification__footer-text">See my full resume</p>
-                    <a href="#" class="btn btn--primary">Resume</a>
-                </div>
-            </div>
-        </section>
+          <Link
+            href={"#proj"}
+            className="hover:text-[#551a8b] hover:border-b-2  hover:border-[#551a8b]"
+          >
+            Projects
+          </Link>
 
-      
-        <section id="service" class="section service">
-            <div class="container">
-                <div class="section__header">
-                    <h2 class="section__title">Services</h2>
-                    <span class="section__subtitle">What I do</span>
-                </div>
-                <div class="d-grid service__wrapper">
-                   
-                    <div class="service__card">
-                        <div class="service__icon">
-                            <i class="ri-layout-4-fill"></i>
-                        </div>
-                        <h3 class="service__title">Frontend<br/>Development</h3>
-                        <a href="#" class="service__link">Know More</a>
-                    </div>
-                
-                    <div class="service__card">
-                        <div class="service__icon">
-                            <i class="ri-code-s-slash-line"></i>
-                        </div>
-                        <h3 class="service__title">Backend<br/> Development</h3>
-                        <a href="#" class="service__link">Know More</a>
-                    </div>
-                 
-                    <div class="service__card">
-                        <div class="service__icon">
-                            <i class="ri-pen-nib-fill"></i>
-                        </div>
-                        <h3 class="service__title">UI/UX<br/> Design</h3>
-                        <a href="#" class="service__link">Know More</a>
-                    </div>
-                </div>
-            </div>
-        </section>
+          <Link
+            href={"#contact"}
+            className="hover:text-[#551a8b] hover:border-b-2  hover:border-[#551a8b]"
+          >
+            Contact
+          </Link>
 
-        
-        <section id="project" class="section project">
-            <div class="container">
-                <div class="section__header">
-                    <h2 class="section__title">Projects</h2>
-                    <span class="section__subtitle">My recent work</span>
-                </div>
-                <div class="d-grid project__wrapper">
-                
-                    <div class="project__content">
-                   <Image src={pr1} alt='pic2.jpeg'/>
-                      
-                        <h3 class="project__title">Agency Website</h3>
-                        <p class="project__description"> It provides a convenient way for potential clients to view your
-                            work while also allowing you to expand on your skills and services.</p>
-                        <a href="#" class="project__link">View Project
-                            <i class="ri-arrow-right-line"></i></a>
-                    </div>
-                 
-                    <div class="project__content">
-                   <Image src={pr2} alt='pic2.jpeg'/>
-                       
-                        <h3 class="project__title">Crypto Application</h3>
-                        <p class="project__description"> It provides a convenient way for potential clients to view your
-                            work while also allowing you to expand on your skills and services.</p>
-                        <a href="#" class="project__link">View Project
-                            <i class="ri-arrow-right-line"></i></a>
-                    </div>
-                
-                    <div class="project__content">
-                   <Image src={pr3} alt='pic2.jpeg'/>
-                       
-                        <h3 class="project__title">Ecommerce Website</h3>
-                        <p class="project__description"> It provides a convenient way for potential clients to view your
-                            work while also allowing you to expand on your skills and services.</p>
-                        <a href="#" class="project__link">View Project
-                            <i class="ri-arrow-right-line"></i></a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-       
-        <section id="testimonial" class="section testimonial">
-            <div class="container">
-                <div class="section__header">
-                    <h2 class="section__title">Testimonials</h2>
-                    <span class="section__subtitle">What my clients say</span>
-                </div>
-                <div class="testimonial__wrapper swiper">
-
-                    <div class="swiper-wrapper">
-                      
-                        <div class="testimonial__card swiper-slide">
-                   <Image src={t1} alt='pic2.jpeg'/>
-                           
-                            <div class="testimonial__content">
-                                <p class="testimonial__description"> It provides a convenient way for potential clients
-                                    to view your work while also allowing you to expand on your skills and services.</p>
-                                <h3 class="testimonial__name">Natasha Smith</h3>
-                                <span class="testimonial__occupation">UI/UX Designer at Dribbble</span>
-                            </div>
-                        </div>
-                       
-                        <div class="testimonial__card swiper-slide">
-                   <Image src={t2} alt='pic2.jpeg'/>
-                           
-                            <div class="testimonial__content">
-                                <p class="testimonial__description"> It provides a convenient way for potential clients
-                                    to view your work while also allowing you to expand on your skills and services.</p>
-                                <h3 class="testimonial__name">John Clarke</h3>
-                                <span class="testimonial__occupation">Web Developer at Facebook</span>
-                            </div>
-                        </div>
-                       
-                        <div class="testimonial__card swiper-slide">
-                   <Image src={t3} alt='pic2.jpeg'/>
-                           
-                            <div class="testimonial__content">
-                                <p class="testimonial__description"> It provides a convenient way for potential clients
-                                    to view your work while also allowing you to expand on your skills and services.</p>
-                                <h3 class="testimonial__name">Emily Walker</h3>
-                                <span class="testimonial__occupation">Backend Developer at Google
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-pagination"></div>
-                </div>
-            </div>
-        </section>
-
-       
-        <section id="contact" class="section contact">
-            <div class="container">
-                <div class="d-grid contact__wrapper">
-                    <div class="contact__content">
-                        <h2 class="contact__title">Interested in working together? Let's talk</h2>
-                        <p class="contact__description">
-                            It provides a convenient way for potential clients to view your work while also allowing you
-                            to expand on your skills and services.
-                        </p>
-                    </div>
-                    <div class="contact__btn">
-                        <a href="#" class="btn btn--secondary">Get in touch</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-   
-    <footer id="footer" class="footer">
-        <div class="container">
-            <div class="d-grid footer__wrapper">
-                <div class="footer__content">
-                    <h4 class="footer__title">Follow Me</h4>
-                    <ul class="footer__social-list">
-                        <li class="footer__social-item">
-                            <a href="#" class="footer__social-link">
-                                <i class="ri-facebook-fill"></i>
-                            </a>
-                        </li>
-                        <li class="footer__social-item">
-                            <a href="#" class="footer__social-link">
-                                <i class="ri-instagram-fill"></i>
-                            </a>
-                        </li>
-                        <li class="footer__social-item">
-                            <a href="#" class="footer__social-link">
-                                <i class="ri-twitter-fill"></i>
-                            </a>
-                        </li>
-                        <li class="footer__social-item">
-                            <a href="#" class="footer__social-link">
-                                <i class="ri-github-fill"></i>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="footer__content">
-                    <h4 class="footer__title">Email Me</h4>
-                    <a href="#" class="footer__contact">contact@shri.com</a>
-                </div>
-                <div class="footer__content">
-                    <h4 class="footer__title">Call Me</h4>
-                    <a href="#" class="footer__contact">(123) 456 - 789</a>
-                </div>
-            </div>
-            <p class="footer__copyright">&copy; 2023 Copyright. All Rights Reserved</p>
+          <Link
+            href={"#exp"}
+            className="hover:text-[#551a8b] hover:border-b-2  hover:border-[#551a8b]"
+          >
+            Experience
+          </Link>
         </div>
-    </footer>
- </>
-  )
+      </section>
+
+      <section>
+        <div className="main w-full h-full flex flex-col lg:flex-row">
+          <div className="r lg:w-[50%] w-full h-full flex items-center justify-center">
+            <div className="content flex flex-col items-center gap-10 mt-10">
+              <h1 className="text-4xl font-bold  lg:text-7xl">
+                Hi all,Im Shehryar ✌️
+              </h1>
+              <p className="text-lg text-gray-400 lg:text-3xl">
+                A passionate Full Stack Software Developer 🚀 <br />
+                having an experience of building Web and <br /> Mobile /React
+                Native and some other cool <br />
+                libraries and frameworks
+              </p>
+
+              <div className="links flex  gap-4">
+                <FaFacebook
+                  size={30}
+                  className="bg-blue-600 rounded-sm text-white"
+                />
+                <FaGithub
+                  size={30}
+                  className="bg-gray-600 rounded-sm text-white"
+                />
+                <FaLinkedin
+                  size={30}
+                  className="bg-blue-300 rounded-sm text-white"
+                />
+                <IoMdMail
+                  size={30}
+                  className="bg-red-600 rounded-sm text-white"
+                />
+              </div>
+
+              <div className="btn flex gap-3">
+                <button className="bg-[#551a8b] text-white font-bold px-8 py-3 rounded-sm">
+                  Contact Me
+                </button>
+                <button className="bg-[#551a8b] text-white font-bold px-8 py-3 rounded-sm">
+                  See My Resume
+                </button>
+              </div>
+            </div>
+          </div>
+          <div className="r lg:w-[50%]  w-full h-full flex items-center justify-center">
+            <Image src={pic} alt="pic.png" />
+          </div>
+        </div>
+      </section>
+
+      <section id="about">
+        <div className="main flex flex-col lg:flex-row h-full">
+          <div className="l flex-1 flex flex-col gap-10 overflow-hidden">
+            <h1 className="text-center text-3xl ">What I do</h1>
+            <p className="text-center text-gray-400 text-xl">
+              CRAZY FULL STACK DEVELOPER WHO <br />
+              WANTS TO EXPLORE EVERY TECH STACK
+            </p>
+            <div className="div grid grid-cols-3 gap-10 place-items-center">
+              <div className="div flex flex-col">
+                <FaHtml5 size={30} className="text-gray-400" />
+                <p className="text-gray-400">HTML</p>
+              </div>
+              <div className="div flex flex-col">
+                <FaCss3 size={30} className="text-gray-400" />
+                <p className="text-gray-400">CSS</p>
+              </div>
+              <div className="div flex flex-col">
+                <IoLogoJavascript size={30} className="text-gray-400" />
+                <p className="text-gray-400">JAVASCRIPT</p>
+              </div>
+              <div className="div flex flex-col">
+                <FaReact size={30} className="text-gray-400" />
+                <p className="text-gray-400">REACT</p>
+              </div>
+              <div className="div flex flex-col">
+                <FaPython size={30} className="text-gray-400" />
+                <p className="text-gray-400">Python</p>
+              </div>
+              <div className="div flex flex-col">
+                <TbBrandNextjs size={30} className="text-gray-400" />
+                <p className="text-gray-400">NEXT</p>
+              </div>
+              <div className="div flex flex-col">
+                <DiDjango size={30} className="text-gray-400" />
+                <p className="text-gray-400">DJANGO</p>
+              </div>
+              <div className="div flex flex-col">
+                <FaDatabase size={30} className="text-gray-400" />
+                <p className="text-gray-400">SQL</p>
+              </div>
+            </div>
+            <p className="px-6 text-xl text-gray-400">
+              ⚡Develop highly interactive Front end / <br /> User Interfaces
+              for your web and mobile <br /> applications
+            </p>
+            <p className="px-6 text-xl text-gray-400">
+              ⚡Progressive Web Applications (PWA) <br />
+              in normal and SPA Stacks
+            </p>
+            <p className="px-6 text-xl text-gray-400">
+              ⚡Integration of third party services such <br />
+              as Firebase / AWS / Digital Ocean{" "}
+            </p>
+          </div>
+          <div className="r flex-1 flex items-center justify-center ">
+            <Image src={pic12} alt="pic.png" className="w-full" />
+          </div>
+        </div>
+      </section>
+
+      <section id="skills" className="mt-4">
+        <h1 className="text-center text-3xl lg:text-4xl">Proficiency</h1>
+        <div className="skills w-full h-full lg:flex lg:justify-center lg:items-center ">
+          <div className="l lg:w-[50%]">
+            <div className="div flex flex-col gap-4  items-start pl-10 pt-10 justify-center">
+              <p className="text-xl">Frontend /Desgin</p>
+              <div className="div relative w-[380px]  lg:w-[500px] h-[20px] bg-[#f3efef] border-1 rounded ">
+                <div className="inner absolute h-[20px] w-[340px] lg:w-[450px] bg-[#AAA5ff]"></div>
+              </div>
+              <p className="text-xl">Backend</p>
+              <div className="div relative w-[380px] lg:w-[500px] h-[20px] bg-[#f3efef] border-1 rounded ">
+                <div className="inner absolute h-[20px] w-[280px] lg:w-[380px] bg-[#AAA5ff]"></div>
+              </div>
+
+              <p className="text-xl">Programming</p>
+              <div className="div relative w-[380px] lg:w-[500px] h-[20px] bg-[#f3efef] border-1 rounded ">
+                <div className="inner absolute h-[20px] w-[200px] lg:w-[300px] bg-[#AAA5ff]"></div>
+              </div>
+            </div>
+          </div>
+          <div className="r lg:w-[50%] lg:block hidden ">
+            <Image src={pic2} alt="pic2.png" />
+          </div>
+        </div>
+      </section>
+
+      <section id="exp">
+        <h1 className="text-center text-3xl mt-4">Experiences</h1>
+        <div className="exp grid grid-cols-1 lg:grid-cols-3 place-items-center pt-10 w-full h-full gap-4">
+          <div className="div w-[380px] h-[450px] bg-white shadow-md shadow-black rounded-lg ">
+            <div className="div w-[380px] h-[120px] flex flex-col items-center justify-evenly  bg-blue-700">
+              <p className="text-center text-white pt-8 text-xl font-bold">
+                Facebook
+              </p>
+              <Image
+                src={pic3}
+                alt="pic3.png"
+                width={80}
+                className="relative top-10"
+              />
+            </div>
+            <div className="div flex flex-col pt-16 gap-8 text-center  text-xl">
+              <h1 className="font-bold">Software Enginner</h1>
+              <p>June 2018 - Present</p>
+              <p className="text-gray-400">
+                Working as a Front-End Developer <br />
+                using React as a Tech Stack
+              </p>
+            </div>
+          </div>
+          <div className="div w-[380px] h-[450px] bg-white shadow-md shadow-black rounded-lg ">
+            <div className="div w-[380px] h-[120px] flex flex-col items-center justify-evenly  bg-red-700">
+              <p className="text-center text-white pt-8 text-xl font-bold">
+                Quora
+              </p>
+              <Image
+                src={pic4}
+                alt="pic3.png"
+                width={80}
+                className="relative top-10 rounded-full"
+              />
+            </div>
+            <div className="div flex flex-col pt-16 gap-8 text-center  text-xl">
+              <h1 className="font-bold">Front-End Developer</h1>
+              <p>June 2019 - July 2020</p>
+              <p className="text-gray-400">
+                Working as a Front-End Developer <br />
+                using React as a Tech Stack
+              </p>
+            </div>
+          </div>
+
+          <div className="div w-[380px] h-[450px] bg-white shadow-md shadow-black rounded-lg ">
+            <div className="div w-[380px] h-[120px] flex flex-col items-center justify-evenly  bg-red-400">
+              <p className="text-center text-white pt-8 text-xl font-bold">
+                AinBnB
+              </p>
+              <Image
+                src={pic5}
+                alt="pic3.png"
+                width={80}
+                className="relative top-10 rounded-full"
+              />
+            </div>
+            <div className="div flex flex-col pt-16 gap-8 text-center  text-xl">
+              <h1 className="font-bold">Software Engineering Intern</h1>
+              <p>June 2017 - July 2018</p>
+              <p className="text-gray-400">
+                Working as a Front-End Developer <br />
+                using React as a Tech Stack
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="proj">
+        <div className="projects dark:bg-[#1e293b] w-full h-full mt-4">
+          <h1 className="text-[#14b8a6] text-center font-bold text-2xl mt-2 lg:text-4xl">
+            Portfolio
+          </h1>
+          <h1 className="text-[#0f172a]  dark:text-white font-extrabold text-4xl text-center mt-2">
+            Recent Projects
+          </h1>
+          <p className="text-gray-400 text-lg text-center">
+            Check Out Some Of My Work 😊
+          </p>
+          <div className="w-full h-full mt-4 grid gap-4  grid-cols-1 md:grid-cols-3  place-items-center">
+            <div className="card  flex flex-col gap-4 w-[400px] h-[350px]  bg-white shadow-md shadow-black">
+              <Image src={pic1} alt="pic1.png" />
+              <h1 className="text-3xl font-bold text-center">Login Page</h1>
+              <p>Login Page Using Html Css</p>
+              <div className="btn flex gap-4">
+                <Link href={"#"}>
+                  <CiLocationArrow1
+                    size={30}
+                    className="border-2 border-gray-500 rounded-full"
+                  />
+                </Link>
+                <Link href={"#"}>
+                  <FaGithub
+                    size={30}
+                    className="border-2 border-gray-500 rounded-full"
+                  />
+                </Link>
+              </div>
+            </div>
+            <div className="card  flex flex-col gap-4 w-[400px] h-[350px]  bg-white shadow-md shadow-black">
+              <Image src={pic1} alt="pic1.png" />
+              <h1 className="text-3xl font-bold text-center">Login Page</h1>
+              <p>Login Page Using Html Css</p>
+              <div className="btn flex gap-4">
+                <Link href={"#"}>
+                  <CiLocationArrow1
+                    size={30}
+                    className="border-2 border-gray-500 rounded-full"
+                  />
+                </Link>
+                <Link href={"#"}>
+                  <FaGithub
+                    size={30}
+                    className="border-2 border-gray-500 rounded-full"
+                  />
+                </Link>
+              </div>
+            </div>
+            <div className="card  flex flex-col gap-4 w-[400px] h-[350px]  bg-white shadow-md shadow-black">
+              <Image src={pic1} alt="pic1.png" />
+              <h1 className="text-3xl font-bold text-center">Login Page</h1>
+              <p>Login Page Using Html Css</p>
+              <div className="btn flex gap-4">
+                <Link href={"#"}>
+                  <CiLocationArrow1
+                    size={30}
+                    className="border-2 border-gray-500 rounded-full"
+                  />
+                </Link>
+                <Link href={"#"}>
+                  <FaGithub
+                    size={30}
+                    className="border-2 border-gray-500 rounded-full"
+                  />
+                </Link>
+              </div>
+            </div>
+            <div className="card  flex flex-col gap-4 w-[400px] h-[350px]  bg-white shadow-md shadow-black">
+              <Image src={pic1} alt="pic1.png" />
+              <h1 className="text-3xl font-bold text-center">Login Page</h1>
+              <p>Login Page Using Html Css</p>
+              <div className="btn flex gap-4">
+                <Link href={"#"}>
+                  <CiLocationArrow1
+                    size={30}
+                    className="border-2 border-gray-500 rounded-full"
+                  />
+                </Link>
+                <Link href={"#"}>
+                  <FaGithub
+                    size={30}
+                    className="border-2 border-gray-500 rounded-full"
+                  />
+                </Link>
+              </div>
+            </div>
+            <div className="card  flex flex-col gap-4 w-[400px] h-[350px]  bg-white shadow-md shadow-black">
+              <Image src={pic1} alt="pic1.png" />
+              <h1 className="text-3xl font-bold text-center">Login Page</h1>
+              <p>Login Page Using Html Css</p>
+              <div className="btn flex gap-4">
+                <Link href={"#"}>
+                  <CiLocationArrow1
+                    size={30}
+                    className="border-2 border-gray-500 rounded-full"
+                  />
+                </Link>
+                <Link href={"#"}>
+                  <FaGithub
+                    size={30}
+                    className="border-2 border-gray-500 rounded-full"
+                  />
+                </Link>
+              </div>
+            </div>
+            <div className="card  flex flex-col gap-4 w-[400px] h-[350px]  bg-white shadow-md shadow-black">
+              <Image src={pic1} alt="pic1.png" />
+              <h1 className="text-3xl font-bold text-center">Login Page</h1>
+              <p>Login Page Using Html Css</p>
+              <div className="btn flex gap-4">
+                <Link href={"#"}>
+                  <CiLocationArrow1
+                    size={30}
+                    className="border-2 border-gray-500 rounded-full"
+                  />
+                </Link>
+                <Link href={"#"}>
+                  <FaGithub
+                    size={30}
+                    className="border-2 border-gray-500 rounded-full"
+                  />
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact">
+        <div className="contact w-full h-full  mt-4">
+          <p className="text-center font-bold text-xl  text-[#551a8b] lg:text-3xl mt-4">
+            Contact
+          </p>
+          <h1 className="text-center text-4xl font-extrabold dark:text-white">
+            Get In Touch
+          </h1>
+          <p className="text-center text-2xl font-bold">
+            Talk to us ? Send Us Feedback? ❤️
+          </p>
+          <div className="form flex flex-col items-center justify-center gap-10">
+            <div className="in">
+              <p className="text-[#551a8b] text-lg font-bold">Name</p>
+              <input
+                type="text"
+                className="bg-[#e2e8f0] w-[300px] md:w-[600px] h-12 rounded dark:bg-white"
+              />
+            </div>
+            <div className="in">
+              <p className="text-[#551a8b] text-lg font-bold">Email</p>
+              <input
+                type="email"
+                className="bg-[#e2e8f0] w-[300px]  md:w-[600px]  h-12 rounded dark:bg-white"
+              />
+            </div>
+            <div className="in">
+              <p className="text-[#551a8b] text-lg font-bold">Message</p>
+              <textarea
+                name=""
+                id=""
+                cols="30"
+                rows="10"
+                className="bg-[#e2e8f0]  md:w-[550px]  rounded mr-16 dark:bg-white"
+              ></textarea>
+            </div>
+            <button className="px-14 lg:px-24 py-3 rounded-full  text-white font-bold bg-[#551a8b]">
+              Send
+            </button>
+          </div>
+        </div>
+      </section>
+    </>
+  );
 }
-
-export default page;
