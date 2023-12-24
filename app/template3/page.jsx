@@ -14,7 +14,7 @@ import pic3 from "../../public/template3/Gojek.png";
 import pic4 from "../../public/template3/Tokopedia.png";
 import pic5 from "../../public/template3/traveloka.png";
 
-function page() {
+function Page() {
   const { theme, setTheme } = useTheme();
   return (
     <>
@@ -302,4 +302,4 @@ function page() {
   );
 }
 
-export default page;
+export default Page;
