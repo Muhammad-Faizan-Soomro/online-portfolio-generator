@@ -111,7 +111,7 @@ const skills = [
 
 import Image from "next/image";
 
-function page() {
+function Page() {
   const [hidden, sethidden] = useState(true);
 
   return (
@@ -465,4 +465,4 @@ function page() {
   );
 }
 
-export default page;
+export default Page;
