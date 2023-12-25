@@ -17,12 +17,14 @@ import pic12 from "../../public/template2/f3.png";
 import pic13 from "../../public/template2/f4.png";
 import pic14 from "../../public/template2/freelance-img.jpg";
 import pic15 from "../../public/template2/quote.png";
+import pic16 from "../../public/template2/location.png";
+import pic17 from "../../public/template2/mail.png";
+import pic18 from "../../public/template2/call.png";
 import pic19 from "../../public/template2/fb.png";
 import pic20 from "../../public/template2/twitter.png";
 import pic21 from "../../public/template2/linkedin.png";
 import pic22 from "../../public/template2/instagram.png";
 import pic23 from "../../public/template2/youtube.png";
-
 
 function page() {
   return (
@@ -30,10 +32,11 @@ function page() {
       <div className="div absolute  w-[200px] h-[80px] flex items-center">
         <Image src={pic} /> <p className="text-white text-2xl">Spering</p>
       </div>
-      <section className="hero flex  flex-col  md:flex-row w-screen md:h-screen h-[500px]">
+      <section className="hero flex  flex-col  md:flex-row w-full md:h-screen h-[500px]">
         <div className="l lg:w-[55%] w-[100%] h-screen bg-[#1a2e35] gap-4  flex flex-col items-center lg:items-start lg:pl-32 justify-center">
           <h1 className="lg:text-[40px] lg:font-extrabold text-white font-bold text-[30px]">
-            <span className="font-extrabold ml-20 lg:ml-0"> YOU CAN</span> <br />
+            <span className="font-extrabold ml-20 lg:ml-0"> YOU CAN</span>{" "}
+            <br />
             <span className="font-extrabold"> HIRE FREELANCER</span> <br />
             <span className="ml-28 font-extrabold lg:ml-0">HERE</span> <br />
           </h1>
@@ -136,65 +139,63 @@ function page() {
         </div>
       </section>
 
-      <section className="w-full  h-full  mt-2">
-        <div className="div w-full h-full flex flex-col lg:flex-row ">
-          <div className="r w-screen lg:w-[50%]  flex flex-col items-center justify-center">
-            <h1 className="font-extrabold text-[30px] pt-10  text-center">
+      <section className="exp">
+        <div className="main w-full h-full flex flex-col md:flex-row">
+          <div className="l w-screen  lg:w-[50%] h-full ">
+            <h1 className="text-center text-3xl font-bold">
               WORK FREELANCER HAS DONE
             </h1>
-            <div className="k w-[500px] h-[500px]">
-              <div className="1 flex gap-8 mt-4 ml-8 lg:ml-0">
-                <div className="img w-[90px] h-[90px] rounded-full ml-2 bg-[#1cbbb4]">
-                  <Image src={pic10} alt="pic10.png" className="ml-4 mt-4" />
-                </div>
-                <div className="info">
-                  <p className="text-[#FF4F5A] text-xl font-bold">
-                    $250 milllion
-                  </p>
-                  <h3 className="text-xl font-extrabold">
-                    PAID TO FREELANCERS
-                  </h3>
-                </div>
+            <div className="1 flex gap-8 mt-4 ml-8 lg:ml-0">
+              <div className="img w-[90px] h-[90px] rounded-full ml-2 bg-[#1cbbb4]">
+                <Image src={pic10} alt="pic10.png" className="ml-4 mt-4" />
               </div>
-              <div className="1 flex  gap-8 mt-4  ml-8 lg:ml-0 ">
-                <div className="img w-[90px] h-[90px] rounded-full ml-2 bg-[#1cbbb4]">
-                  <Image src={pic11} alt="pic10.png" className="ml-4 mt-4" />
-                </div>
-                <div className="info">
-                  <p className="text-[#FF4F5A] text-xl font-bold">
-                    $2 milllion
-                  </p>
-                  <h3 className="text-xl font-extrabold">PAID INVOICES</h3>
-                </div>
+              <div className="info">
+                <p className="text-[#FF4F5A] text-xl font-bold">
+                  $250 milllion
+                </p>
+                <h3 className="text-xl font-extrabold">PAID TO FREELANCERS</h3>
               </div>
-              <div className="1 flex  gap-8 mt-4  ml-8 lg:ml-0 ">
-                <div className="img w-[90px] h-[90px] rounded-full ml-2 bg-[#1cbbb4]">
-                  <Image src={pic12} alt="pic10.png" className="ml-4 mt-4" />
-                </div>
-                <div className="info">
-                  <p className="text-[#FF4F5A] text-xl font-bold">700,000</p>
-                  <h3 className="text-xl font-extrabold">
-                    WORLD-WIDE <br /> FREELANCERS
-                  </h3>
-                </div>
+            </div>
+
+            <div className="1 flex gap-8 mt-4 ml-8 lg:ml-0">
+              <div className="img w-[90px] h-[90px] rounded-full ml-2 bg-[#1cbbb4]">
+                <Image src={pic11} alt="pic10.png" className="ml-4 mt-4" />
               </div>
-              <div className="1 flex   gap-8 mt-4  ml-8 lg:ml-0">
-                <div className="img w-[90px] h-[90px] rounded-full ml-2 bg-[#1cbbb4]">
-                  <Image src={pic13} alt="pic10.png" className="ml-4 mt-4" />
-                </div>
-                <div className="info">
-                  <p className="text-[#FF4F5A] text-xl font-bold">98 %</p>
-                  <h3 className="text-xl font-extrabold">
-                    CUSTOMER <br /> STATISFACTION RATE
-                  </h3>
-                </div>
+              <div className="info">
+                <p className="text-[#FF4F5A] text-xl font-bold">$2 milllion</p>
+                <h3 className="text-xl font-extrabold">PAID INVOICES</h3>
+              </div>
+            </div>
+
+            <div className="1 flex gap-8 mt-4 ml-8 lg:ml-0">
+              <div className="img w-[90px] h-[90px] rounded-full ml-2 bg-[#1cbbb4]">
+                <Image src={pic12} alt="pic10.png" className="ml-4 mt-4" />
+              </div>
+              <div className="info">
+                <p className="text-[#FF4F5A] text-xl font-bold">700,000</p>
+                <h3 className="text-xl font-extrabold">
+                  WORLD-WIDE <br /> FREELANCERS
+                </h3>
+              </div>
+            </div>
+
+            <div className="1 flex gap-8 mt-4 ml-8 lg:ml-0">
+              <div className="img w-[90px] h-[90px] rounded-full ml-2 bg-[#1cbbb4]">
+                <Image src={pic13} alt="pic10.png" className="ml-4 mt-4" />
+              </div>
+              <div className="info">
+                <p className="text-[#FF4F5A] text-xl font-bold">98%</p>
+                <h3 className="text-xl font-extrabold">
+                  CUSTOMER SATISFACTION RATE
+                </h3>
               </div>
             </div>
           </div>
-          <div className="l w-screen lg:w-[50%] items-center justify-center flex">
-            <Image src={pic14} />
-          </div>
+          <div className="r w-screen lg:w-[50%] h-full bg-blue-100">
+          <Image src={pic14} alt="pic14.png" />
         </div>
+        </div>
+       
       </section>
 
       <div className="testomonial flex flex-col gap-10 items-center justify-center w-full h-full ">
@@ -208,33 +209,31 @@ function page() {
             variations of passages of Lorem Ipsum available, but the majority
             have suffered alteration in s
           </p>
-          <Image src={pic15} alt="pic15.png"/>
+          <Image src={pic15} alt="pic15.png" />
         </div>
       </div>
 
       <footer className="h-full mt-4  w-full bg-[#1a2e35]  gap-8 flex items-center lg:flex-row flex-col justify-center">
-      <div className="div  w-[200px] h-[80px] flex items-center">
-        <Image src={pic} /> <p className="text-white text-2xl">Spering</p>
-      </div>
-     <div className="div flex gap-4 items-center">
-     <Link href={"#"}>
-      <Image src={pic19} alt="pic29png"/>
-      </Link>
-      <Link href={"#"}>
-      <Image src={pic20} alt="pic29png"/>
-      </Link>
-      <Link href={"#"}>
-      <Image src={pic21} alt="pic29png"/>
-      </Link>
-      <Link href={"#"}>
-      <Image src={pic22} alt="pic29png"/>
-      </Link>
-      <Link href={"#"}>
-      <Image src={pic23} alt="pic29png"/>
-      </Link>
-     </div>
-
-     
+        <div className="div  w-[200px] h-[80px] flex items-center">
+          <Image src={pic} /> <p className="text-white text-2xl">Spering</p>
+        </div>
+        <div className="div flex gap-4 items-center">
+          <Link href={"#"}>
+            <Image src={pic19} alt="pic29png" />
+          </Link>
+          <Link href={"#"}>
+            <Image src={pic20} alt="pic29png" />
+          </Link>
+          <Link href={"#"}>
+            <Image src={pic21} alt="pic29png" />
+          </Link>
+          <Link href={"#"}>
+            <Image src={pic22} alt="pic29png" />
+          </Link>
+          <Link href={"#"}>
+            <Image src={pic23} alt="pic29png" />
+          </Link>
+        </div>
       </footer>
     </>
   );
