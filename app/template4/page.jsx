@@ -30,8 +30,8 @@ export default function Page() {
   const [hide, sethide] = useState(true);
   return (
     <>
-      <section className="every dark:bg-[#171c28] dark:text-white">
-        <div className="nav  w-screen h-14 flex items-center justify-evenly border-b-2">
+      <section>
+        <div className="nav  w-full h-14 flex items-center justify-evenly border-b-2">
           <h1 className="text-[#551a8b] font-serif flex items-center text-xl md:text-3xl">
             SHEHRYAR NASIR <FaCode />{" "}
           </h1>
@@ -240,18 +240,18 @@ export default function Page() {
         <h1 className="text-center text-3xl lg:text-4xl">Proficiency</h1>
         <div className="skills w-full h-full lg:flex lg:justify-center lg:items-center ">
           <div className="l lg:w-[50%]">
-            <div className="div flex flex-col gap-4  items-start pl-10 pt-10 justify-center">
+            <div className="div flex flex-col gap-4  items-center pt-10 justify-center">
               <p className="text-xl">Frontend /Desgin</p>
-              <div className="div relative w-[380px]  lg:w-[500px] h-[20px] bg-[#f3efef] border-1 rounded ">
+              <div className="div relative w-[360px]  lg:w-[500px] h-[20px] bg-[#f3efef] border-1 rounded ">
                 <div className="inner absolute h-[20px] w-[340px] lg:w-[450px] bg-[#AAA5ff]"></div>
               </div>
               <p className="text-xl">Backend</p>
-              <div className="div relative w-[380px] lg:w-[500px] h-[20px] bg-[#f3efef] border-1 rounded ">
+              <div className="div relative w-[360px] lg:w-[500px] h-[20px] bg-[#f3efef] border-1 rounded ">
                 <div className="inner absolute h-[20px] w-[280px] lg:w-[380px] bg-[#AAA5ff]"></div>
               </div>
 
               <p className="text-xl">Programming</p>
-              <div className="div relative w-[380px] lg:w-[500px] h-[20px] bg-[#f3efef] border-1 rounded ">
+              <div className="div relative w-[360px] lg:w-[500px] h-[20px] bg-[#f3efef] border-1 rounded ">
                 <div className="inner absolute h-[20px] w-[200px] lg:w-[300px] bg-[#AAA5ff]"></div>
               </div>
             </div>
@@ -344,7 +344,7 @@ export default function Page() {
             Check Out Some Of My Work 😊
           </p>
           <div className="w-full h-full mt-4 grid gap-4  grid-cols-1 md:grid-cols-3  place-items-center">
-            <div className="card  flex flex-col gap-4 w-[400px] h-[350px]  bg-white shadow-md shadow-black">
+            <div className="card  flex flex-col gap-4 w-[360px] h-[350px]  bg-white shadow-md shadow-black">
               <Image src={pic1} alt="pic1.png" />
               <h1 className="text-3xl font-bold text-center">Login Page</h1>
               <p>Login Page Using Html Css</p>
@@ -363,7 +363,7 @@ export default function Page() {
                 </Link>
               </div>
             </div>
-            <div className="card  flex flex-col gap-4 w-[400px] h-[350px]  bg-white shadow-md shadow-black">
+            <div className="card  flex flex-col gap-4 w-[360px] h-[350px]  bg-white shadow-md shadow-black">
               <Image src={pic1} alt="pic1.png" />
               <h1 className="text-3xl font-bold text-center">Login Page</h1>
               <p>Login Page Using Html Css</p>
@@ -382,7 +382,7 @@ export default function Page() {
                 </Link>
               </div>
             </div>
-            <div className="card  flex flex-col gap-4 w-[400px] h-[350px]  bg-white shadow-md shadow-black">
+            <div className="card  flex flex-col gap-4 w-[360px] h-[350px]  bg-white shadow-md shadow-black">
               <Image src={pic1} alt="pic1.png" />
               <h1 className="text-3xl font-bold text-center">Login Page</h1>
               <p>Login Page Using Html Css</p>
@@ -401,7 +401,7 @@ export default function Page() {
                 </Link>
               </div>
             </div>
-            <div className="card  flex flex-col gap-4 w-[400px] h-[350px]  bg-white shadow-md shadow-black">
+            <div className="card  flex flex-col gap-4 w-[360px] h-[350px]  bg-white shadow-md shadow-black">
               <Image src={pic1} alt="pic1.png" />
               <h1 className="text-3xl font-bold text-center">Login Page</h1>
               <p>Login Page Using Html Css</p>
@@ -420,7 +420,7 @@ export default function Page() {
                 </Link>
               </div>
             </div>
-            <div className="card  flex flex-col gap-4 w-[400px] h-[350px]  bg-white shadow-md shadow-black">
+            <div className="card  flex flex-col gap-4 w-[360px] h-[350px]  bg-white shadow-md shadow-black">
               <Image src={pic1} alt="pic1.png" />
               <h1 className="text-3xl font-bold text-center">Login Page</h1>
               <p>Login Page Using Html Css</p>
@@ -439,7 +439,7 @@ export default function Page() {
                 </Link>
               </div>
             </div>
-            <div className="card  flex flex-col gap-4 w-[400px] h-[350px]  bg-white shadow-md shadow-black">
+            <div className="card  flex flex-col gap-4 w-[360px] h-[350px]  bg-white shadow-md shadow-black">
               <Image src={pic1} alt="pic1.png" />
               <h1 className="text-3xl font-bold text-center">Login Page</h1>
               <p>Login Page Using Html Css</p>
@@ -458,6 +458,8 @@ export default function Page() {
                 </Link>
               </div>
             </div>
+            
+         
           </div>
         </div>
       </section>
