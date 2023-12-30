@@ -5,6 +5,7 @@ import ToastifyNotifications from "./components/ToastifyNotifications";
 import { AuthProvider } from "./Provider";
 import Providers from "./Providers";
 import { usePathname } from "next/navigation";
+import { Redux } from "./redux/providers";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,7 +22,9 @@ export default function RootLayout({ children }) {
         <html lang="en">
           <body className="dark:bg-[#0b1120]" suppressHydrationWarning={true}>
             <Providers>
-              <AuthProvider>{children}</AuthProvider>
+              <AuthProvider>
+                <Redux>{children}</Redux>
+              </AuthProvider>
               <ToastifyNotifications />
             </Providers>
           </body>
@@ -29,9 +32,9 @@ export default function RootLayout({ children }) {
       ) : (
         <html lang="en">
           <body className="main-content body" suppressHydrationWarning={true}>
-          <AuthProvider>
-            {children}
-          </AuthProvider>
+            <AuthProvider>
+              <Redux>{children}</Redux>
+            </AuthProvider>
           </body>
         </html>
       )}

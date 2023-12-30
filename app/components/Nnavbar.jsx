@@ -19,6 +19,13 @@ function Navbar() {
   const { data: session, status } = useSession();
   const { theme, setTheme } = useTheme();
 
+  const signout = () => {
+    const selectedTemplate = localStorage.getItem('template')
+    selectedTemplate == null ? null : localStorage.removeItem('template')
+    localStorage.removeItem('user')
+    signOut()
+  }
+
   if (status === "loading") {
     return (
       <div>
@@ -78,7 +85,7 @@ function Navbar() {
           )}
           <button
             className="px-3 mr-20 h-10 rounded-sm bg-orange-400 text-white font-bold dark:bg-blue-400 "
-            onClick={() => signOut()}
+            onClick={() => signout()}
           >
             Logout
           </button>
@@ -121,7 +128,7 @@ function Navbar() {
           </Link>
           <button
             className="w-[100px] h-[50px] bg-orange-400 text-white font-bold rounded-sm dark:bg-blue-400"
-            onClick={() => signOut()}
+            onClick={() => signout()}
           >
             LOGOUT
           </button>

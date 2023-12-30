@@ -29,6 +29,7 @@ function Login() {
         if(res.ok){
           toast.success("Login Successfully")
           router.replace('/home')
+          localStorage.setItem('user',user.username)
         }
         else{
           toast.warn("Invalid Credentials")
