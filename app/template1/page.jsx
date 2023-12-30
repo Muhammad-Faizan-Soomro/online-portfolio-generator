@@ -1,288 +1,670 @@
-// "use client"
-// import React from "react";
-// import './style.css';
-// import Image from "next/image";
-// import pic1 from '../../public/template1/bithi.jpg'
-// import pic2 from '../../public/template1/course (1).jpg'
-// import pic3 from '../../public/template1/course (2).jpg'
-// import pic4 from '../../public/template1/course (3).jpg'
+import React from "react";
+import "./style.css";
+import Script from "next/script";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faAdjust,
+  faBriefcase,
+  faDownload,
+  faEnvelope,
+  faEnvelopeOpen,
+  faGlobeAfrica,
+  faHome,
+  faLink,
+  faMapMarkerAlt,
+  faUser,
+  faUserGraduate,
+} from "@fortawesome/free-solid-svg-icons";
+import {
+  faBehance,
+  faFacebookF,
+  faGithub,
+  faTwitter,
+  faYoutube,
+} from "@fortawesome/free-brands-svg-icons";
 
-
-// function page() {
-//     return (
-//         <>
-
-
-//             <nav>
-//                 <div className="container nav_container">
-//                     <a href="#">
-//                         <h4><span>Bi</span>thi</h4>
-//                     </a>
-//                     <ul className="nav_menu">
-//                         <li><a href="#home">Home</a></li>
-//                         <li><a href="#about">About</a></li>
-//                         <li><a href="#service">Service</a></li>
-//                         <li><a href="#skills">Skills</a></li>
-//                         <li><a href="#education">Education</a></li>
-//                         <li><a href="#courses">Courses</a></li>
-//                         <li><a href="#contact">Contact</a></li>
-//                     </ul>
-//                     <button id="open-menu-btn"><i className="fa-solid fa-bars"></i></button>
-//                     <button id="close-menu-btn"><i className="fa-solid fa-xmark"></i></button>
-//                 </div>
-//             </nav>
-
-
-//             <header>
-//                 <div className="container header_container" id="home">
-//                     <div className="header_left">
-//                         <div className="header_left_img">
-//                             <Image  src={pic1} alt="pic1.png" />
-//                         </div>
-//                     </div>
-//                     <div className="header_right">
-//                         <div className="text-1">Hello, this is</div>
-//                         <div className="text-2">Hosne Ara Bithi</div>
-//                         <div className="text-3">And I'm a Web developer <span className="typing"></span></div>
-//                         <a target="_blank" href="
-//                 https://www.facebook.com/hosnearabithi.bithi?mibextid=ZbWKwL" className="btn">Hire Me</a>
-//                     </div>
-//                 </div>
-//             </header>
-//             <section className="about" id="about">
-//                 <h2 className="border_bottom">About Me</h2>
-//                 <div className="container about_container">
-//                     <div className="about-text">
-//                         <div className="text">
-//                             I am Bithi and I'm a Web developer <span className="typing-2"></span>
-//                         </div>
-//                         <p>At present, I am studying at Daffodil International University department of CSE. As an engineering student I have many ideas to make people's life easy and comfortable. So, I have decided to work in networking site. In this generation, face to face communication is very rear. So social networking is very important to communicate each other. In future, I want to do job in IT sector.</p>
-//                         <a href="https://drive.google.com/file/d/1LIoBRlbU1McXZ8SkAa3glFsIvvzwWLHd/view?usp=sharing" className="btn">Download CV</a>
-//                     </div>
-//                 </div>
-//             </section>
-
-
-
-//             <div className="services" id="service">
-//                 <h2 className="border_bottom">My Services</h2>
-//                 <div className="container services_container">
-//                     <div className="cards">
-//                         <div className="card">
-//                             <div className="sbox">
-//                                 <i className="fa-solid fa-code"></i>
-//                                 <h3>Web Design</h3>
-//                                 <p>
-//                                     Web design is a crucial skill in today's digital age. A well-designed website can make all the difference in attracting and retaining customers, as well as conveying a professional image for your brand.</p>
-//                                 <a href="#">Learn More</a>
-//                             </div>
-//                         </div>
-//                         <div className="card">
-//                             <div className="sbox">
-//                                 <i className="fa-solid fa-file-code"></i>
-//                                 <h3>PSD to HTML</h3>
-//                                 <p>HTML is a coding language used for creating and designing websites. Having HTML skills can demonstrate proficiency in web development and design which is very helpful for us. </p>
-//                                 <a href="#">Learn More</a>
-//                             </div>
-//                         </div>
-//                         <div className="card">
-//                             <div className="sbox">
-//                                 <i className="fa-solid fa-laptop-code"></i>
-//                                 <h3>Web Development</h3>
-//                                 <p>Web development is a highly sought-after skill in today's job market. With the increasing demand for online presence, having expertise in web development can be a valuable asset to any organization.</p>
-//                                 <a href="#">Learn More</a>
-//                             </div>
-//                         </div>
-//                     </div>
-//                 </div>
-//             </div>
-
-
-
-//             <div className="skills" id="skills">
-//                 <div className="new">
-//                     <h2 className="border_bottom">My Skills</h2>
-//                 </div>
-//                 <div className="container skills_container">
-//                     <div className="bar">
-//                         <div className="info">
-//                             <span>HTML</span>
-//                         </div>
-//                         <div className="progress-line html">
-//                             <span></span>
-//                         </div>
-//                     </div>
-//                     <div className="bar">
-//                         <div className="info">
-//                             <span>CSS</span>
-//                         </div>
-//                         <div className="progress-line css">
-//                             <span></span>
-//                         </div>
-//                     </div>
-//                     <div className="bar">
-//                         <div className="info">
-//                             <span>JQuery</span>
-//                         </div>
-//                         <div className="progress-line jquery">
-//                             <span></span>
-//                         </div>
-//                     </div>
-//                     <div className="bar">
-//                         <div className="info">
-//                             <span>Python</span>
-//                         </div>
-//                         <div className="progress-line python">
-//                             <span></span>
-//                         </div>
-//                     </div>
-//                     <div className="bar">
-//                         <div className="info">
-//                             <span>MySQL</span>
-//                         </div>
-//                         <div className="progress-line mysql">
-//                             <span></span>
-//                         </div>
-//                     </div>
-
-//                 </div>
-//             </div>
-
-
-
-//             <section className="qualification" id="qualification">
-//                 <div className="qualification-content">
-//                     <div className="qualification-div">
-//                         <h2 id="education"  >My Education</h2>
-//                         <div className="qualification-item">
-//                             <h4 className="qualification-title">Secondary School Certificate</h4>
-//                             <h5 className="qualification-sub-title">Bindubashini Govt. Girl's High School / 2014-2016</h5>
-//                             <p className="qualification-description">
-//                                 Here I have experienced basic knowledge of computer from my school computer training center and I have got first position from that training center in Lab exam
-//                             </p>
-//                         </div>
-//                         <hr />
-//                         <div className="qualification-item">
-//                             <h4 className="qualification-title">Higher Secondary School Certificate</h4>
-//                             <h5 className="qualification-sub-title">Kumyudini Govt. College / 2016-2018</h5>
-//                             <p className="qualification-description">
-//                                 Here I have experienced basic knowledge of programming language from academic course which was ICT and I have got first division in that course
-//                             </p>
-//                         </div>
-//                         <hr />
-//                         <div className="qualification-item">
-//                             <h4 className="qualification-title">B.Sc. in Computer Science & Engineering</h4>
-//                             <h5 className="qualification-sub-title">Daffodil International University / 2020-2024</h5>
-//                             <p className="qualification-description">
-//                                 I have gathered knowledge in differnt skill area like programming knowledge(C,C++,Java,Python,PHP,C#,Assembly language), OS(linux,Windows), technologies(Android App Development,Unity 3D AR App development,web development)
-//                             </p>
-//                         </div>
-//                     </div>
-//                 </div>
-
-//             </section>
-
-
-//             <div className="courses" id="courses">
-//                 <h2 className="border_bottom">
-//                     My Pupular Courses
-//                 </h2>
-//                 <div className="container courses_container">
-//                     <article className="course">
-//                         <div className="course_image">
-//                             <Image src={pic2} alt="Course1" />
-//                         </div>
-//                         <div className="course_info">
-//                             <h4>Responsive Ecommerce Website Design</h4>
-//                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum iure eius placeat?</p>
-//                             <a href="#" className="btn">Learn More</a>
-//                         </div>
-//                     </article>
-
-//                     <article className="course">
-//                         <div className="course_image">
-//                             <Image src={pic3} alt="Course 2" />
-//                         </div>
-//                         <div className="course_info">
-//                             <h4>Responsive Business Website Design</h4>
-//                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum iure eius placeat?</p>
-//                             <a href="#" className="btn">Learn More</a>
-//                         </div>
-//                     </article>
-
-//                     <article className="course">
-//                         <div className="course_image">
-//                             <Image src={pic4} alt="Course 3" />
-//                         </div>
-//                         <div className="course_info">
-//                             <h4>Responsive Landing Page Design</h4>
-//                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum iure eius placeat?</p>
-//                             <a href="#" className="btn">Learn More</a>
-//                         </div>
-//                     </article>
-
-//                 </div>
-//             </div>
-
-
-
-//             <footer>
-//                 <div className="container footer_container">
-//                     <div className="footer_1">
-//                         <a href="index.html" className="footer_logo">
-//                             <h4>BITHI</h4>
-//                         </a>
-//                         <p>I am from Tangail. At present, I am styding at Daffodil International University department of CSE</p>
-//                     </div>
-
-//                     <div className="footer_2">
-//                         <h4>Permalinks</h4>
-//                         <ul className="permalinks">
-//                             <li><a href="index.html">Home</a></li>
-//                             <li><a href="#about">About</a></li>
-//                             <li><a href="#courses">Courses</a></li>
-//                             <li><a href="#">Contact</a></li>
-//                         </ul>
-//                     </div>
-
-//                     <div className="footer_3">
-//                         <h4>Privacy</h4>
-//                         <ul className="privacy">
-//                             <li><a href="#">Privacy & Policy</a></li>
-//                             <li><a href="#">Terms & Conditions</a></li>
-//                             <li><a href="#">Refund Ploicy</a></li>
-//                         </ul>
-//                     </div>
-
-//                     <div className="footer_4">
-//                         <h4 id="contact">Contact Me</h4>
-//                         <div>
-//                             <p>+92 1234567890</p>
-//                             <p classNameName="mail">GOOGLE@google.com</p>
-//                         </div>
-//                     </div>
-//                     <ul classNameName="footer_social">
-//                         <li><a target="_blank" href="https://www.facebook.com/"><i classNameName="fa-brands fa-facebook-f"></i></a></li>
-//                         <li><a target="_blank" href="https://www.linkedin.com/"><i classNameName="fa-brands fa-linkedin"></i></a></li>
-//                         <li><a target="_blank" href=""><i classNameName="fa-brands fa-youtube"></i></a></li>
-//                     </ul>
-
-//                     <div classNameName="footer_copyright">
-//                         <small>Copyright &copy; DEVELOPER BITHI</small>
-//                     </div>
-//                 </div>
-//             </footer>
-//         </>
-//     );
-// }
-// export default page;
-
-import React from 'react'
-
-function page() {
+export default function Page() {
   return (
-    <div>page</div>
-  )
+    <>
+      <Script id="show-banner">
+        {`(function () {
+    [...document.querySelectorAll(".control")].forEach(button => {
+        button.addEventListener("click", function () {
+            document.querySelector(".active-btn").classList.remove("active-btn");
+            this.classList.add("active-btn");
+            document.querySelector(".active").classList.remove("active");
+            document.getElementById(button.dataset.id).classList.add("active");
+        })
+    });
+    document.querySelector(".theme-btn").addEventListener("click", () => {
+        document.body.classList.toggle("light-mode");
+    })
+})();`}
+      </Script>
+      <header className="container header active header" id="home">
+        <div className="header-content">
+          <div className="left-header">
+            <div className="h-shape"></div>
+            <div className="image">
+              <img src="/template3/hero.png" alt="" />
+            </div>
+          </div>
+          <div className="right-header">
+            <h1 className="name">
+              Hi, I'm <span>Solano Milan Diaz.</span>A Web Developer.
+            </h1>
+            <p>
+              I'm a Web Developer, I love to create beautiful and functional
+              websites. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Officia, libero? Lorem ipsum dolor sit amet consectetur
+              adipisicing elit. Neque blanditiis sed aut!
+            </p>
+            <div className="btn-con">
+              <a href="" className="main-btn a">
+                <span className="btn-text">Download CV</span>
+                <span className="btn-icon">
+                  <FontAwesomeIcon
+                    icon={faDownload}
+                    className="fas fa-download"
+                  />
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </header>
+      <main>
+        <section className="container about section" id="about">
+          <div className="main-title">
+            <h2>
+              About <span>me</span>
+              <span className="bg-text">my stats</span>
+            </h2>
+          </div>
+          <div className="about-container">
+            <div className="left-about">
+              <h4>Information About me</h4>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet
+                labore nihil obcaecati consequatur. Debitis error doloremque,
+                vero eos vel nemo eius voluptatem dicta tenetur modi. <br />{" "}
+                <br /> La musica delectus dolore fugiat exercitationem a, ipsum
+                quidem quo enim natus accusamus labore dolores nam. Unde. Lorem
+                ipsum dolor sit amet consectetur, adipisicing elit. Harum non
+                necessitatibus deleniti eum soluta.
+              </p>
+              <div className="btn-con">
+                <a href="#" className="main-btn a">
+                  <span className="btn-text">Download CV</span>
+                  <span className="btn-icon">
+                    <FontAwesomeIcon
+                      icon={faDownload}
+                      className="fas fa-download"
+                    />
+                  </span>
+                </a>
+              </div>
+            </div>
+            <div className="right-about">
+              <div className="about-item">
+                <div className="abt-text">
+                  <p className="large-text">650+</p>
+                  <p className="small-text">
+                    Projects <br /> Completed
+                  </p>
+                </div>
+              </div>
+              <div className="about-item">
+                <div className="abt-text">
+                  <p className="large-text">10+</p>
+                  <p className="small-text">
+                    Years of <br /> experience
+                  </p>
+                </div>
+              </div>
+              <div className="about-item">
+                <div className="abt-text">
+                  <p className="large-text">300+</p>
+                  <p className="small-text">
+                    Happy <br /> Clients
+                  </p>
+                </div>
+              </div>
+              <div className="about-item">
+                <div className="abt-text">
+                  <p className="large-text">400+</p>
+                  <p className="small-text">
+                    Customer <br /> reviews
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="about-stats">
+            <h4 className="stat-title">My Skills</h4>
+            <div className="progress-bars">
+              <div className="progress-bar">
+                <p className="prog-title">html5</p>
+                <div className="progress-con">
+                  <p className="prog-text">0%</p>
+                  <div className="progress">
+                    <span className="" style={{ width: "60%" }}></span>
+                  </div>
+                </div>
+              </div>
+              <div className="progress-bar">
+                <p className="prog-title">css3</p>
+                <div className="progress-con">
+                  <p className="prog-text">95%</p>
+                  <div className="progress">
+                    <span className="css"></span>
+                  </div>
+                </div>
+              </div>
+              <div className="progress-bar">
+                <p className="prog-title">javascript</p>
+                <div className="progress-con">
+                  <p className="prog-text">75%</p>
+                  <div className="progress">
+                    <span className="js"></span>
+                  </div>
+                </div>
+              </div>
+              <div className="progress-bar">
+                <p className="prog-title">ReactJS</p>
+                <div className="progress-con">
+                  <p className="prog-text">75%</p>
+                  <div className="progress">
+                    <span className="react"></span>
+                  </div>
+                </div>
+              </div>
+              <div className="progress-bar">
+                <p className="prog-title">NodeJS</p>
+                <div className="progress-con">
+                  <p className="prog-text">87%</p>
+                  <div className="progress">
+                    <span className="node"></span>
+                  </div>
+                </div>
+              </div>
+              <div className="progress-bar">
+                <p className="prog-title">Python</p>
+                <div className="progress-con">
+                  <p className="prog-text">70%</p>
+                  <div className="progress">
+                    <span className="python"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <h4 className="stat-title">My Timeline</h4>
+          <div className="timeline">
+            <div className="timeline-item">
+              <div className="tl-icon">
+                <FontAwesomeIcon icon={faLink} className="fas fa-link" />
+              </div>
+              <p className="tl-duration">2010 - present</p>
+              <h5>
+                Web Developer<span> - Vircrosoft</span>
+              </h5>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe
+                quasi vero fugit.
+              </p>
+            </div>
+            <div className="timeline-item">
+              <div className="tl-icon">
+                <FontAwesomeIcon
+                  icon={faBriefcase}
+                  className="fas fa-briefcase"
+                />
+              </div>
+              <p className="tl-duration">2008 - 2011</p>
+              <h5>
+                Software Engineer<span> - Boogle, Inc.</span>
+              </h5>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe
+                quasi vero fugit.
+              </p>
+            </div>
+            <div className="timeline-item">
+              <div className="tl-icon">
+                <FontAwesomeIcon
+                  icon={faBriefcase}
+                  className="fas fa-briefcase"
+                />
+              </div>
+              <p className="tl-duration">2016 - 2017</p>
+              <h5>
+                C++ Programmer<span> - Slime Tech</span>
+              </h5>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe
+                quasi vero fugit.
+              </p>
+            </div>
+            <div className="timeline-item">
+              <div className="tl-icon">
+                <FontAwesomeIcon
+                  icon={faBriefcase}
+                  className="fas fa-briefcase"
+                />
+              </div>
+              <p className="tl-duration">2009 - 2013</p>
+              <h5>
+                Business Degree<span> - Sussex University</span>
+              </h5>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe
+                quasi vero fugit.
+              </p>
+            </div>
+            <div className="timeline-item">
+              <div className="tl-icon">
+                <FontAwesomeIcon
+                  icon={faBriefcase}
+                  className="fas fa-briefcase"
+                />
+              </div>
+              <p className="tl-duration">2013 - 2016</p>
+              <h5>
+                Computer Science Degree<span> - Brookes University</span>
+              </h5>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe
+                quasi vero fugit.
+              </p>
+            </div>
+            <div className="timeline-item">
+              <div className="tl-icon">
+                <FontAwesomeIcon
+                  icon={faBriefcase}
+                  className="fas fa-briefcase"
+                />
+              </div>
+              <p className="tl-duration">2017 - present</p>
+              <h5>
+                3d Animation<span> - Brighton University</span>
+              </h5>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe
+                quasi vero fugit.
+              </p>
+            </div>
+          </div>
+        </section>
+        <section className="container section" id="portfolio">
+          <div className="main-title">
+            <h2>
+              My <span>Portfolio</span>
+              <span className="bg-text">My Work</span>
+            </h2>
+          </div>
+          <p className="port-text">
+            Here is some of my work that I've done in various programming
+            languages.
+          </p>
+          <div className="portfolios">
+            <div className="portfolio-item">
+              <div className="image">
+                <img src="img/port1.jpg" alt="" />
+              </div>
+              <div className="hover-items">
+                <h3>Project Source</h3>
+                <div className="icons">
+                  <a href="#" className="icon a">
+                    <FontAwesomeIcon
+                      icon={faGithub}
+                      className="fab fa-github"
+                    />
+                  </a>
+                  <a href="#" className="icon a">
+                    <FontAwesomeIcon
+                      icon={faBehance}
+                      className="fab fa-behance"
+                    />
+                  </a>
+                  <a href="#" className="icon a">
+                    <FontAwesomeIcon
+                      icon={faYoutube}
+                      className="fab fa-youtube"
+                    />
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div className="portfolio-item">
+              <div className="image">
+                <img src="img/port2.jpg" alt="" />
+              </div>
+              <div className="hover-items">
+                <h3>Project Source</h3>
+                <div className="icons">
+                  <a href="#" className="icon a">
+                    <FontAwesomeIcon
+                      icon={faGithub}
+                      className="fab fa-github"
+                    />
+                  </a>
+                  <a href="#" className="icon a">
+                    <FontAwesomeIcon
+                      icon={faBehance}
+                      className="fab fa-behance"
+                    />
+                  </a>
+                  <a href="#" className="icon a">
+                    <FontAwesomeIcon
+                      icon={faYoutube}
+                      className="fab fa-youtube"
+                    />
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div className="portfolio-item">
+              <div className="image">
+                <img src="img/port3.jpg" alt="" />
+              </div>
+              <div className="hover-items">
+                <h3>Project Source</h3>
+                <div className="icons">
+                  <a href="#" className="icon a">
+                    <FontAwesomeIcon
+                      icon={faGithub}
+                      className="fab fa-github"
+                    />
+                  </a>
+                  <a href="#" className="icon a">
+                    <FontAwesomeIcon
+                      icon={faBehance}
+                      className="fab fa-behance"
+                    />
+                  </a>
+                  <a href="#" className="icon a">
+                    <FontAwesomeIcon
+                      icon={faYoutube}
+                      className="fab fa-youtube"
+                    />
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div className="portfolio-item">
+              <div className="image">
+                <img src="img/port4.jpg" alt="" />
+              </div>
+              <div className="hover-items">
+                <h3>Project Source</h3>
+                <div className="icons">
+                  <a href="#" className="icon a">
+                    <FontAwesomeIcon
+                      icon={faGithub}
+                      className="fab fa-github"
+                    />
+                  </a>
+                  <a href="#" className="icon a">
+                    <FontAwesomeIcon
+                      icon={faBehance}
+                      className="fab fa-behance"
+                    />
+                  </a>
+                  <a href="#" className="icon a">
+                    <FontAwesomeIcon
+                      icon={faYoutube}
+                      className="fab fa-youtube"
+                    />
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div className="portfolio-item">
+              <div className="image">
+                <img src="img/port5.jpg" alt="" />
+              </div>
+              <div className="hover-items">
+                <h3>Project Source</h3>
+                <div className="icons">
+                  <a href="#" className="icon a">
+                    <FontAwesomeIcon
+                      icon={faGithub}
+                      className="fab fa-github"
+                    />
+                  </a>
+                  <a href="#" className="icon a">
+                    <FontAwesomeIcon
+                      icon={faBehance}
+                      className="fab fa-behance"
+                    />
+                  </a>
+                  <a href="#" className="icon a">
+                    <FontAwesomeIcon
+                      icon={faYoutube}
+                      className="fab fa-youtube"
+                    />
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div className="portfolio-item">
+              <div className="image">
+                <img src="img/port2.jpg" alt="" />
+              </div>
+              <div className="hover-items">
+                <h3>Project Source</h3>
+                <div className="icons">
+                  <a href="#" className="icon a">
+                    <FontAwesomeIcon
+                      icon={faGithub}
+                      className="fab fa-github"
+                    />
+                  </a>
+                  <a href="#" className="icon a">
+                    <FontAwesomeIcon
+                      icon={faBehance}
+                      className="fab fa-behance"
+                    />
+                  </a>
+                  <a href="#" className="icon a">
+                    <FontAwesomeIcon
+                      icon={faYoutube}
+                      className="fab fa-youtube"
+                    />
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div className="portfolio-item">
+              <div className="image">
+                <img src="img/port7.jpg" alt="" />
+              </div>
+              <div className="hover-items">
+                <h3>Project Source</h3>
+                <div className="icons">
+                  <a href="#" className="icon a">
+                    <FontAwesomeIcon
+                      icon={faGithub}
+                      className="fab fa-github"
+                    />
+                  </a>
+                  <a href="#" className="icon a">
+                    <FontAwesomeIcon
+                      icon={faBehance}
+                      className="fab fa-behance"
+                    />
+                  </a>
+                  <a href="#" className="icon a">
+                    <FontAwesomeIcon
+                      icon={faYoutube}
+                      className="fab fa-youtube"
+                    />
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section className="container contact section" id="contact">
+          <div className="contact-container">
+            <div className="main-title">
+              <h2>
+                Contact <span>Me</span>
+                <span className="bg-text">Contact</span>
+              </h2>
+            </div>
+            <div className="contact-content-con">
+              <div className="left-contact">
+                <h4>Contact me here</h4>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. In,
+                  laborum numquam? Quam excepturi perspiciatis quas quasi.
+                </p>
+                <div className="contact-info">
+                  <div className="contact-item">
+                    <div className="icon">
+                      <FontAwesomeIcon
+                        icon={faMapMarkerAlt}
+                        className="fas fa-map-marker-alt"
+                      />
+                      <span>Location</span>
+                    </div>
+                    <p>: London, united Kingdom</p>
+                  </div>
+                  <div className="contact-item">
+                    <div className="icon">
+                      <FontAwesomeIcon
+                        icon={faEnvelope}
+                        className="fas fa-envelope"
+                      />
+                      <span>Email</span>
+                    </div>
+                    <p>
+                      <span>: maclinzuniversal@gmail.com</span>
+                    </p>
+                  </div>
+                  <div className="contact-item">
+                    <div className="icon">
+                      <FontAwesomeIcon
+                        icon={faUserGraduate}
+                        className="fas fa-user-graduate"
+                      />
+                      <span>Education</span>
+                    </div>
+                    <p>
+                      <span>: Sussex University, East Sussex</span>
+                    </p>
+                  </div>
+                  <div className="contact-item">
+                    <div className="icon">
+                      <FontAwesomeIcon
+                        icon={faUserGraduate}
+                        className="fas fa-user-graduate"
+                      />
+                      <span>Mobile Number</span>
+                    </div>
+                    <p>
+                      <span>: 07522670617</span>
+                    </p>
+                  </div>
+                  <div className="contact-item">
+                    <div className="icon">
+                      <FontAwesomeIcon
+                        icon={faGlobeAfrica}
+                        className="fas fa-globe-africa"
+                      />
+                      <span>Languages</span>
+                    </div>
+                    <p>
+                      <span>: Afrikaans, English, Spanish</span>
+                    </p>
+                  </div>
+                </div>
+                <div className="contact-icons">
+                  <div className="contact-icon">
+                    <a href="www.facebook.com" target="_blank">
+                      <FontAwesomeIcon
+                        icon={faFacebookF}
+                        className="fab fa-facebook-f"
+                      />
+                    </a>
+                    <a href="#" target="_blank">
+                      <FontAwesomeIcon
+                        icon={faTwitter}
+                        className="fab fa-twitter"
+                      />
+                    </a>
+                    <a href="#" target="_blank">
+                      <FontAwesomeIcon
+                        icon={faGithub}
+                        className="fab fa-github"
+                      />
+                    </a>
+                    <a href="#" target="_blank">
+                      <FontAwesomeIcon
+                        icon={faYoutube}
+                        className="fab fa-youtube"
+                      />
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div className="right-contact">
+                <form action="" className="contact-form">
+                  <div className="input-control i-c-2">
+                    <input type="text" required placeholder="YOUR NAME" />
+                    <input type="email" required placeholder="YOUR EMAIL" />
+                  </div>
+                  <div className="input-control">
+                    <input type="text" required placeholder="ENTER SUBJECT" />
+                  </div>
+                  <div className="input-control">
+                    <textarea
+                      name=""
+                      id=""
+                      cols="15"
+                      rows="8"
+                      placeholder="Message Here..."
+                    ></textarea>
+                  </div>
+                  <div className="submit-btn">
+                    <a href="#" className="main-btn a">
+                      <span className="btn-text">Download CV</span>
+                      <span className="btn-icon">
+                        <FontAwesomeIcon
+                          icon={faDownload}
+                          className="fas fa-download"
+                        />
+                      </span>
+                    </a>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+      <div className="controls">
+        <div className="control active-btn" data-id="home">
+          <FontAwesomeIcon icon={faHome} className="fas fa-home" />
+        </div>
+        <div className="control" data-id="about">
+          <FontAwesomeIcon icon={faUser} className="fas fa-user" />
+        </div>
+        <div className="control" data-id="portfolio">
+          <FontAwesomeIcon icon={faBriefcase} className="fas fa-briefcase" />
+        </div>
+        <div className="control" data-id="contact">
+          <FontAwesomeIcon
+            icon={faEnvelopeOpen}
+            className="fas fa-envelope-open"
+          />
+        </div>
+      </div>
+      <div className="theme-btn">
+        <FontAwesomeIcon icon={faAdjust} className="fas fa-adjust" />
+      </div>
+    </>
+  );
 }
-
-export default page;

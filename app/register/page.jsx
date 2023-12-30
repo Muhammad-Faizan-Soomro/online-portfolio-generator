@@ -27,7 +27,7 @@ function Register() {
    }
    else{
     try {
-      let res = await fetch("https://portfolio-generator-delta.vercel.app/api/register", {
+      let res = await fetch("https://online-portfolio-generator.vercel.app/api/register", {
           method: "POST",
           body: JSON.stringify({
             username: user.username,
