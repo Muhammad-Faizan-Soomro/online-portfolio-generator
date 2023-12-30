@@ -41,7 +41,6 @@ export default function Form({
           download="sample.html"
           target="_blank"
           rel="noreferrer"
-          className="hidden"
         >
           Download Code
         </a>
