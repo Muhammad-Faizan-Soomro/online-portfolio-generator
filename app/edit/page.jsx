@@ -39,6 +39,9 @@ export default function Page() {
   const projects = useSelector((data) => data.projectData.project);
   const skills = useSelector((data) => data.skillData.skill);
 
+  const [codeActive, setCodeActive] = useState("hidden");
+  const [formActive, setFormActive] = useState("show");
+
   const [user_id, setUser_id] = useState("");
   const [fullName, setFullName] = useState("");
   const [profilePicUrl, setProfilePicUrl] = useState("");
@@ -59,40 +62,54 @@ export default function Page() {
   const [mobileNumber, setMobileNumber] = useState("");
   const [email, setEmail] = useState("");
 
+  const toggleTabs = () => {
+    if(codeActive == "hidden"){
+      setCodeActive("show")
+    } else {
+      setCodeActive("hidden")
+    }
+
+    if(formActive == "show"){
+      setFormActive("hidden")
+    } else {
+      setFormActive("show")
+    }
+  }
+
   useEffect(() => {
     setUser_id(localStorage.getItem('user'))
     setTemplate(localStorage.getItem('template'))
   }, [])
 
-  const submitDataToDB = async () => {
-    let result = await fetch("http://localhost:3000/api/detail", {
-      method: "POST",
-      body: JSON.stringify({
-        user_id,
-        template,
-        fullName,
-        workDesc,
-        selfDesc,
-        cvLink,
-        aboutMe,
-        numOfProjects,
-        yearsOfExperience,
-        numOfHappyClients,
-        totalCustomerReviews,
-        skills,
-        experience,
-        projects,
-        location,
-        email,
-        mobileNumber,
-        facebookLink,
-        githubLink,
-        linkedinLink,
-        twitterLink,
-        profilePicUrl,
-      }),
-    });
-  };
+  // const submitDataToDB = async () => {
+  //   let result = await fetch("http://localhost:3000/api/detail", {
+  //     method: "POST",
+  //     body: JSON.stringify({
+  //       user_id,
+  //       template,
+  //       fullName,
+  //       workDesc,
+  //       selfDesc,
+  //       cvLink,
+  //       aboutMe,
+  //       numOfProjects,
+  //       yearsOfExperience,
+  //       numOfHappyClients,
+  //       totalCustomerReviews,
+  //       skills,
+  //       experience,
+  //       projects,
+  //       location,
+  //       email,
+  //       mobileNumber,
+  //       facebookLink,
+  //       githubLink,
+  //       linkedinLink,
+  //       twitterLink,
+  //       profilePicUrl,
+  //     }),
+  //   });
+  // };
 
   let props = {
     fullName,
@@ -179,201 +196,217 @@ export default function Page() {
         profilePicUrl: uploadedImageData.secure_url,
       }),
     });
+
+    if(codeActive == "hidden"){
+      setCodeActive("show")
+    } else {
+      setCodeActive("hidden")
+    }
+
+    if(formActive == "show"){
+      setFormActive("hidden")
+    } else {
+      setFormActive("show")
+    }
   };
 
   return (
     <div>
-      <ExpForm />
-      <br/>
-      <SkillForm />
-      <br/>
-      <ProjectForm />
-      <br/>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <label htmlFor="file_input">Upload Profile Picture</label>
-        <input
-          {...register("profile")}
-          aria-describedby="file_input_help"
-          id="file_input"
-          type="file"
-        />
+      <div className={formActive}>
+        <ExpForm />
         <br/>
-        <label htmlFor="file_input">Upload CV</label>
-        <input
-          {...register("cv")}
-          aria-describedby="file_input_help"
-          id="file_input"
-          type="file"
-        />
+        <SkillForm />
         <br/>
-        <input
-          type="text"
-          value={user_id}
-          placeholder="User ID"
-          onChange={(e) => setUser_id(e.target.value)}
-          disabled
-        />
+        <ProjectForm />
         <br/>
-        <input
-          type="text"
-          value={fullName}
-          placeholder="Full Name"
-          onChange={(e) => setFullName(e.target.value)}
-        />
-        <br/>
-        <input
-          type="text"
-          value={template}
-          placeholder="Template Name"
-          onChange={(e) => setTemplate(e.target.value)}
-          disabled
-        />
-        <br/>
-        <input
-          type="text"
-          value={workDesc}
-          placeholder="Work Description"
-          onChange={(e) => setWorkDesc(e.target.value)}
-        />
-        <br/>
-        <input
-          type="text"
-          value={selfDesc}
-          placeholder="Self Description"
-          onChange={(e) => setSelfDesc(e.target.value)}
-        />
-        <br/>
-        <input
-          type="text"
-          value={aboutMe}
-          placeholder="About Yourself"
-          onChange={(e) => setAboutMe(e.target.value)}
-        />
-        <br/>
-        <input
-          type="text"
-          value={numOfProjects}
-          placeholder="Number of projects you have completed"
-          onChange={(e) => setNumOfProjects(e.target.value)}
-        />
-        <br/>
-        <input
-          type="text"
-          value={yearsOfExperience}
-          placeholder="Years of experience"
-          onChange={(e) => setYearsOfExperience(e.target.value)}
-        />
-        <br/>
-        <input
-          type="text"
-          value={numOfHappyClients}
-          placeholder="Number of satisfied clients"
-          onChange={(e) => setNumOfHappyClients(e.target.value)}
-        />
-        <br/>
-        <input
-          type="text"
-          value={totalCustomerReviews}
-          placeholder="Number of Customer Reviews"
-          onChange={(e) => setTotalCustomerReviews(e.target.value)}
-        />
-        <br/>
-        <input
-          type="text"
-          value={facebookLink}
-          placeholder="Facebook link"
-          onChange={(e) => setFacebookLink(e.target.value)}
-        />
-        <br/>
-        <input
-          type="text"
-          value={githubLink}
-          placeholder="Github Link"
-          onChange={(e) => setGithubLink(e.target.value)}
-        />
-        <br/>
-        <input
-          type="text"
-          value={twitterLink}
-          placeholder="Twitter Link"
-          onChange={(e) => setTwitterLink(e.target.value)}
-        />
-        <br/>
-        <input
-          type="text"
-          value={linkedinLink}
-          placeholder="LinkedIn Link"
-          onChange={(e) => setLinkedinLink(e.target.value)}
-        />
-        <br/>
-        <input
-          type="text"
-          value={location}
-          placeholder="Enter your location"
-          onChange={(e) => setLocation(e.target.value)}
-        />
-        <br/>
-        <input
-          type="text"
-          value={email}
-          placeholder="Your Email"
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <br/>
-        <input
-          type="text"
-          value={mobileNumber}
-          placeholder="Give your contact number"
-          onChange={(e) => setMobileNumber(e.target.value)}
-        />
-        <br/>
-        <button type="submit">Next Step</button>
-      </form>
-
-      {/* <button onClick={submitDataToDB}>Send to DB</button> */}
-
-      <div>
-        <h1>Experience Added</h1>
-        {experience.map((item) => (
-          <div key={item.startDate}>
-            <p>{item.companyName}</p>
-            <p>{item.jobTitle}</p>
-            <p>{item.jobDescription}</p>
-            <p>{item.startDate}</p>
-            <p>{item.endDate}</p>
-            <button onClick={() => dispatch(removeExp(item.id))}>Remove</button>
-          </div>
-        ))}
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <label htmlFor="file_input">Upload Profile Picture</label>
+          <input
+            {...register("profile")}
+            aria-describedby="file_input_help"
+            id="file_input"
+            type="file"
+          />
+          <br/>
+          <label htmlFor="file_input">Upload CV</label>
+          <input
+            {...register("cv")}
+            aria-describedby="file_input_help"
+            id="file_input"
+            type="file"
+          />
+          <br/>
+          <input
+            type="text"
+            value={user_id}
+            placeholder="User ID"
+            onChange={(e) => setUser_id(e.target.value)}
+            disabled
+          />
+          <br/>
+          <input
+            type="text"
+            value={fullName}
+            placeholder="Full Name"
+            onChange={(e) => setFullName(e.target.value)}
+          />
+          <br/>
+          <input
+            type="text"
+            value={template}
+            placeholder="Template Name"
+            onChange={(e) => setTemplate(e.target.value)}
+            disabled
+          />
+          <br/>
+          <input
+            type="text"
+            value={workDesc}
+            placeholder="Work Description"
+            onChange={(e) => setWorkDesc(e.target.value)}
+          />
+          <br/>
+          <input
+            type="text"
+            value={selfDesc}
+            placeholder="Self Description"
+            onChange={(e) => setSelfDesc(e.target.value)}
+          />
+          <br/>
+          <input
+            type="text"
+            value={aboutMe}
+            placeholder="About Yourself"
+            onChange={(e) => setAboutMe(e.target.value)}
+          />
+          <br/>
+          <input
+            type="text"
+            value={numOfProjects}
+            placeholder="Number of projects you have completed"
+            onChange={(e) => setNumOfProjects(e.target.value)}
+          />
+          <br/>
+          <input
+            type="text"
+            value={yearsOfExperience}
+            placeholder="Years of experience"
+            onChange={(e) => setYearsOfExperience(e.target.value)}
+          />
+          <br/>
+          <input
+            type="text"
+            value={numOfHappyClients}
+            placeholder="Number of satisfied clients"
+            onChange={(e) => setNumOfHappyClients(e.target.value)}
+          />
+          <br/>
+          <input
+            type="text"
+            value={totalCustomerReviews}
+            placeholder="Number of Customer Reviews"
+            onChange={(e) => setTotalCustomerReviews(e.target.value)}
+          />
+          <br/>
+          <input
+            type="text"
+            value={facebookLink}
+            placeholder="Facebook link"
+            onChange={(e) => setFacebookLink(e.target.value)}
+          />
+          <br/>
+          <input
+            type="text"
+            value={githubLink}
+            placeholder="Github Link"
+            onChange={(e) => setGithubLink(e.target.value)}
+          />
+          <br/>
+          <input
+            type="text"
+            value={twitterLink}
+            placeholder="Twitter Link"
+            onChange={(e) => setTwitterLink(e.target.value)}
+          />
+          <br/>
+          <input
+            type="text"
+            value={linkedinLink}
+            placeholder="LinkedIn Link"
+            onChange={(e) => setLinkedinLink(e.target.value)}
+          />
+          <br/>
+          <input
+            type="text"
+            value={location}
+            placeholder="Enter your location"
+            onChange={(e) => setLocation(e.target.value)}
+          />
+          <br/>
+          <input
+            type="text"
+            value={email}
+            placeholder="Your Email"
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <br/>
+          <input
+            type="text"
+            value={mobileNumber}
+            placeholder="Give your contact number"
+            onChange={(e) => setMobileNumber(e.target.value)}
+          />
+          <br/>
+          <button type="submit">Next Step</button>
+        </form>
+  
+        {/* <button onClick={submitDataToDB}>Send to DB</button> */}
+  
+        <div>
+          <h1>Experience Added</h1>
+          {experience.map((item) => (
+            <div key={item.startDate}>
+              <p>{item.companyName}</p>
+              <p>{item.jobTitle}</p>
+              <p>{item.jobDescription}</p>
+              <p>{item.startDate}</p>
+              <p>{item.endDate}</p>
+              <button onClick={() => dispatch(removeExp(item.id))}>Remove</button>
+            </div>
+          ))}
+        </div>
+  
+        <div>
+          <h1>Projects Added</h1>
+          {projects.map((item) => (
+            <div key={item.liveLink}>
+              <p>{item.image}</p>
+              <p>{item.githubLink}</p>
+              <p>{item.liveLink}</p>
+              <button onClick={() => dispatch(removeProject(item.id))}>
+                Remove
+              </button>
+            </div>
+          ))}
+        </div>
+  
+        <div>
+          <h1>Skills Added</h1>
+          {skills.map((item) => (
+            <div key={item.name}>
+              <p>{item.name}</p>
+              <p>{item.percentage}</p>
+              <button onClick={() => dispatch(removeSkill(item.id))}>
+                Remove
+              </button>
+            </div>
+          ))}
+        </div>
       </div>
-
-      <div>
-        <h1>Projects Added</h1>
-        {projects.map((item) => (
-          <div key={item.liveLink}>
-            <p>{item.image}</p>
-            <p>{item.githubLink}</p>
-            <p>{item.liveLink}</p>
-            <button onClick={() => dispatch(removeProject(item.id))}>
-              Remove
-            </button>
-          </div>
-        ))}
+      <button onClick={() => toggleTabs()} className={codeActive}>Hide Code</button>
+      <div className={codeActive}>
+        <Form {...props} />
       </div>
-
-      <div>
-        <h1>Skills Added</h1>
-        {skills.map((item) => (
-          <div key={item.name}>
-            <p>{item.name}</p>
-            <p>{item.percentage}</p>
-            <button onClick={() => dispatch(removeSkill(item.id))}>
-              Remove
-            </button>
-          </div>
-        ))}
-      </div>
-
-      <Form {...props} />
     </div>
   );
 }
