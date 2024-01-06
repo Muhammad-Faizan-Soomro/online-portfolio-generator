@@ -33,16 +33,16 @@ export default function ProjectForm() {
   };
   return (
     <div>
-      <form className="mt-60 mx-16" onSubmit={handleSubmit(onSubmit)}>
+      <form  className='w-full h-full flex flex-col gap-4  items-center justify-center' onSubmit={handleSubmit(onSubmit)}>
         <label
-          className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+          className="font-bold text-orange-400 text-xl"
           htmlFor="file_input"
         >
           Upload Project Screenshot
         </label>
         <input
           {...register("profile")}
-          className="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
+          className="text-orange-400 font-bold"
           aria-describedby="file_input_help"
           id="file_input"
           type="file"
@@ -51,6 +51,7 @@ export default function ProjectForm() {
         <input
           type="text"
           value={githubLink}
+          className='w-64 h-14  mt-2 rounded-lg md:w-80 lg:w-[900px] border-2 border-orange-400'
           placeholder="Input Github Repo Link"
           onChange={(e) => setGithubLink(e.target.value)}
         />
@@ -59,11 +60,12 @@ export default function ProjectForm() {
           value={liveLink}
           placeholder="Input Live Link"
           onChange={(e) => setLiveLink(e.target.value)}
+          className='w-64 h-14 mt-2 rounded-lg  md:w-80 lg:w-[900px] border-2 border-orange-400'
         />
         <button
           type="submit"
-          className="text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-lime-300 dark:focus:ring-lime-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 my-4"
-        >
+          className="px-6 py-4 mt-2 text-white font-bold  rounded-lg  bg-orange-400"
+          >
           Add Project
         </button>
         {/* <button onClick={submitProject}>Done</button> */}
