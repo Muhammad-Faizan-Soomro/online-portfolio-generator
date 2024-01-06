@@ -225,6 +225,7 @@ export default function Page() {
         onSubmit={handleSubmit(onSubmit)}>
           <label htmlFor="file_input"   className="text-orange-400 font-bold text-xl mb-2">Upload Profile Picture</label>
           <input
+            {...register("profile")}
             className="text-orange-400 font-bold"
             aria-describedby="file_input_help"
             id="file_input"
