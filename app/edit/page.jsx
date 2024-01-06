@@ -212,6 +212,7 @@ export default function Page() {
 
   return (
     <div>
+      <h1 className="font-extrabold text-center text-2xl lg:text-5xl text-orange-400 mb-4">PLEASE FILL THE FORM </h1>
       <div className={formActive}>
         <ExpForm />
         <br/>
@@ -219,21 +220,24 @@ export default function Page() {
         <br/>
         <ProjectForm />
         <br/>
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <label htmlFor="file_input">Upload Profile Picture</label>
+        <form
+        className='w-full h-full flex flex-col   items-center justify-center'
+        onSubmit={handleSubmit(onSubmit)}>
+          <label htmlFor="file_input"   className="text-orange-400 font-bold text-xl mb-2">Upload Profile Picture</label>
           <input
-            {...register("profile")}
+            className="text-orange-400 font-bold"
             aria-describedby="file_input_help"
             id="file_input"
             type="file"
           />
           <br/>
-          <label htmlFor="file_input">Upload CV</label>
+          <label htmlFor="file_input" className="font-bold mb-2 mt-2 text-orange-400 text-xl">Upload CV</label>
           <input
             {...register("cv")}
             aria-describedby="file_input_help"
             id="file_input"
             type="file"
+            className="text-orange-400 font-bold"
           />
           <br/>
           <input
@@ -241,10 +245,12 @@ export default function Page() {
             value={user_id}
             placeholder="User ID"
             onChange={(e) => setUser_id(e.target.value)}
+            className='w-64 h-14  mt-2 rounded-lg  md:w-80 lg:w-[900px] border-2 border-orange-400'
             disabled
           />
           <br/>
           <input
+               className='w-64 h-14  mt-2 rounded-lg  md:w-80 lg:w-[900px]  border-2 border-orange-400'
             type="text"
             value={fullName}
             placeholder="Full Name"
@@ -256,6 +262,7 @@ export default function Page() {
             value={template}
             placeholder="Template Name"
             onChange={(e) => setTemplate(e.target.value)}
+            className='w-64 h-14  mt-2 rounded-lg  border-2  md:w-80 lg:w-[900px] border-orange-400'
             disabled
           />
           <br/>
@@ -264,6 +271,7 @@ export default function Page() {
             value={workDesc}
             placeholder="Work Description"
             onChange={(e) => setWorkDesc(e.target.value)}
+            className='w-64 h-14  mt-2 rounded-lg  border-2 border-orange-400  md:w-80 lg:w-[900px]'
           />
           <br/>
           <input
@@ -271,6 +279,7 @@ export default function Page() {
             value={selfDesc}
             placeholder="Self Description"
             onChange={(e) => setSelfDesc(e.target.value)}
+            className='w-64 h-14  mt-2 rounded-lg  border-2 border-orange-400  md:w-80 lg:w-[900px]'
           />
           <br/>
           <input
@@ -278,6 +287,7 @@ export default function Page() {
             value={aboutMe}
             placeholder="About Yourself"
             onChange={(e) => setAboutMe(e.target.value)}
+            className='w-64 h-14  mt-2 rounded-lg  border-2 border-orange-400  md:w-80 lg:w-[900px]'
           />
           <br/>
           <input
@@ -285,6 +295,7 @@ export default function Page() {
             value={numOfProjects}
             placeholder="Number of projects you have completed"
             onChange={(e) => setNumOfProjects(e.target.value)}
+            className='w-64 h-14  mt-2 rounded-lg  border-2 border-orange-400  md:w-80 lg:w-[900px]'
           />
           <br/>
           <input
@@ -292,6 +303,7 @@ export default function Page() {
             value={yearsOfExperience}
             placeholder="Years of experience"
             onChange={(e) => setYearsOfExperience(e.target.value)}
+            className='w-64 h-14  mt-2 rounded-lg  border-2 border-orange-400  md:w-80 lg:w-[900px]'
           />
           <br/>
           <input
@@ -299,6 +311,7 @@ export default function Page() {
             value={numOfHappyClients}
             placeholder="Number of satisfied clients"
             onChange={(e) => setNumOfHappyClients(e.target.value)}
+            className='w-64 h-14  mt-2 rounded-lg  border-2 border-orange-400  md:w-80 lg:w-[900px]'
           />
           <br/>
           <input
@@ -306,6 +319,7 @@ export default function Page() {
             value={totalCustomerReviews}
             placeholder="Number of Customer Reviews"
             onChange={(e) => setTotalCustomerReviews(e.target.value)}
+            className='w-64 h-14  mt-2 rounded-lg  border-2 border-orange-400  md:w-80 lg:w-[900px]'
           />
           <br/>
           <input
@@ -313,6 +327,7 @@ export default function Page() {
             value={facebookLink}
             placeholder="Facebook link"
             onChange={(e) => setFacebookLink(e.target.value)}
+            className='w-64 h-14  mt-2 rounded-lg  border-2 border-orange-400  md:w-80 lg:w-[900px]'
           />
           <br/>
           <input
@@ -320,6 +335,7 @@ export default function Page() {
             value={githubLink}
             placeholder="Github Link"
             onChange={(e) => setGithubLink(e.target.value)}
+            className='w-64 h-14  mt-2 rounded-lg  border-2 border-orange-400  md:w-80 lg:w-[900px]'
           />
           <br/>
           <input
@@ -327,6 +343,7 @@ export default function Page() {
             value={twitterLink}
             placeholder="Twitter Link"
             onChange={(e) => setTwitterLink(e.target.value)}
+            className='w-64 h-14  mt-2 rounded-lg  border-2 border-orange-400  md:w-80 lg:w-[900px]'
           />
           <br/>
           <input
@@ -334,18 +351,21 @@ export default function Page() {
             value={linkedinLink}
             placeholder="LinkedIn Link"
             onChange={(e) => setLinkedinLink(e.target.value)}
+            className='w-64 h-14  mt-2 rounded-lg  border-2 border-orange-400  md:w-80 lg:w-[900px]'
           />
           <br/>
           <input
             type="text"
             value={location}
             placeholder="Enter your location"
+            className='w-64 h-14  mt-2 rounded-lg  border-2 border-orange-400  md:w-80 lg:w-[900px]'
             onChange={(e) => setLocation(e.target.value)}
           />
           <br/>
           <input
             type="text"
             value={email}
+            className='w-64 h-14  mt-2 rounded-lg   md:w-80 lg:w-[900px] border-2 border-orange-400'
             placeholder="Your Email"
             onChange={(e) => setEmail(e.target.value)}
           />
@@ -354,16 +374,19 @@ export default function Page() {
             type="text"
             value={mobileNumber}
             placeholder="Give your contact number"
+            className='w-64 h-14  mt-2 rounded-lg  border-2  md:w-80 lg:w-[900px] border-orange-400'
             onChange={(e) => setMobileNumber(e.target.value)}
           />
           <br/>
-          <button type="submit">Next Step</button>
+          <button type="submit"
+        className='px-6 py-4 text-white font-bold rounded-lg  bg-orange-400'
+          >Next Step</button>
         </form>
   
         {/* <button onClick={submitDataToDB}>Send to DB</button> */}
   
         <div>
-          <h1>Experience Added</h1>
+          <h1 className="text-xl font-bold text-center text-orange-400">Experience Added</h1>
           {experience.map((item) => (
             <div key={item.startDate}>
               <p>{item.companyName}</p>
@@ -377,7 +400,7 @@ export default function Page() {
         </div>
   
         <div>
-          <h1>Projects Added</h1>
+          <h1 className="text-xl font-bold text-center text-orange-400">Projects Added</h1>
           {projects.map((item) => (
             <div key={item.liveLink}>
               <p>{item.image}</p>
@@ -391,7 +414,7 @@ export default function Page() {
         </div>
   
         <div>
-          <h1>Skills Added</h1>
+          <h1 className="text-xl font-bold text-center text-orange-400">Skills Added</h1>
           {skills.map((item) => (
             <div key={item.name}>
               <p>{item.name}</p>
