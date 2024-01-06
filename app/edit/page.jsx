@@ -212,7 +212,8 @@ export default function Page() {
 
   return (
     <div>
-      <h1 className="font-extrabold text-center text-2xl lg:text-5xl text-orange-400 mb-4">PLEASE FILL THE FORM </h1>
+      {formActive == 'show' ?
+      <h1 className="font-extrabold text-center text-2xl lg:text-5xl text-orange-400 mb-4">PLEASE FILL THE FORM </h1> : <h1 className="font-extrabold text-center text-2xl lg:text-5xl text-orange-400 mb-4">DOWNLOAD CODE</h1>}
       <div className={formActive}>
         <ExpForm />
         <br/>
