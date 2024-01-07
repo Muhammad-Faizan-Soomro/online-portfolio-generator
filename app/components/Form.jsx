@@ -35,7 +35,9 @@ export default function Form({
 
   return (
     <div className="Code">
-      <button onClick={download}>
+      <button onClick={download}
+        className='px-6 py-4 text-white font-bold rounded-lg  bg-orange-400 mt-8 '
+      >
         <a
           id="a1"
           download="sample.html"
