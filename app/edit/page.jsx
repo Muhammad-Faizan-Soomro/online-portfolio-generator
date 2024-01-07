@@ -479,7 +479,7 @@ export default function Page() {
                 <span className="font-bold underline text-orange-400">
                   IMAGE URL:
                 </span>
-                {item.image}
+                {item.image.slice(0,27)}
               </p>
               <p>
                 {" "}
