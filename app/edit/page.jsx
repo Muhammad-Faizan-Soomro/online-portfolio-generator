@@ -30,6 +30,8 @@ import { removeProject } from "../redux/projectSlice";
 import { removeSkill } from "../redux/skillSlice";
 import Form from "../components/Form";
 import { useForm } from "react-hook-form";
+import { FaArrowRight } from "react-icons/fa6"
+import { ImCross } from "react-icons/im";
 
 export default function Page() {
   const { register, handleSubmit } = useForm();
@@ -212,8 +214,7 @@ export default function Page() {
 
   return (
     <div>
-      {formActive == 'show' ?
-      <h1 className="font-extrabold text-center text-2xl lg:text-5xl text-orange-400 mb-4">PLEASE FILL THE FORM </h1> : <h1 className="font-extrabold text-center text-2xl lg:text-5xl text-orange-400 mb-4">DOWNLOAD CODE</h1>}
+      <h1 className="font-extrabold text-center text-2xl lg:text-5xl text-orange-400 mb-4">PLEASE FILL THE FORM </h1>
       <div className={formActive}>
         <ExpForm />
         <br/>
@@ -226,7 +227,7 @@ export default function Page() {
         onSubmit={handleSubmit(onSubmit)}>
           <label htmlFor="file_input"   className="text-orange-400 font-bold text-xl mb-2">Upload Profile Picture</label>
           <input
-            {...register("profile")}
+           {...register("profile")}
             className="text-orange-400 font-bold"
             aria-describedby="file_input_help"
             id="file_input"
@@ -381,54 +382,56 @@ export default function Page() {
           />
           <br/>
           <button type="submit"
-        className='px-6 py-4 text-white font-bold rounded-lg  bg-orange-400'
-          >Next Step</button>
+        className='px-6 py-4 text-white font-bold rounded-lg  bg-orange-400 flex items-center justify-center gap-2 mb-4'
+          >Proceed To Next Step <FaArrowRight/></button>
         </form>
   
         {/* <button onClick={submitDataToDB}>Send to DB</button> */}
   
         <div>
-          <h1 className="text-xl font-bold text-center text-orange-400">Experience Added</h1>
+          <h1 className="text-xl lg:text-4xl font-extrabold text-center text-orange-400">Experience Added</h1>
           {experience.map((item) => (
-            <div key={item.startDate}>
-              <p>{item.companyName}</p>
-              <p>{item.jobTitle}</p>
-              <p>{item.jobDescription}</p>
-              <p>{item.startDate}</p>
-              <p>{item.endDate}</p>
-              <button onClick={() => dispatch(removeExp(item.id))}>Remove</button>
-            </div>
-          ))}
-        </div>
-  
-        <div>
-          <h1 className="text-xl font-bold text-center text-orange-400">Projects Added</h1>
-          {projects.map((item) => (
-            <div key={item.liveLink}>
-              <p>{item.image}</p>
-              <p>{item.githubLink}</p>
-              <p>{item.liveLink}</p>
-              <button onClick={() => dispatch(removeProject(item.id))}>
-                Remove
+            <div key={item.startDate} className="w-max text-xl relative mx-auto shadow-md  border-2 font-bold flex flex-col items-center justify-center">
+              <p> <span className="font-bold underline text-orange-400">COMPANY NAME:</span>{item.companyName}</p>
+              <p>  <span className="font-bold underline text-orange-400">JOB TITLE:</span>{item.jobTitle}</p>
+              <p>  <span className="font-bold underline text-orange-400">JOB DESCRIPTION:</span>{item.jobDescription}</p>
+              <p>  <span className="font-bold underline text-orange-400">START DATE:</span>{item.startDate}</p>
+              <p>  <span className="font-bold underline text-orange-400">END DATE:</span>{item.endDate}</p>
+              <button className="px-6 py-4 gap-2  text-white font-bold bg-orange-400 flex items-center justify-center mt-2 mb-2 " onClick={() => dispatch(removeExp(item.id))}>Remove
+              <ImCross/>
               </button>
             </div>
           ))}
         </div>
   
         <div>
-          <h1 className="text-xl font-bold text-center text-orange-400">Skills Added</h1>
+          <h1 className="text-xl lg:text-4xl font-extrabold text-center text-orange-400">Projects Added</h1>
+          {projects.map((item) => (
+            <div key={item.liveLink} className="w-max text-xl relative mx-auto shadow-md  border-2 font-bold flex flex-col items-center justify-center">
+              <p> <span className="font-bold underline text-orange-400">IMAGE URL:</span>{item.image}</p>
+              <p> <span className="font-bold underline text-orange-400">GITHUB LINK:</span>{item.githubLink}</p>
+              <p> <span className="font-bold underline text-orange-400">LIVE:</span>{item.liveLink}</p>
+              <button  className="px-6 py-4 gap-2  text-white font-bold bg-orange-400 flex items-center justify-center mt-2 mb-2" onClick={() => dispatch(removeProject(item.id))}>
+                Remove <ImCross/>
+              </button>
+            </div>
+          ))}
+        </div>
+  
+        <div>
+          <h1 className="text-xl lg:text-4xl font-extrabold text-center text-orange-400">Skills Added</h1>
           {skills.map((item) => (
-            <div key={item.name}>
-              <p>{item.name}</p>
-              <p>{item.percentage}</p>
-              <button onClick={() => dispatch(removeSkill(item.id))}>
-                Remove
+            <div key={item.name} className="w-max text-xl relative mx-auto shadow-md  border-2 font-bold flex flex-col items-center justify-center ">
+              <p>  <span className="font-bold underline text-orange-400">SKILL:</span>{item.name}</p>
+              <p>{item.percentage}  <span className="font-bold underline text-orange-400">%</span></p>
+              <button className="px-6 py-4 gap-2  text-white font-bold bg-orange-400 flex items-center justify-center mt-2 mb-2 "  onClick={() => dispatch(removeSkill(item.id))}>
+                Remove <ImCross/>
               </button>
             </div>
           ))}
         </div>
       </div>
-      <button onClick={() => toggleTabs()} className={codeActive}>Hide Code</button>
+      <button onClick={() => toggleTabs()} className={codeActive}><span   className='px-6 py-4 text-white font-bold rounded-lg  bg-orange-400 mt-8'>Back To Form</span></button>
       <div className={codeActive}>
         <Form {...props} />
       </div>
