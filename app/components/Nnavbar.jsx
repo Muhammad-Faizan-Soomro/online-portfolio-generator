@@ -128,12 +128,21 @@ function Navbar() {
             hide ? "hidden" : "flex"
           } div w-screen z-50 relative  bg-[#fef4ea] opacity-90 h-screen border-t-4 dark:bg-white  flex-col items-center justify-center gap-10`}
         >
-          <Link
-            href="#"
-            className="text-orange-400 font-bold text-xl dark:text-black"
-          >
-            My Portfolio
-          </Link>
+          {pathName == "/home" ? (
+            <Link
+              href="/my-portfolios"
+              className="font-bold text-orange-400 text-xl dark:text-black"
+            >
+              My Portfolios
+            </Link>
+          ) : (
+            <Link
+              href="/home"
+              className="font-bold text-orange-400 text-xl dark:text-black"
+            >
+              Create New Portfolio
+            </Link>
+          )}
           <button
             className="w-[100px] h-[50px] bg-orange-400 text-white font-bold rounded-sm dark:bg-blue-400"
             onClick={() => signout()}
