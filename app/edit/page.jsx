@@ -294,6 +294,7 @@ export default function Page() {
             placeholder="Work Description"
             onChange={(e) => setWorkDesc(e.target.value)}
             className="w-64 h-14  mt-2 rounded-lg  border-2 border-orange-400  md:w-80 lg:w-[900px]"
+            required
           />
           <br />
           <input
@@ -302,6 +303,7 @@ export default function Page() {
             placeholder="Self Description"
             onChange={(e) => setSelfDesc(e.target.value)}
             className="w-64 h-14  mt-2 rounded-lg  border-2 border-orange-400  md:w-80 lg:w-[900px]"
+            required
           />
           <br />
           <input
@@ -310,6 +312,7 @@ export default function Page() {
             placeholder="About Yourself"
             onChange={(e) => setAboutMe(e.target.value)}
             className="w-64 h-14  mt-2 rounded-lg  border-2 border-orange-400  md:w-80 lg:w-[900px]"
+            required
           />
           <br />
           <input
@@ -318,6 +321,7 @@ export default function Page() {
             placeholder="Number of projects you have completed"
             onChange={(e) => setNumOfProjects(e.target.value)}
             className="w-64 h-14  mt-2 rounded-lg  border-2 border-orange-400  md:w-80 lg:w-[900px]"
+            required
           />
           <br />
           <input
@@ -350,6 +354,7 @@ export default function Page() {
             placeholder="Facebook link"
             onChange={(e) => setFacebookLink(e.target.value)}
             className="w-64 h-14  mt-2 rounded-lg  border-2 border-orange-400  md:w-80 lg:w-[900px]"
+            required
           />
           <br />
           <input
@@ -358,6 +363,7 @@ export default function Page() {
             placeholder="Github Link"
             onChange={(e) => setGithubLink(e.target.value)}
             className="w-64 h-14  mt-2 rounded-lg  border-2 border-orange-400  md:w-80 lg:w-[900px]"
+            required
           />
           <br />
           <input
@@ -390,6 +396,7 @@ export default function Page() {
             className="w-64 h-14  mt-2 rounded-lg   md:w-80 lg:w-[900px] border-2 border-orange-400"
             placeholder="Your Email"
             onChange={(e) => setEmail(e.target.value)}
+            required
           />
           <br />
           <input
@@ -402,7 +409,8 @@ export default function Page() {
           <br />
           <button
             type="submit"
-            className="px-6 py-4 text-white font-bold rounded-lg  bg-orange-400 flex items-center justify-center gap-2 mb-4"
+            className="px-6 py-4 text-white font-bold rounded-lg  bg-orange-400 flex items-center justify-center gap-2 mb-4 disabled:bg-[#FDA172] disabled:font-normal disabled:px-3 disabled:py-2"
+            disabled= {fullName && workDesc && aboutMe && selfDesc && facebookLink && githubLink && email ? false : true}
           >
             Proceed To Next Step <FaArrowRight />
           </button>

@@ -29,7 +29,8 @@ export default function SkillForm() {
         />
         <button
         onClick={submitSkill}
-        className='px-6 py-4 text-white font-bold rounded-lg  bg-orange-400'
+        className='px-6 py-4 text-white font-bold rounded-lg  bg-orange-400 disabled:bg-[#FDA172] disabled:font-normal disabled:px-3 disabled:py-2'
+        disabled= {name ? false : true}
         >Add Skill</button>
         {/* <button onClick={removeExp}>Remove</button> */}
     </div>
