@@ -16,12 +16,10 @@ function MyPortfolios({ data }) {
     setUserId(localStorage.getItem("user"));
   }, []);
   return (
-    <>
-      
+ 
+       <div className="templates w-full h-full   flex flex-col gap-10  lag:gap-4 lg:px-10  lg:grid grid-cols-3 lg:mb-2  items-center justify-start pt-4">
         {data.map((datas) =>
-          datas.user_id == userId ? (
-            <>
-              <div className="templates w-full h-full   flex flex-col gap-10  lag:gap-4 lg:px-10  lg:grid grid-cols-3 lg:mb-2  items-center justify-start pt-4">
+          datas.user_id == userId ? (        
                 <div className="template8  group relative overflow-hidden border-2  dark:border-white  w-[350px] h-[230px]  flex flex-col">
                   <div className="img w-[100%] h-[100%] ">
                     <Image
@@ -51,11 +49,10 @@ function MyPortfolios({ data }) {
                     </Link>
                   </div>
                 </div>
-              </div>
-            </>
           ) : null
         )}
-    </>
+            
+      </div>
   );
 }
 
