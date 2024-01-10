@@ -66,11 +66,11 @@ function Navbar() {
 
         <div className="img">
           {theme === "dark" ? (
-            <Link href={"/"}>
+            <Link href={"/home"}>
               <Image src={logo1} width={200} alt="logo.png" />
             </Link>
           ) : (
-            <Link href={"/"}>
+            <Link href={"/home"}>
               <Image src={logo} width={200} alt="logo.png" />
             </Link>
           )}
@@ -101,11 +101,11 @@ function Navbar() {
       <div className="nav lg:hidden h-16 w-screen border-2 dark:border-b-1 dark:border-white dark:bg-[#0b1120] flex justify-center ">
         <div className="items flex items-center justify-evenly gap-10">
           {theme === "dark" ? (
-            <Link href={"/"}>
+            <Link href={"/home"}>
               <Image src={logo1} width={150} alt="logo.png" />
             </Link>
           ) : (
-            <Link href={"/"}>
+            <Link href={"/home"}>
               <Image src={logo} width={150} alt="logo.png" />
             </Link>
           )}
@@ -123,7 +123,9 @@ function Navbar() {
           </button>
         </div>
 
-        <div
+       
+      </div>
+      <div
           className={`${
             hide ? "hidden" : "flex"
           } div w-screen z-50 relative  bg-[#fef4ea] opacity-90 h-screen border-t-4 dark:bg-white  flex-col items-center justify-center gap-10`}
@@ -150,7 +152,6 @@ function Navbar() {
             LOGOUT
           </button>
         </div>
-      </div>
     </>
   );
 }
