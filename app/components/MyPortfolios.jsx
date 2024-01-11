@@ -13,8 +13,7 @@ function MyPortfolios({ data }) {
   let [userId, setUserId] = useState("");
   useEffect(() => {
     // Perform localStorage action
-    //setUserId(localStorage.getItem("user"));
-    setUserId("faizan")
+    setUserId(localStorage.getItem("user"));
   }, []);
   return (
     <div className="templates w-full h-full   flex flex-col gap-10  lag:gap-4 lg:px-10  lg:grid grid-cols-3 lg:mb-2  items-center justify-start pt-4">
