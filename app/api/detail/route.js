@@ -20,3 +20,12 @@ export async function POST(request){
     const result = await detail.save()
     return NextResponse.json({result})
 }
+
+export async function PUT(request){
+    const payload = await request.json()
+    const portfolioId = payload._id
+    const filter = { _id: portfolioId }
+    await ConnectDB()
+    const result = await Detail.findOneAndUpdate(filter,payload)
+    return NextResponse.json({result})
+}

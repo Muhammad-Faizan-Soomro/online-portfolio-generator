@@ -19,10 +19,13 @@ const Slice = createSlice({
         },
         removeSkill: (state,action) => {
             state.skill = state.skill.filter((item) => item.id !== action.payload)
+        },
+        removeAllSkill: (state,action) => {
+            state.skill = []
         }
     }
 })
 
 
-export const {addSkill, removeSkill} = Slice.actions
+export const {addSkill, removeSkill, removeAllSkill} = Slice.actions
 export default Slice.reducer

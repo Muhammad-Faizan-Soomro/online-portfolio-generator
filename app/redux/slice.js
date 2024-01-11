@@ -23,10 +23,13 @@ const Slice = createSlice({
 
         removeExp: (state,action) => {
             state.experience = state.experience.filter((item) => item.id !== action.payload)
+        },
+        removeAllExp: (state,action) => {
+            state.experience = []
         }
     }
 })
 
 
-export const {addExp, removeExp} = Slice.actions
+export const {addExp, removeExp, removeAllExp} = Slice.actions
 export default Slice.reducer
