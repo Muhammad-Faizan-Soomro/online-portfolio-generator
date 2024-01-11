@@ -67,26 +67,31 @@ export default function EditForm({ postData }) {
   );
   const [email, setEmail] = useState(postData[0].email || "");
 
+  if(postData){
   useEffect(() => {
     if (postData[0].experience.length != 0) {
       dispatch(removeAllExp());
       postData[0].experience.map((exp) => dispatch(addExp(exp)));
     }
-  }, [postData]);
+  }, [postData])}
 
+
+  if(postData){
   useEffect(() => {
     if (postData[0].skills.length != 0) {
       dispatch(removeAllSkill());
       postData[0].skills.map((skill) => dispatch(addSkill(skill)));
     }
-  }, [postData]);
+  }, [postData])}
 
+
+  if(postData){
   useEffect(() => {
     if (postData[0].projects.length != 0) {
       dispatch(removeAllProject());
       postData[0].projects.map((proj) => dispatch(addProject(proj)));
     }
-  }, [postData]);
+  }, [postData])}
 
   const toggleTabs = () => {
     if (codeActive == "hidden") {
