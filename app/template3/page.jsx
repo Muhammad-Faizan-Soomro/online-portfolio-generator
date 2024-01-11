@@ -1,7 +1,13 @@
 "use client";
 import React from "react";
 import { MdWbSunny } from "react-icons/md";
-import { FaMoon } from "react-icons/fa";
+import {
+  FaFacebook,
+  FaInstagram,
+  FaLinkedin,
+  FaMoon,
+  FaTwitter,
+} from "react-icons/fa";
 import Link from "next/link";
 import Image from "next/image";
 import pic from "../../public/template3/hero.png";
@@ -20,8 +26,8 @@ function Page() {
     <>
       <section>
         <div className="nav w-screen h-14 fixed top-0 dark:opacity-80 border-b-2 dark:border-0  mb-2   dark:bg-[#0f172a] flex items-center justify-evenly">
-          <p className="text-[#14b8a6] text-xl font-bold">shehryarnasir</p>
-          <div className="l-links hidden md:flex gap-10 ">
+          <p className="text-[#14b8a6] text-xl font-bold">ShehryarNasir</p>
+          <div className="l-links hidden md:flex gap-10 text-2xl ">
             <Link
               href={"#proj"}
               className="text-[#of172a] hover:text-[#14b8a6] font-bold"
@@ -82,7 +88,7 @@ function Page() {
         </div>
       </section>
 
-      <section id="about">
+      <section>
         <div className="hero flex w-full h-full flex-col  lg:flex-row  mt-14  dark:bg-[#0f172a]">
           <div className="r w-full  lg:w-[50%] flex flex-col items-start pl-10 lg:pl-20 gap-8 mt-2 justify-center">
             <p className="text-[#14b8a6] text-xl font-bold lg:text-4xl">
@@ -92,8 +98,12 @@ function Page() {
               Shehryar Nasir
             </h1>
             <p className="text-gray-400 lg:text-3xl">CIS Student</p>
-            <p className="lg:text-lg">Learning web programming its easy and fun right?</p>
-            <p className="text-[#of172a] text-lg lg:text-2xl font-bold">Nope.</p>
+            <p className="lg:text-lg">
+              Learning web programming its easy and fun right?
+            </p>
+            <p className="text-[#of172a] text-lg lg:text-2xl font-bold">
+              Nope.
+            </p>
           </div>
           <div className="l w-full h-full lg:w-[50%] flex items-center justify-center ">
             <Image src={pic} />
@@ -101,9 +111,32 @@ function Page() {
         </div>
       </section>
 
+      <section id="about">
+        <div className="a w-full h-full flex flex-col items-center justify-center  gap-10 dark:bg-[#0f172a]">
+          <h1 className="text-[#14b8a6] font-extrabold text-5xl">About Me </h1>
+          <p className="text-gray-400 text-lg text-justify px-4 font-bold dark:bg-">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis
+            perferendis facilis, doloribus mollitia facere deleniti consequuntur
+            excepturi dolorem corrupti aut quibusdam. Soluta at, error quae
+            labore inventore exercitationem officiis nesciunt. Ut, neque rerum
+            distinctio eaque et fugit, similique maxime nesciunt doloribus
+            laudantium nihil modi ducimus delectus, nobis provident quam itaque
+            dolores fuga hic odio harum aliquid exercitationem illo. Quae, quis.
+          </p>
+          <div className="links flex items-center justify-center gap-10 text-xl">
+          <p className="text-xl font-bold">  Contact Me :</p>
+            <Link href={'#'}> <FaInstagram className="bg-purple-300 rounded" /> </Link>
+       <Link href={'#'}>      <FaFacebook className="bg-blue-800 rounded text-white" /></Link>
+          <Link href={'#'}>   <FaLinkedin className="bg-blue-400 rounded text-white" />{" "}</Link>
+            <Link href={"#"}><FaTwitter className="bg-red-400 rounded text-white" /></Link>
+          </div>
+          <button className="px-6 py-4 font-bold bg-[#14b8a6] rounded-lg">My Resume </button>
+        </div>
+      </section>
+
       <section id="proj">
         <div className="projects dark:bg-[#1e293b] w-full h-full ">
-          <h1 className="text-[#14b8a6] text-center font-bold text-2xl mt-2">
+          <h1 className="text-[#14b8a6] text-center font-bold text-5xl  mt-4">
             Portfolio
           </h1>
           <h1 className="text-[#0f172a]  dark:text-white font-extrabold text-4xl text-center mt-2">
@@ -285,7 +318,7 @@ function Page() {
                 id=""
                 cols="30"
                 rows="10"
-                className="bg-[#e2e8f0]  md:w-[550px]  rounded mr-16 dark:bg-white"
+                className="bg-[#e2e8f0]  resize-none md:w-[550px]  rounded mr-16 dark:bg-white"
               ></textarea>
             </div>
             <button className="px-14 py-3 rounded-full  text-white font-bold bg-[#14b8a6]">

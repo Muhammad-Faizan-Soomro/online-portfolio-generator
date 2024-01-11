@@ -31,7 +31,7 @@ export default function Page() {
   return (
     <>
       <section>
-        <div className="nav  w-screen h-14 flex items-center justify-evenly border-b-2">
+        <div className="nav  w-full h-14 flex items-center justify-evenly border-b-2">
           <h1 className="text-[#551a8b] font-serif flex items-center text-xl md:text-3xl">
             SHEHRYAR NASIR <FaCode />{" "}
           </h1>
@@ -167,6 +167,7 @@ export default function Page() {
                   See My Resume
                 </button>
               </div>
+              <p className="text-[#551a8b] text-xl font-bold">Email:</p>
             </div>
           </div>
           <div className="r lg:w-[50%]  w-full h-full flex items-center justify-center">
@@ -183,40 +184,7 @@ export default function Page() {
               CRAZY FULL STACK DEVELOPER WHO <br />
               WANTS TO EXPLORE EVERY TECH STACK
             </p>
-            <div className="div grid grid-cols-3 gap-10 place-items-center">
-              <div className="div flex flex-col">
-                <FaHtml5 size={30} className="text-gray-400" />
-                <p className="text-gray-400">HTML</p>
-              </div>
-              <div className="div flex flex-col">
-                <FaCss3 size={30} className="text-gray-400" />
-                <p className="text-gray-400">CSS</p>
-              </div>
-              <div className="div flex flex-col">
-                <IoLogoJavascript size={30} className="text-gray-400" />
-                <p className="text-gray-400">JAVASCRIPT</p>
-              </div>
-              <div className="div flex flex-col">
-                <FaReact size={30} className="text-gray-400" />
-                <p className="text-gray-400">REACT</p>
-              </div>
-              <div className="div flex flex-col">
-                <FaPython size={30} className="text-gray-400" />
-                <p className="text-gray-400">Python</p>
-              </div>
-              <div className="div flex flex-col">
-                <TbBrandNextjs size={30} className="text-gray-400" />
-                <p className="text-gray-400">NEXT</p>
-              </div>
-              <div className="div flex flex-col">
-                <DiDjango size={30} className="text-gray-400" />
-                <p className="text-gray-400">DJANGO</p>
-              </div>
-              <div className="div flex flex-col">
-                <FaDatabase size={30} className="text-gray-400" />
-                <p className="text-gray-400">SQL</p>
-              </div>
-            </div>
+         
             <p className="px-6 text-xl text-gray-400">
               ⚡Develop highly interactive Front end / <br /> User Interfaces
               for your web and mobile <br /> applications
@@ -497,7 +465,7 @@ export default function Page() {
                 id=""
                 cols="30"
                 rows="10"
-                className="bg-[#e2e8f0]  md:w-[550px]  rounded mr-16 dark:bg-white"
+                className="bg-[#e2e8f0]  resize-none  md:w-[550px]  rounded mr-16 dark:bg-white"
               ></textarea>
             </div>
             <button className="px-14 lg:px-24 py-3 rounded-full  text-white font-bold bg-[#551a8b]">
