@@ -31,41 +31,41 @@ export default function EditForm({ postData }) {
   const [codeActive, setCodeActive] = useState("hidden");
   const [formActive, setFormActive] = useState("show");
 
-  const [user_id, setUser_id] = useState(postData[0].user_id || "");
-  const [fullName, setFullName] = useState(postData[0].fullName || "");
+  const [user_id, setUser_id] = useState(postData ? postData[0].user_id : "");
+  const [fullName, setFullName] = useState(postData ? postData[0].fullName : "");
   const [profilePicUrl, setProfilePicUrl] = useState(
-    postData[0].profilePicUrl || ""
+    postData ? postData[0].profilePicUrl : ""
   );
-  const [template, setTemplate] = useState(postData[0].template || "");
-  const [workDesc, setWorkDesc] = useState(postData[0].workDesc || "");
-  const [selfDesc, setSelfDesc] = useState(postData[0].selfDesc || "");
-  const [cvLink, setCvLink] = useState(postData[0].cvLink || "");
-  const [aboutMe, setAboutMe] = useState(postData[0].aboutMe || "");
+  const [template, setTemplate] = useState(postData ? postData[0].template : "");
+  const [workDesc, setWorkDesc] = useState(postData ? postData[0].workDesc : "");
+  const [selfDesc, setSelfDesc] = useState(postData ? postData[0].selfDesc : "");
+  const [cvLink, setCvLink] = useState(postData ? postData[0].cvLink : "");
+  const [aboutMe, setAboutMe] = useState(postData ? postData[0].aboutMe : "");
   const [numOfProjects, setNumOfProjects] = useState(
-    postData[0].numOfProjects || ""
+    postData ? postData[0].numOfProjects : ""
   );
   const [yearsOfExperience, setYearsOfExperience] = useState(
-    postData[0].yearsOfExperience || ""
+    postData ? postData[0].yearsOfExperience : ""
   );
   const [numOfHappyClients, setNumOfHappyClients] = useState(
-    postData[0].numOfHappyClients || ""
+    postData ? postData[0].numOfHappyClients : ""
   );
   const [totalCustomerReviews, setTotalCustomerReviews] = useState(
-    postData[0].totalCustomerReviews || ""
+    postData ? postData[0].totalCustomerReviews : ""
   );
   const [facebookLink, setFacebookLink] = useState(
-    postData[0].facebookLink || ""
+    postData ? postData[0].facebookLink : ""
   );
-  const [githubLink, setGithubLink] = useState(postData[0].githubLink || "");
-  const [twitterLink, setTwitterLink] = useState(postData[0].twitterLink || "");
+  const [githubLink, setGithubLink] = useState(postData ? postData[0].githubLink : "");
+  const [twitterLink, setTwitterLink] = useState(postData ? postData[0].twitterLink : "");
   const [linkedinLink, setLinkedinLink] = useState(
-    postData[0].linkedinLink || ""
+    postData ? postData[0].linkedinLink : ""
   );
-  const [location, setLocation] = useState(postData[0].location || "");
+  const [location, setLocation] = useState(postData ? postData[0].location : "");
   const [mobileNumber, setMobileNumber] = useState(
-    postData[0].mobileNumber || ""
+    postData ? postData[0].mobileNumber : ""
   );
-  const [email, setEmail] = useState(postData[0].email || "");
+  const [email, setEmail] = useState(postData ? postData[0].email : "");
   
   useEffect(() => {
     if ( postData && postData[0].experience.length != 0) {
