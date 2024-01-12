@@ -28,7 +28,7 @@ function Page() {
           </h1>
           <div className="hide absolute flex items-end justify-evenly pb-20 w-full h-full bg-black/20  translate-y-full group-hover:translate-y-0 transition-all duration-300">
             <Link
-              href="#"
+              href="/edit"
               className="px-4 py-2 bg-gray-50 text-black font-bold rounded-md"
               onClick={() => localStorage.setItem('template','simple')}
             >
@@ -75,7 +75,7 @@ function Page() {
           </h1>
           <div className="hide absolute flex items-end justify-evenly pb-20 w-full h-full bg-black/20  translate-y-full group-hover:translate-y-0 transition-all duration-300">
             <Link
-              href="#"
+              href="/edit"
               className="px-4 py-2 bg-gray-50 text-black font-bold rounded-md"
               onClick={() => localStorage.setItem('template','beginner')}
             >

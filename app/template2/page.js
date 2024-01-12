@@ -51,7 +51,7 @@ function page() {
             <button className="bg-white px-8 py-3 pb-2">Get A Quote</button>
           </div>
         </div>
-        <div className="r bg-[#1cbbb4] hidden lg:block  h-screen lg:w-[45%] w-[100%] flex items-center justify-center">
+        <div className="r bg-[#1cbbb4]  lg:block  h-screen lg:w-[45%] w-[100%] flex items-center justify-center">
           <Image src={pic1} />
         </div>
       </section>
@@ -153,7 +153,7 @@ function page() {
                 <p className="text-[#FF4F5A] text-xl font-bold">
                   $250 milllion
                 </p>
-                <h3 className="text-xl font-extrabold">PAID TO FREELANCERS</h3>
+                <h3 className="text-xl font-extrabold">YEARS OF EXPERIENCE</h3>
               </div>
             </div>
 
@@ -163,21 +163,11 @@ function page() {
               </div>
               <div className="info">
                 <p className="text-[#FF4F5A] text-xl font-bold">$2 milllion</p>
-                <h3 className="text-xl font-extrabold">PAID INVOICES</h3>
+                <h3 className="text-xl font-extrabold">CUSTOMER REVIEWS</h3>
               </div>
             </div>
 
-            <div className="1 flex gap-8 mt-4 ml-8 lg:ml-0">
-              <div className="img w-[90px] h-[90px] rounded-full ml-2 bg-[#1cbbb4]">
-                <Image src={pic12} alt="pic10.png" className="ml-4 mt-4" />
-              </div>
-              <div className="info">
-                <p className="text-[#FF4F5A] text-xl font-bold">700,000</p>
-                <h3 className="text-xl font-extrabold">
-                  WORLD-WIDE <br /> FREELANCERS
-                </h3>
-              </div>
-            </div>
+           
 
             <div className="1 flex gap-8 mt-4 ml-8 lg:ml-0">
               <div className="img w-[90px] h-[90px] rounded-full ml-2 bg-[#1cbbb4]">
@@ -186,7 +176,7 @@ function page() {
               <div className="info">
                 <p className="text-[#FF4F5A] text-xl font-bold">98%</p>
                 <h3 className="text-xl font-extrabold">
-                  CUSTOMER SATISFACTION RATE
+                  LOCATION
                 </h3>
               </div>
             </div>
@@ -230,9 +220,7 @@ function page() {
           <Link href={"#"}>
             <Image src={pic22} alt="pic29png" />
           </Link>
-          <Link href={"#"}>
-            <Image src={pic23} alt="pic29png" />
-          </Link>
+         
         </div>
       </footer>
     </>
