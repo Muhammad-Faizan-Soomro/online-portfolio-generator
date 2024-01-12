@@ -51,7 +51,7 @@ function page() {
             <button className="bg-white px-8 py-3 pb-2">Get A Quote</button>
           </div>
         </div>
-        <div className="r bg-[#1cbbb4] hidden lg:block  h-screen lg:w-[45%] w-[100%] flex items-center justify-center">
+        <div className="r bg-[#1cbbb4]  lg:block  h-screen lg:w-[45%] w-[100%] flex items-center justify-center">
           <Image src={pic1} />
         </div>
       </section>
