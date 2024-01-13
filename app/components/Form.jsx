@@ -1561,9 +1561,10 @@ export default function Form({
               Check Out Some Of My Work 😊
             </p>
             <div class="w-full h-full mt-4 grid grid-cols-1 md:grid-cols-3  place-items-center">
-            ${Object.values(projects).map(
-              (project) =>
-                `
+            ${Object.values(projects)
+              .map(
+                (project) =>
+                  `
                 <div class="card  flex flex-col gap-4 w-[300px] h-[300px] ">
                 <img src=${project.image} alt="pic1.png" class='w-[250px]' >
                 <h1 class="text-xl font-bold">Login Page</h1>
@@ -1584,8 +1585,8 @@ export default function Form({
                 
                 
                 `
-            ).join('')
-        }
+              )
+              .join("")}
            
              
       
@@ -1678,9 +1679,9 @@ export default function Form({
     
     `}
         </pre>
-      ) : template == "beginner"?
-      <pre className="codefile">
-        {`
+      ) : template == "beginner" ? (
+        <pre className="codefile">
+          {`
         <!DOCTYPE html>
         <html lang="en">
         <head>
@@ -1741,30 +1742,32 @@ export default function Form({
               </div>
             </div>
           </section>
-        
-         ${skills.length!=0?`
-         
-         <section>
-         <div class="bg-[#1cbbb4] w-full h-full lg:h-[450px] lg:pt-20 ">
-           <h1 class="underline text-white text-center text-3xl  font-bold pt-10">
-             SKILLS
-           </h1>
-           <div class="flex flex-col items-center lg:grid lg:grid-cols-3 lg:px-52 gap-12 pt-4">
-         ${Object.values(skills).map((skills)=>
-            <span class="text-white  text-xl font-bold">
-            
-            ${skills.name}
-          </span>
-            ).join('')}
-           </div>
-         </div>
-       </section>
-         
-         
+          
+         ${
+           skills.length != 0
+             ? `<section>
+                    <div class="bg-[#1cbbb4] w-full h-full lg:h-[450px] lg:pt-20 ">
+                    <h1 class="underline text-white text-center text-3xl  font-bold pt-10">
+                        SKILLS
+                    </h1>
+                    <div class="flex flex-col items-center lg:grid lg:grid-cols-3 lg:px-52 gap-12 pt-4">
+                    ${Object.values(skills)
+                      .map(
+                        (skill) => `
+                        <span class="text-white  text-xl font-bold">${skill.name}</span>`
+                      )
+                      .join(``)}
+                    </div>
+                    </div>
+                </section>
          
          
          
-         `:''}
+         
+         
+         `
+             : ``
+         }
         
           <section class="w-full h-full flex flex-col">
             <div class="pic flex items-center justify-center">
@@ -1875,9 +1878,10 @@ export default function Form({
               Check Out Some Of My Work 😊
             </p>
             <div class="w-full h-full mt-4 grid grid-cols-1 md:grid-cols-3  place-items-center">
-            ${Object.values(projects).map(
-              (project) =>
-                `
+            ${Object.values(projects)
+              .map(
+                (project) =>
+                  `
                 <div class="card  flex flex-col gap-4 w-[300px] h-[300px] ">
                 <img src=${project.image} alt="pic1.png" class='w-[250px]' >
                 <h1 class="text-xl font-bold">Login Page</h1>
@@ -1898,8 +1902,8 @@ export default function Form({
                 
                 
                 `
-            ).join('')
-        }
+              )
+              .join("")}
            
              
       
@@ -1943,10 +1947,8 @@ export default function Form({
         </html>
         
         `}
-
-      </pre>
-
-      :null}
+        </pre>
+      ) : null}
     </div>
   );
 }
