@@ -110,7 +110,7 @@ function Login() {
               name="username"
               id="user"
               placeholder="Username"
-              className="w-[480px] rounded-md bg-gray-200 h-10"
+              className="w-[480px] rounded-md bg-gray-200 h-10 dark:text-black"
               onChange={(e) => {
                 setuser({
                   ...user,

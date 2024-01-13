@@ -1,25 +1,4 @@
 "use client";
-
-// // import React from 'react'
-// // import Home from './components/Home'
-// // import Form from './components/Form'
-
-// // const getDetails = async () => {
-// //   let data = await fetch("http://localhost:3000/api/detail")
-// //   data = await data.json()
-// //   return data.result;
-// // }
-
-// // export default async function Page() {
-// //   const detail = await getDetails();
-// //   return (
-// //     <div>
-// //       <Form/>
-// //       <Home Fullname={detail[0].fullname} One_Liner={detail[0].oneliner} About={detail[0].about}/>
-// //     </div>
-// //   )
-// // }
-
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import ExpForm from "../components/ExpForm";
@@ -83,35 +62,7 @@ export default function Page() {
     setTemplate(localStorage.getItem("template"));
   }, []);
 
-  // const submitDataToDB = async () => {
-  //   let result = await fetch("http://localhost:3000/api/detail", {
-  //     method: "POST",
-  //     body: JSON.stringify({
-  //       user_id,
-  //       template,
-  //       fullName,
-  //       workDesc,
-  //       selfDesc,
-  //       cvLink,
-  //       aboutMe,
-  //       numOfProjects,
-  //       yearsOfExperience,
-  //       numOfHappyClients,
-  //       totalCustomerReviews,
-  //       skills,
-  //       experience,
-  //       projects,
-  //       location,
-  //       email,
-  //       mobileNumber,
-  //       facebookLink,
-  //       githubLink,
-  //       linkedinLink,
-  //       twitterLink,
-  //       profilePicUrl,
-  //     }),
-  //   });
-  // };
+  
 
   let props = {
     fullName,
@@ -425,7 +376,7 @@ export default function Page() {
           {experience.map((item) => (
             <div
               key={item.startDate}
-              className="w-max text-xl relative mx-auto shadow-md  border-2 font-bold flex flex-col items-center justify-center"
+              className="w-max   lg:p-10  mt-4 gap-10  text-xl relative mx-auto shadow-md  border-2 font-bold flex flex-col items-center justify-center "
             >
               <p>
                 {" "}
@@ -480,7 +431,7 @@ export default function Page() {
           {projects.map((item) => (
             <div
               key={item.liveLink}
-              className="w-max text-xl relative mx-auto shadow-md  border-2 font-bold flex flex-col items-center justify-center"
+              className="w-max text-xl  lg:p-10  mt-4 gap-10  relative mx-auto shadow-md  border-2 font-bold flex flex-col items-center justify-center"
             >
               <p>
                 {" "}
@@ -520,7 +471,7 @@ export default function Page() {
           {skills.map((item) => (
             <div
               key={item.name}
-              className="w-max text-xl relative mx-auto shadow-md  border-2 font-bold flex flex-col items-center justify-center "
+              className="w-max text-xl   lg:p-10  mt-4 gap-10  relative mx-auto shadow-md  border-2 font-bold flex flex-col items-center justify-center "
             >
               <p>
                 {" "}
