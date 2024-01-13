@@ -16,13 +16,15 @@ import Form from "../components/Form";
 import { useForm } from "react-hook-form";
 import { FaArrowRight } from "react-icons/fa6";
 import { ImCross } from "react-icons/im";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
+import Link from "next/link";
 
 export default function EditForm({ postData }) {
   const { register, handleSubmit } = useForm();
 
   const dispatch = useDispatch();
-  const searchParams = useSearchParams()
+  const searchParams = useSearchParams();
+  const router = useRouter();
 
   const experience = useSelector((data) => data.expData.experience);
   const projects = useSelector((data) => data.projectData.project);
@@ -32,13 +34,21 @@ export default function EditForm({ postData }) {
   const [formActive, setFormActive] = useState("show");
 
   const [user_id, setUser_id] = useState(postData ? postData[0].user_id : "");
-  const [fullName, setFullName] = useState(postData ? postData[0].fullName : "");
+  const [fullName, setFullName] = useState(
+    postData ? postData[0].fullName : ""
+  );
   const [profilePicUrl, setProfilePicUrl] = useState(
     postData ? postData[0].profilePicUrl : ""
   );
-  const [template, setTemplate] = useState(postData ? postData[0].template : "");
-  const [workDesc, setWorkDesc] = useState(postData ? postData[0].workDesc : "");
-  const [selfDesc, setSelfDesc] = useState(postData ? postData[0].selfDesc : "");
+  const [template, setTemplate] = useState(
+    postData ? postData[0].template : ""
+  );
+  const [workDesc, setWorkDesc] = useState(
+    postData ? postData[0].workDesc : ""
+  );
+  const [selfDesc, setSelfDesc] = useState(
+    postData ? postData[0].selfDesc : ""
+  );
   const [cvLink, setCvLink] = useState(postData ? postData[0].cvLink : "");
   const [aboutMe, setAboutMe] = useState(postData ? postData[0].aboutMe : "");
   const [numOfProjects, setNumOfProjects] = useState(
@@ -56,19 +66,25 @@ export default function EditForm({ postData }) {
   const [facebookLink, setFacebookLink] = useState(
     postData ? postData[0].facebookLink : ""
   );
-  const [githubLink, setGithubLink] = useState(postData ? postData[0].githubLink : "");
-  const [twitterLink, setTwitterLink] = useState(postData ? postData[0].twitterLink : "");
+  const [githubLink, setGithubLink] = useState(
+    postData ? postData[0].githubLink : ""
+  );
+  const [twitterLink, setTwitterLink] = useState(
+    postData ? postData[0].twitterLink : ""
+  );
   const [linkedinLink, setLinkedinLink] = useState(
     postData ? postData[0].linkedinLink : ""
   );
-  const [location, setLocation] = useState(postData ? postData[0].location : "");
+  const [location, setLocation] = useState(
+    postData ? postData[0].location : ""
+  );
   const [mobileNumber, setMobileNumber] = useState(
     postData ? postData[0].mobileNumber : ""
   );
   const [email, setEmail] = useState(postData ? postData[0].email : "");
-  
+
   useEffect(() => {
-    if ( postData && postData[0].experience.length != 0) {
+    if (postData && postData[0].experience.length != 0) {
       dispatch(removeAllExp());
       postData[0].experience.map((exp) => dispatch(addExp(exp)));
     }
@@ -106,6 +122,10 @@ export default function EditForm({ postData }) {
     setUser_id(localStorage.getItem("user"));
     setTemplate(localStorage.getItem("template"));
   }, []);
+
+  const backToTop = () => {
+    useNavv;
+  };
 
   let props = {
     fullName,
@@ -169,7 +189,7 @@ export default function EditForm({ postData }) {
       let result = await fetch("/api/detail", {
         method: "PUT",
         body: JSON.stringify({
-          _id:searchParams.get('id'),
+          _id: searchParams.get("id"),
           user_id,
           template,
           fullName,
@@ -236,6 +256,14 @@ export default function EditForm({ postData }) {
       setFormActive("show");
     }
   };
+
+  const isBrowser = () => typeof window !== "undefined"; //The approach recommended by Next.js
+
+  function scrollToTop() {
+    console.log("exe")
+    if (!isBrowser()) return;
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
 
   return (
     <div>
@@ -446,6 +474,7 @@ export default function EditForm({ postData }) {
                 ? false
                 : true
             }
+            onClick={scrollToTop}
           >
             Proceed To Next Step <FaArrowRight />
           </button>
@@ -583,7 +612,7 @@ export default function EditForm({ postData }) {
           Back To Form
         </span>
       </button>
-      <div className={codeActive}>
+      <div className={codeActive} id="move">
         <Form {...props} />
       </div>
     </div>
