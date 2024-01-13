@@ -45,7 +45,7 @@ function Navbar() {
 
   return (
     <>
-      <section className="  hidden  w-screen h-16 lg:flex justify-between items-center border-b-2 dark:border-b-1 dark:bg-[#0b1120]">
+      <section className="  hidden  w-full h-16 lg:flex justify-between items-center border-b-2 dark:border-b-1 dark:bg-[#0b1120]">
         <div className="flex nav w-[350px] h-16  items-center justify-center ">
           {pathName == "/home" ? (
             <Link

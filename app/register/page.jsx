@@ -143,7 +143,7 @@ function Register() {
         <div className="div1 h-screen w-[50%] flex items-center justify-center">
           <form
             onSubmit={UserAdd}
-            className="form flex flex-col justify-center items-center gap-4 w-[500px] h-[450px] bg-white rounded-2xl shadow-gray-900 shadow-lg"
+            className="form flex flex-col dark:text-black  justify-center items-center gap-4 w-[500px] h-[450px] bg-white rounded-2xl shadow-gray-900 shadow-lg"
           >
             <input
               type="text"

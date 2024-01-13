@@ -1742,7 +1742,6 @@ export default function Form({
               </div>
             </div>
           </section>
-          
          ${
            skills.length != 0
              ? `<section>

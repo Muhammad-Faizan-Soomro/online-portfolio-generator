@@ -2,7 +2,7 @@
 import React from "react";
 import Navbar from "../components/Nnavbar";
 import Image from "next/image";
-import pic8 from "../../public/template8.png";
+// import pic8 from "../../public/template8.png";
 import pic2 from "../../public/template2.png";
 import pic3 from "../../public/template3.png";
 import pic4 from "../../public/template4.png";
@@ -43,7 +43,7 @@ function Page() {
           </div>
         </div> 
 
-        <div className="template8  group relative overflow-hidden border-2  dark:border-white  w-[350px] h-[230px]  flex flex-col">
+        {/* <div className="template8  group relative overflow-hidden border-2  dark:border-white  w-[350px] h-[230px]  flex flex-col">
           <div className="img w-[100%] h-[100%] ">
             <Image src={pic8} alt="pic.png" />
           </div>
@@ -65,7 +65,7 @@ function Page() {
               Preview
             </Link>
           </div>
-        </div>
+        </div> */}
          <div className="template2  group relative overflow-hidden border-2  dark:border-white  w-[350px] h-[230px]  flex flex-col">
           <div className="img w-[100%] h-[100%] ">
             <Image src={pic2} alt="pic.png" />

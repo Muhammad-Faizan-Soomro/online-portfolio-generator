@@ -41,7 +41,7 @@ function page() {
             id="2"
             cols="30"
             rows="10"
-            className="rounded-lg w-[300px]  border-2 border-orange-400 dark:border-white"
+            className="rounded-lg w-[300px]  resize-none  border-2 border-orange-400 dark:border-white"
             placeholder="Enter Your Message"
             required='required'
 
@@ -61,10 +61,10 @@ function page() {
             <h1 className="text-3xl font-bold  text-orange-400 underline dark:text-white">TEAM MEMBERS:</h1>
             <div className="names">
           <ol className="text-xl font-bold flex  flex-col gap-4 mt-2 ml-4 dark:text-gray-300">
-            <li className="flex">Muhammad Faizan Soomro <Link href='#' className="p-1 text-blue-400"><FaLinkedin/></Link></li>
-            <li className="flex">Shehryar Nasir <Link href='#'  className="p-1 text-blue-400"><FaLinkedin/></Link></li>
-            <li className="flex">Subhan Sohair <Link href='#'  className="p-1 text-blue-400"><FaLinkedin/></Link></li>
-            <li className="flex">Sohaib Saleem <Link href='#'  className="p-1 text-blue-400"><FaLinkedin/></Link></li>
+            <li className="flex">Muhammad Faizan Soomro <Link href='https://www.linkedin.com/in/faizansoomro?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app' className="p-1 text-blue-400"><FaLinkedin/></Link></li>
+            <li className="flex">Shehryar Nasir <Link href='https://www.linkedin.com/in/shehryar123?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app'  className="p-1 text-blue-400"><FaLinkedin/></Link></li>
+            <li className="flex">Subhan Sohair <Link href='https://www.linkedin.com/in/subhan-sohair?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app'  className="p-1 text-blue-400"><FaLinkedin/></Link></li>
+            <li className="flex">Sohaib Saleem <Link href='https://www.linkedin.com/in/muhammad-sohaib-saleem-335590254?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app'  className="p-1 text-blue-400"><FaLinkedin/></Link></li>
             </ol>    
             </div>
            
@@ -81,7 +81,7 @@ function page() {
             <input type="text" className="w-[400px] h-10    border-2 border-orange-400 dark:border-white" placeholder="Enter Your First Name" />   
             <input type="text" className="w-[400px] h-10    border-2 border-orange-400 dark:border-white" placeholder="Enter Your Last Name" />          
             <input type="email" className="w-[400px] h-10    border-2 border-orange-400 dark:border-white" placeholder="Enter Your  Email" />          
-            <textarea name="message" id="2" cols="50" rows="50"  className="w-[400px] h-10  dark:border-white  border-2 border-orange-400" placeholder="Enter Your Message"></textarea>
+            <textarea name="message" id="2" cols="50" rows="50"  className="w-[400px]  resize-none h-10  dark:border-white  border-2 border-orange-400" placeholder="Enter Your Message"></textarea>
          <button className="py-3 w-[400px] rounded-lg text-white font-bold bg-orange-400 dark:bg-blue-400">Submit</button>
           </form>
         </div>
