@@ -71,6 +71,7 @@ function MyPortfolios({ data }) {
                   },
                 }}
                 className="px-4 py-2 bg-gray-50 text-black font-bold rounded-md"
+                onClick={() => localStorage.setItem('template',datas.template)}
               >
                 Edit
               </Link>
