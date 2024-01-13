@@ -61,10 +61,10 @@ function page() {
             <h1 className="text-3xl font-bold  text-orange-400 underline dark:text-white">TEAM MEMBERS:</h1>
             <div className="names">
           <ol className="text-xl font-bold flex  flex-col gap-4 mt-2 ml-4 dark:text-gray-300">
-            <li className="flex">Muhammad Faizan Soomro <Link href='https://www.linkedin.com/in/faizansoomro?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app' className="p-1 text-blue-400"><FaLinkedin/></Link></li>
-            <li className="flex">Shehryar Nasir <Link href='https://www.linkedin.com/in/shehryar123?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app'  className="p-1 text-blue-400"><FaLinkedin/></Link></li>
-            <li className="flex">Subhan Sohair <Link href='https://www.linkedin.com/in/subhan-sohair?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app'  className="p-1 text-blue-400"><FaLinkedin/></Link></li>
-            <li className="flex">Sohaib Saleem <Link href='https://www.linkedin.com/in/muhammad-sohaib-saleem-335590254?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app'  className="p-1 text-blue-400"><FaLinkedin/></Link></li>
+            <li className="flex">Muhammad Faizan Soomro <Link href='https://www.linkedin.com/in/faizansoomro' className="p-1 text-blue-400"><FaLinkedin/></Link></li>
+            <li className="flex">Shehryar Nasir <Link href='https://www.linkedin.com/in/shehryar123'  className="p-1 text-blue-400"><FaLinkedin/></Link></li>
+            <li className="flex">Subhan Sohair <Link href='https://www.linkedin.com/in/subhan-sohair'  className="p-1 text-blue-400"><FaLinkedin/></Link></li>
+            <li className="flex">Sohaib Saleem <Link href='https://www.linkedin.com/in/muhammad-sohaib-saleem-335590254'  className="p-1 text-blue-400"><FaLinkedin/></Link></li>
             </ol>    
             </div>
            

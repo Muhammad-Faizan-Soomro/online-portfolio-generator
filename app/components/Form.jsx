@@ -1746,14 +1746,14 @@ export default function Form({
            skills.length != 0
              ? `<section>
                     <div class="bg-[#1cbbb4] w-full h-full lg:h-[450px] lg:pt-20 ">
-                    <h1 class="underline text-white text-center text-3xl  font-bold pt-10">
+                    <h1 class="underline text-white text-center text-5xl  font-bold pt-10">
                         SKILLS
                     </h1>
                     <div class="flex flex-col items-center lg:grid lg:grid-cols-3 lg:px-52 gap-12 pt-4">
                     ${Object.values(skills)
                       .map(
                         (skill) => `
-                        <span class="text-white  text-xl font-bold">${skill.name}</span>`
+                        <span class="text-white  text-3xl font-bold">${skill.name}</span>`
                       )
                       .join(``)}
                     </div>
