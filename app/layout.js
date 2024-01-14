@@ -18,7 +18,23 @@ export default function RootLayout({ children }) {
   const pathName = usePathname();
   return (
     <>
-      {pathName !== "/template1" ? (
+      {pathName == "/template1" ? (
+        <html lang="en">
+          <body className="main-content body" suppressHydrationWarning={true}>
+            <AuthProvider>
+              <Redux>{children}</Redux>
+            </AuthProvider>
+          </body>
+        </html>
+      ) : pathName == "/template5" ? (
+        <html lang="en">
+          <body className="bodyy" suppressHydrationWarning={true}>
+            <AuthProvider>
+              <Redux>{children}</Redux>
+            </AuthProvider>
+          </body>
+        </html>
+      ) : (
         <html lang="en">
           <body className="dark:bg-[#0b1120]" suppressHydrationWarning={true}>
             <Providers>
@@ -27,14 +43,6 @@ export default function RootLayout({ children }) {
               </AuthProvider>
               <ToastifyNotifications />
             </Providers>
-          </body>
-        </html>
-      ) : (
-        <html lang="en">
-          <body className="main-content body" suppressHydrationWarning={true}>
-            <AuthProvider>
-              <Redux>{children}</Redux>
-            </AuthProvider>
           </body>
         </html>
       )}
