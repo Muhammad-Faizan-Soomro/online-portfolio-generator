@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import he from "he";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function Form({
   fullName,
@@ -1947,6 +1948,484 @@ export default function Form({
         
         `}
         </pre>
+      ) : template == "mini" ? (
+        <pre className="codefile">{`<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>${fullName}'s Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    :root {
+      /* Light Theme */
+      --primary-font: "Poppins", sans-serif;
+      --primary-bg-color: #ffffff;
+      --primary-text-color: #000000;
+      --secondary-color: #575757;
+      --btn-bg-color: #2196f3;
+      --cta-hover-color: #167bce;
+      --btn-bg-light: #eeeeee;
+
+      /* Dark Theme */
+      --dark-primary-bg-color: #222222;
+      --dark-primary-text-color: #ffffff;
+      --dark-secondary-color: #828282;
+      --dark-btn-bg-color: #1e88e5;
+      --dark-cta-hover-color: #0d5e8c;
+      --dark-btn-bg-light: #eeeeee;
+    }
+
+    .dark-theme {
+      --primary-bg-color: var(--dark-primary-bg-color);
+      --primary-text-color: var(--dark-primary-text-color);
+      --secondary-color: var(--dark-secondary-color);
+      --btn-bg-color: var(--dark-btn-bg-color);
+      --cta-hover-color: var(--dark-cta-hover-color);
+      --btn-bg-light: var(--dark-btn-bg-light);
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--primary-font, "Arial, sans-serif");
+      background-color: var(--primary-bg-color);
+      color: var(--primary-text-color);
+    }
+
+    .theme-btn {
+      position: relative;
+      left: 8.5rem;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin: 0;
+      cursor: default;
+    }
+
+    article,
+    footer,
+    .hero,
+    .logo-container,
+    .experience,
+    .cta,
+    .portfolio-skills,
+    .btn-bg,
+    .portfolio,
+    .skills {
+      display: flex;
+    }
+
+    .hero,
+    .portfolio,
+    .skills {
+      flex-direction: column;
+    }
+
+    .hero,
+    .btn-bg,
+    .portfolio,
+    .skills {
+      align-items: center;
+    }
+
+    .hero,
+    .experience,
+    .wrapper {
+      text-align: center;
+    }
+
+    article,
+    .hero,
+    .logo-container,
+    .portfolio,
+    .skills {
+      gap: 1rem;
+    }
+
+    .hero-pic {
+      width: 8rem;
+      height: 8rem;
+      border-radius: 50%;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .inner-circle {
+      content: "";
+      position: absolute;
+      top: 0.1rem;
+      /* Adjust border thickness */
+      left: 0.1rem;
+      bottom: 0.1rem;
+      right: 0.1rem;
+      border-radius: 50%;
+      border: 0.18rem solid var(--primary-bg-color);
+      /* Define your border thickness and color */
+      z-index: 1;
+      /* Make sure it is above the image */
+    }
+
+    .hero-pic img,
+    .wrapper img {
+      width: 100%;
+    }
+
+    .hero-pic img {
+      height: 100%;
+      object-fit: cover;
+      object-position: top 0.4rem right -1.3rem;
+      transform: scale(1.9);
+    }
+
+    .hero-info h1,
+    h2 {
+      font-weight: 400;
+    }
+
+    article p,
+    .hero-info h2 {
+      color: var(--secondary-color);
+    }
+
+    .hero-info h2 {
+      font-size: 1rem;
+      margin: 0 0 1rem 0;
+    }
+
+    footer,
+    .logo-container,
+    .experience,
+    .cta,
+    .portfolio-skills,
+    .btn-bg {
+      justify-content: center;
+    }
+
+    .theme-btn,
+    .logo-container a,
+    .logo-container img {
+      height: 1.5rem;
+    }
+
+    .experience {
+      margin: auto;
+      margin-top: 1.4rem;
+      max-width: 20rem;
+    }
+
+    .experience b {
+      font-weight: 500;
+    }
+
+    .experience h2 {
+      width: 30%;
+      font-weight: 300;
+      font-size: 0.9rem;
+    }
+
+    .cta {
+      margin-top: 1.2rem;
+    }
+
+    .cta,
+    .btn-bg {
+      gap: 2rem;
+    }
+
+    .btn,
+    .btn-2,
+    .btn-bg {
+      border-radius: 0.7rem;
+      border: none;
+    }
+
+    .btn,
+    .btn-2,
+    .btn-bg,
+    .wrapper h3 {
+      font-weight: 600;
+    }
+
+    .btn,
+    .btn-2,
+    .btn-bg,
+    .wrapper,
+    .project-wrapper {
+      transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+        background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .download-btn:hover {
+      background-color: var(--cta-hover-color);
+    }
+
+    .theme-btn,
+    .download-btn:hover,
+    .contact-btn:hover,
+    .btn-2:hover,
+    .wrapper img:hover {
+      cursor: pointer;
+    }
+
+    .btn:hover,
+    .btn-2:hover,
+    .project-wrapper:hover,
+    .logo-container a:hover {
+      transform: scale(0.98);
+    }
+
+    .btn:active,
+    .btn-2:active,
+    .project-wrapper:active,
+    .logo-container a:active {
+      transform: scale(1);
+    }
+
+    .contact-btn:hover,
+    .download-btn {
+      background-color: var(--btn-bg-color);
+      color: white;
+    }
+
+    .contact-btn:hover {
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .btn-2:hover,
+    .active-btn {
+      background-color: white;
+    }
+
+    .btn,
+    .btn-2 {
+      height: 3rem;
+    }
+
+    .btn {
+      width: 9rem;
+    }
+
+    .btn-2 {
+      width: 8.5rem;
+    }
+
+    .download-btn {
+      transition: background-color 0.3s ease;
+    }
+
+    .portfolio-skills {
+      height: 4rem;
+      margin-top: 1.5rem;
+      position: relative;
+    }
+
+    .btn-bg,
+    .wrapper {
+      width: 20rem;
+    }
+
+    article p,
+    .btn-bg {
+      background-color: var(--btn-bg-light);
+    }
+
+    .hero,
+    .portfolio,
+    .skills {
+      margin-top: 2rem;
+    }
+
+    .skills {
+      display: none;
+    }
+
+    .wrapper img {
+      border-radius: 1rem;
+    }
+
+    article,
+    .wrapper h3 {
+      margin-bottom: 1.5rem;
+    }
+
+    article {
+      flex-wrap: wrap;
+    }
+
+    article p {
+      border-radius: 0.5rem;
+      flex-grow: 20;
+      padding: 1rem;
+    }
+
+    footer {
+      margin: 3rem 0;
+    }
+
+    @media screen and (min-width: 900px) {
+
+      .skills,
+      .portfolio {
+        flex-direction: row;
+        width: 45rem;
+      }
+
+      .skills {
+        margin: 2rem auto 0;
+      }
+
+      .portfolio {
+        margin: 2rem auto;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .wrapper {
+        width: calc(48%);
+        flex: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <section class="hero">
+    <i id="toggleTheme" class="fas fa-sun theme-btn"></i>
+    <div class="hero-pic">
+      <div class="inner-circle"></div>
+      <img src=${profilePicUrl} alt="" />
+    </div>
+    <div class="hero-info">
+      <h1>${fullName}</h1>
+      <h2>${selfDesc}</h2>
+      <div class="logo-container">
+        <a href=${githubLink}><i class="fab fa-github"></i></a>
+        <a href=${linkedinLink}><i class="fab fa-linkedin"></i></a>
+        <a href="mailto:${email}"><i class="fas fa-envelope"></i></a>
+      </div>
+    </div>
+  </section>
+  <section class="experience">
+    <h2><b>${yearsOfExperience}</b><br />Years<br />${workDesc}</h2>
+    <h2><b>${numOfProjects}</b><br />Projects<br />Completed</h2>
+    <h2><b>${numOfHappyClients}</b><br />Satisfied<br />Clients</h2>
+  </section>
+  <section class="cta">
+    <a href=${cvLink} target=_blank>
+      <button class="btn download-btn">Download CV</button>
+    </a>
+    <a href="mailto:${email}"><button class="btn contact-btn">Contact Me</button></a>
+  </section>
+  <section class="portfolio-skills">
+    <div class="btn-bg">
+      <button class="btn-2 active-btn" id="portfolio-btn">Portfolio</button>
+      <button class="btn-2" id="skills-btn">Skills</button>
+    </div>
+  </section>
+  <section class="portfolio" id="portfolio">
+    ${Object.values(projects)
+      .map(
+        (project) => `
+    <div class="wrapper project-wrapper">
+      <a href=${project.githubLink} target=_blank><img src=${project.image} alt=""/></a>
+    </div>`
+      )
+      .join(``)}
+  </section>
+  <section class="skills" id="skills">
+    <div class="wrapper">
+      <article class="frontend-skills">
+        ${Object.values(skills)
+          .map((skill) => `<p>${skill.name}</p>`)
+          .join(``)}
+      </article>
+    </div>
+  </section>
+  <footer>
+    <p>&copy ${fullName} 2023</p>
+  </footer>
+  <script>
+    // Click events for buttons
+    const portfolio = document.getElementById("portfolio");
+    const portfolioBtn = document.getElementById("portfolio-btn");
+    const skills = document.getElementById("skills");
+    const skillsBtn = document.getElementById("skills-btn");
+
+    portfolioBtn.addEventListener("click", (event) => {
+      skills.style.display = "none";
+      portfolio.style.display = "flex";
+      skillsBtn.classList.remove("active-btn");
+      portfolioBtn.classList.add("active-btn");
+    });
+
+    skillsBtn.addEventListener("click", (event) => {
+      skills.style.display = "flex";
+      portfolio.style.display = "none";
+      portfolioBtn.classList.remove("active-btn");
+      skillsBtn.classList.add("active-btn");
+    });
+
+    // Light & Dark Theme
+    document.addEventListener("DOMContentLoaded", () => {
+      const toggleThemeButton = document.getElementById("toggleTheme");
+      const githubLogo = document.getElementsByClassName('fa-github');
+      const linkedinLogo = document.getElementsByClassName('fa-linkedin');
+      const emailLogo = document.getElementsByClassName('fa-envelope');
+      const themeIcon = document.getElementsByClassName('theme-btn');
+
+      const lightLogos = {
+        github: "black",
+        linkedin: "black",
+        email: "black",
+        icon: "fas fa-sun theme-btn"
+      };
+
+      const darkLogos = {
+        github: "#FFFFFF",
+        linkedin: "white",
+        email: "white",
+        icon: "fas fa-moon theme-btn"
+      };
+
+      function setTheme(isDark) {
+        githubLogo[0].style.color = isDark ? darkLogos.github : lightLogos.github;
+        linkedinLogo[0].style.color = isDark ? darkLogos.linkedin : lightLogos.linkedin;
+        emailLogo[0].style.color = isDark ? darkLogos.email : lightLogos.email;
+        themeIcon[0].className = isDark ? darkLogos.icon : lightLogos.icon;
+      }
+
+      toggleThemeButton.addEventListener("click", () => {
+        const isDark = document.body.classList.toggle("dark-theme");
+        localStorage.setItem("isDark", isDark);
+
+        setTheme(isDark);
+      });
+
+      const loadTheme = () => {
+        const isDark = localStorage.getItem("isDark") === "true";
+        document.body.classList.toggle("dark-theme", isDark);
+
+        setTheme(isDark);
+      };
+
+      // Load saved theme from local storage or default to light theme
+      loadTheme();
+    });
+
+  </script>
+</body>
+
+</html>`}</pre>
       ) : null}
     </div>
   );

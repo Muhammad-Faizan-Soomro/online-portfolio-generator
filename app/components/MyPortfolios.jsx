@@ -8,6 +8,7 @@ import pic8 from "../../public/template8.png";
 import pic2 from "../../public/template2.png";
 import pic4 from "../../public/template4.png";
 import pic1 from "../../public/template1/template.png";
+import pic5 from "../../public/assets/preview.png";
 
 function MyPortfolios({ data }) {
   let [userId, setUserId] = useState("");
@@ -34,6 +35,8 @@ function MyPortfolios({ data }) {
                     ? pic2
                     : datas.template == "developers"
                     ? pic4
+                    : datas.template == "mini"
+                    ? pic5
                     : pic1
                 }
                 alt="pic.png"
@@ -71,7 +74,7 @@ function MyPortfolios({ data }) {
                   },
                 }}
                 className="px-4 py-2 bg-gray-50 text-black font-bold rounded-md"
-                onClick={() => localStorage.setItem('template',datas.template)}
+                onClick={() => localStorage.setItem("template", datas.template)}
               >
                 Edit
               </Link>

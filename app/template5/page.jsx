@@ -114,18 +114,18 @@ export default function Page() {
             Frontend
           </h2>
           <h2 className="h2">
-            <b>5</b>
+            <b>10</b>
             <br />
-            Years
+            Projects
             <br />
-            B.Sc. & M.Sc.
+            Completed
           </h2>
           <h2 className="h2">
-            <b>4</b>
+            <b>7</b>
             <br />
             Satisfied
             <br />
-            Employers
+            Clients
           </h2>
         </section>
         <section className="cta">
@@ -170,7 +170,6 @@ export default function Page() {
         </section>
         <section className="skills" id="skills">
           <div className="wrapper">
-            <h3 className="h3">Frontend</h3>
             <article className="frontend-skills article">
               <p className="p">HTML</p>
               <p className="p">CSS</p>
@@ -184,7 +183,6 @@ export default function Page() {
             </article>
           </div>
           <div className="wrapper">
-            <h3 className="h3">Backend</h3>
             <article className="backend-skills article">
               <p className="p">Node.js</p>
               <p className="p">Express.js</p>
