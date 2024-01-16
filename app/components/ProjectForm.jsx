@@ -11,6 +11,7 @@ export default function ProjectForm() {
   const [githubLink, setGithubLink] = useState("");
   const [liveLink, setLiveLink] = useState("");
 
+
   const onSubmit = async (data) => {
     const imageData = data.profile[0];
     const formData = new FormData();
@@ -30,6 +31,10 @@ export default function ProjectForm() {
     dispatch(
       addProject({ image: uploadedImageData.secure_url, githubLink, liveLink })
     );
+
+    setImage("")
+    setGithubLink("")
+    setLiveLink("")
   };
   return (
     <div>
@@ -66,6 +71,7 @@ export default function ProjectForm() {
           type="submit"
           className="px-6 py-4 mt-2 text-white font-bold  rounded-lg  bg-orange-400"
           >
+          
           Add Project
         </button>
         {/* <button onClick={submitProject}>Done</button> */}

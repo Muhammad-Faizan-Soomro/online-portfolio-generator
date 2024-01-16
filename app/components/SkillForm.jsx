@@ -10,6 +10,8 @@ export default function SkillForm() {
     
     const submitSkill = () => {
         dispatch(addSkill({name, percentage}))
+        setName("")
+        setPercentage("")
     }
   return (
     <div className='w-full h-full flex flex-col gap-4  items-center justify-center'>

@@ -13,6 +13,11 @@ export default function ExpForm() {
     
     const submitExp = () => {
         dispatch(addExp({jobTitle, companyName, jobDescription, startDate, endDate}))
+        setJobTitle("")
+        setCompanyName("")
+        setStartDate("")
+        setEndDate("")
+        setJobDescription("")
     }
   return (
     <div className='w-full h-full flex flex-col gap-4  items-center justify-center'>
