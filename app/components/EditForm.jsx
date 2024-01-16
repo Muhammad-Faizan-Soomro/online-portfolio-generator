@@ -166,7 +166,11 @@ export default function EditForm({ postData }) {
 
     const uploadedImageData = await uploadResponse.json();
 
-    setProfilePicUrl(uploadedImageData.secure_url ? uploadedImageData.secure_url : postData[0].profilePicUrl);
+    setProfilePicUrl(
+      uploadedImageData.secure_url
+        ? uploadedImageData.secure_url
+        : postData[0].profilePicUrl
+    );
 
     const cvData = data.cv[0];
     const CVFormData = new FormData();
@@ -183,7 +187,9 @@ export default function EditForm({ postData }) {
 
     const uploadedCvData = await CVUploadResponse.json();
 
-    setCvLink(uploadedCvData.secure_url ? uploadedCvData.secure_url : postData[0].cvLink);
+    setCvLink(
+      uploadedCvData.secure_url ? uploadedCvData.secure_url : postData[0].cvLink
+    );
 
     if (postData) {
       let result = await fetch("/api/detail", {
@@ -211,7 +217,8 @@ export default function EditForm({ postData }) {
           githubLink,
           linkedinLink,
           twitterLink,
-          profilePicUrl: uploadedImageData.secure_url || postData[0].profilePicUrl,
+          profilePicUrl:
+            uploadedImageData.secure_url || postData[0].profilePicUrl,
         }),
       });
     } else {
@@ -260,7 +267,7 @@ export default function EditForm({ postData }) {
   const isBrowser = () => typeof window !== "undefined"; //The approach recommended by Next.js
 
   function scrollToTop() {
-    console.log("exe")
+    console.log("exe");
     if (!isBrowser()) return;
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
@@ -277,9 +284,8 @@ export default function EditForm({ postData }) {
         </h1>
       )}
       <div className={formActive}>
-        <ExpForm />
-        <br />
-        <SkillForm />
+        ${template == "simple" ? null : <ExpForm />}
+        <br />${template == "simple" ? null : <SkillForm />}
         <br />
         <ProjectForm />
         <br />
@@ -373,8 +379,9 @@ export default function EditForm({ postData }) {
             value={numOfProjects}
             placeholder="Number of projects you have completed"
             onChange={(e) => setNumOfProjects(e.target.value)}
-            className="w-64 h-14  mt-2 rounded-lg  border-2 border-orange-400  md:w-80 lg:w-[900px]"
-            required
+            className={`w-64 h-14  mt-2 rounded-lg  border-2 border-orange-400  md:w-80 lg:w-[900px] ${
+              template == "simple" ? "hidden" : null
+            }`}
           />
           <br />
           <input
@@ -398,7 +405,9 @@ export default function EditForm({ postData }) {
             value={totalCustomerReviews}
             placeholder="Number of Customer Reviews"
             onChange={(e) => setTotalCustomerReviews(e.target.value)}
-            className="w-64 h-14  mt-2 rounded-lg  border-2 border-orange-400  md:w-80 lg:w-[900px]"
+            className={`w-64 h-14  mt-2 rounded-lg  border-2 border-orange-400  md:w-80 lg:w-[900px] ${
+              template == "simple" ? "hidden" : null
+            }`}
           />
           <br />
           <input
@@ -439,7 +448,9 @@ export default function EditForm({ postData }) {
             type="text"
             value={location}
             placeholder="Enter your location"
-            className="w-64 h-14  mt-2 rounded-lg  border-2 border-orange-400  md:w-80 lg:w-[900px]"
+            className={`w-64 h-14  mt-2 rounded-lg  border-2 border-orange-400  md:w-80 lg:w-[900px] ${
+              template == "simple" ? "hidden" : null
+            }`}
             onChange={(e) => setLocation(e.target.value)}
           />
           <br />
@@ -456,7 +467,9 @@ export default function EditForm({ postData }) {
             type="text"
             value={mobileNumber}
             placeholder="Give your contact number"
-            className="w-64 h-14  mt-2 rounded-lg  border-2  md:w-80 lg:w-[900px] border-orange-400"
+            className={`w-64 h-14  mt-2 rounded-lg  border-2  md:w-80 lg:w-[900px] border-orange-400 ${
+              template == "simple" ? "hidden" : null
+            }`}
             onChange={(e) => setMobileNumber(e.target.value)}
           />
           <br />
@@ -469,7 +482,6 @@ export default function EditForm({ postData }) {
               aboutMe &&
               selfDesc &&
               facebookLink &&
-              githubLink &&
               email
                 ? false
                 : true
@@ -479,9 +491,7 @@ export default function EditForm({ postData }) {
             Proceed To Next Step <FaArrowRight />
           </button>
         </form>
-
         {/* <button onClick={submitDataToDB}>Send to DB</button> */}
-
         <div>
           <h1 className="text-xl lg:text-4xl font-extrabold text-center text-orange-400">
             Experience Added
@@ -536,7 +546,6 @@ export default function EditForm({ postData }) {
             </div>
           ))}
         </div>
-
         <div>
           <h1 className="text-xl lg:text-4xl font-extrabold text-center text-orange-400">
             Projects Added
@@ -576,7 +585,6 @@ export default function EditForm({ postData }) {
             </div>
           ))}
         </div>
-
         <div>
           <h1 className="text-xl lg:text-4xl font-extrabold text-center text-orange-400">
             Skills Added
