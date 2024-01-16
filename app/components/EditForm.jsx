@@ -166,7 +166,7 @@ export default function EditForm({ postData }) {
 
     const uploadedImageData = await uploadResponse.json();
 
-    setProfilePicUrl(uploadedImageData.secure_url);
+    setProfilePicUrl(uploadedImageData.secure_url ? uploadedImageData.secure_url : postData[0].profilePicUrl);
 
     const cvData = data.cv[0];
     const CVFormData = new FormData();
@@ -183,7 +183,7 @@ export default function EditForm({ postData }) {
 
     const uploadedCvData = await CVUploadResponse.json();
 
-    setCvLink(uploadedCvData.secure_url);
+    setCvLink(uploadedCvData.secure_url ? uploadedCvData.secure_url : postData[0].cvLink);
 
     if (postData) {
       let result = await fetch("/api/detail", {
@@ -195,7 +195,7 @@ export default function EditForm({ postData }) {
           fullName,
           workDesc,
           selfDesc,
-          cvLink: uploadedCvData.secure_url,
+          cvLink: uploadedCvData.secure_url || postData[0].cvLink,
           aboutMe,
           numOfProjects,
           yearsOfExperience,
@@ -211,7 +211,7 @@ export default function EditForm({ postData }) {
           githubLink,
           linkedinLink,
           twitterLink,
-          profilePicUrl: uploadedImageData.secure_url,
+          profilePicUrl: uploadedImageData.secure_url || postData[0].profilePicUrl,
         }),
       });
     } else {
