@@ -69,7 +69,7 @@ export default function ProjectForm() {
         />
         <button
           type="submit"
-          className="px-6 py-4 mt-2 text-white font-bold  rounded-lg  bg-orange-400"
+          className="px-6 py-4 mt-2 text-white font-bold  rounded-lg  bg-orange-400 disabled:bg-[#FDA172] disabled:font-normal disabled:px-3 disabled:py-2"
           >
           
           Add Project

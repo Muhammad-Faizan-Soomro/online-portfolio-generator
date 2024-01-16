@@ -169,7 +169,7 @@ export default function EditForm({ postData }) {
     setProfilePicUrl(
       uploadedImageData.secure_url
         ? uploadedImageData.secure_url
-        : postData[0].profilePicUrl
+        : postData ? postData[0].profilePicUrl : ""
     );
 
     const cvData = data.cv[0];
@@ -188,7 +188,7 @@ export default function EditForm({ postData }) {
     const uploadedCvData = await CVUploadResponse.json();
 
     setCvLink(
-      uploadedCvData.secure_url ? uploadedCvData.secure_url : postData[0].cvLink
+      uploadedCvData.secure_url ? uploadedCvData.secure_url : postData ? postData[0].cvLink : ""
     );
 
     if (postData) {

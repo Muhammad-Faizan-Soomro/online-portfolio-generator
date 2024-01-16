@@ -25,13 +25,20 @@ export default function Form({
   experience,
   projects,
 }) {
-  const download = () => {
+  const download = async () => {
     let output = he.decode(
       document.getElementsByClassName("codefile")[0].innerHTML
     );
     const element = document.getElementById("a1");
     const blob1 = new Blob([output]);
     element.href = URL.createObjectURL(blob1);
+
+    let result = await fetch("/api/mailer", {
+      method: "POST",
+      body: JSON.stringify({
+        email,
+      }),
+    });
   };
 
   const template = localStorage.getItem("template");
