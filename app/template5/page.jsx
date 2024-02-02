@@ -78,7 +78,7 @@ export default function Page() {
         <section className="hero">
           <img
             id="toggleTheme"
-            className="theme-btn"
+            className="themee-btn"
             src="assets/theme_light.png"
             alt="theme icon"
           />

@@ -33,9 +33,10 @@
     color: var(--primary-text-color);
   }
   
-  .theme-btn {
+  .themee-btn {
     position: relative;
     left: 8.5rem;
+    width: 1.5rem;
   }
   
   .h1,
@@ -142,7 +143,7 @@
     justify-content: center;
   }
   
-  .theme-btn,
+  .themee-btn,
   .logo-container a,
   .logo-container img {
     height: 1.5rem;
@@ -200,7 +201,7 @@
     background-color: var(--cta-hover-color);
   }
   
-  .theme-btn,
+  .themee-btn,
   .download-btn:hover,
   .contact-btn:hover,
   .btn-2:hover,
