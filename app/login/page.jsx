@@ -1,10 +1,11 @@
-'use client'
+"use client";
 import React, { useState } from "react";
-import {signIn} from 'next-auth/react'
+import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
 import Navbar from "../components/Navbar";
-
+import Input from "../components/Input";
+import Button from "../components/Button";
 
 function Login() {
   const [user, setuser] = useState({
@@ -12,105 +13,49 @@ function Login() {
     password: "",
   });
 
-  const router = useRouter()
+  const router = useRouter();
 
-  async function HandleSignIn(e){
+  async function HandleSignIn(e) {
     e.preventDefault();
-    if(!user.username||!user.password){
-      toast.error('All fields are required')
-    }
-    else{
-      try{
-       const  res = await signIn("credentials",{
-          username:user.username,
-          password:user.password,
-          redirect:false
-        })
-        if(res.ok){
-          toast.success("Login Successfully")
-          router.replace('/home')
-          localStorage.setItem('user',user.username)
+    if (!user.username || !user.password) {
+      toast.error("All fields are required");
+    } else {
+      try {
+        const res = await signIn("credentials", {
+          username: user.username,
+          password: user.password,
+          redirect: false,
+        });
+        if (res.ok) {
+          toast.success("Login Successfully");
+          router.replace("/home");
+          localStorage.setItem("user", user.username);
+        } else {
+          toast.warn("Invalid Credentials");
         }
-        else{
-          toast.warn("Invalid Credentials")
-        }
-      }
-      catch(error){
+      } catch (error) {
         console.log(error);
       }
     }
-    
-   
-
   }
   return (
     <>
-    <Navbar/>
-    <section>
-      <div className="lg:hidden container w-full h-full flex justify-center items-center">
-        <form onSubmit={HandleSignIn} className="form h-[580px] w-[350px] bg-gray-700 flex flex-col gap-8 items-center justify-center">
-          <h1 className="font-bold text-orange-400 text-2xl">
-            {" "}
-            PORTFOLIO GENERATOR
-          </h1>
-          <label htmlFor="username" className="text-xl font-bold text-white">
-            Username
-          </label>
-          <input
-            type="text"
-            className="w-[300px] rounded-sm h-8 p-2"
-            placeholder="Enter Your Username"
-            onChange={(e) => {
-              setuser({
-                ...user,
-                username: e.target.value,
-              });
-            }}
-            value={user.username}
-          />
-          <label htmlFor="password" className="text-xl font-bold text-white">
-            Password
-          </label>
-          <input
-            type="password"
-            className="w-[300px] rounded-sm h-8 p-2"
-            placeholder="Enter Your Password"
-            value={user.password}
-            onChange={(e) => {
-              setuser({
-                ...user,
-                password: e.target.value,
-              });
-            }}
-          />
-
-          <button className="px-8 mt-2  py-4 font-bold text-white bg-blue-500 rounded-full font-serif">
-            LOGIN
-          </button>
-          <p className="text-white font-bold">
-            DONT HAVE AN ACCOUNT ?{" "}
-            <a href="/register" className="text-orange-400 ">
-              REGISTER
-            </a>
-          </p>
-        </form>
-      </div>
-      <div className="  container1 h-full w-full hidden md:flex">
-        <div className="div1 h-screen w-[50%]">
-          <div className="bubble w-[700px] h-[700px] bg-gray-600 rounded-br-full dark:bg-blue-400">
-            <h1 className="text-orange-400 text-5xl pt-52 font-bold text-center dark:text-white font-serif">
-              Welcome To Portfolio Generator
+      <Navbar />
+      <section>
+        <div className="sm:hidden container h-[100vh] w-[100vw] flex justify-center items-center">
+          <form
+            onSubmit={HandleSignIn}
+            className="form h-[100%] w-[100%] bg-gray-700 flex flex-col gap-8 items-center justify-center"
+          >
+            <h1 className="font-bold text-orange-400 text-2xl text-center">
+              WELCOME TO<br/>PORTFOLIO GENERATOR
             </h1>
-          </div>
-        </div>
-        <div className="div2 h-screen w-[50%] flex items-center justify-center">
-          <form  onSubmit={HandleSignIn}  className="form flex flex-col justify-center items-center gap-4 w-[500px] h-[400px] bg-white rounded-2xl shadow-gray-900 shadow-lg">
-            <input
+            <Input
+              labelText="Username :"
+              labelClassName="text-white"
               type="text"
-              name="username"
-              id="user"
+              className="w-[80vw] max-w-[20rem]"
               placeholder="Enter Your Username"
-              className="w-[480px] rounded-md bg-gray-200 h-10 dark:text-black p-2"
               onChange={(e) => {
                 setuser({
                   ...user,
@@ -119,12 +64,12 @@ function Login() {
               }}
               value={user.username}
             />
-            <input
+            <Input
+              labelText="Password :"
+              labelClassName="text-white"
               type="password"
-              name="password"
-              id="pass"
+              className="w-[80vw] max-w-[20rem] "
               placeholder="Enter Your Password"
-              className="w-[480px] rounded-md bg-gray-200 h-10 dark:text-black p-2"
               value={user.password}
               onChange={(e) => {
                 setuser({
@@ -132,25 +77,73 @@ function Login() {
                   password: e.target.value,
                 });
               }}
-              
-
-
-
             />
-            <button className="w-[400px] m-10 py-4 text-white font-bold bg-blue-400">
-              LOGIN
-            </button>
-            <p className="dark:text-black">
-              Dont Have An Account ?{" "}
-              <a href="/register" className="text-orange-400">
-                {" "}
+
+            <Button className="w-72 bg-blue-500" text="LOGIN" type="submit"/>
+            <p className="text-white font-bold">
+              Don't Have An Account ?{" "}
+              <a
+                href="/register"
+                className="text-orange-400 hover:text-red-400 hover:underline"
+              >
                 Register
               </a>
             </p>
           </form>
         </div>
-      </div>
-    </section>
+        <div className="container1 h-full w-full hidden sm:flex">
+          <div className="div1 h-screen w-[50%]">
+            <div className="bubble w-full h-full bg-gray-600 rounded-br-full flex justify-center items-center dark:bg-blue-400">
+              <h1 className="text-orange-400 pr-12 pb-52 text-5xl text-center font-bold dark:text-white lg:block">
+                Welcome To Portfolio Generator
+              </h1>
+            </div>
+          </div>
+          <div className="div2 h-screen w-[50%] flex items-center justify-center">
+            <form
+              onSubmit={HandleSignIn}
+              className="form flex flex-col justify-center items-center gap-4 w-[500px] h-[400px] bg-white rounded-2xl shadow-gray-900 shadow-lg"
+            >
+              <Input
+                labelText="Username :"
+                name="username"
+                placeholder="Enter Your Username"
+                onChange={(e) => {
+                  setuser({
+                    ...user,
+                    username: e.target.value,
+                  });
+                }}
+                value={user.username}
+              />
+              <Input
+                labelText="Password :"
+                type="password"
+                name="password"
+                placeholder="Enter Your Password"
+                value={user.password}
+                onChange={(e) => {
+                  setuser({
+                    ...user,
+                    password: e.target.value,
+                  });
+                }}
+              />
+              <Button text="LOGIN" type="submit"/>
+              <p className="dark:text-black">
+                Don't Have An Account ?
+                <a
+                  href="/register"
+                  className="text-orange-400 hover:text-red-800 hover:underline"
+                >
+                  {" "}
+                  Register
+                </a>
+              </p>
+            </form>
+          </div>
+        </div>
+      </section>
     </>
   );
 }
