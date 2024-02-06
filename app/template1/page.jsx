@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 import "./style.css";
 import Script from "next/script";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -10,7 +11,6 @@ import {
   faEnvelopeOpen,
   faGlobeAfrica,
   faHome,
-  faLink,
   faMapMarkerAlt,
   faUser,
   faUserGraduate,
@@ -22,45 +22,61 @@ import {
   faTwitter,
   faYoutube,
 } from "@fortawesome/free-brands-svg-icons";
+import Image from "next/image";
 
 export default function Page() {
+  const [darkMode, setDarkMode] = useState("");
+
+  useEffect(() => {}, [darkMode]);
   return (
     <>
       <Script id="show-banner">
         {`(function () {
-    [...document.querySelectorAll(".control")].forEach(button => {
+    [...document.querySelectorAll(".temp1-controlscontrol")].forEach(button => {
         button.addEventListener("click", function () {
-            document.querySelector(".active-btn").classList.remove("active-btn");
-            this.classList.add("active-btn");
-            document.querySelector(".active").classList.remove("active");
-            document.getElementById(button.dataset.id).classList.add("active");
+            document.querySelector(".temp1-controlsactive-btn").classList.remove("temp1-controlsactive-btn");
+            this.classList.add("temp1-controlsactive-btn");
+            document.querySelector(".temp1-active").classList.remove("temp1-active");
+            document.getElementById(button.dataset.id).classList.add("temp1-active");
         })
     });
-    document.querySelector(".theme-btn").addEventListener("click", () => {
+    document.querySelector(".temp1-theme-btn").addEventListener("click", () => {
         document.body.classList.toggle("light-mode");
+        document.querySelectorAll(".temp1-controlscontrol").forEach(button => {
+          button.classList.toggle("text-white")
+        })
+        document.querySelectorAll(".temp1-theme-btn").forEach(button => {
+          button.classList.toggle("text-white")
+        })
+        document.querySelectorAll(".btn-icon").forEach(button => {
+          button.classList.toggle("text-white")
+        })
+        document.querySelectorAll(".work").forEach(button => {
+          button.classList.toggle("text-white")
+        })
     })
 })();`}
       </Script>
-      <header className="container header active header" id="home">
+      <header className="temp1-container temp1-header temp1-active temp1-header" id="home">
         <div className="header-content">
           <div className="left-header">
             <div className="h-shape"></div>
             <div className="image">
-              <img src="/template3/hero.png" alt="" />
+              <Image className="temp1-image" src="/template3/hero.webp" alt="" height={500} width={500} priority/>
             </div>
           </div>
           <div className="right-header">
             <h1 className="name">
-              Hi, I'm <span>Solano Milan Diaz.</span>A Web Developer.
+              Hi, I'm <span className="namespan">Solano Milan Diaz.</span>A Web Developer.
             </h1>
-            <p>
+            <p className="right-headerp">
               I'm a Web Developer, I love to create beautiful and functional
               websites. Lorem ipsum dolor sit amet consectetur adipisicing elit.
               Officia, libero? Lorem ipsum dolor sit amet consectetur
               adipisicing elit. Neque blanditiis sed aut!
             </p>
             <div className="btn-con">
-              <a href="" className="main-btn a">
+              <a href="" className="main-btn temp1-a">
                 <span className="btn-text">Download CV</span>
                 <span className="btn-icon">
                   <FontAwesomeIcon
@@ -74,17 +90,17 @@ export default function Page() {
         </div>
       </header>
       <main>
-        <section className="container about section" id="about">
+        <section className="temp1-container about temp1-section" id="about">
           <div className="main-title">
-            <h2>
-              About <span>me</span>
+            <h2 className="main-titleh2">
+              About <span className="main-titleh2span">me</span>
               <span className="bg-text">my stats</span>
             </h2>
           </div>
           <div className="about-container">
             <div className="left-about">
-              <h4>Information About me</h4>
-              <p>
+              <h4 className="left-abouth4">Information About me</h4>
+              <p className="left-aboutp">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet
                 labore nihil obcaecati consequatur. Debitis error doloremque,
                 vero eos vel nemo eius voluptatem dicta tenetur modi. <br />{" "}
@@ -94,7 +110,7 @@ export default function Page() {
                 necessitatibus deleniti eum soluta.
               </p>
               <div className="btn-con">
-                <a href="#" className="main-btn a">
+                <a href="#" className="main-btn temp1-a">
                   <span className="btn-text">Download CV</span>
                   <span className="btn-icon">
                     <FontAwesomeIcon
@@ -146,9 +162,9 @@ export default function Page() {
               <div className="progress-bar">
                 <p className="prog-title">html5</p>
                 <div className="progress-con">
-                  <p className="prog-text">0%</p>
+                  <p className="prog-text">65%</p>
                   <div className="progress">
-                    <span className="" style={{ width: "60%" }}></span>
+                    <span className="progressspan" style={{ width: "60%" }}></span>
                   </div>
                 </div>
               </div>
@@ -157,7 +173,7 @@ export default function Page() {
                 <div className="progress-con">
                   <p className="prog-text">95%</p>
                   <div className="progress">
-                    <span className="css"></span>
+                    <span className="progressspan css"></span>
                   </div>
                 </div>
               </div>
@@ -166,16 +182,16 @@ export default function Page() {
                 <div className="progress-con">
                   <p className="prog-text">75%</p>
                   <div className="progress">
-                    <span className="js"></span>
+                    <span className="js progressspan"></span>
                   </div>
                 </div>
               </div>
               <div className="progress-bar">
                 <p className="prog-title">ReactJS</p>
                 <div className="progress-con">
-                  <p className="prog-text">75%</p>
+                  <p className="prog-text">65%</p>
                   <div className="progress">
-                    <span className="react"></span>
+                    <span className="react progressspan"></span>
                   </div>
                 </div>
               </div>
@@ -184,7 +200,7 @@ export default function Page() {
                 <div className="progress-con">
                   <p className="prog-text">87%</p>
                   <div className="progress">
-                    <span className="node"></span>
+                    <span className="node progressspan"></span>
                   </div>
                 </div>
               </div>
@@ -193,7 +209,7 @@ export default function Page() {
                 <div className="progress-con">
                   <p className="prog-text">70%</p>
                   <div className="progress">
-                    <span className="python"></span>
+                    <span className="python progressspan"></span>
                   </div>
                 </div>
               </div>
@@ -203,13 +219,13 @@ export default function Page() {
           <div className="timeline">
             <div className="timeline-item">
               <div className="tl-icon">
-                <FontAwesomeIcon icon={faLink} className="fas fa-link" />
+                <FontAwesomeIcon icon={faBriefcase} className="fas fa-briefcase work" />
               </div>
-              <p className="tl-duration">2010 - present</p>
-              <h5>
-                Web Developer<span> - Vircrosoft</span>
+              <p className="tl-duration timeline-itemp">2010 - present</p>
+              <h5 className="timeline-itemh5">
+                Web Developer<span className="timeline-itemh5span"> - Vircrosoft</span>
               </h5>
-              <p>
+              <p className="timeline-itemp">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe
                 quasi vero fugit.
               </p>
@@ -218,14 +234,14 @@ export default function Page() {
               <div className="tl-icon">
                 <FontAwesomeIcon
                   icon={faBriefcase}
-                  className="fas fa-briefcase"
+                  className="fas fa-briefcase work"
                 />
               </div>
-              <p className="tl-duration">2008 - 2011</p>
-              <h5>
-                Software Engineer<span> - Boogle, Inc.</span>
+              <p className="tl-duration timeline-itemp">2008 - 2011</p>
+              <h5 className="timeline-itemh5">
+                Software Engineer<span className="timeline-itemh5span"> - Boogle, Inc.</span>
               </h5>
-              <p>
+              <p className="timeline-itemp">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe
                 quasi vero fugit.
               </p>
@@ -234,14 +250,14 @@ export default function Page() {
               <div className="tl-icon">
                 <FontAwesomeIcon
                   icon={faBriefcase}
-                  className="fas fa-briefcase"
+                  className="fas fa-briefcase work"
                 />
               </div>
-              <p className="tl-duration">2016 - 2017</p>
-              <h5>
-                C++ Programmer<span> - Slime Tech</span>
+              <p className="tl-duration timeline-itemp">2016 - 2017</p>
+              <h5 className="timeline-itemh5">
+                C++ Programmer<span className="timeline-itemh5span"> - Slime Tech</span>
               </h5>
-              <p>
+              <p className="timeline-itemp">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe
                 quasi vero fugit.
               </p>
@@ -250,14 +266,14 @@ export default function Page() {
               <div className="tl-icon">
                 <FontAwesomeIcon
                   icon={faBriefcase}
-                  className="fas fa-briefcase"
+                  className="fas fa-briefcase work"
                 />
               </div>
-              <p className="tl-duration">2009 - 2013</p>
-              <h5>
-                Business Degree<span> - Sussex University</span>
+              <p className="tl-duration timeline-itemp">2009 - 2013</p>
+              <h5 className="timeline-itemh5">
+                Business Degree<span className="timeline-itemh5span"> - Sussex University</span>
               </h5>
-              <p>
+              <p className="timeline-itemp">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe
                 quasi vero fugit.
               </p>
@@ -266,14 +282,14 @@ export default function Page() {
               <div className="tl-icon">
                 <FontAwesomeIcon
                   icon={faBriefcase}
-                  className="fas fa-briefcase"
+                  className="fas fa-briefcase work"
                 />
               </div>
-              <p className="tl-duration">2013 - 2016</p>
-              <h5>
-                Computer Science Degree<span> - Brookes University</span>
+              <p className="tl-duration timeline-itemp">2013 - 2016</p>
+              <h5 className="timeline-itemh5">
+                Computer Science Degree<span className="timeline-itemh5span"> - Brookes University</span>
               </h5>
-              <p>
+              <p className="timeline-itemp">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe
                 quasi vero fugit.
               </p>
@@ -282,24 +298,24 @@ export default function Page() {
               <div className="tl-icon">
                 <FontAwesomeIcon
                   icon={faBriefcase}
-                  className="fas fa-briefcase"
+                  className="fas fa-briefcase work"
                 />
               </div>
-              <p className="tl-duration">2017 - present</p>
-              <h5>
-                3d Animation<span> - Brighton University</span>
+              <p className="tl-duration timeline-itemp">2017 - present</p>
+              <h5 className="timeline-itemh5">
+                3d Animation<span className="timeline-itemh5span"> - Brighton University</span>
               </h5>
-              <p>
+              <p className="timeline-itemp">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe
                 quasi vero fugit.
               </p>
             </div>
           </div>
         </section>
-        <section className="container section" id="portfolio">
+        <section className="temp1-container temp1-section" id="portfolio">
           <div className="main-title">
-            <h2>
-              My <span>Portfolio</span>
+            <h2 className="main-titleh2">
+              My <span className="main-titleh2span">Portfolio</span>
               <span className="bg-text">My Work</span>
             </h2>
           </div>
@@ -310,24 +326,24 @@ export default function Page() {
           <div className="portfolios">
             <div className="portfolio-item">
               <div className="image">
-                <img src="img/port1.jpg" alt="" />
+                <img src="template1/project.webp" alt="" className="imageimg portfolio-itemimg" />
               </div>
               <div className="hover-items">
-                <h3>Project Source</h3>
+                <h3 className="hover-itemsh3">Project Source</h3>
                 <div className="icons">
-                  <a href="#" className="icon a">
+                  <a href="#" className="icon temp1-a">
                     <FontAwesomeIcon
                       icon={faGithub}
                       className="fab fa-github"
                     />
                   </a>
-                  <a href="#" className="icon a">
+                  <a href="#" className="icon temp1-a">
                     <FontAwesomeIcon
                       icon={faBehance}
                       className="fab fa-behance"
                     />
                   </a>
-                  <a href="#" className="icon a">
+                  <a href="#" className="icon temp1-a">
                     <FontAwesomeIcon
                       icon={faYoutube}
                       className="fab fa-youtube"
@@ -338,24 +354,24 @@ export default function Page() {
             </div>
             <div className="portfolio-item">
               <div className="image">
-                <img src="img/port2.jpg" alt="" />
+                <img src="template1/project.webp" alt="" className="imageimg portfolio-itemimg"/>
               </div>
               <div className="hover-items">
-                <h3>Project Source</h3>
+                <h3 className="hover-itemsh3">Project Source</h3>
                 <div className="icons">
-                  <a href="#" className="icon a">
+                  <a href="#" className="icon temp1-a">
                     <FontAwesomeIcon
                       icon={faGithub}
                       className="fab fa-github"
                     />
                   </a>
-                  <a href="#" className="icon a">
+                  <a href="#" className="icon temp1-a">
                     <FontAwesomeIcon
                       icon={faBehance}
                       className="fab fa-behance"
                     />
                   </a>
-                  <a href="#" className="icon a">
+                  <a href="#" className="icon temp1-a">
                     <FontAwesomeIcon
                       icon={faYoutube}
                       className="fab fa-youtube"
@@ -366,136 +382,24 @@ export default function Page() {
             </div>
             <div className="portfolio-item">
               <div className="image">
-                <img src="img/port3.jpg" alt="" />
+                <img src="template1/project.webp" alt="" className="imageimg portfolio-itemimg"/>
               </div>
               <div className="hover-items">
-                <h3>Project Source</h3>
+                <h3 className="hover-itemsh3">Project Source</h3>
                 <div className="icons">
-                  <a href="#" className="icon a">
+                  <a href="#" className="icon temp1-a">
                     <FontAwesomeIcon
                       icon={faGithub}
                       className="fab fa-github"
                     />
                   </a>
-                  <a href="#" className="icon a">
+                  <a href="#" className="icon temp1-a">
                     <FontAwesomeIcon
                       icon={faBehance}
                       className="fab fa-behance"
                     />
                   </a>
-                  <a href="#" className="icon a">
-                    <FontAwesomeIcon
-                      icon={faYoutube}
-                      className="fab fa-youtube"
-                    />
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div className="portfolio-item">
-              <div className="image">
-                <img src="img/port4.jpg" alt="" />
-              </div>
-              <div className="hover-items">
-                <h3>Project Source</h3>
-                <div className="icons">
-                  <a href="#" className="icon a">
-                    <FontAwesomeIcon
-                      icon={faGithub}
-                      className="fab fa-github"
-                    />
-                  </a>
-                  <a href="#" className="icon a">
-                    <FontAwesomeIcon
-                      icon={faBehance}
-                      className="fab fa-behance"
-                    />
-                  </a>
-                  <a href="#" className="icon a">
-                    <FontAwesomeIcon
-                      icon={faYoutube}
-                      className="fab fa-youtube"
-                    />
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div className="portfolio-item">
-              <div className="image">
-                <img src="img/port5.jpg" alt="" />
-              </div>
-              <div className="hover-items">
-                <h3>Project Source</h3>
-                <div className="icons">
-                  <a href="#" className="icon a">
-                    <FontAwesomeIcon
-                      icon={faGithub}
-                      className="fab fa-github"
-                    />
-                  </a>
-                  <a href="#" className="icon a">
-                    <FontAwesomeIcon
-                      icon={faBehance}
-                      className="fab fa-behance"
-                    />
-                  </a>
-                  <a href="#" className="icon a">
-                    <FontAwesomeIcon
-                      icon={faYoutube}
-                      className="fab fa-youtube"
-                    />
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div className="portfolio-item">
-              <div className="image">
-                <img src="img/port2.jpg" alt="" />
-              </div>
-              <div className="hover-items">
-                <h3>Project Source</h3>
-                <div className="icons">
-                  <a href="#" className="icon a">
-                    <FontAwesomeIcon
-                      icon={faGithub}
-                      className="fab fa-github"
-                    />
-                  </a>
-                  <a href="#" className="icon a">
-                    <FontAwesomeIcon
-                      icon={faBehance}
-                      className="fab fa-behance"
-                    />
-                  </a>
-                  <a href="#" className="icon a">
-                    <FontAwesomeIcon
-                      icon={faYoutube}
-                      className="fab fa-youtube"
-                    />
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div className="portfolio-item">
-              <div className="image">
-                <img src="img/port7.jpg" alt="" />
-              </div>
-              <div className="hover-items">
-                <h3>Project Source</h3>
-                <div className="icons">
-                  <a href="#" className="icon a">
-                    <FontAwesomeIcon
-                      icon={faGithub}
-                      className="fab fa-github"
-                    />
-                  </a>
-                  <a href="#" className="icon a">
-                    <FontAwesomeIcon
-                      icon={faBehance}
-                      className="fab fa-behance"
-                    />
-                  </a>
-                  <a href="#" className="icon a">
+                  <a href="#" className="icon temp1-a">
                     <FontAwesomeIcon
                       icon={faYoutube}
                       className="fab fa-youtube"
@@ -506,18 +410,18 @@ export default function Page() {
             </div>
           </div>
         </section>
-        <section className="container contact section" id="contact">
+        <section className="temp1-container contact temp1-section" id="contact">
           <div className="contact-container">
             <div className="main-title">
-              <h2>
-                Contact <span>Me</span>
+              <h2 className="main-titleh2">
+                Contact <span className="main-titleh2span">Me</span>
                 <span className="bg-text">Contact</span>
               </h2>
             </div>
             <div className="contact-content-con">
               <div className="left-contact">
-                <h4>Contact me here</h4>
-                <p>
+                <h4 className="left-contacth4">Contact me here</h4>
+                <p className="left-contactp">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. In,
                   laborum numquam? Quam excepturi perspiciatis quas quasi.
                 </p>
@@ -530,7 +434,7 @@ export default function Page() {
                       />
                       <span>Location</span>
                     </div>
-                    <p>: London, united Kingdom</p>
+                    <p className="contact-itemp">: London, united Kingdom</p>
                   </div>
                   <div className="contact-item">
                     <div className="icon">
@@ -540,7 +444,7 @@ export default function Page() {
                       />
                       <span>Email</span>
                     </div>
-                    <p>
+                    <p className="contact-itemp">
                       <span>: maclinzuniversal@gmail.com</span>
                     </p>
                   </div>
@@ -552,7 +456,7 @@ export default function Page() {
                       />
                       <span>Education</span>
                     </div>
-                    <p>
+                    <p className="contact-itemp">
                       <span>: Sussex University, East Sussex</span>
                     </p>
                   </div>
@@ -564,7 +468,7 @@ export default function Page() {
                       />
                       <span>Mobile Number</span>
                     </div>
-                    <p>
+                    <p className="contact-itemp">
                       <span>: 07522670617</span>
                     </p>
                   </div>
@@ -576,32 +480,32 @@ export default function Page() {
                       />
                       <span>Languages</span>
                     </div>
-                    <p>
+                    <p className="contact-itemp">
                       <span>: Afrikaans, English, Spanish</span>
                     </p>
                   </div>
                 </div>
                 <div className="contact-icons">
                   <div className="contact-icon">
-                    <a href="www.facebook.com" target="_blank">
+                    <a href="www.facebook.com" target="_blank" className="temp1-a contact-icona">
                       <FontAwesomeIcon
                         icon={faFacebookF}
                         className="fab fa-facebook-f"
                       />
                     </a>
-                    <a href="#" target="_blank">
+                    <a href="#" target="_blank" className="temp1-a contact-icona">
                       <FontAwesomeIcon
                         icon={faTwitter}
                         className="fab fa-twitter"
                       />
                     </a>
-                    <a href="#" target="_blank">
+                    <a href="#" target="_blank" className="temp1-a contact-icona">
                       <FontAwesomeIcon
                         icon={faGithub}
                         className="fab fa-github"
                       />
                     </a>
-                    <a href="#" target="_blank">
+                    <a href="#" target="_blank" className="temp1-a contact-icona">
                       <FontAwesomeIcon
                         icon={faYoutube}
                         className="fab fa-youtube"
@@ -613,15 +517,16 @@ export default function Page() {
               <div className="right-contact">
                 <form action="" className="contact-form">
                   <div className="input-control i-c-2">
-                    <input type="text" required placeholder="YOUR NAME" />
-                    <input type="email" required placeholder="YOUR EMAIL" />
+                    <input className="input-controlinput" type="text" required placeholder="YOUR NAME" />
+                    <input className="input-controlinput" type="email" required placeholder="YOUR EMAIL" />
                   </div>
                   <div className="input-control">
-                    <input type="text" required placeholder="ENTER SUBJECT" />
+                    <input className="input-controlinput" type="text" required placeholder="ENTER SUBJECT" />
                   </div>
                   <div className="input-control">
                     <textarea
                       name=""
+                      className="input-controltextarea"
                       id=""
                       cols="15"
                       rows="8"
@@ -629,7 +534,7 @@ export default function Page() {
                     ></textarea>
                   </div>
                   <div className="submit-btn">
-                    <a href="#" className="main-btn a">
+                    <a href="#" className="main-btn temp1-a">
                       <span className="btn-text">Download CV</span>
                       <span className="btn-icon">
                         <FontAwesomeIcon
@@ -645,24 +550,24 @@ export default function Page() {
           </div>
         </section>
       </main>
-      <div className="controls">
-        <div className="control active-btn" data-id="home">
+      <div className="temp1-controls">
+        <div className="temp1-controlscontrol temp1-controlsactive-btn" data-id="home">
           <FontAwesomeIcon icon={faHome} className="fas fa-home" />
         </div>
-        <div className="control" data-id="about">
+        <div className="temp1-controlscontrol" data-id="about">
           <FontAwesomeIcon icon={faUser} className="fas fa-user" />
         </div>
-        <div className="control" data-id="portfolio">
+        <div className="temp1-controlscontrol" data-id="portfolio">
           <FontAwesomeIcon icon={faBriefcase} className="fas fa-briefcase" />
         </div>
-        <div className="control" data-id="contact">
+        <div className="temp1-controlscontrol" data-id="contact">
           <FontAwesomeIcon
             icon={faEnvelopeOpen}
-            className="fas fa-envelope-open"
+            className="fas fa-envelope-open "
           />
         </div>
       </div>
-      <div className="theme-btn">
+      <div className="temp1-theme-btn">
         <FontAwesomeIcon icon={faAdjust} className="fas fa-adjust" />
       </div>
     </>
