@@ -87,7 +87,7 @@ function MyPortfolios({ data }) {
               <button
                 className="p-2 bg-white font-bold rounded-md"
                 onClick={async () => {
-                  data = await fetch("http://localhost:3000/api/detail", {
+                  data = await fetch("https://online-portfolio-generator.vercel.app/api/detail", {
                     cache:"no-cache",
                     method: "DELETE",
                     body: JSON.stringify({
