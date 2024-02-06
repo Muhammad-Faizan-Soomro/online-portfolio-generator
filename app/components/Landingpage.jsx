@@ -1,11 +1,11 @@
-'use client'
+"use client";
 import React from "react";
-import lp2 from "../../public/lp2.png";
+import lp2 from "../../public/lp2.webp";
 import Image from "next/image";
 import Link from "next/link";
-import landing from "../../public/landingpage2.png";
+import landing from "../../public/landingpage2.webp";
 import Navbar from "./Navbar";
-import pic from "../../public/landing page.png"
+import pic from "../../public/landing page.webp";
 import { useTheme } from "next-themes";
 
 function Landingpage() {
@@ -34,7 +34,7 @@ function Landingpage() {
               </Link>
             </div>
             <div className="content2 w-[50%] h-[screen] px-6 pt-20 rounded-lg">
-              <Image src={lp2} alt="lp2.png" />
+              <Image src={lp2} alt="lp2.png" priority />
             </div>
           </div>
         </div>
@@ -56,12 +56,23 @@ function Landingpage() {
               </Link>
             </div>
             <div className="content1 w-[50%] h-full px-2 ">
-              {theme==='dark'?
-              <Image src={landing} alt="landing.png" width={600} className="pt-10 rounded-lg"/>
-            :
-            <Image src={pic} alt="landing.png" width={600} className="pt-10 rounded-lg"/>
-            
-            }
+              {theme === "dark" ? (
+                <Image
+                  src={landing}
+                  alt="landing.png"
+                  width={600}
+                  className="pt-10 rounded-lg"
+                  priority
+                />
+              ) : (
+                <Image
+                  src={pic}
+                  alt="landing.png"
+                  width={600}
+                  className="pt-10 rounded-lg"
+                  priority
+                />
+              )}
             </div>
           </div>
         </div>

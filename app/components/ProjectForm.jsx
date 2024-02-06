@@ -13,7 +13,7 @@ export default function ProjectForm() {
 
 
   const onSubmit = async (data) => {
-    const imageData = data.profile[0];
+    const imageData = data.project[0];
     const formData = new FormData();
     formData.append("file", imageData);
     formData.append("upload_preset", "portfolio");
@@ -46,17 +46,18 @@ export default function ProjectForm() {
           Upload Project Screenshot
         </label>
         <input
-          {...register("profile")}
+          {...register("project")}
           className="text-orange-400 font-bold"
           aria-describedby="file_input_help"
           id="file_input"
           type="file"
+          required
         />
 
         <input
           type="text"
           value={githubLink}
-          className='w-64 h-14  mt-2 rounded-lg md:w-80 lg:w-[900px] border-2 border-orange-400'
+          className='w-64 h-14  mt-2 rounded-lg md:w-80 lg:w-[900px] border-2 p-2 border-orange-400'
           placeholder="Input Github Repo Link"
           onChange={(e) => setGithubLink(e.target.value)}
         />
@@ -65,7 +66,7 @@ export default function ProjectForm() {
           value={liveLink}
           placeholder="Input Live Link"
           onChange={(e) => setLiveLink(e.target.value)}
-          className='w-64 h-14 mt-2 rounded-lg  md:w-80 lg:w-[900px] border-2 border-orange-400'
+          className='w-64 h-14 mt-2 rounded-lg p-2 md:w-80 lg:w-[900px] border-2 border-orange-400'
         />
         <button
           type="submit"

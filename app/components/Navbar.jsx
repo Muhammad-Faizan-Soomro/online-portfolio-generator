@@ -1,8 +1,8 @@
 "use client";
 import React, { useState } from "react";
 import Image from "next/image";
-import logo from "../../public/logo.png";
-import logo1 from "../../public/logodark.png";
+import logo from "../../public/logo.webp";
+import logo1 from "../../public/logodark.webp";
 import Link from "next/link";
 import { FaBars } from "react-icons/fa";
 import { GiCancel } from "react-icons/gi";
@@ -13,18 +13,28 @@ import { useTheme } from "next-themes";
 function Navbar() {
   const [hide, sethide] = useState(true);
   const { theme, setTheme } = useTheme();
-
+  
   return (
     <>
       <section className="md:hidden">
-        <div className="nav w-full h-14   flex items-center justify-evenly">
+        <div className="nav pt-2 pb-2 flex items-center justify-evenly">
           {theme === "dark" ? (
             <Link href={"/"}>
-              <Image src={logo1} width={150} alt="logo.png" />
+              <Image
+                src={logo1}
+                alt="logo.webp"
+                priority
+                style={{ width: "150px", height: "auto" }}
+              />
             </Link>
           ) : (
             <Link href={"/"}>
-              <Image src={logo} width={150} alt="logo.png" />
+              <Image
+                src={logo}
+                alt="logo.webp"
+                priority
+                style={{ width: "150px", height: "auto" }}
+              />
             </Link>
           )}
 
@@ -49,12 +59,18 @@ function Navbar() {
         <div
           className={`${
             hide ? "hidden" : "block"
-          } links w-screen h-screen bg-gray-100 absolute dark:bg-blue-950   gap-8 opacity-90 flex flex-col items-center justify-center`}
+          } links w-screen h-screen bg-gray-100 absolute dark:bg-blue-950  gap-8 opacity-90 flex flex-col items-center justify-center`}
         >
-          <Link href={"/about"} className="text-xl font-bold text-orange-400 dark:text-white">
+          <Link
+            href={"/about"}
+            className="text-xl font-bold text-orange-400 dark:text-white"
+          >
             About Us
           </Link>
-          <Link href={"/contact"} className="text-xl font-bold text-orange-400 dark:text-white">
+          <Link
+            href={"/contact"}
+            className="text-xl font-bold text-orange-400 dark:text-white"
+          >
             Contact Us
           </Link>{" "}
           <Link
@@ -67,14 +83,22 @@ function Navbar() {
       </section>
 
       <section className="hidden lg:block">
-        <div className="nav w-full h-16 border-2 flex items-center justify-center gap-20  dark:border-0">
+        <div className="nav pt-2 pb-2 border-2 flex items-center justify-center gap-20  dark:border-0">
           {theme === "dark" ? (
             <Link href={"/"}>
-              <Image src={logo1} width={200} alt="logo.png" />
+              <Image
+                src={logo1}
+                alt="logo.webp"
+                style={{ width: "200px", height: "auto" }}
+              />
             </Link>
           ) : (
             <Link href={"/"}>
-              <Image src={logo} width={200} alt="logo.png" />
+              <Image
+                src={logo}
+                alt="logo.webp"
+                style={{ width: "200px", height: "auto" }}
+              />
             </Link>
           )}
 

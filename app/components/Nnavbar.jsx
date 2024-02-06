@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import logo from "../../public/logo.png";
+import logo from "../../public/logo.webp";
 import Image from "next/image";
 import { signOut, useSession } from "next-auth/react";
 import { FaBars } from "react-icons/fa";
@@ -9,7 +9,7 @@ import { FaMoon } from "react-icons/fa";
 import { LuSunMoon } from "react-icons/lu";
 import { useTheme } from "next-themes";
 import Link from "next/link";
-import logo1 from "../../public/logodark.png";
+import logo1 from "../../public/logodark.webp";
 import { usePathname } from "next/navigation";
 
 function Navbar() {
@@ -42,9 +42,9 @@ function Navbar() {
   }
 
   const { email } = session.user;
-
   return (
     <>
+    
       <section className="  hidden  w-full h-16 lg:flex justify-between items-center border-b-2 dark:border-b-1 dark:bg-[#0b1120]">
         <div className="flex nav w-[350px] h-16  items-center justify-center ">
           {pathName == "/home" ? (

@@ -17,7 +17,7 @@ export default function SkillForm() {
     <div className='w-full h-full flex flex-col gap-4  items-center justify-center'>
         <input
             type='text'
-            className='w-60 h-14 rounded-lg   md:w-80 lg:w-[900px] border-2 border-orange-400'
+            className='w-60 h-14 rounded-lg p-2  md:w-80 lg:w-[900px] border-2 border-orange-400'
             value={name}
             placeholder='Skill Name'
             onChange={(e)=>setName(e.target.value)}
@@ -25,8 +25,9 @@ export default function SkillForm() {
         <input
             type='text'
             value={percentage}
-            className='w-64 h-14 rounded-lg   md:w-80 lg:w-[900px] border-2 border-orange-400'
+            className='w-64 h-14 rounded-lg p-2  md:w-80 lg:w-[900px] border-2 border-orange-400'
             placeholder='Input Percentage in Numbers Only'
+            pattern='^(\d{1,2}|100)$'
             onChange={(e)=>setPercentage(e.target.value)}
         />
         <button

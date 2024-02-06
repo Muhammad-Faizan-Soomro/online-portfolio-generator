@@ -5,10 +5,13 @@ import pic3 from "../../public/template3.png";
 import Image from "next/image";
 import Link from "next/link";
 import pic8 from "../../public/template8.png";
-import pic2 from "../../public/template2.png";
+import pic2 from "../../public/template2/preview.webp";
 import pic4 from "../../public/template4.png";
-import pic1 from "../../public/template1/template.png";
-import pic5 from "../../public/assets/preview.png";
+import pic1 from "../../public/template1/template.webp";
+import pic5 from "../../public/assets/preview.webp";
+import { redirect } from 'next/navigation'
+import { useRouter } from 'next/navigation';
+
 
 function MyPortfolios({ data }) {
   let [userId, setUserId] = useState("");
@@ -16,6 +19,9 @@ function MyPortfolios({ data }) {
     // Perform localStorage action
     setUserId(localStorage.getItem("user"));
   }, []);
+
+  const router = useRouter();
+
   return (
     <div className="templates w-full h-full   flex flex-col gap-10  lag:gap-4 lg:px-10  lg:grid grid-cols-3 lg:mb-2  items-center justify-start pt-4">
       {data.map((datas) =>
@@ -28,11 +34,11 @@ function MyPortfolios({ data }) {
               <Image
                 src={
                   datas.template == "simple"
-                    ? pic3
+                    ? pic2
                     : datas.template == "react"
                     ? pic8
                     : datas.template == "beginner"
-                    ? pic2
+                    ? pic3
                     : datas.template == "developers"
                     ? pic4
                     : datas.template == "mini"
@@ -78,6 +84,22 @@ function MyPortfolios({ data }) {
               >
                 Edit
               </Link>
+              <button
+                className="p-2 bg-white font-bold rounded-md"
+                onClick={async () => {
+                  data = await fetch("http://localhost:3000/api/detail", {
+                    cache:"no-cache",
+                    method: "DELETE",
+                    body: JSON.stringify({
+                      _id: datas._id,
+                    }),
+                  });
+
+                  router.refresh()
+                }}
+              >
+                Delete
+              </button>
             </div>
           </div>
         ) : null

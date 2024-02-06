@@ -84,6 +84,9 @@ export default function EditForm({ postData }) {
   const [email, setEmail] = useState(postData ? postData[0].email : "");
 
   useEffect(() => {
+    if(!postData){
+      dispatch(removeAllExp())
+    }
     if (postData && postData[0].experience.length != 0) {
       dispatch(removeAllExp());
       postData[0].experience.map((exp) => dispatch(addExp(exp)));
@@ -91,6 +94,9 @@ export default function EditForm({ postData }) {
   }, [postData]);
 
   useEffect(() => {
+    if(!postData){
+      dispatch(removeAllSkill())
+    }
     if (postData && postData[0].skills.length != 0) {
       dispatch(removeAllSkill());
       postData[0].skills.map((skill) => dispatch(addSkill(skill)));
@@ -98,6 +104,9 @@ export default function EditForm({ postData }) {
   }, [postData]);
 
   useEffect(() => {
+    if(!postData){
+      dispatch(removeAllProject())
+    }
     if (postData && postData[0].projects.length != 0) {
       dispatch(removeAllProject());
       postData[0].projects.map((proj) => dispatch(addProject(proj)));
@@ -267,7 +276,6 @@ export default function EditForm({ postData }) {
   const isBrowser = () => typeof window !== "undefined"; //The approach recommended by Next.js
 
   function scrollToTop() {
-    console.log("exe");
     if (!isBrowser()) return;
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
@@ -284,8 +292,8 @@ export default function EditForm({ postData }) {
         </h1>
       )}
       <div className={formActive}>
-        ${template == "simple" ? null : <ExpForm />}
-        <br />${template == "simple" ? null : <SkillForm />}
+        {template == "simple" ? null : <ExpForm />}
+        <br />{template == "beginner" ? null : <SkillForm />}
         <br />
         <ProjectForm />
         <br />
@@ -326,12 +334,12 @@ export default function EditForm({ postData }) {
             value={user_id}
             placeholder="User ID"
             onChange={(e) => setUser_id(e.target.value)}
-            className="w-64 h-14  mt-2 rounded-lg  md:w-80 lg:w-[900px] border-2 border-orange-400"
+            className="w-64 h-14  mt-2 rounded-lg  md:w-80 lg:w-[900px] border-2 border-orange-400 p-2"
             disabled
           />
           <br />
           <input
-            className="w-64 h-14  mt-2 rounded-lg  md:w-80 lg:w-[900px]  border-2 border-orange-400"
+            className="w-64 h-14  mt-2 rounded-lg  md:w-80 lg:w-[900px]  border-2 border-orange-400 p-2"
             type="text"
             value={fullName}
             placeholder="Full Name"
@@ -343,7 +351,7 @@ export default function EditForm({ postData }) {
             value={template}
             placeholder="Template Name"
             onChange={(e) => setTemplate(e.target.value)}
-            className="w-64 h-14  mt-2 rounded-lg  border-2  md:w-80 lg:w-[900px] border-orange-400"
+            className="w-64 h-14  mt-2 rounded-lg  border-2  md:w-80 lg:w-[900px] border-orange-400 p-2"
             disabled
           />
           <br />
@@ -352,7 +360,7 @@ export default function EditForm({ postData }) {
             value={workDesc}
             placeholder="Work Description"
             onChange={(e) => setWorkDesc(e.target.value)}
-            className="w-64 h-14  mt-2 rounded-lg  border-2 border-orange-400  md:w-80 lg:w-[900px]"
+            className="w-64 h-14  mt-2 rounded-lg  border-2 border-orange-400  md:w-80 lg:w-[900px] p-2"
             required
           />
           <br />
@@ -361,7 +369,7 @@ export default function EditForm({ postData }) {
             value={selfDesc}
             placeholder="Self Description"
             onChange={(e) => setSelfDesc(e.target.value)}
-            className="w-64 h-14  mt-2 rounded-lg  border-2 border-orange-400  md:w-80 lg:w-[900px]"
+            className="w-64 h-14  mt-2 rounded-lg  border-2 border-orange-400  md:w-80 lg:w-[900px] p-2"
             required
           />
           <br />
@@ -370,7 +378,7 @@ export default function EditForm({ postData }) {
             value={aboutMe}
             placeholder="About Yourself"
             onChange={(e) => setAboutMe(e.target.value)}
-            className="w-64 h-14  mt-2 rounded-lg  border-2 border-orange-400  md:w-80 lg:w-[900px]"
+            className="w-64 h-14  mt-2 rounded-lg  border-2 border-orange-400  md:w-80 lg:w-[900px] p-2"
             required
           />
           <br />
@@ -379,7 +387,7 @@ export default function EditForm({ postData }) {
             value={numOfProjects}
             placeholder="Number of projects you have completed"
             onChange={(e) => setNumOfProjects(e.target.value)}
-            className={`w-64 h-14  mt-2 rounded-lg  border-2 border-orange-400  md:w-80 lg:w-[900px] ${
+            className={`w-64 h-14  mt-2 rounded-lg  border-2 border-orange-400 p-2  md:w-80 lg:w-[900px] ${
               template == "simple" ? "hidden" : null
             }`}
           />
@@ -389,7 +397,7 @@ export default function EditForm({ postData }) {
             value={yearsOfExperience}
             placeholder="Years of experience"
             onChange={(e) => setYearsOfExperience(e.target.value)}
-            className="w-64 h-14  mt-2 rounded-lg  border-2 border-orange-400  md:w-80 lg:w-[900px]"
+            className="w-64 h-14  mt-2 rounded-lg  border-2 border-orange-400 p-2 md:w-80 lg:w-[900px]"
           />
           <br />
           <input
@@ -397,7 +405,7 @@ export default function EditForm({ postData }) {
             value={numOfHappyClients}
             placeholder="Number of satisfied clients"
             onChange={(e) => setNumOfHappyClients(e.target.value)}
-            className="w-64 h-14  mt-2 rounded-lg  border-2 border-orange-400  md:w-80 lg:w-[900px]"
+            className="w-64 h-14  mt-2 rounded-lg  border-2 border-orange-400 p-2 md:w-80 lg:w-[900px]"
           />
           <br />
           <input
@@ -405,7 +413,7 @@ export default function EditForm({ postData }) {
             value={totalCustomerReviews}
             placeholder="Number of Customer Reviews"
             onChange={(e) => setTotalCustomerReviews(e.target.value)}
-            className={`w-64 h-14  mt-2 rounded-lg  border-2 border-orange-400  md:w-80 lg:w-[900px] ${
+            className={`w-64 h-14  mt-2 rounded-lg  border-2 border-orange-400 p-2 md:w-80 lg:w-[900px] ${
               template == "simple" ? "hidden" : null
             }`}
           />
@@ -415,7 +423,7 @@ export default function EditForm({ postData }) {
             value={facebookLink}
             placeholder="Facebook link"
             onChange={(e) => setFacebookLink(e.target.value)}
-            className="w-64 h-14  mt-2 rounded-lg  border-2 border-orange-400  md:w-80 lg:w-[900px]"
+            className="w-64 h-14  mt-2 rounded-lg  border-2 border-orange-400 p-2 md:w-80 lg:w-[900px]"
             required
           />
           <br />
@@ -424,7 +432,7 @@ export default function EditForm({ postData }) {
             value={githubLink}
             placeholder="Github Link"
             onChange={(e) => setGithubLink(e.target.value)}
-            className="w-64 h-14  mt-2 rounded-lg  border-2 border-orange-400  md:w-80 lg:w-[900px]"
+            className="w-64 h-14  mt-2 rounded-lg  border-2 border-orange-400 p-2 md:w-80 lg:w-[900px]"
             required
           />
           <br />
@@ -433,7 +441,7 @@ export default function EditForm({ postData }) {
             value={twitterLink}
             placeholder="Twitter Link"
             onChange={(e) => setTwitterLink(e.target.value)}
-            className="w-64 h-14  mt-2 rounded-lg  border-2 border-orange-400  md:w-80 lg:w-[900px]"
+            className="w-64 h-14  mt-2 rounded-lg  border-2 border-orange-400 p-2  md:w-80 lg:w-[900px]"
           />
           <br />
           <input
@@ -441,14 +449,14 @@ export default function EditForm({ postData }) {
             value={linkedinLink}
             placeholder="LinkedIn Link"
             onChange={(e) => setLinkedinLink(e.target.value)}
-            className="w-64 h-14  mt-2 rounded-lg  border-2 border-orange-400  md:w-80 lg:w-[900px]"
+            className="w-64 h-14  mt-2 rounded-lg  border-2 border-orange-400 p-2  md:w-80 lg:w-[900px]"
           />
           <br />
           <input
             type="text"
             value={location}
             placeholder="Enter your location"
-            className={`w-64 h-14  mt-2 rounded-lg  border-2 border-orange-400  md:w-80 lg:w-[900px] ${
+            className={`w-64 h-14  mt-2 rounded-lg  border-2 border-orange-400 p-2  md:w-80 lg:w-[900px] ${
               template == "simple" ? "hidden" : null
             }`}
             onChange={(e) => setLocation(e.target.value)}
@@ -457,7 +465,7 @@ export default function EditForm({ postData }) {
           <input
             type="text"
             value={email}
-            className="w-64 h-14  mt-2 rounded-lg   md:w-80 lg:w-[900px] border-2 border-orange-400"
+            className="w-64 h-14  mt-2 rounded-lg   md:w-80 lg:w-[900px] border-2 p-2 border-orange-400"
             placeholder="Your Email"
             onChange={(e) => setEmail(e.target.value)}
             required
@@ -467,7 +475,7 @@ export default function EditForm({ postData }) {
             type="text"
             value={mobileNumber}
             placeholder="Give your contact number"
-            className={`w-64 h-14  mt-2 rounded-lg  border-2  md:w-80 lg:w-[900px] border-orange-400 ${
+            className={`w-64 h-14  mt-2 rounded-lg  border-2  md:w-80 lg:w-[900px] p-2 border-orange-400 ${
               template == "simple" ? "hidden" : null
             }`}
             onChange={(e) => setMobileNumber(e.target.value)}

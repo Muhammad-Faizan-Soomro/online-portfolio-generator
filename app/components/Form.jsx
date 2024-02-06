@@ -1159,7 +1159,7 @@ export default function Form({
           <div class="left-header">
               <div class="h-shape"></div>
               <div class="image">
-                  <img src=${profilePicUrl} alt="PROFILE PIC AYEGI IDHER">
+                  <img src=${profilePicUrl} alt="Profile Picture">
               </div>
           </div>
           <div class="right-header">
@@ -1173,7 +1173,7 @@ export default function Form({
               <div class="btn-con">
                   <a href=${cvLink} target=_blank class="main-btn">
                       <span class="btn-text">Download CV</span>
-                      <span class="btn-icon"><i class="fas fa-download"></i></span>
+                      <span class="btn-icon"><i style="color: white;" class="fas fa-download"></i></span>
                   </a>
               </div>
           </div>
@@ -1251,7 +1251,7 @@ export default function Form({
                       (exp) => `
                       <div class="timeline-item">
                           <div class="tl-icon">
-                              <i class="fas fa-briefcase"></i>
+                              <i style="color: white;" class="fas fa-briefcase"></i>
                           </div>
                           <p class="tl-duration">${exp.startDate} - ${exp.endDate}</p>
                           <h5>${exp.jobTitle}<span> - ${exp.companyName}</span></h5>
@@ -1283,7 +1283,7 @@ export default function Form({
                       (project) => `
                       <div class="portfolio-item">
                           <div class="image">
-                              <img src=${project.image} alt="IDHER IMG URL AYEGA WOH SETUP KARNA REHTA HAI">
+                              <img src=${project.image} alt="Project Image">
                           </div>
                           <div class="hover-items">
                               <h3>Project Source</h3>
@@ -1395,25 +1395,25 @@ export default function Form({
   </main>
   <div class="controls">
       <div class="control active-btn" data-id="home">
-          <i class="fas fa-home"></i>
+          <i style="color: white;" class="fas fa-home"></i>
       </div>
       <div class="control" data-id="about">
-          <i class="fas fa-user"></i>
+          <i style="color: white;" class="fas fa-user"></i>
       </div>
       ${
         projects.length != 0
           ? `
       <div class="control" data-id="portfolio">
-          <i class="fas fa-briefcase"></i>
+          <i style="color: white;" class="fas fa-briefcase"></i>
       </div>`
           : ``
       }
       <div class="control" data-id="contact">
-          <i class="fas fa-envelope-open"></i>
+          <i style="color: white;" class="fas fa-envelope-open"></i>
       </div>
   </div>
   <div class="theme-btn">
-      <i class="fas fa-adjust"></i>
+      <i style="color: white;" class="fas fa-adjust"></i>
   </div>
   <script>
       (function () {
@@ -1437,255 +1437,965 @@ export default function Form({
         </pre>
       ) : template == "simple" ? (
         <pre className="codefile">
-          {`
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script src="https://cdn.tailwindcss.com"></script>
-       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-        
-        <title>Document</title>
-    
-    </head>
-    <style>
-            body.dark {
-            background-color: #0f172a;
-            color: #ffffff;
-        }
-    
-        .dark .border-b-2 {
-            border-color: #ffffff;
-        }
-    
-        .dark{
-            color: #14b8a6;
-        }
-    
-       
-    </style>
-    <body>
-        <section>
-            <div class="nav w-screen  h-14 fixed top-0 dark:opacity-80 border-b-2 dark:border-0  mb-2    flex items-center justify-evenly">
-              <p class="text-[#14b8a6] text-xl font-bold">${fullName}</p>
-              <div class="l-links hidden md:flex gap-10 text-xl">
-                <a
-                  href="#proj"
-                  class="text-[#of172a] hover:text-[#14b8a6] font-bold"
-                >
-                  Projects
-                </a>
-                <a
-                  href="#exp"
-                  class="text-[#of172a] hover:text-[#14b8a6] font-bold"
-                >
-                  Experience
-                </a>
-                <a
-                  href="#about"
-                  class="text-[#of172a] hover:text-[#14b8a6] font-bold"
-                >
-                  About Me
-                </a>
-              </div>
-              <div class="div bg-[#64778B] w-12 h-9 rounded-full">
-                <button id="themeToggleBtn" class="flex items-center px-4 py-2">
-                    <i id="themeIconSun" class="fa-solid fa-sun text-[#f0c14b]"></i>
-                    <i id="themeIconMoon" class="fa-solid fa-moon text-[#f0c14b] hidden"></i>
-                </button>
-              </div>
-    
-              <div class="m-links md:hidden    text-xl  font-extrabold    fixed bottom-0 flex items-center justify-evenly w-screen h-14 border-t-2">
-                <a
-                  href="#proj"
-                  class="text-[#of172a] hover:text-[#14b8a6] font-bold"
-                >
-                  Projects
-                </a>
-                <a
-                  href="#exp"
-                  class="text-[#of172a] hover:text-[#14b8a6] font-bold"
-                >
-                  Experience
-                </a>
-                <a
-                  href="#about"
-                  class="text-[#of172a] hover:text-[#14b8a6] font-bold"
-                >
-                  About Me
-                </a>
-              </div>
-            </div>
-          </section>
-    
-          <section >
-            <div class="hero flex w-full h-full flex-col  lg:flex-row  mt-14  ">
-              <div class="r w-full  lg:w-[50%] flex flex-col items-start pl-10 lg:pl-20 gap-8 mt-2 justify-center">
-                <p class="text-[#14b8a6] text-xl font-bold lg:text-4xl">
-                  Hello There 👌 , I'm
-                </p>
-                <h1 class="text-[#of172a] text-2xl lg:text-6xl  font-extrabold">
-                  ${fullName}
-                </h1>
-                <p class="text-gray-400 lg:text-3xl">${workDesc}</p>
-                <p class="lg:text-lg">${selfDesc}</p>
-                <p class="text-[#of172a] text-lg lg:text-2xl font-bold">${email}</p>
-              </div>
-              <div class="l w-full h-full lg:w-[50%] flex items-center justify-center ">
-                <img src=${profilePicUrl} alt="pic.png">
-              </div>
-            </div>
-          </section>
-    
-          <section id="about">
-            <div class="a w-full h-full flex flex-col items-center justify-center  gap-10 ">
-              <h1 class="text-[#14b8a6] font-extrabold text-5xl">About Me </h1>
-              <p class="text-gray-400 text-lg text-justify px-4 font-bold dark:bg-">
-               ${aboutMe}
-              </p>
-              <div class="links flex items-center justify-center gap-10 text-xl">
-              <p class="text-xl font-bold">  Contact Me :</p>
-                <a href=${linkedinLink} target=_blank> <i class="fa-brands fa-linkedin "></i></a>
-               <a href=${facebookLink} target=_blank>      <i class="fa-brands fa-facebook bg-blue-800 rounded text-white"></i>  </a>
-                <a href=${twitterLink} target=_blank><i class="fa-brands fa-twitter bg-red-400 rounded text-white"></i></a>
-              </div>
-              <a  target=_blank href=${cvLink} class="px-6 py-4 font-bold bg-[#14b8a6] rounded-lg">My Resume </a>
-            </div>
-          </section>
-    
-          <section id="proj">
-          ${
-            projects.length != 0
-              ? `
-            <div class="projects  w-full h-full ">
-            <h1 class="text-[#14b8a6] text-center font-bold text-2xl mt-2">
-              Portfolio
+          {`<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <title>${fullName}'s Portfolio</title>
+  <style>
+    /* GLOBAL */
+
+    :root {
+      --bg-body: hsl(0, 0%, 8%);
+      --bg-body2: hsl(0, 0%, 14%);
+      --accent: hsl(153, 71%, 59%);
+      --text1: hsl(0, 0%, 100%);
+      --text2: hsl(0, 0%, 85%);
+      --invalid: hsl(7, 100%, 68%);
+      --fs-18: 1.125rem;
+      --fs-88: 5.5rem;
+      --fs-72: 4.5rem;
+      --fs-40: 2.5rem;
+      --fs-48: 3rem;
+      --fs-36: 2.25rem;
+      --fs-32: 2rem;
+      --fs-24: 1.5rem;
+      --fs-20: 1.25rem;
+      --container: 69.375rem;
+      --transition: 250ms ease-in-out;
+    }
+
+    html,
+    body {
+      overflow-x: hidden;
+    }
+
+    html {
+      box-sizing: border-box;
+      font-size: 100%;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: inherit;
+    }
+
+    body,
+    input,
+    textarea,
+    button {
+      font-family: 'Space Grotesk', sans-serif;
+    }
+
+    body {
+      margin: 0;
+      background-color: var(--bg-body);
+      color: var(--text1);
+      font-size: var(--fs-18);
+      line-height: 1.56;
+      padding-bottom: 25rem;
+    }
+
+    .bg-less-dark {
+      background-color: var(--bg-body2);
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-block-start: 0;
+    }
+
+    h1,
+    h2,
+    h3 {
+      line-height: 1;
+    }
+
+    .header-xl {
+      font-size: 2.5rem;
+      font-size: clamp(2.5rem, 0.7rem + 7.68vw, 5.5rem);
+      letter-spacing: -0.028em;
+      line-height: 1.1;
+    }
+
+    p {
+      font-size: 1rem;
+      font-size: clamp(1rem, 0.79rem + 0.89vw, 1.125rem);
+      line-height: 1.5;
+      color: var(--text2);
+    }
+
+    a {
+      transition: color var(--transition);
+    }
+
+    a:focus-visible,
+    input:focus-visible,
+    textarea:focus-visible {
+      outline: 2px dashed var(--accent);
+      outline-offset: 2px;
+    }
+
+    input:invalid,
+    textarea:invalid {
+      outline-color: var(--invalid);
+    }
+
+    a.underline,
+    button {
+      display: inline-block;
+      padding-bottom: 0.625rem;
+      font-size: 1rem;
+      line-height: 1.625;
+      letter-spacing: 0.143em;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--text1);
+      text-decoration: none;
+      background-image: linear-gradient(to right,
+          var(--accent) 75%,
+          var(--accent) 75%);
+      background-position: 0 2.1em;
+      background-repeat: repeat-x;
+      background-size: 8px 2px;
+    }
+
+    a:hover {
+      color: var(--accent);
+    }
+
+    img,
+    svg {
+      display: block;
+    }
+
+    .visually-hidden {
+      position: absolute;
+      left: -10000px;
+      top: auto;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+    }
+
+    .wrapper {
+      width: calc(100% - 2rem);
+      max-width: var(--container);
+      margin-inline: auto;
+    }
+
+    /* 600px */
+    @media (min-width: 37.5em) {
+      .wrapper {
+        width: calc(100% - 3.75rem);
+      }
+    }
+
+    /* UTILITY */
+
+    .bottom-border {
+      border-bottom: 1px solid var(--text2);
+    }
+
+    /* HEADER */
+
+    .header {
+      position: relative;
+      z-index: 1;
+      margin-block-start: 20px;
+    }
+
+    .header__nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      text-align: center;
+      gap: 20px 25px;
+    }
+
+    .header__home {
+      font-size: 1.5rem;
+      font-size: clamp(1.5rem, 1.02rem + 2.04vw, 2rem);
+      line-height: 1;
+      color: var(--text1);
+      text-decoration: none;
+      flex: 1 0 100%;
+    }
+
+    .header__social>svg>path {
+      transition: fill var(--transition);
+    }
+
+    .header__social:hover>svg>path {
+      fill: var(--accent);
+    }
+
+    @media (min-width: 37.5em) {
+      .header {
+        margin-block-start: 30px;
+        /* margin-block-end: 90px; */
+      }
+
+      .header__nav {
+        justify-content: flex-start;
+        align-items: center;
+        text-align: left;
+        gap: 32px;
+      }
+
+      .header__home {
+        flex: 0 1 auto;
+        margin-inline-end: auto;
+      }
+    }
+
+    @media (min-width: 62.5em) {
+      .header {
+        margin-block-start: 40px;
+        margin-block-end: 127px;
+      }
+
+      .header__nav {
+        padding-right: 30px;
+      }
+    }
+
+    /*  HERO */
+
+    .hero__wrapper {
+      padding-bottom: 80px;
+    }
+
+    .hero__image {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      translate: -50%;
+      width: 174px;
+      height: auto;
+    }
+
+    .hero__rings {
+      position: absolute;
+      right: 50%;
+      top: 130px;
+      /* 8.125rem; */
+      z-index: -1;
+      /* width: 33.125rem; */
+      height: auto;
+    }
+
+    .hero__circle {
+      position: relative;
+      top: 171px;
+      margin-bottom: -129px;
+      translate: calc(100vw - 64px - 16px);
+    }
+
+    .hero__text {
+      position: relative;
+      text-align: center;
+      margin-block-start: 335px;
+    }
+
+    .hero__headline {
+      margin-block-end: 24px;
+    }
+
+    .hero__headline>br {
+      display: none;
+    }
+
+    h1>span {
+      background-image: linear-gradient(to right,
+          var(--accent) 75%,
+          var(--accent) 75%);
+      background-position: 0 1.18em;
+      background-repeat: repeat-x;
+      background-size: 8px 4px;
+    }
+
+    .hero__description {
+      margin-block-end: 24px;
+    }
+
+    @media (min-width: 37.5em) {
+      .hero {
+        position: relative;
+        margin-block-start: -62px;
+      }
+
+      .hero__wrapper {
+        padding-bottom: 60px;
+      }
+
+      .hero__content {
+        display: flex;
+        align-items: center;
+      }
+
+      .hero__content picture {
+        order: 2;
+      }
+
+      .hero__image {
+        position: relative;
+        width: 42vw;
+        max-width: 445px;
+        /* width: 322px; */
+        height: auto;
+        left: auto;
+        right: 0;
+        translate: 0;
+      }
+
+      .hero__rings {
+        top: 90px;
+        right: auto;
+        left: 0;
+        translate: -50%;
+      }
+
+      .hero__circle {
+        position: absolute;
+        top: auto;
+        right: 0;
+        bottom: 190px;
+        translate: 50%;
+        z-index: 1;
+      }
+
+      .hero__text {
+        /* width: 62vw; */
+        margin-block-start: 90px;
+        margin-right: -30px;
+        flex: 1 0 58vw;
+        text-align: left;
+        z-index: 1;
+      }
+
+      .hero__headline {
+        margin-block-end: 60px;
+      }
+
+      .hero__headline>br {
+        display: inline-block;
+      }
+
+      .hero__description {
+        /* width: 70%; */
+        margin-block-end: 34px;
+      }
+    }
+
+    @media (min-width: 62.5em) {
+      .hero {
+        margin-block-start: 0px;
+      }
+
+      .hero__wrapper {
+        position: relative;
+        padding-bottom: 100px;
+      }
+
+      .hero__content {
+        align-items: flex-start;
+      }
+
+      .hero__content picture {
+        margin-left: -80px;
+      }
+
+      .hero__image {
+        margin-block-start: -199px;
+      }
+
+      .hero__rings {
+        top: 0px;
+        translate: -50% -50%;
+      }
+
+      .hero__circle {
+        top: 322px;
+        right: 445px;
+      }
+
+      .hero__text {
+        margin-block-start: 0;
+        margin-right: 0;
+        flex: 1;
+      }
+
+      .hero__headline {
+        margin-block-end: 43px;
+      }
+
+      .hero__headline>br {
+        display: none;
+      }
+
+      .hero__description {
+        width: 38ch;
+        margin-block-end: 66px;
+      }
+    }
+
+    /* SKILLS */
+
+    .skills {
+      position: relative;
+    }
+
+    .skills__wrapper {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+      padding-block: 40px;
+    }
+
+    .skills__item {
+      text-align: center;
+    }
+
+    .skills__title {
+      font-size: 2rem;
+      font-size: clamp(2rem, 0.33rem + 7.11vw, 3rem);
+      line-height: 1.17;
+      margin-block-end: 2px;
+    }
+
+    .skills__description {
+      margin-block-end: 0;
+    }
+
+    .skills__rings {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      translate: 0 50%;
+    }
+
+    @media (min-width: 37.5em) {
+      .skills__wrapper {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 52px 24px;
+        border: none;
+        padding-block: 52px 0;
+      }
+
+      .skills__item {
+        text-align: left;
+      }
+
+      .skills__rings {
+        translate: 40% 50%;
+      }
+    }
+
+    @media (min-width: 62.5em) {
+      .skills__wrapper {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 58px 30px;
+        padding-block-start: 72px;
+      }
+
+      .skills__rings {
+        translate: -40% 50%;
+        left: 100%;
+      }
+    }
+
+    /* PROJECTS */
+
+    .projects__wrapper {
+      padding-block: 140px;
+    }
+
+    .projects__grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 40px;
+      justify-items: center;
+      text-align: center;
+    }
+
+    .projects__headline {
+      grid-column: 1 / span 2;
+      margin-block-end: 0;
+    }
+
+    .projects__contact {
+      grid-column: 1 / span 2;
+    }
+
+    .projects__item {
+      grid-column: 1 / span 2;
+    }
+
+    .projects__picture {
+      display: block;
+      margin-block-end: 20px;
+    }
+
+    .projects__image {
+      width: 100%;
+      height: auto;
+    }
+
+    .projects__name {
+      font-size: 1.5rem;
+      line-height: 1.3;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-block-end: 7px;
+    }
+
+    .projects__tags {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-block-end: 20px;
+      text-transform: uppercase;
+    }
+
+    .projects__links {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+
+    @media (min-width: 37.5em) {
+      .projects__grid {
+        gap: 60px 24px;
+        justify-items: start;
+        text-align: left;
+      }
+
+      .projects__contact {
+        justify-self: end;
+      }
+
+      .projects__item {
+        grid-column: span 1;
+      }
+
+      .projects__headline,
+      .projects__contact {
+        grid-column: span 1;
+      }
+
+      .projects__contact {
+        align-self: center;
+      }
+
+      .projects__tags,
+      .projects__links {
+        display: block;
+      }
+
+      .projects__tags span {
+        margin-inline-end: 18px;
+      }
+
+      .projects__links a {
+        margin-inline-end: 30px;
+      }
+
+      .project__links {
+        display: block;
+      }
+    }
+
+    @media (min-width: 62.5em) {
+      .projects__grid {
+        gap: 70px 30px;
+      }
+
+      .projects__item {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(4, auto);
+      }
+
+      .projects__picture {
+        position: relative;
+        grid-column: 1 / 2;
+        grid-row: 1 / 2;
+      }
+
+      .projects__picture::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        background-color: hsl(0, 0%, 0%);
+        opacity: 0;
+        transition: opacity 150ms ease-in-out;
+      }
+
+      .projects__item:hover .projects__picture::after {
+        opacity: 0.5;
+      }
+
+      .projects__item:hover .projects__links {
+        opacity: 1;
+      }
+
+      .projects__item:focus-within .projects__links {
+        opacity: 1;
+      }
+
+      .projects__item:focus-within .projects__picture::after {
+        opacity: 0.5;
+      }
+
+      .projects__image {
+        width: 100%;
+        height: auto;
+      }
+
+      .projects__links {
+        grid-column: 1 / 2;
+        grid-row: 1 / 2;
+        justify-self: center;
+        align-self: center;
+        z-index: 1;
+        opacity: 0;
+        transition: opacity 400ms ease-in-out;
+      }
+
+      .projects__links:hover~.projects__picture::after {
+        opacity: 0.5;
+      }
+
+      .projects__tags {
+        margin-block-end: 0;
+      }
+    }
+
+    /* CONTACT */
+
+    .contact {
+      position: relative;
+    }
+
+    .contact__wrapper {
+      padding-block: 84px;
+    }
+
+    .contact__headline {
+      margin-block-end: var(--fs-20);
+    }
+
+    .contact__control {
+      position: relative;
+      margin-block-end: 16px;
+    }
+
+    .contact__control input,
+    .contact__control textarea {
+      width: 100%;
+      padding-block: 16px;
+      padding-inline: 24px;
+      border: none;
+      border-bottom: 1px solid var(--text1);
+      background: transparent;
+      font-size: 1rem;
+      line-height: 1.625;
+      color: var(--text1);
+    }
+
+    .contact__control>*::placeholder {
+      color: var(--text1);
+      opacity: 0.5;
+      text-transform: uppercase;
+    }
+
+    .contact__control textarea {
+      margin-block-end: 32px;
+    }
+
+    .contact__control.align-right {
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .contact__control button {
+      background-color: transparent;
+      border: none;
+    }
+
+    .contact__invalid-icon {
+      display: none;
+      width: var(--fs-24);
+      height: var(--fs-24);
+      position: absolute;
+      top: 50%;
+      right: 0;
+      translate: -50% -50%;
+    }
+
+    .contact input:focus-visible:invalid~.contact__invalid-icon,
+    .contact textarea:focus-visible:invalid~.contact__invalid-icon {
+      display: inline-block;
+    }
+
+    .contact textarea:focus-visible:invalid~.contact__invalid-icon {
+      top: 1.2rem;
+      right: 1.5rem;
+      translate: none;
+    }
+
+    .contact__rings {
+      position: absolute;
+      left: 0;
+      bottom: 97px;
+      translate: -75%;
+    }
+
+    @media (min-width: 37.5em) {
+      .contact__rings {
+        bottom: 47px;
+        translate: -75%;
+      }
+    }
+
+    @media (min-width: 62.5em) {
+      .contact__wrapper {
+        display: grid;
+        grid-template-columns: repeat(2, 27.8rem);
+        justify-content: space-between;
+      }
+
+      .contact__headline {
+        margin-block-end: var(--fs-36);
+      }
+
+      .contact__rings {
+        translate: -40%;
+      }
+    }
+
+    /* 999.98px */
+    @media (max-width: 62.49875em) {
+      .contact__wrapper {
+        max-width: 27.8rem;
+      }
+
+      .contact__text {
+        text-align: center;
+      }
+    }
+
+    footer {
+      padding-block: 40px 60px;
+    }
+
+    @media (min-width: 37.5em) {
+      footer {
+        padding-block: 30px 40px;
+      }
+    }
+
+    @media (min-width: 62.5em) {
+      footer {
+        padding-block: 47px 92px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="header">
+    <h2 class="visually-hidden">Header</h2>
+    <div class="wrapper">
+      <nav class="header__nav">
+        <h2 class="visually-hidden">Navigation</h2>
+        <a href="/" class="header__home">
+          <span class="visually-hidden">(to home page)</span>
+        </a>
+        <a href=${githubLink} class="header__social">
+          <svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" aria-labelledby="socialGitHub" role="img">
+            <title id="socialGitHub">GitHub</title>
+            <path fill="#FFF" fill-rule="evenodd"
+              d="M12.304 0C5.506 0 0 5.506 0 12.304c0 5.444 3.522 10.042 8.413 11.672.615.108.845-.261.845-.584 0-.292-.015-1.261-.015-2.291-3.091.569-3.891-.754-4.137-1.446-.138-.354-.738-1.446-1.261-1.738-.43-.23-1.046-.8-.016-.815.97-.015 1.661.892 1.892 1.261 1.107 1.86 2.876 1.338 3.584 1.015.107-.8.43-1.338.784-1.646-2.738-.307-5.598-1.368-5.598-6.074 0-1.338.477-2.446 1.26-3.307-.122-.308-.553-1.569.124-3.26 0 0 1.03-.323 3.383 1.26.985-.276 2.03-.415 3.076-.415 1.046 0 2.092.139 3.076.416 2.353-1.6 3.384-1.261 3.384-1.261.676 1.691.246 2.952.123 3.26.784.861 1.26 1.953 1.26 3.307 0 4.721-2.875 5.767-5.613 6.074.446.385.83 1.123.83 2.277 0 1.645-.015 2.968-.015 3.383 0 .323.231.708.846.584a12.324 12.324 0 0 0 8.382-11.672C24.607 5.506 19.101 0 12.304 0Z" />
+          </svg>
+        </a>
+        <a href=${linkedinLink} class="header__social">
+          <svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" aria-labelledby="socialLinkedIn" role="img">
+            <title id="socialLinkedIn">LinkedIn</title>
+            <path fill="#FFF" fill-rule="evenodd"
+              d="M5.551 3.304c-1.14 0-2.067.926-2.067 2.064 0 1.14.928 2.066 2.067 2.066a2.066 2.066 0 0 0 0-4.13ZM3.767 8.998v11.453h3.562L7.33 8.998H3.767Zm5.798 0V20.45l3.554.002.002-5.668c0-1.454.253-2.941 2.132-2.941 1.851 0 1.851 1.755 1.851 3.036v5.571l3.559-.001v-6.28c0-2.834-.517-5.457-4.27-5.457-1.763 0-2.916.997-3.368 1.85h-.05V8.997h-3.41ZM22.435 24H1.982c-.976 0-1.77-.777-1.77-1.732V1.731C.212.776 1.006 0 1.982 0h20.453c.98 0 1.777.776 1.777 1.73v20.538c0 .955-.797 1.732-1.777 1.732Z" />
+          </svg>
+        </a>
+        <a href=${twitterLink} class="header__social">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="20" aria-labelledby="socialTwitter" role="img">
+            <title id="socialTwitter">Twitter</title>
+            <path fill="#FFF"
+              d="M23.492 2.705a9.563 9.563 0 0 1-2.742.751 4.788 4.788 0 0 0 2.1-2.643 9.536 9.536 0 0 1-3.033 1.159 4.778 4.778 0 0 0-8.14 4.357 13.564 13.564 0 0 1-9.844-4.99 4.774 4.774 0 0 0-.646 2.4 4.778 4.778 0 0 0 2.124 3.977 4.765 4.765 0 0 1-2.163-.598v.061a4.778 4.778 0 0 0 3.832 4.684 4.812 4.812 0 0 1-2.158.082 4.78 4.78 0 0 0 4.462 3.316 9.584 9.584 0 0 1-5.932 2.045c-.38 0-.762-.022-1.14-.067a13.508 13.508 0 0 0 7.32 2.146c8.787 0 13.59-7.277 13.59-13.589 0-.205-.004-.412-.013-.617a9.71 9.71 0 0 0 2.381-2.471l.002-.003Z" />
+          </svg>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="wrapper hero__wrapper bottom-border">
+        <div class="hero__content">
+          <picture>
+            <img class="hero__image" src=${profilePicUrl} alt="picture of ${fullName}"
+              width-="174" height="383" />
+          </picture>
+          <img class="hero__rings" src="https://res.cloudinary.com/dj1mhaagb/image/upload/v1707162879/pattern-rings_wxyvk8.svg" alt="" width="530" height="129" />
+          <img class="hero__circle" src="https://res.cloudinary.com/dj1mhaagb/image/upload/v1707162835/pattern-circle_amu0ej.svg" alt="" width="129" height="129" />
+          <div class="hero__text">
+            <h1 class="hero__headline header-xl">
+              Nice to<br />
+              meet you! I'm <span>${fullName}</span>.
             </h1>
-            <h1 class="text-[#0f172a]   font-extrabold text-4xl text-center mt-2">
-              Recent Projects
-            </h1>
-            <p class="text-gray-400 text-lg text-center">
-              Check Out Some Of My Work 😊
+            <p class="hero__description">
+              ${aboutMe}
             </p>
-            <div class="w-full h-full mt-4 grid grid-cols-1 md:grid-cols-3  place-items-center">
+            <a href="#contact" class="hero__contact underline">Contact me</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+  ${
+    skills.length != 0
+      ? `    
+      <section class="skills">
+        <div class="wrapper skills__wrapper bottom-border">
+          <h2 class="visually-hidden">Skills</h2>
+            ${Object.values(skills)
+              .map(
+                (skill) => `
+              <div class="skills__item">
+                <h3 class="skills__title">${skill.name}</h3>
+              </div>`
+              )
+              .join(``)}
+        </div>
+        <img class="skills__rings" src="https://res.cloudinary.com/dj1mhaagb/image/upload/v1707162879/pattern-rings_wxyvk8.svg" alt="" width="530" height="129" />
+      </section>
+  `
+      : ``
+  }
+
+  ${
+    projects.length != 0
+      ? `
+      <section class="projects">
+        <div class="wrapper projects__wrapper">
+          <div class="projects__grid">
+            <h2 class="projects__headline header-xl">Projects</h2>
+            <a href="#contact" class="projects__contact underline">Contact me</a>
             ${Object.values(projects)
               .map(
-                (project) =>
-                  `
-                <div class="card  flex flex-col gap-4 w-[300px] h-[300px] ">
-                <img src=${project.image} alt="pic1.png" class='w-[250px]' >
-                <h1 class="text-xl font-bold">Login Page</h1>
-                <p>Login Page Using Html Css</p>
-                <div class="btn flex gap-4">
-                  <a href=${project.liveLink} target=_blank>
-                      <i class="fa-solid fa-location-arrow border-2 border-gray-500 rounded-full"></i>
-                    
-  
-                  </a>
-                  <a href=${project.githubLink} target=_blank>
-                      <i class="fa-brands fa-github border-2 border-gray-500 rounded-full"></i>
-                     
-                   
-                  </a>
+                (project) => `          
+              <div class="projects__item">
+                <picture class="projects__picture">
+                  <img class="projects__image" src=${project.image}
+                    alt="screenshot of design portfolio website" width-="343" height="253" />
+                </picture>
+                <div class="projects__links">
+                  <a href=${project.liveLink} class="underline">View Project</a>
+                  <a href=${project.githubLink} class="underline">View Code</a>
                 </div>
-              </div>
-                
-                
-                `
+              </div>`
               )
-              .join("")}
-           
-             
-      
-            </div>
+              .join(``)}
           </div>
-            
-            `
-              : ``
-          }
-           
-          </section>
-    
-          <section id="exp">
-            <div class="experience w-full flex flex-col gap-20 items-center justify-center h-full   lg:h-[500px] bg-[#1e293b] dark:bg-[#cbd5e1]">
-              <h1 class="text-2xl text-center text-[#14b8a6] ">Clients</h1>
-              <h1 class="text-6xl  text-center text-white  dark:text-black font-extrabold">
-                Who Have Worked Together
-              </h1>
-              <p class="text-gray-400 text-center">Some Of Our Clients</p>
-              <h1 class="text-2xl font-bold text-center text-[#14b8a6] ">YEARS OF EXPERIENCE: ${yearsOfExperience}</h1>
-              <h1 class="text-2xl font-bold text-center text-[#14b8a6] ">NO OF SATISFIED CLIENTS  : ${numOfHappyClients}</h1>
-            </div>
-          </section>
-    
-          <section id="contact">
-            <div class="contact w-full h-full ">
-              <p class="text-center font-bold text-xl  text-[#14b8a6]">
-                Contact
-              </p>
-              <h1 class="text-center text-4xl font-extrabold dark:text-white">
-                Get In Touch
-              </h1>
-              <p class="text-center text-2xl font-bold">
-                Talk to us ? Send Us Feedback? ❤️
-              </p>
-              <div class="form flex flex-col items-center justify-center gap-10">
-                <div class="in">
-                  <p class="text-[#14b8a6] text-lg font-bold">Name</p>
-                  <input
-                    type="text"
-                    class="bg-[#e2e8f0] w-[300px] md:w-[600px] h-12 rounded "
-                  />
-                </div>
-                <div class="in">
-                  <p class="text-[#14b8a6] text-lg font-bold">Email</p>
-                  <input
-                    type="email"
-                    class="bg-[#e2e8f0] w-[300px]  md:w-[600px]  h-12 rounded "
-                  />
-                </div>
-                <div class="in">
-                  <p class="text-[#14b8a6] text-lg font-bold">Message</p>
-                  <textarea
-                    name=""
-                    id=""
-                    cols="30"
-                    rows="10"
-                    class="bg-[#e2e8f0]  md:w-[550px]  rounded mr-16  resize-none"
-                  ></textarea>
-                </div>
-                <button class="px-14 py-3 rounded-full  text-white font-bold bg-[#14b8a6]">
-                  Send
-                </button>
-              </div>
-            </div>
-          </section>
-    
-        
-        <script>
-            document.addEventListener("DOMContentLoaded", function () {
-                const themeToggleBtn = document.getElementById("themeToggleBtn");
-                const themeIconSun = document.getElementById("themeIconSun");
-                const themeIconMoon = document.getElementById("themeIconMoon");
-    
-                function toggleTheme() {
-                    const body = document.body;
-                    body.classList.toggle("dark");
-                    themeIconSun.classList.toggle("hidden");
-                    themeIconMoon.classList.toggle("hidden");
-                }
-    
-                themeToggleBtn.addEventListener("click", toggleTheme);
-            });
-        </script>
-    
-     
-    
-    </body>
-    </html>
-    
-    `}
+        </div>
+      </section>
+      `
+      : ``
+  }
+
+
+    <section id="contact" class="contact bg-less-dark">
+      <div class="wrapper contact__wrapper bottom-border">
+        <div class="contact__text">
+          <h2 class="contact__headline header-xl">Contact</h2>
+          <p class="contact__description">
+            I would love to hear about your project and how I could help.
+            Please fill in the form, and I'll get back to you as soon as
+            possible.
+          </p>
+        </div>
+        <form action="mailto:${email}" class="contact__form">
+          <div class="contact__control">
+            <label for="name" class="visually-hidden">Name</label>
+            <input type="text" id="name" name="name" placeholder="Name" required />
+            <img src="https://res.cloudinary.com/dj1mhaagb/image/upload/v1707163944/icon-invalid_nyqcma.svg" alt="" class="contact__invalid-icon" width="24" height="24" />
+          </div>
+          <div class="contact__control">
+            <label for="email" class="visually-hidden">Email</label>
+            <input type="email" id="email" name="email" placeholder="Email" required />
+            <img src="https://res.cloudinary.com/dj1mhaagb/image/upload/v1707163944/icon-invalid_nyqcma.svg" alt="" class="contact__invalid-icon" width="24" height="24" />
+          </div>
+          <div class="contact__control">
+            <label for="message" class="visually-hidden">Message</label>
+            <textarea name="message" id="message" cols="30" rows="3" placeholder="Message" required></textarea>
+            <img src="https://res.cloudinary.com/dj1mhaagb/image/upload/v1707163944/icon-invalid_nyqcma.svg" alt="" class="contact__invalid-icon" width="24" height="24" />
+          </div>
+          <div class="contact__control align-right">
+            <button type="submit">Send Message</button>
+          </div>
+        </form>
+      </div>
+      <img class="contact__rings" src="https://res.cloudinary.com/dj1mhaagb/image/upload/v1707162879/pattern-rings_wxyvk8.svg" alt="" width="530" height="129" />
+    </section>
+  </main>
+
+  <footer class="footer bg-less-dark">
+    <h2 class="visually-hidden">Footer</h2>
+    <div class="wrapper">
+      <nav class="header__nav">
+        <h2 class="visually-hidden">Navigation</h2>
+        <a href="/" class="header__home">
+          <span class="visually-hidden">(to home page)</span>
+        </a>
+        <a href=${githubLink} class="header__social">
+          <svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" aria-labelledby="socialGitHub" role="img">
+            <title id="socialGitHub">GitHub</title>
+            <path fill="#FFF" fill-rule="evenodd"
+              d="M12.304 0C5.506 0 0 5.506 0 12.304c0 5.444 3.522 10.042 8.413 11.672.615.108.845-.261.845-.584 0-.292-.015-1.261-.015-2.291-3.091.569-3.891-.754-4.137-1.446-.138-.354-.738-1.446-1.261-1.738-.43-.23-1.046-.8-.016-.815.97-.015 1.661.892 1.892 1.261 1.107 1.86 2.876 1.338 3.584 1.015.107-.8.43-1.338.784-1.646-2.738-.307-5.598-1.368-5.598-6.074 0-1.338.477-2.446 1.26-3.307-.122-.308-.553-1.569.124-3.26 0 0 1.03-.323 3.383 1.26.985-.276 2.03-.415 3.076-.415 1.046 0 2.092.139 3.076.416 2.353-1.6 3.384-1.261 3.384-1.261.676 1.691.246 2.952.123 3.26.784.861 1.26 1.953 1.26 3.307 0 4.721-2.875 5.767-5.613 6.074.446.385.83 1.123.83 2.277 0 1.645-.015 2.968-.015 3.383 0 .323.231.708.846.584a12.324 12.324 0 0 0 8.382-11.672C24.607 5.506 19.101 0 12.304 0Z" />
+          </svg>
+        </a>
+        <a href=${linkedinLink} class="header__social">
+          <svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" aria-labelledby="socialLinkedIn" role="img">
+            <title id="socialLinkedIn">LinkedIn</title>
+            <path fill="#FFF" fill-rule="evenodd"
+              d="M5.551 3.304c-1.14 0-2.067.926-2.067 2.064 0 1.14.928 2.066 2.067 2.066a2.066 2.066 0 0 0 0-4.13ZM3.767 8.998v11.453h3.562L7.33 8.998H3.767Zm5.798 0V20.45l3.554.002.002-5.668c0-1.454.253-2.941 2.132-2.941 1.851 0 1.851 1.755 1.851 3.036v5.571l3.559-.001v-6.28c0-2.834-.517-5.457-4.27-5.457-1.763 0-2.916.997-3.368 1.85h-.05V8.997h-3.41ZM22.435 24H1.982c-.976 0-1.77-.777-1.77-1.732V1.731C.212.776 1.006 0 1.982 0h20.453c.98 0 1.777.776 1.777 1.73v20.538c0 .955-.797 1.732-1.777 1.732Z" />
+          </svg>
+        </a>
+        <a href=${twitterLink} class="header__social">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="20" aria-labelledby="socialTwitter" role="img">
+            <title id="socialTwitter">Twitter</title>
+            <path fill="#FFF"
+              d="M23.492 2.705a9.563 9.563 0 0 1-2.742.751 4.788 4.788 0 0 0 2.1-2.643 9.536 9.536 0 0 1-3.033 1.159 4.778 4.778 0 0 0-8.14 4.357 13.564 13.564 0 0 1-9.844-4.99 4.774 4.774 0 0 0-.646 2.4 4.778 4.778 0 0 0 2.124 3.977 4.765 4.765 0 0 1-2.163-.598v.061a4.778 4.778 0 0 0 3.832 4.684 4.812 4.812 0 0 1-2.158.082 4.78 4.78 0 0 0 4.462 3.316 9.584 9.584 0 0 1-5.932 2.045c-.38 0-.762-.022-1.14-.067a13.508 13.508 0 0 0 7.32 2.146c8.787 0 13.59-7.277 13.59-13.589 0-.205-.004-.412-.013-.617a9.71 9.71 0 0 0 2.381-2.471l.002-.003Z" />
+          </svg>
+        </a>
+      </nav>
+    </div>
+  </footer>
+</body>
+
+</html>`}
         </pre>
       ) : template == "beginner" ? (
         <pre className="codefile">
@@ -2318,7 +3028,7 @@ export default function Form({
       <div class="logo-container">
         <a href=${githubLink}><i class="fab fa-github"></i></a>
         <a href=${linkedinLink}><i class="fab fa-linkedin"></i></a>
-        <a href="mailto:${email}"><i class="fas fa-envelope"></i></a>
+        <a href="mailto:${twitterLink}"><i class="fab fa-twitter"></i></a>
       </div>
     </div>
   </section>
@@ -2387,7 +3097,7 @@ export default function Form({
       const toggleThemeButton = document.getElementById("toggleTheme");
       const githubLogo = document.getElementsByClassName('fa-github');
       const linkedinLogo = document.getElementsByClassName('fa-linkedin');
-      const emailLogo = document.getElementsByClassName('fa-envelope');
+      const emailLogo = document.getElementsByClassName('fa-twitter');
       const themeIcon = document.getElementsByClassName('theme-btn');
 
       const lightLogos = {
