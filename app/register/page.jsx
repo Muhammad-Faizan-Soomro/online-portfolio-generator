@@ -3,6 +3,8 @@ import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { toast } from "react-toastify";
 import Navbar from "../components/Navbar";
+import Input from "../components/Input";
+import Button from "../components/Button";
 
 function Register() {
   const [user, setuser] = useState({
@@ -19,152 +21,78 @@ function Register() {
     if (!user.username || !user.password || !user.email || !user.password1) {
       toast.error("All Fields Are Required");
     }
-   if ( user.password && user.password.length < 8){
-    toast.info("Password is Too Small")
-   }
-   if ( user.password != user.password1){
-    toast.error("Enter Same Password")
-   }
-   else{
-    try {
-      let res = await fetch("https://online-portfolio-generator.vercel.app/api/register", {
-          method: "POST",
-          body: JSON.stringify({
-            username: user.username,
-            email: user.email,
-            password: user.password,
-          }),
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }),
-        res1 = await res.json();
-      if (res1.status === 401) {
-        toast.warn("Already Created");
-      }
-      if (res1.status === 200) {
-        toast.success("Account Created");
-        router.push('/home')
-      }
-      if (res1.status === 500) {
-        toast.warn("Pls Try Again");
-      }
-    } catch (error) {
-      console.log(error);
+    if (user.password && user.password.length < 8) {
+      toast.info("Password is Too Small");
     }
-   }
+    if (user.password != user.password1) {
+      toast.error("Enter Same Password");
+    } else {
+      try {
+        let res = await fetch(
+            "https://online-portfolio-generator.vercel.app/api/register",
+            {
+              method: "POST",
+              body: JSON.stringify({
+                username: user.username,
+                email: user.email,
+                password: user.password,
+              }),
+              headers: {
+                "Content-Type": "application/json",
+              },
+            }
+          ),
+          res1 = await res.json();
+        if (res1.status === 401) {
+          toast.warn("Already Created");
+        }
+        if (res1.status === 200) {
+          toast.success("Account Created");
+          router.push("/home");
+        }
+        if (res1.status === 500) {
+          toast.warn("Pls Try Again");
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    }
   }
   return (
     <>
-    <Navbar/>
-     <section>
-      <div className=" lg:hidden container w-full h-full flex justify-center items-center">
-        <form   onSubmit={UserAdd} className="form h-[580px] w-[350px] bg-gray-700 flex flex-col gap-4  items-center justify-center">
-          <h1 className="font-bold text-orange-400 text-2xl">
-            {" "}
-            PORTFOLIO GENERATOR
-          </h1>
-          <label htmlFor="username" className="text-xl font-bold text-white">
-            Username
-          </label>
-          <input
-            type="text"
-            className="w-[300px] rounded-sm h-8 p-2"
-            placeholder="Enter Username"
-            onChange={(e) => {
-              setuser({
-                ...user,
-                username: e.target.value,
-              });
-            }}
-            value={user.username}
-          />
-
-          <label htmlFor="email" className="text-xl font-bold text-white">
-            Email
-          </label>
-          <input
-            type="email"
-            className="w-[300px] rounded-sm h-8 p-2"
-            placeholder="Enter Email"
-            value={user.email}
-            onChange={(e) => {
-              setuser({
-                ...user,
-                email: e.target.value,
-              });
-            }}
-          />
-
-          <label htmlFor="password" className="text-xl font-bold text-white">
-            Password
-          </label>
-          <input
-            type="password"
-            className="w-[300px] rounded-sm h-8 p-2"
-            placeholder="Enter Password"
-            value={user.password}
-            onChange={(e) => {
-              setuser({
-                ...user,
-                password: e.target.value,
-              });
-            }}
-          />
-
-          <label htmlFor="password" className="text-xl font-bold text-white">
-            Confirm Password
-          </label>
-          <input
-            type="password"
-            className="w-[300px] rounded-sm h-8 p-2"
-            placeholder="Confirm Password"
-            value={user.password1}
-            onChange={(e) => {
-              setuser({
-                ...user,
-                password1: e.target.value,
-              });
-            }}
-          />
-          <button className="px-8 mt-2  py-4 font-bold text-white bg-blue-500 rounded-full">
-            REGISTER
-          </button>
-          <p className="text-white font-bold">
-            ALREADY HAVE AN ACCOUNT ?{" "}
-            <a href="/login" className="text-orange-400">
-              Sign In
-            </a>
-          </p>
-        </form>
-      </div>
-
-      <div className=" hidden lg:flex container1 ">
-        <div className="div1 h-screen w-[50%] flex items-center justify-center">
+      <Navbar />
+      <section>
+        <div className=" sm:hidden container h-[100vh] w-[100vw] flex justify-center items-center">
           <form
             onSubmit={UserAdd}
-            className="form flex flex-col dark:text-black  justify-center items-center gap-4 w-[500px] h-[450px] bg-white rounded-2xl shadow-gray-900 shadow-lg"
+            className="form h-[100%] w-[100%] bg-gray-700 flex flex-col gap-4  items-center justify-center"
           >
-            <input
+            <h1 className="font-bold text-orange-400 text-2xl text-center">
+              WELCOME TO
+              <br />
+              PORTFOLIO GENERATOR
+            </h1>
+            <Input
+              labelText="Username: "
+              labelClassName="text-white"
               type="text"
-              name="username"
-              id="user"
               placeholder="Enter Username"
-              className="w-[480px] rounded-md bg-gray-200 h-10 p-2"
-              value={user.username}
+              className="w-[80vw] max-w-[20rem]"
               onChange={(e) => {
                 setuser({
                   ...user,
                   username: e.target.value,
                 });
               }}
+              value={user.username}
             />
-            <input
+
+            <Input
+              labelText="Email: "
+              labelClassName="text-white"
               type="email"
-              name="email"
-              id="pass"
               placeholder="Enter Email"
-              className="w-[480px] rounded-md bg-gray-200 h-10 p-2"
+              className="w-[80vw] max-w-[20rem]"
               value={user.email}
               onChange={(e) => {
                 setuser({
@@ -173,12 +101,13 @@ function Register() {
                 });
               }}
             />
-            <input
+
+            <Input
+              labelText="Password: "
+              labelClassName="text-white"
               type="password"
-              name="password"
-              id="pass"
+              className="w-[80vw] max-w-[20rem]"
               placeholder="Enter Password"
-              className="w-[480px] rounded-md bg-gray-200 h-10 p-2"
               value={user.password}
               onChange={(e) => {
                 setuser({
@@ -187,12 +116,13 @@ function Register() {
                 });
               }}
             />
-            <input
+
+            <Input
+              labelText="Confirm Password: "
+              labelClassName="text-white"
               type="password"
-              name="password"
-              id="pass"
               placeholder="Confirm Password"
-              className="w-[480px] rounded-md bg-gray-200 h-10 p-2"
+              className="w-[80vw] max-w-[20rem]"
               value={user.password1}
               onChange={(e) => {
                 setuser({
@@ -201,34 +131,109 @@ function Register() {
                 });
               }}
             />
-
-            <button
-              className="w-[400px] m-10 py-4 text-white font-bold bg-blue-400 font-serif"
+            <Button
+              className="w-72 bg-blue-500"
               type="submit"
-            >
-              Register
-            </button>
-            <p className="dark:text-black">
+              text="Register"
+            />
+            <p className="text-white font-bold">
               Already Have An Account ?{" "}
-              <a href="/login" className="text-orange-400 ">
-                {" "}
+              <a
+                href="/login"
+                className="text-orange-400 hover:text-red-400 hover:underline"
+              >
                 Sign In
               </a>
             </p>
           </form>
         </div>
-        <div className="div1 h-screen w-[50%]">
-          <div className="bubble w-full h-[700px] dark:bg-blue-400 bg-gray-600 rounded-tl-full">
-            <h1 className="text-orange-400 dark:text-white text-5xl px-8 pt-[400px] pl-31 font-bold text-center font-serif ml-32 ">
-              Welcome To Portfolio Generator
-            </h1>
+
+        <div className=" hidden sm:flex w-full h-full container1 ">
+          <div className="div1 h-screen md:lg:w-[50%] sm:w-[100%] flex items-center justify-center">
+            <form
+              onSubmit={UserAdd}
+              className="form flex flex-col dark:text-black  justify-center items-center gap-4 sm:w-[20rem] md:w-[31.25rem] h-max bg-white rounded-2xl shadow-gray-900 shadow-lg"
+            >
+              <Input
+                labelText="Username: "
+                labelClassName="mt-5"
+                className="sm:w-72 md:w-96"
+                name="username"
+                placeholder="Enter Username"
+                value={user.username}
+                onChange={(e) => {
+                  setuser({
+                    ...user,
+                    username: e.target.value,
+                  });
+                }}
+              />
+              <Input
+                labelText="Email: "
+                type="email"
+                name="email"
+                className="sm:w-72 md:w-96"
+                placeholder="Enter Email"
+                value={user.email}
+                onChange={(e) => {
+                  setuser({
+                    ...user,
+                    email: e.target.value,
+                  });
+                }}
+              />
+              <Input
+                labelText="Password: "
+                type="password"
+                name="password"
+                className="sm:w-72 md:w-96"
+                placeholder="Enter Password"
+                value={user.password}
+                onChange={(e) => {
+                  setuser({
+                    ...user,
+                    password: e.target.value,
+                  });
+                }}
+              />
+              <Input
+                labelText="Confirm Password: "
+                type="password"
+                className="sm:w-72 md:w-96"
+                name="password"
+                placeholder="Confirm Password"
+                value={user.password1}
+                onChange={(e) => {
+                  setuser({
+                    ...user,
+                    password1: e.target.value,
+                  });
+                }}
+              />
+
+              <Button type="submit" text="Register" className="sm:w-72 md:w-[25rem]"  />
+              <p className="dark:text-black mb-5">
+                Already Have An Account ?{" "}
+                <a
+                  href="/login"
+                  className="text-orange-400 hover:text-red-800 hover:underline "
+                >
+                  {" "}
+                  Sign In
+                </a>
+              </p>
+            </form>
+          </div>
+          <div className="div1 h-screen w-[50%] -z-10">
+            <div className="bubble w-full h-full dark:bg-blue-400 bg-gray-600 flex justify-center items-center rounded-tl-full">
+              <h1 className="text-orange-400 px-12 pt-52 text-5xl text-center font-bold dark:text-white lg:block">
+                Welcome To Portfolio Generator
+              </h1>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
     </>
-
-   
   );
 }
 
