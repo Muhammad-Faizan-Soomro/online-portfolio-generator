@@ -58,7 +58,7 @@ function Register() {
     <>
     <Navbar/>
      <section>
-      <div className=" lg:hidden container w-screen h-screen flex justify-center items-center">
+      <div className=" lg:hidden container w-full h-full flex justify-center items-center">
         <form   onSubmit={UserAdd} className="form h-[580px] w-[350px] bg-gray-700 flex flex-col gap-4  items-center justify-center">
           <h1 className="font-bold text-orange-400 text-2xl">
             {" "}
@@ -69,8 +69,8 @@ function Register() {
           </label>
           <input
             type="text"
-            className="w-[300px] rounded-sm h-8"
-            placeholder="YOUR USERNAME"
+            className="w-[300px] rounded-sm h-8 p-2"
+            placeholder="Enter Username"
             onChange={(e) => {
               setuser({
                 ...user,
@@ -85,8 +85,8 @@ function Register() {
           </label>
           <input
             type="email"
-            className="w-[300px] rounded-sm h-8"
-            placeholder="YOUR EMAIL"
+            className="w-[300px] rounded-sm h-8 p-2"
+            placeholder="Enter Email"
             value={user.email}
             onChange={(e) => {
               setuser({
@@ -101,8 +101,8 @@ function Register() {
           </label>
           <input
             type="password"
-            className="w-[300px] rounded-sm h-8"
-            placeholder="YOUR PASSWORD"
+            className="w-[300px] rounded-sm h-8 p-2"
+            placeholder="Enter Password"
             value={user.password}
             onChange={(e) => {
               setuser({
@@ -117,8 +117,8 @@ function Register() {
           </label>
           <input
             type="password"
-            className="w-[300px] rounded-sm h-8"
-            placeholder="YOUR PASSWORD"
+            className="w-[300px] rounded-sm h-8 p-2"
+            placeholder="Confirm Password"
             value={user.password1}
             onChange={(e) => {
               setuser({
@@ -149,8 +149,8 @@ function Register() {
               type="text"
               name="username"
               id="user"
-              placeholder="Username"
-              className="w-[480px] rounded-md bg-gray-200 h-10"
+              placeholder="Enter Username"
+              className="w-[480px] rounded-md bg-gray-200 h-10 p-2"
               value={user.username}
               onChange={(e) => {
                 setuser({
@@ -163,8 +163,8 @@ function Register() {
               type="email"
               name="email"
               id="pass"
-              placeholder="email"
-              className="w-[480px] rounded-md bg-gray-200 h-10"
+              placeholder="Enter Email"
+              className="w-[480px] rounded-md bg-gray-200 h-10 p-2"
               value={user.email}
               onChange={(e) => {
                 setuser({
@@ -177,8 +177,8 @@ function Register() {
               type="password"
               name="password"
               id="pass"
-              placeholder="Password"
-              className="w-[480px] rounded-md bg-gray-200 h-10"
+              placeholder="Enter Password"
+              className="w-[480px] rounded-md bg-gray-200 h-10 p-2"
               value={user.password}
               onChange={(e) => {
                 setuser({
@@ -192,7 +192,7 @@ function Register() {
               name="password"
               id="pass"
               placeholder="Confirm Password"
-              className="w-[480px] rounded-md bg-gray-200 h-10"
+              className="w-[480px] rounded-md bg-gray-200 h-10 p-2"
               value={user.password1}
               onChange={(e) => {
                 setuser({

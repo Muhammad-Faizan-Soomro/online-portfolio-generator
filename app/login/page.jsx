@@ -47,7 +47,7 @@ function Login() {
     <>
     <Navbar/>
     <section>
-      <div className="lg:hidden container w-screen h-screen flex justify-center items-center">
+      <div className="lg:hidden container w-full h-full flex justify-center items-center">
         <form onSubmit={HandleSignIn} className="form h-[580px] w-[350px] bg-gray-700 flex flex-col gap-8 items-center justify-center">
           <h1 className="font-bold text-orange-400 text-2xl">
             {" "}
@@ -58,8 +58,8 @@ function Login() {
           </label>
           <input
             type="text"
-            className="w-[300px] rounded-sm h-8"
-            placeholder="YOUR USERNAME"
+            className="w-[300px] rounded-sm h-8 p-2"
+            placeholder="Enter Your Username"
             onChange={(e) => {
               setuser({
                 ...user,
@@ -73,8 +73,8 @@ function Login() {
           </label>
           <input
             type="password"
-            className="w-[300px] rounded-sm h-8"
-            placeholder="YOUR PASSOWORD"
+            className="w-[300px] rounded-sm h-8 p-2"
+            placeholder="Enter Your Password"
             value={user.password}
             onChange={(e) => {
               setuser({
@@ -95,7 +95,7 @@ function Login() {
           </p>
         </form>
       </div>
-      <div className="  container1 hidden md:flex">
+      <div className="  container1 h-full w-full hidden md:flex">
         <div className="div1 h-screen w-[50%]">
           <div className="bubble w-[700px] h-[700px] bg-gray-600 rounded-br-full dark:bg-blue-400">
             <h1 className="text-orange-400 text-5xl pt-52 font-bold text-center dark:text-white font-serif">
@@ -109,8 +109,8 @@ function Login() {
               type="text"
               name="username"
               id="user"
-              placeholder="Username"
-              className="w-[480px] rounded-md bg-gray-200 h-10 dark:text-black"
+              placeholder="Enter Your Username"
+              className="w-[480px] rounded-md bg-gray-200 h-10 dark:text-black p-2"
               onChange={(e) => {
                 setuser({
                   ...user,
@@ -123,8 +123,8 @@ function Login() {
               type="password"
               name="password"
               id="pass"
-              placeholder="Password"
-              className="w-[480px] rounded-md bg-gray-200 h-10 dark:text-black"
+              placeholder="Enter Your Password"
+              className="w-[480px] rounded-md bg-gray-200 h-10 dark:text-black p-2"
               value={user.password}
               onChange={(e) => {
                 setuser({

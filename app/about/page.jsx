@@ -1,14 +1,25 @@
 import React from "react";
 import Navbar from "../components/Navbar";
-import about from '../../public/about.webp'
+import about from "../../public/about.webp";
 import Image from "next/image";
 
 function page() {
   return (
     <>
-    <Navbar/>
+      <Navbar />
       <section className="lg:hidden">
         <div className="m-about w-screen h-screen flex flex-col items-center gap-4">
+          <div className="pt-10">
+            <Image
+              src={about}
+              alt="about.png"
+              priority
+              style={{
+                width: "100%",
+                height: "auto",
+              }}
+            />
+          </div>
           <div className="heading">
             <h1 className="font-bold text-3xl text-orange-400 mt-2 underline  dark:text-white">
               About Us
@@ -16,7 +27,7 @@ function page() {
           </div>
           <div className="info">
             <p className="px-6 text-justify font-bold text-blue-900 dark:text-gray-300 ">
-            WELCOME TO PORTFOLIO GENERATOR WHERE WE EMPOWER TO SHOWCASE THEIR
+              WELCOME TO PORTFOLIO GENERATOR WHERE WE EMPOWER TO SHOWCASE THEIR
               TALENTS AND ACHIEVEMENTS THROUGH BEAUTIFUL CRAFTED PORTFOLIOS.
               LEARN MORE ABOUT THE TEAM DRIVING THIS PLATFORM
             </p>
@@ -36,13 +47,21 @@ function page() {
         </div>
       </section>
 
-      <section   className="hidden lg:block">
-       <div className="l-about flex  justify-around w-full h-full ">
-        <div className="img w-[40%] h-[100%] pt-40">
-     <Image src={about} alt="about.png"/>
-        </div>
-        <div className="info w-[40%] flex flex-col justify-center gap-10 pt-32">
-        <p className=" text-justify   px-4 font-bold text-xl text-[#192733] dark:text-[#94a3b8]">
+      <section className="hidden lg:block">
+        <div className="l-about flex  justify-around w-full h-full ">
+          <div className="pt-36">
+            <Image
+              src={about}
+              alt="about.png"
+              priority
+              style={{
+                width: "100%",
+                height: "auto",
+              }}
+            />
+          </div>
+          <div className="info w-[40%] flex flex-col justify-center gap-10 pt-32">
+            <p className=" text-justify   px-4 font-bold text-xl text-[#192733] dark:text-[#94a3b8]">
               WELCOME TO PORTFOLIO GENERATOR WHERE WE EMPOWER TO SHOWCASE THEIR
               TALENTS AND ACHIEVEMENTS THROUGH BEAUTIFUL CRAFTED PORTFOLIOS.
               LEARN MORE ABOUT THE TEAM DRIVING THIS PLATFORM
@@ -57,8 +76,8 @@ function page() {
               SHOWCASING ONES UNIQUE SKILSS AND EXPERIENCES TO MAKE A LASTING
               IMPRESSION IN THE PROFESSIONAL WORLD
             </p>
+          </div>
         </div>
-       </div>
       </section>
     </>
   );
