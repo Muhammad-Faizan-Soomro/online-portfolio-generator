@@ -12,6 +12,7 @@ export default async function Home() {
 
   return (
     <>
+    <title>Online Portfolio Generator</title>
      <Landingpage/>
     </>
   );
