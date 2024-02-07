@@ -50,10 +50,9 @@ function page() {
             placeholder="Enter Your Message"
             required="required"
           ></textarea>
-          <Button
-            className="w-72 bg-orange-400 dark:bg-blue-400"
-            text="Submit"
-          />
+          <button
+            className="bg-orange-400 dark:bg-blue-400 px-28 py-3 text-white font-bold rounded-full hover:bg-purple-400"
+          >Submit</button>
         </form>
         <div className="flex pt-10">
           <div className="links w-[100%] h-full flex flex-col items-center ">
@@ -202,10 +201,9 @@ function page() {
               placeholder="Enter Your Message"
               required="required"
             ></textarea>
-            <Button
-              className="w-80 bg-orange-400 dark:bg-blue-400 -ml-0.5"
-              text="Submit"
-            />
+            <button
+              className=" bg-orange-400 dark:bg-blue-400 mt-2 py-3 text-white font-bold  rounded-full hover:bg-purple-400"
+            >Submit</button>
           </form>
         </div>
       </section>
