@@ -138,7 +138,7 @@ function Navbar() {
           {path == "/" ? (
             <Link href={"/login"}>
               <Button
-                className="w-28 mx-0 dark:hover:bg-orange-400 hover:bg-orange-400 bg-red-500 dark:text-white dark:bg-[#0ea5e9]"
+                className="w-[7rem] mx-0 dark:hover:bg-orange-400 hover:bg-orange-400 bg-red-500 dark:text-white dark:bg-[#0ea5e9]"
                 text="Sign In"
               />
             </Link>
