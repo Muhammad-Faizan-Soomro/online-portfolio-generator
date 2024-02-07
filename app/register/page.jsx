@@ -132,7 +132,7 @@ function Register() {
               }}
             />
             <Button
-              className="w-72 bg-blue-500"
+              className="w-[17rem] bg-blue-500"
               type="submit"
               text="Register"
             />
