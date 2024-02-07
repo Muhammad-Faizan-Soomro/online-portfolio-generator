@@ -41,21 +41,6 @@ function Navbar() {
             </Link>
           )}
 
-          {path == "/login" ? (
-            <Link href={"/register"}>
-              <Button
-                className="w-20 mx-0 dark:hover:bg-orange-400 hover:bg-orange-400 bg-red-500 dark:text-white dark:bg-[#0ea5e9]"
-                text="Register"
-              />
-            </Link>
-          ) : (
-            <Link href={"/login"}>
-              <Button
-                className="w-20 mx-0 dark:hover:bg-orange-400 hover:bg-orange-400 bg-red-500 dark:text-white dark:bg-[#0ea5e9]"
-                text="Sign In"
-              />
-            </Link>
-          )}
           {theme === "dark" ? (
             <LuSunMoon onClick={() => setTheme("light")} />
           ) : (
@@ -92,6 +77,21 @@ function Navbar() {
           >
             Features
           </Link>
+          {/* {path == "/login" ? (
+            <Link
+              href={"/register"}
+              className="text-xl font-bold text-orange-400 dark:text-white hover:underline hover:decoration-red-400 hover:decoration-2"
+            >
+              Register
+            </Link>
+          ) : (
+            <Link
+              href={"/login"}
+              className="text-xl font-bold text-orange-400 dark:text-white hover:underline hover:decoration-red-400 hover:decoration-2"
+            >
+              Sign In
+            </Link>
+          )} */}
         </div>
       </section>
 
@@ -135,21 +135,24 @@ function Navbar() {
             Features
           </Link>
 
-          {path == "/login" ? (
-            <Link href={"/register"}>
-              <Button
-                className="w-36 mx-0 dark:hover:bg-orange-400 hover:bg-orange-400 bg-red-500 dark:text-white dark:bg-[#0ea5e9]"
-                text="Register"
-              />
-            </Link>
-          ) : (
+          {path == "/" ? (
             <Link href={"/login"}>
               <Button
-                className="w-36 mx-0 dark:hover:bg-orange-400 hover:bg-orange-400 bg-red-500 dark:text-white dark:bg-[#0ea5e9]"
+                className="w-28 mx-0 dark:hover:bg-orange-400 hover:bg-orange-400 bg-red-500 dark:text-white dark:bg-[#0ea5e9]"
                 text="Sign In"
               />
             </Link>
+          ) : (
+            ""
           )}
+          {/* ) : (
+            <Link href={"/login"}>
+              <Button
+                className="w-24 mx-0 dark:hover:bg-orange-400 hover:bg-orange-400 bg-red-500 dark:text-white dark:bg-[#0ea5e9]"
+                text="Sign In"
+              />
+            </Link>
+          )} */}
 
           {theme === "dark" ? (
             <LuSunMoon onClick={() => setTheme("light")} />
