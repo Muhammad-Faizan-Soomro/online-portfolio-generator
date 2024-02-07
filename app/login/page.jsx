@@ -79,7 +79,7 @@ function Login() {
               }}
             />
 
-            <Button className="w-72 bg-blue-500" text="LOGIN" type="submit"/>
+            <Button className="w-[17rem] bg-blue-500" text="LOGIN" type="submit"/>
             <p className="text-white font-bold">
               Don't Have An Account ?{" "}
               <a
