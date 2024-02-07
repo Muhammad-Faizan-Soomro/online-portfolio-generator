@@ -51,7 +51,7 @@ function page() {
             required="required"
           ></textarea>
           <Button
-            className="w-[16rem] bg-orange-400 dark:bg-blue-400"
+            className="w-72 bg-orange-400 dark:bg-blue-400"
             text="Submit"
           />
         </form>
@@ -203,7 +203,7 @@ function page() {
               required="required"
             ></textarea>
             <Button
-              className="w-[16rem] bg-orange-400 dark:bg-blue-400 -ml-0.5"
+              className="w-80 bg-orange-400 dark:bg-blue-400 -ml-0.5"
               text="Submit"
             />
           </form>
