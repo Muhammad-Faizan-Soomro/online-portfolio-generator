@@ -4,50 +4,58 @@ import Contact from "../../public/contact.webp";
 import Image from "next/image";
 import Link from "next/link";
 import { FaLinkedin } from "react-icons/fa";
+import Input from "../components/Input";
+import Button from "../components/Button";
 
 function page() {
   return (
     <>
       <Navbar />
-      <section className="lg:hidden">
+      <section className="md:hidden">
         <form
           method="POST"
           action="https://getform.io/f/14cd207a-2163-4af1-9ea2-9d6f1febcf16"
-          className="w-screen h-screen bg-[#fef4ea] dark:bg-[#0b1120]  flex flex-col items-center justify-center gap-4"
+          className="w-screen h-screen  dark:bg-[#0b1120]  flex flex-col gap-4 items-center justify-center"
         >
-          <h1 className="text-3xl font-bold pb-10">HAVE SOME QUESTIONS?</h1>
-          <input
+          <h1 className="text-3xl font-bold py-5 text-center">
+            HAVE SOME FEEDBACK?
+          </h1>
+          <Input
+            labelText="First Name: "
+            labelClassName="dark:text-white"
             type="text"
-            className="rounded-lg w-[300px] h-12 border-2 border-orange-400 dark:border-white"
+            className="w-[18rem]"
             placeholder="Enter Your First Name"
-            required="required"
           />
-          <input
+          <Input
+            labelText="Last Name: "
+            labelClassName="dark:text-white"
             type="text"
-            className="rounded-lg w-[300px] h-12 border-2 border-orange-400 dark:border-white"
+            className="w-[18rem]"
             placeholder="Enter Your Last Name"
-            required="required"
           />
-          <input
+          <Input
+            labelText="Email: "
+            labelClassName="dark:text-white"
             type="email"
-            className="rounded-lg w-[300px] h-12 border-2 border-orange-400 dark:border-white"
+            className="w-[18rem]"
             placeholder="Enter Your Email"
-            required="required"
           />
           <textarea
             name="message"
-            id="2"
+            id="message"
             cols="30"
             rows="10"
-            className="rounded-lg w-[300px]  resize-none  border-2 border-orange-400 dark:border-white"
+            className="rounded-lg bg-gray-200 w-[18rem] ml-1 p-2 resize-none dark:text-black  border-black border-2  dark:focus:border-orange-400 outline-none focus:bg-blue-100 focus:border-orange-400 focus:border-2 outline-0e"
             placeholder="Enter Your Message"
             required="required"
           ></textarea>
-          <button className="px-3 py-3 bg-orange-400 dark:bg-blue-400 text-white font-bold rounded-md">
-            Submit
-          </button>
+          <Button
+            className="w-72 bg-orange-400 dark:bg-blue-400"
+            text="Submit"
+          />
         </form>
-        <div className="flex pt-10 bg-[#fef4ea]">
+        <div className="flex pt-10">
           <div className="links w-[100%] h-full flex flex-col items-center ">
             <h1 className="text-3xl font-bold  text-orange-400 underline dark:text-white">
               TEAM MEMBERS:
@@ -96,7 +104,7 @@ function page() {
         </div>
       </section>
 
-      <section className="hidden lg:flex  w-full h-full">
+      <section className="hidden md:flex  w-full h-full">
         <div className="img flex flex-col">
           <div className="image">
             <Image
@@ -105,7 +113,7 @@ function page() {
                 width: "400px",
                 height: "auto",
               }}
-              className="ml-60"
+              className="md:ml-14 lg:ml-60"
               alt="contact.webp"
               priority
             />
@@ -156,40 +164,48 @@ function page() {
             </div>
           </div>
         </div>
-        <div className="form w-[50%]  h-full flex flex-col gap-3 items-center justify-center pt-32">
-          <h1 className="text-3xl font-bold pb-10">HAVE SOME QUESTIONS?</h1>
+        <div className="form w-[50%]  h-full flex flex-col gap-3 items-center justify-center pt-10">
+          <h1 className="text-3xl font-bold pb-10">HAVE SOME FEEDBACK?</h1>
 
           <form
             method="POST"
             action="https://getform.io/f/14cd207a-2163-4af1-9ea2-9d6f1febcf16"
             className="flex flex-col gap-3"
           >
-            <input
+            <Input
+              labelText="First Name: "
+              labelClassName="dark:text-white"
               type="text"
-              className="w-[400px] h-10    border-2 border-orange-400 dark:border-white"
+              className="w-[18rem]"
               placeholder="Enter Your First Name"
             />
-            <input
+            <Input
+              labelText="Last Name: "
+              labelClassName="dark:text-white"
               type="text"
-              className="w-[400px] h-10    border-2 border-orange-400 dark:border-white"
+              className="w-[18rem]"
               placeholder="Enter Your Last Name"
             />
-            <input
+            <Input
+              labelText="Email: "
+              labelClassName="dark:text-white"
               type="email"
-              className="w-[400px] h-10    border-2 border-orange-400 dark:border-white"
-              placeholder="Enter Your  Email"
+              className="w-[18rem]"
+              placeholder="Enter Your Email"
             />
             <textarea
               name="message"
-              id="2"
-              cols="50"
-              rows="50"
-              className="w-[400px]  resize-none h-10  dark:border-white  border-2 border-orange-400"
+              id="message"
+              cols="30"
+              rows="10"
+              className="rounded-lg bg-gray-200 w-[18rem] ml-1 p-2 resize-none dark:text-black  border-black border-2  dark:focus:border-orange-400 outline-none focus:bg-blue-100 focus:border-orange-400 focus:border-2 outline-0e"
               placeholder="Enter Your Message"
+              required="required"
             ></textarea>
-            <button className="py-3 w-[400px] rounded-lg text-white font-bold bg-orange-400 dark:bg-blue-400">
-              Submit
-            </button>
+            <Button
+              className="w-72 bg-orange-400 dark:bg-blue-400 -ml-0.5"
+              text="Submit"
+            />
           </form>
         </div>
       </section>
