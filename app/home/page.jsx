@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "../components/Nnavbar";
 import Image from "next/image";
 import pic2 from "../../public/template2/preview.webp";
@@ -11,6 +11,8 @@ import { useSession } from "next-auth/react";
 import Loader from "../components/Loader";
 
 import Link from "next/link";
+
+
 function Page() {
   const { data: session, status } = useSession();
 
@@ -25,7 +27,6 @@ function Page() {
   return (
     <>
       <Navbar />
-
       <h1 className="text-3xl font-bold text-orange-400 text-center mt-2 dark:text-white">
         Choose A Template
       </h1>
@@ -55,14 +56,14 @@ function Page() {
           </div>
         </div> */}
 
-        <div className="template5  group relative overflow-hidden border-2  dark:border-white  w-[22rem] h-[14.5rem] place-self-center flex flex-col">
+        <div className="template5 group relative overflow-hidden border-2  dark:border-white  w-[90vw] h-fit  place-self-center flex flex-col lg:w-[18rem]">
           <div className="img w-[100%] h-[100%] ">
             <Image src={pic5} alt="pic.png" priority />
           </div>
-          <h1 className="font-bold text-3xl  dark:text-white font-sans text-orange-400 text-center">
+          <h1 className="font-bold text-3xl  dark:text-white mt-4 font-sans text-orange-400 text-center">
             MINI
           </h1>
-          <div className="hide absolute flex items-end justify-evenly pb-20 w-full h-full bg-black/20  translate-y-full group-hover:translate-y-0 transition-all duration-300">
+          <div className="hide absolute flex items-center justify-evenly w-full h-full bg-black/20  translate-y-full group-hover:translate-y-0 transition-all duration-300">
             <Link
               href="/edit"
               className="px-4 py-2 bg-gray-50 text-black font-bold rounded-md hover:scale-110"
@@ -79,14 +80,14 @@ function Page() {
           </div>
         </div>
 
-        <div className="template2  group relative overflow-hidden border-2  dark:border-white  w-[22rem] h-[14.5rem] place-self-center  flex flex-col">
+        <div className="template2 group relative overflow-hidden border-2  dark:border-white  w-[90vw] h-fit  place-self-center flex flex-col lg:w-[18rem]">
           <div className="img w-[100%] h-[100%] ">
             <Image src={pic2} alt="pic.png" priority />
           </div>
-          <h1 className="font-bold text-3xl  dark:text-white font-sans text-orange-400 text-center">
+          <h1 className="font-bold text-3xl  dark:text-white mt-4 font-sans text-orange-400 text-center">
             SIMPLE
           </h1>
-          <div className="hide absolute flex items-end justify-evenly pb-20 w-full h-full bg-black/20  translate-y-full group-hover:translate-y-0 transition-all duration-300">
+          <div className="hide absolute flex items-center justify-evenly w-full h-full bg-black/20  translate-y-full group-hover:translate-y-0 transition-all duration-300">
             <Link
               href="/edit"
               className="px-4 py-2 bg-gray-50 text-black font-bold rounded-md hover:scale-110"
@@ -126,14 +127,14 @@ function Page() {
             </Link>
           </div>
         </div> */}
-        <div className="template1  group relative overflow-hidden border-2  dark:border-white  w-[22rem] h-[14.5rem] place-self-center flex flex-col">
+        <div className="template1 group relative overflow-hidden border-2  dark:border-white  w-[90vw] h-fit  place-self-center flex flex-col lg:w-[18rem]">
           <div className="img w-[100%] h-[100%] ">
             <Image src={pic1} alt="pic.png" priority />
           </div>
-          <h1 className="font-bold text-3xl  dark:text-white font-sans text-orange-400 text-center">
+          <h1 className="font-bold text-3xl  dark:text-white font-sans mt-4 text-orange-400 text-center">
             MODERN
           </h1>
-          <div className="hide absolute flex items-end justify-evenly pb-20 w-full h-full bg-black/20  translate-y-full group-hover:translate-y-0 transition-all duration-300">
+          <div className="hide absolute flex items-center justify-evenly w-full h-full bg-black/20  translate-y-full group-hover:translate-y-0 transition-all duration-300">
             <Link
               href={"/edit"}
               className="px-4 py-2 bg-gray-50 text-black font-bold rounded-md hover:scale-110"
