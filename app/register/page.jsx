@@ -132,7 +132,7 @@ function Register() {
               }}
             />
             <Button
-              className="w-[17rem] bg-blue-500"
+              className="w-[80vw] max-w-[20rem] bg-blue-500 "
               type="submit"
               text="Register"
             />
@@ -148,16 +148,16 @@ function Register() {
           </form>
         </div>
 
-        <div className=" hidden sm:flex w-full h-full container1 ">
-          <div className="div1 h-screen md:lg:w-[50%] sm:w-[100%] flex items-center justify-center">
+        <div className=" hidden h-full w-full sm:flex">
+          <div className="div1 h-screen w-[50vw] flex items-center justify-center">
             <form
               onSubmit={UserAdd}
-              className="form flex flex-col dark:text-black  justify-center items-center gap-4 sm:w-[20rem] md:w-[31.25rem] h-max bg-white rounded-2xl shadow-gray-900 shadow-lg"
+              className="form flex flex-col dark:text-black  justify-center items-center gap-4 w-max h-max bg-white rounded-2xl shadow-gray-900 shadow-lg"
             >
               <Input
                 labelText="Username: "
                 labelClassName="mt-5"
-                className="sm:w-72 md:w-96"
+                className="w-[40vw] lg:w-[30vw]"
                 name="username"
                 placeholder="Enter Username"
                 value={user.username}
@@ -172,7 +172,7 @@ function Register() {
                 labelText="Email: "
                 type="email"
                 name="email"
-                className="sm:w-72 md:w-96"
+                className="w-[40vw] lg:w-[30vw]"
                 placeholder="Enter Email"
                 value={user.email}
                 onChange={(e) => {
@@ -186,7 +186,7 @@ function Register() {
                 labelText="Password: "
                 type="password"
                 name="password"
-                className="sm:w-72 md:w-96"
+                className="w-[40vw] lg:w-[30vw]"
                 placeholder="Enter Password"
                 value={user.password}
                 onChange={(e) => {
@@ -199,7 +199,7 @@ function Register() {
               <Input
                 labelText="Confirm Password: "
                 type="password"
-                className="sm:w-72 md:w-96"
+                className="w-[40vw] lg:w-[30vw]"
                 name="password"
                 placeholder="Confirm Password"
                 value={user.password1}
@@ -211,7 +211,7 @@ function Register() {
                 }}
               />
 
-              <Button type="submit" text="Register" className="sm:w-72 md:w-[25rem]"  />
+              <Button type="submit" text="Register" className="w-[40vw] lg:w-[30vw]"  />
               <p className="dark:text-black mb-5">
                 Already Have An Account ?{" "}
                 <a
@@ -224,9 +224,9 @@ function Register() {
               </p>
             </form>
           </div>
-          <div className="div1 h-screen w-[50%] -z-10">
+          <div className="div1 h-screen w-[50vw] -z-10">
             <div className="bubble w-full h-full dark:bg-blue-400 bg-gray-600 flex justify-center items-center rounded-tl-full">
-              <h1 className="text-orange-400 px-12 pt-52 text-5xl text-center font-bold dark:text-white lg:block">
+              <h1 className="text-orange-400 px-12 pt-52 text-5xl text-center font-bold dark:text-white">
                 Welcome To Portfolio Generator
               </h1>
             </div>
