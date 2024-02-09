@@ -27,7 +27,7 @@ function MyPortfolios({ data }) {
         datas.user_id == userId ? (
           <div
             key={datas._id}
-            className="template8 group relative overflow-hidden border-2  dark:border-white  w-[22rem] h-[14.5rem] place-self-center flex flex-col"
+            className="template8 group relative overflow-hidden border-2  dark:border-white  w-[90vw] h-fit  place-self-center flex flex-col lg:w-[18rem]"
           >
             <div className="img w-[100%] h-[100%] ">
               <Image
@@ -47,10 +47,10 @@ function MyPortfolios({ data }) {
                 alt="pic.png"
               />
             </div>
-            <h1 className="font-bold text-3xl uppercase dark:text-white font-sans text-orange-400 text-center">
+            <h1 className="font-bold text-3xl uppercase dark:text-white mt-4 font-sans text-orange-400 text-center">
               {datas.template}
             </h1>
-            <div className="hide absolute flex items-end justify-evenly pb-20 w-full h-full bg-black/20  translate-y-full group-hover:translate-y-0 transition-all duration-300">
+            <div className="hide absolute flex items-center justify-evenly w-full h-full bg-black/20  translate-y-full group-hover:translate-y-0 transition-all duration-300">
               <Link
                 href={{
                   pathname: "/edit",
@@ -86,7 +86,7 @@ function MyPortfolios({ data }) {
               <button
                 className="p-2 bg-white font-bold rounded-md text-black"
                 onClick={async () => {
-                  data = await fetch("https://online-portfolio-generator.vercel.app/api/detail", {
+                  data = await fetch("http://localhost:3000/api/detail", {
                     cache:"no-cache",
                     method: "DELETE",
                     body: JSON.stringify({

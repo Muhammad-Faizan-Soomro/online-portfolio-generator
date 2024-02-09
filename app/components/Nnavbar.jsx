@@ -11,13 +11,15 @@ import { useTheme } from "next-themes";
 import Link from "next/link";
 import logo1 from "../../public/logodark.webp";
 import { usePathname } from "next/navigation";
+import { GiCancel } from "react-icons/gi";
+
 
 function Navbar() {
   const pathName = usePathname();
   const [hide, sethide] = useState(true);
   const { data: session, status } = useSession();
   const { theme, setTheme } = useTheme();
-  const user = localStorage.getItem('user')
+  const user = localStorage.getItem("user");
 
   const signout = () => {
     const selectedTemplate = localStorage.getItem("template");
@@ -34,7 +36,6 @@ function Navbar() {
     );
   }
 
-
   if (!session || !session.user) {
     return (
       <div>
@@ -45,7 +46,6 @@ function Navbar() {
 
   return (
     <>
-    
       <section className="  hidden  w-full h-16 lg:flex justify-evenly items-center border-b-2 dark:border-b-1 dark:bg-[#0b1120]">
         <div className="flex nav w-[350px] h-16  items-center justify-center ">
           {pathName == "/home" ? (
@@ -81,9 +81,14 @@ function Navbar() {
             Welcome,{user}
           </p>
           {theme === "dark" ? (
-            <LuSunMoon className="cursor-pointer" size={40} onClick={() => setTheme("light")} />
+            <LuSunMoon
+              className="cursor-pointer"
+              size={40}
+              onClick={() => setTheme("light")}
+            />
           ) : (
-            <FaMoon className="cursor-pointer"
+            <FaMoon
+              className="cursor-pointer"
               size={30}
               onClick={() => {
                 setTheme("dark");
@@ -119,40 +124,39 @@ function Navbar() {
               }}
             />
           )}
-          <button onClick={() => sethide(!hide)}>
-            <FaBars />
+          <button aria-label="navbar" id="navbutton" onClick={() => sethide(!hide)}>
+          {hide ? <FaBars /> : <GiCancel />}
           </button>
         </div>
-
-       
       </div>
       <div
-          className={`${
-            hide ? "hidden" : "flex"
-          } div w-screen z-50 relative  bg-[#fef4ea] opacity-90 h-screen border-t-4 dark:bg-white  flex-col items-center justify-center gap-10`}
-        >
-          {pathName == "/home" ? (
-            <Link
-              href="/my-portfolios"
-              className="font-bold text-orange-400 text-xl dark:text-black hover:scale-110 hover:underline hover:decoration-red-400 hover:decoration-2"
-            >
-              My Portfolios
-            </Link>
-          ) : (
-            <Link
-              href="/home"
-              className="font-bold text-orange-400 text-xl dark:text-black hover:scale-110 hover:underline hover:decoration-red-400 hover:decoration-2"
-            >
-              Create New Portfolio
-            </Link>
-          )}
-          <button
-            className="bg-orange-400 text-white font-bold dark:bg-blue-400 w-[7rem] py-2 dark:hover:bg-orange-400 hover:bg-purple-400  dark:text-white rounded-full "
-            onClick={() => signout()}
+        id="navbar"
+        className={`${
+          hide ? "hidden" : "flex"
+        } div w-screen z-50 absolute  bg-[#fef4ea] opacity-90 h-screen border-t-4 dark:bg-white  flex-col items-center justify-center gap-10`}
+      >
+        {pathName == "/home" ? (
+          <Link
+            href="/my-portfolios"
+            className="font-bold text-orange-400 text-xl dark:text-black hover:scale-110 hover:underline hover:decoration-red-400 hover:decoration-2"
           >
-            Logout
-          </button>
-        </div>
+            My Portfolios
+          </Link>
+        ) : (
+          <Link
+            href="/home"
+            className="font-bold text-orange-400 text-xl dark:text-black hover:scale-110 hover:underline hover:decoration-red-400 hover:decoration-2"
+          >
+            Create New Portfolio
+          </Link>
+        )}
+        <button
+          className="bg-orange-400 text-white font-bold dark:bg-blue-400 w-[7rem] py-2 dark:hover:bg-orange-400 hover:bg-purple-400  dark:text-white rounded-full "
+          onClick={() => signout()}
+        >
+          Logout
+        </button>
+      </div>
     </>
   );
 }
