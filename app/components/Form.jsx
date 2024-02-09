@@ -2,6 +2,8 @@
 import React, { useState } from "react";
 import he from "he";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faDownload } from "@fortawesome/free-solid-svg-icons";
+import { useSession } from "next-auth/react";
 
 export default function Form({
   fullName,
@@ -25,6 +27,11 @@ export default function Form({
   experience,
   projects,
 }) {
+  const { data: session } = useSession();
+
+  const userEmail  = session.user.email;
+
+
   const download = async () => {
     let output = he.decode(
       document.getElementsByClassName("codefile")[0].innerHTML
@@ -36,7 +43,7 @@ export default function Form({
     let result = await fetch("/api/mailer", {
       method: "POST",
       body: JSON.stringify({
-        email,
+        userEmail,
       }),
     });
   };
@@ -45,14 +52,16 @@ export default function Form({
 
   return (
     <div className="Code">
-      <button
-        onClick={download}
-        className="px-6 py-4 text-white font-bold rounded-lg  bg-orange-400 mt-8 "
-      >
-        <a id="a1" download="sample.html" target="_blank" rel="noreferrer">
-          Download Code
-        </a>
-      </button>
+      <a id="a1" download="portfolio.html" target="_blank" rel="noreferrer">
+        <button
+          onClick={download}
+          className="p-4 dark:hover:bg-orange-400 hover:bg-purple-400 bg-orange-500 dark:text-white dark:bg-[#0ea5e9] text-white font-bold rounded-full m-4 mt-10"
+        >
+          <FontAwesomeIcon icon={faDownload} className="fas fa-download" />
+          {"  "} Download Code
+        </button>
+      </a>
+
       {template == "modern" ? (
         <pre className="codefile">
           {`<!DOCTYPE html>

@@ -17,6 +17,7 @@ function Navbar() {
   const [hide, sethide] = useState(true);
   const { data: session, status } = useSession();
   const { theme, setTheme } = useTheme();
+  const user = localStorage.getItem('user')
 
   const signout = () => {
     const selectedTemplate = localStorage.getItem("template");
@@ -33,6 +34,7 @@ function Navbar() {
     );
   }
 
+
   if (!session || !session.user) {
     return (
       <div>
@@ -41,23 +43,22 @@ function Navbar() {
     );
   }
 
-  const { email } = session.user;
   return (
     <>
     
-      <section className="  hidden  w-full h-16 lg:flex justify-between items-center border-b-2 dark:border-b-1 dark:bg-[#0b1120]">
+      <section className="  hidden  w-full h-16 lg:flex justify-evenly items-center border-b-2 dark:border-b-1 dark:bg-[#0b1120]">
         <div className="flex nav w-[350px] h-16  items-center justify-center ">
           {pathName == "/home" ? (
             <Link
               href="/my-portfolios"
-              className="font-bold font-serif text-orange-400 hover:scale-110 text-xl dark:text-white"
+              className="font-bold font-serif text-orange-400 hover:scale-110 text-xl dark:text-white hover:underline hover:decoration-red-400 hover:decoration-2"
             >
               My Portfolios
             </Link>
           ) : (
             <Link
               href="/home"
-              className="font-bold font-serif text-orange-400 hover:scale-110 text-xl dark:text-white"
+              className="font-bold font-serif text-orange-400 hover:scale-110 text-xl dark:text-white hover:underline hover:decoration-red-400 hover:decoration-2"
             >
               Create New Portfolio
             </Link>
@@ -77,12 +78,12 @@ function Navbar() {
         </div>
         <div className="tags h-16 w-[750px] flex items-center justify-between">
           <p className="font-bold font-serif text-orange-400 text-xl dark:text-white">
-            Welcome,{email}
+            Welcome,{user}
           </p>
           {theme === "dark" ? (
-            <LuSunMoon size={40} onClick={() => setTheme("light")} />
+            <LuSunMoon className="cursor-pointer" size={40} onClick={() => setTheme("light")} />
           ) : (
-            <FaMoon
+            <FaMoon className="cursor-pointer"
               size={30}
               onClick={() => {
                 setTheme("dark");
@@ -90,7 +91,7 @@ function Navbar() {
             />
           )}
           <button
-            className="px-3 mr-20 h-10 rounded-sm bg-orange-400 text-white font-bold dark:bg-blue-400 "
+            className="w-[7rem] py-2 dark:hover:bg-orange-400 hover:bg-purple-400 bg-orange-500 dark:text-white dark:bg-[#0ea5e9] text-white font-bold rounded-full"
             onClick={() => signout()}
           >
             Logout
@@ -133,23 +134,23 @@ function Navbar() {
           {pathName == "/home" ? (
             <Link
               href="/my-portfolios"
-              className="font-bold text-orange-400 text-xl dark:text-black"
+              className="font-bold text-orange-400 text-xl dark:text-black hover:scale-110 hover:underline hover:decoration-red-400 hover:decoration-2"
             >
               My Portfolios
             </Link>
           ) : (
             <Link
               href="/home"
-              className="font-bold text-orange-400 text-xl dark:text-black"
+              className="font-bold text-orange-400 text-xl dark:text-black hover:scale-110 hover:underline hover:decoration-red-400 hover:decoration-2"
             >
               Create New Portfolio
             </Link>
           )}
           <button
-            className="w-[100px] h-[50px] bg-orange-400 text-white font-bold rounded-sm dark:bg-blue-400"
+            className="bg-orange-400 text-white font-bold dark:bg-blue-400 w-[7rem] py-2 dark:hover:bg-orange-400 hover:bg-purple-400  dark:text-white rounded-full "
             onClick={() => signout()}
           >
-            LOGOUT
+            Logout
           </button>
         </div>
     </>

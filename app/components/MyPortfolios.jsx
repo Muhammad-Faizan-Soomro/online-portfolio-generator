@@ -9,7 +9,6 @@ import pic2 from "../../public/template2/preview.webp";
 import pic4 from "../../public/template4.png";
 import pic1 from "../../public/template1/template.webp";
 import pic5 from "../../public/assets/preview.webp";
-import { redirect } from 'next/navigation'
 import { useRouter } from 'next/navigation';
 
 
@@ -23,12 +22,12 @@ function MyPortfolios({ data }) {
   const router = useRouter();
 
   return (
-    <div className="templates w-full h-full   flex flex-col gap-10  lag:gap-4 lg:px-10  lg:grid grid-cols-3 lg:mb-2  items-center justify-start pt-4">
+    <div className="templates w-full h-full flex flex-col gap-10 lg:grid lg:grid-cols-3  items-center justify-start pt-10">
       {data.map((datas) =>
         datas.user_id == userId ? (
           <div
             key={datas._id}
-            className="template8  group relative overflow-hidden border-2  dark:border-white  w-[350px] h-[230px]  flex flex-col"
+            className="template8 group relative overflow-hidden border-2  dark:border-white  w-[22rem] h-[14.5rem] place-self-center flex flex-col"
           >
             <div className="img w-[100%] h-[100%] ">
               <Image
@@ -48,7 +47,7 @@ function MyPortfolios({ data }) {
                 alt="pic.png"
               />
             </div>
-            <h1 className="font-bold text-3xl  dark:text-white font-sans text-orange-400 text-center">
+            <h1 className="font-bold text-3xl uppercase dark:text-white font-sans text-orange-400 text-center">
               {datas.template}
             </h1>
             <div className="hide absolute flex items-end justify-evenly pb-20 w-full h-full bg-black/20  translate-y-full group-hover:translate-y-0 transition-all duration-300">
@@ -85,9 +84,9 @@ function MyPortfolios({ data }) {
                 Edit
               </Link>
               <button
-                className="p-2 bg-white font-bold rounded-md"
+                className="p-2 bg-white font-bold rounded-md text-black"
                 onClick={async () => {
-                  data = await fetch("https://online-portfolio-generator.vercel.app/api/detail", {
+                  data = await fetch("http://localhost:3000/api/detail", {
                     cache:"no-cache",
                     method: "DELETE",
                     body: JSON.stringify({

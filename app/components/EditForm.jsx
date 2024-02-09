@@ -18,6 +18,10 @@ import { FaArrowRight } from "react-icons/fa6";
 import { ImCross } from "react-icons/im";
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
+import Navbar from "./Nnavbar";
+import Input from "./Input";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faAngleDoubleLeft } from "@fortawesome/free-solid-svg-icons";
 
 export default function EditForm({ postData }) {
   const { register, handleSubmit } = useForm();
@@ -84,8 +88,8 @@ export default function EditForm({ postData }) {
   const [email, setEmail] = useState(postData ? postData[0].email : "");
 
   useEffect(() => {
-    if(!postData){
-      dispatch(removeAllExp())
+    if (!postData) {
+      dispatch(removeAllExp());
     }
     if (postData && postData[0].experience.length != 0) {
       dispatch(removeAllExp());
@@ -94,8 +98,8 @@ export default function EditForm({ postData }) {
   }, [postData]);
 
   useEffect(() => {
-    if(!postData){
-      dispatch(removeAllSkill())
+    if (!postData) {
+      dispatch(removeAllSkill());
     }
     if (postData && postData[0].skills.length != 0) {
       dispatch(removeAllSkill());
@@ -104,8 +108,8 @@ export default function EditForm({ postData }) {
   }, [postData]);
 
   useEffect(() => {
-    if(!postData){
-      dispatch(removeAllProject())
+    if (!postData) {
+      dispatch(removeAllProject());
     }
     if (postData && postData[0].projects.length != 0) {
       dispatch(removeAllProject());
@@ -178,7 +182,9 @@ export default function EditForm({ postData }) {
     setProfilePicUrl(
       uploadedImageData.secure_url
         ? uploadedImageData.secure_url
-        : postData ? postData[0].profilePicUrl : ""
+        : postData
+        ? postData[0].profilePicUrl
+        : ""
     );
 
     const cvData = data.cv[0];
@@ -197,7 +203,11 @@ export default function EditForm({ postData }) {
     const uploadedCvData = await CVUploadResponse.json();
 
     setCvLink(
-      uploadedCvData.secure_url ? uploadedCvData.secure_url : postData ? postData[0].cvLink : ""
+      uploadedCvData.secure_url
+        ? uploadedCvData.secure_url
+        : postData
+        ? postData[0].cvLink
+        : ""
     );
 
     if (postData) {
@@ -282,28 +292,224 @@ export default function EditForm({ postData }) {
 
   return (
     <div>
+      <Navbar />
+
       {formActive == "show" ? (
-        <h1 className="font-extrabold text-center text-2xl lg:text-5xl text-orange-400 mb-4">
+        <h1 className="font-extrabold text-center text-2xl pt-4 lg:text-5xl text-orange-400 mb-4">
           PLEASE FILL THE FORM{" "}
         </h1>
       ) : (
-        <h1 className="font-extrabold text-center text-2xl lg:text-5xl text-orange-400 mb-4">
-          DOWNLOAD CODE
+        <h1 className="font-extrabold text-center text-2xl pt-4 lg:text-5xl text-orange-400 mb-4">
+          PORTFOLIO CODE
         </h1>
       )}
       <div className={formActive}>
-        {template == "simple" ? null : <ExpForm />}
-        <br />{template == "beginner" ? null : <SkillForm />}
+        {template == "simple" ? null : (
+          <>
+            <div class="flex items-center mb-2">
+              <hr class="flex-grow border-t border-green-300" />
+              <span class="px-3 text-green-500 text-lg">
+                Experience Section
+              </span>
+              <hr class="flex-grow border-t border-green-300" />
+            </div>
+            <ExpForm />{" "}
+            {experience.length != 0 ? (
+              <div>
+                <h1 className="text-xl lg:text-4xl font-extrabold text-center pt-6 pb-4 text-orange-400">
+                  Experience Added
+                </h1>
+                {experience.map((item) => (
+                  <div
+                    key={item.startDate}
+                    className="w-fit h-fit rounded-2xl text-lg relative mx-auto shadow-black shadow-lg mb-8 p-4 gap-y-3 border-2 font-bold flex flex-col"
+                  >
+                    <p>
+                      {" "}
+                      <span className="font-bold underline text-red-500">
+                        Company Name:
+                      </span>{" "}
+                      {item.companyName}
+                    </p>
+                    <p>
+                      {" "}
+                      <span className="font-bold underline text-red-500">
+                        Job Title:
+                      </span>{" "}
+                      {item.jobTitle}
+                    </p>
+                    <p>
+                      {" "}
+                      <span className="font-bold underline text-red-500">
+                        Job Description:
+                      </span>{" "}
+                      {item.jobDescription}
+                    </p>
+                    <p>
+                      {" "}
+                      <span className="font-bold underline text-red-500">
+                        Start Year:
+                      </span>{" "}
+                      {item.startDate}
+                    </p>
+                    <p>
+                      {" "}
+                      <span className="font-bold underline text-red-500">
+                        End Year:
+                      </span>{" "}
+                      {item.endDate}
+                    </p>
+                    <button
+                      className="w-[10rem] pt-2 py-2 dark:hover:bg-orange-400 hover:bg-purple-400 bg-orange-500 dark:text-white dark:bg-[#0ea5e9] text-white font-bold rounded-full flex items-center justify-center gap-3"
+                      onClick={() => dispatch(removeExp(item.id))}
+                    >
+                      Remove
+                      <ImCross />
+                    </button>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              ""
+            )}
+            <div class="flex items-center mt-4">
+              <hr class="flex-grow border-t border-green-300" />
+              <span class="px-3 text-green-500 text-lg">
+                Experience Section
+              </span>
+              <hr class="flex-grow border-t border-green-300" />
+            </div>
+          </>
+        )}
         <br />
+        {template == "beginner" ? null : (
+          <>
+            <div class="flex items-center">
+              <hr class="flex-grow border-t border-blue-300" />
+              <span class="px-3 text-blue-500 text-lg">Skills Section</span>
+              <hr class="flex-grow border-t border-blue-300" />
+            </div>
+            <SkillForm />{" "}
+            {skills.length != 0 ? (
+              <div>
+                <h1 className="text-xl lg:text-4xl font-extrabold text-center pt-6 pb-4 text-orange-400">
+                  Skill Added
+                </h1>
+                {skills.map((item) => (
+                  <div
+                    key={item.name}
+                    className="w-fit h-fit rounded-2xl text-lg relative mx-auto shadow-black shadow-lg mb-8 p-4 gap-y-3 border-2 font-bold flex flex-col"
+                  >
+                    <p>
+                      {" "}
+                      <span className="font-bold underline text-red-500">
+                        Skill Name:
+                      </span>{" "}
+                      {item.name}
+                    </p>
+                    {item.percentage ? (
+                      <p>
+                        {" "}
+                        <span className="font-bold underline text-red-500">
+                          Skill Percentage:
+                        </span>{" "}
+                        {item.percentage} %
+                      </p>
+                    ) : (
+                      ""
+                    )}
+                    <button
+                      className="w-[10rem] pt-2 py-2 dark:hover:bg-orange-400 hover:bg-purple-400 bg-orange-500 dark:text-white dark:bg-[#0ea5e9] text-white font-bold rounded-full flex items-center justify-center gap-3"
+                      onClick={() => dispatch(removeSkill(item.id))}
+                    >
+                      Remove <ImCross />
+                    </button>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              ""
+            )}
+            <div class="flex items-center mt-4">
+              <hr class="flex-grow border-t border-blue-300" />
+              <span class="px-3 text-blue-500 text-lg">Skills Section</span>
+              <hr class="flex-grow border-t border-blue-300" />
+            </div>
+          </>
+        )}
+        <br />
+        <div class="flex items-center mb-2">
+          <hr class="flex-grow border-t border-red-300" />
+          <span class="px-3 text-red-500 text-lg">Projects Section</span>
+          <hr class="flex-grow border-t border-red-300" />
+        </div>
         <ProjectForm />
-        <br />
+        {projects.length != 0 ? (
+          <div>
+            <h1 className="text-xl lg:text-4xl font-extrabold text-center pt-6 pb-4 text-orange-400">
+              Projects Added
+            </h1>
+            {projects.map((item) => (
+              <div
+                key={item.liveLink}
+                className="w-fit h-fit rounded-2xl text-lg relative mx-auto shadow-black shadow-lg mb-8 p-4 gap-y-3 border-2 font-bold flex flex-col"
+              >
+                <p>
+                  {" "}
+                  <span className="font-bold underline text-red-500">
+                    Image URL:
+                  </span>{" "}
+                  {item.image.slice(0, 27)}
+                </p>
+                <p>
+                  {" "}
+                  <span className="font-bold underline text-red-500">
+                    Github Link:
+                  </span>{" "}
+                  {item.githubLink}
+                </p>
+                {item.liveLink ? (
+                  <p>
+                    {" "}
+                    <span className="font-bold underline text-red-500">
+                      Live Link:
+                    </span>{" "}
+                    {item.liveLink}
+                  </p>
+                ) : (
+                  ""
+                )}
+                <button
+                  className="w-[10rem] pt-2 py-2 dark:hover:bg-orange-400 hover:bg-purple-400 bg-orange-500 dark:text-white dark:bg-[#0ea5e9] text-white font-bold rounded-full flex items-center justify-center gap-3"
+                  onClick={() => dispatch(removeProject(item.id))}
+                >
+                  Remove <ImCross />
+                </button>
+              </div>
+            ))}
+          </div>
+        ) : (
+          ""
+        )}
+        <div class="flex items-center mt-4">
+          <hr class="flex-grow border-t border-red-300" />
+          <span class="px-3 text-red-500 text-lg">Projects Section</span>
+          <hr class="flex-grow border-t border-red-300" />
+        </div>
+        <div class="flex items-center mt-4 mb-4">
+          <hr class="flex-grow border-t border-black dark:border-white" />
+          <span class="px-3 text-black text-lg dark:text-white">
+            Personal Information Section
+          </span>
+          <hr class="flex-grow border-t border-black dark:border-white" />
+        </div>
         <form
-          className="w-full h-full flex flex-col   items-center justify-center"
+          className="w-full h-full flex flex-col gap-3 items-center justify-center"
           onSubmit={handleSubmit(onSubmit)}
         >
           <label
             htmlFor="file_input"
-            className="text-orange-400 font-bold text-xl mb-2"
+            className="font-bold text-black text-lg dark:text-white"
           >
             Upload Profile Picture
           </label>
@@ -317,7 +523,7 @@ export default function EditForm({ postData }) {
           <br />
           <label
             htmlFor="file_input"
-            className="font-bold mb-2 mt-2 text-orange-400 text-xl"
+            className="font-bold text-black text-lg dark:text-white"
           >
             Upload CV
           </label>
@@ -328,162 +534,129 @@ export default function EditForm({ postData }) {
             type="file"
             className="text-orange-400 font-bold"
           />
-          <br />
-          <input
-            type="text"
-            value={user_id}
-            placeholder="User ID"
-            onChange={(e) => setUser_id(e.target.value)}
-            className="w-64 h-14  mt-2 rounded-lg  md:w-80 lg:w-[900px] border-2 border-orange-400 p-2"
-            disabled
-          />
-          <br />
-          <input
-            className="w-64 h-14  mt-2 rounded-lg  md:w-80 lg:w-[900px]  border-2 border-orange-400 p-2"
-            type="text"
+          <Input
+            labelText="Full Name: "
+            labelClassName="dark:text-white"
+            className="w-[90vw] md:w-[60vw] dark:border-orange-400 dark:border-2 dark:focus:border-green-500"
             value={fullName}
-            placeholder="Full Name"
+            placeholder="Enter Your Full Name"
             onChange={(e) => setFullName(e.target.value)}
           />
-          <br />
-          <input
-            type="text"
-            value={template}
-            placeholder="Template Name"
-            onChange={(e) => setTemplate(e.target.value)}
-            className="w-64 h-14  mt-2 rounded-lg  border-2  md:w-80 lg:w-[900px] border-orange-400 p-2"
-            disabled
-          />
-          <br />
-          <input
-            type="text"
+          <Input
             value={workDesc}
-            placeholder="Work Description"
+            placeholder="Enter One Line About Your Work e.g Backend Developer"
             onChange={(e) => setWorkDesc(e.target.value)}
-            className="w-64 h-14  mt-2 rounded-lg  border-2 border-orange-400  md:w-80 lg:w-[900px] p-2"
-            required
+            labelText="Work Description: "
+            labelClassName="dark:text-white"
+            className="w-[90vw] md:w-[60vw] dark:border-orange-400 dark:border-2 dark:focus:border-green-500"
           />
-          <br />
-          <input
-            type="text"
+          <Input
             value={selfDesc}
-            placeholder="Self Description"
+            placeholder="Describle Yourself In 2-3 Lines"
             onChange={(e) => setSelfDesc(e.target.value)}
-            className="w-64 h-14  mt-2 rounded-lg  border-2 border-orange-400  md:w-80 lg:w-[900px] p-2"
-            required
+            labelText="Self Description: "
+            labelClassName="dark:text-white"
+            className="w-[90vw] md:w-[60vw] dark:border-orange-400 dark:border-2 dark:focus:border-green-500"
           />
-          <br />
-          <input
-            type="text"
+          <Input
             value={aboutMe}
-            placeholder="About Yourself"
+            placeholder="Tell About Yourself In Detail"
             onChange={(e) => setAboutMe(e.target.value)}
-            className="w-64 h-14  mt-2 rounded-lg  border-2 border-orange-400  md:w-80 lg:w-[900px] p-2"
-            required
+            labelText="About Yourself: "
+            labelClassName="dark:text-white"
+            className="w-[90vw] md:w-[60vw] dark:border-orange-400 dark:border-2 dark:focus:border-green-500"
           />
-          <br />
-          <input
-            type="text"
+          <Input
             value={numOfProjects}
-            placeholder="Number of projects you have completed"
+            placeholder="Enter Number of projects you have completed"
             onChange={(e) => setNumOfProjects(e.target.value)}
-            className={`w-64 h-14  mt-2 rounded-lg  border-2 border-orange-400 p-2  md:w-80 lg:w-[900px] ${
-              template == "simple" ? "hidden" : null
-            }`}
+            labelText="Number Of Projects: "
+            labelClassName="dark:text-white"
+            className="w-[90vw] md:w-[60vw] dark:border-orange-400 dark:border-2 dark:focus:border-green-500"
           />
-          <br />
-          <input
-            type="text"
+          <Input
             value={yearsOfExperience}
-            placeholder="Years of experience"
+            placeholder="Enter Your Years of experience"
             onChange={(e) => setYearsOfExperience(e.target.value)}
-            className="w-64 h-14  mt-2 rounded-lg  border-2 border-orange-400 p-2 md:w-80 lg:w-[900px]"
+            labelText="Years Of Experience: "
+            labelClassName="dark:text-white"
+            className="w-[90vw] md:w-[60vw] dark:border-orange-400 dark:border-2 dark:focus:border-green-500"
           />
-          <br />
-          <input
-            type="text"
+          <Input
             value={numOfHappyClients}
-            placeholder="Number of satisfied clients"
+            placeholder="Enter Your Number of satisfied clients"
             onChange={(e) => setNumOfHappyClients(e.target.value)}
-            className="w-64 h-14  mt-2 rounded-lg  border-2 border-orange-400 p-2 md:w-80 lg:w-[900px]"
+            labelText="Number Of Satisfied Clients: "
+            labelClassName="dark:text-white"
+            className="w-[90vw] md:w-[60vw] dark:border-orange-400 dark:border-2 dark:focus:border-green-500"
           />
-          <br />
-          <input
-            type="text"
+          <Input
             value={totalCustomerReviews}
-            placeholder="Number of Customer Reviews"
+            placeholder="Enter Number of Customer Reviews You Have"
             onChange={(e) => setTotalCustomerReviews(e.target.value)}
-            className={`w-64 h-14  mt-2 rounded-lg  border-2 border-orange-400 p-2 md:w-80 lg:w-[900px] ${
-              template == "simple" ? "hidden" : null
-            }`}
+            labelText="Number Of Reviews: "
+            labelClassName="dark:text-white"
+            className="w-[90vw] md:w-[60vw] dark:border-orange-400 dark:border-2 dark:focus:border-green-500"
           />
-          <br />
-          <input
-            type="text"
+          <Input
             value={facebookLink}
-            placeholder="Facebook link"
+            placeholder="Enter Your Facebook Profile link"
             onChange={(e) => setFacebookLink(e.target.value)}
-            className="w-64 h-14  mt-2 rounded-lg  border-2 border-orange-400 p-2 md:w-80 lg:w-[900px]"
-            required
+            labelText="Facebook Link: "
+            labelClassName="dark:text-white"
+            className="w-[90vw] md:w-[60vw] dark:border-orange-400 dark:border-2 dark:focus:border-green-500"
           />
-          <br />
-          <input
-            type="text"
+          <Input
             value={githubLink}
-            placeholder="Github Link"
+            placeholder="Enter Your Github Profile Link"
             onChange={(e) => setGithubLink(e.target.value)}
-            className="w-64 h-14  mt-2 rounded-lg  border-2 border-orange-400 p-2 md:w-80 lg:w-[900px]"
-            required
+            labelText="Github Link: "
+            labelClassName="dark:text-white"
+            className="w-[90vw] md:w-[60vw] dark:border-orange-400 dark:border-2 dark:focus:border-green-500"
           />
-          <br />
-          <input
-            type="text"
+          <Input
             value={twitterLink}
-            placeholder="Twitter Link"
+            placeholder="Enter Your Twitter Profile Link"
             onChange={(e) => setTwitterLink(e.target.value)}
-            className="w-64 h-14  mt-2 rounded-lg  border-2 border-orange-400 p-2  md:w-80 lg:w-[900px]"
+            labelText="Twitter Link: "
+            labelClassName="dark:text-white"
+            className="w-[90vw] md:w-[60vw] dark:border-orange-400 dark:border-2 dark:focus:border-green-500"
           />
-          <br />
-          <input
-            type="text"
+          <Input
             value={linkedinLink}
-            placeholder="LinkedIn Link"
+            placeholder="Enter Your LinkedIn Profile Link"
             onChange={(e) => setLinkedinLink(e.target.value)}
-            className="w-64 h-14  mt-2 rounded-lg  border-2 border-orange-400 p-2  md:w-80 lg:w-[900px]"
+            labelText="Linkedin Link: "
+            labelClassName="dark:text-white"
+            className="w-[90vw] md:w-[60vw] dark:border-orange-400 dark:border-2 dark:focus:border-green-500"
           />
-          <br />
-          <input
-            type="text"
+          <Input
             value={location}
-            placeholder="Enter your location"
-            className={`w-64 h-14  mt-2 rounded-lg  border-2 border-orange-400 p-2  md:w-80 lg:w-[900px] ${
-              template == "simple" ? "hidden" : null
-            }`}
+            placeholder="Enter your location e.g Karachi, Pakistan"
+            labelText="Location: "
+            labelClassName="dark:text-white"
+            className="w-[90vw] md:w-[60vw] dark:border-orange-400 dark:border-2 dark:focus:border-green-500"
             onChange={(e) => setLocation(e.target.value)}
           />
-          <br />
-          <input
-            type="text"
+          <Input
             value={email}
-            className="w-64 h-14  mt-2 rounded-lg   md:w-80 lg:w-[900px] border-2 p-2 border-orange-400"
-            placeholder="Your Email"
+            labelText="Email: "
+            labelClassName="dark:text-white"
+            className="w-[90vw] md:w-[60vw] dark:border-orange-400 dark:border-2 dark:focus:border-green-500"
+            placeholder="Enter Your Email"
             onChange={(e) => setEmail(e.target.value)}
-            required
           />
-          <br />
-          <input
-            type="text"
+          <Input
             value={mobileNumber}
-            placeholder="Give your contact number"
-            className={`w-64 h-14  mt-2 rounded-lg  border-2  md:w-80 lg:w-[900px] p-2 border-orange-400 ${
-              template == "simple" ? "hidden" : null
-            }`}
+            placeholder="Enter Your Contact Number"
+            labelText="Contact Number: "
+            labelClassName="dark:text-white"
+            className="w-[90vw] md:w-[60vw] dark:border-orange-400 dark:border-2 dark:focus:border-green-500"
             onChange={(e) => setMobileNumber(e.target.value)}
           />
-          <br />
           <button
             type="submit"
-            className="px-6 py-4 text-white font-bold rounded-lg  bg-orange-400 flex items-center justify-center gap-2 mb-4 disabled:bg-[#FDA172] disabled:font-normal disabled:px-3 disabled:py-2"
+            className="w-[16rem] py-4 dark:hover:bg-orange-400 hover:bg-purple-400 bg-orange-500 dark:text-white dark:bg-[#0ea5e9] text-white font-bold rounded-full disabled:bg-[#FDA172] disabled:font-normal disabled:px-3 disabled:w-[14rem] disabled:py-2 disabled:dark:bg-blue-300 flex items-center justify-center gap-2 mb-4"
             disabled={
               fullName &&
               workDesc &&
@@ -499,132 +672,21 @@ export default function EditForm({ postData }) {
             Proceed To Next Step <FaArrowRight />
           </button>
         </form>
+        <div class="flex items-center mb-2">
+          <hr class="flex-grow border-t border-black dark:border-white" />
+          <span class="px-3 text-black text-lg dark:text-white">
+            Personal Information Section
+          </span>
+          <hr class="flex-grow border-t border-black dark:border-white" />
+        </div>
         {/* <button onClick={submitDataToDB}>Send to DB</button> */}
-        <div>
-          <h1 className="text-xl lg:text-4xl font-extrabold text-center text-orange-400">
-            Experience Added
-          </h1>
-          {experience.map((item) => (
-            <div
-              key={item.startDate}
-              className="w-max text-xl relative mx-auto shadow-md  border-2 font-bold flex flex-col items-center justify-center"
-            >
-              <p>
-                {" "}
-                <span className="font-bold underline text-orange-400">
-                  COMPANY NAME:
-                </span>
-                {item.companyName}
-              </p>
-              <p>
-                {" "}
-                <span className="font-bold underline text-orange-400">
-                  JOB TITLE:
-                </span>
-                {item.jobTitle}
-              </p>
-              <p>
-                {" "}
-                <span className="font-bold underline text-orange-400">
-                  JOB DESCRIPTION:
-                </span>
-                {item.jobDescription}
-              </p>
-              <p>
-                {" "}
-                <span className="font-bold underline text-orange-400">
-                  START DATE:
-                </span>
-                {item.startDate}
-              </p>
-              <p>
-                {" "}
-                <span className="font-bold underline text-orange-400">
-                  END DATE:
-                </span>
-                {item.endDate}
-              </p>
-              <button
-                className="px-6 py-4 gap-2  text-white font-bold bg-orange-400 flex items-center justify-center mt-2 mb-2 "
-                onClick={() => dispatch(removeExp(item.id))}
-              >
-                Remove
-                <ImCross />
-              </button>
-            </div>
-          ))}
-        </div>
-        <div>
-          <h1 className="text-xl lg:text-4xl font-extrabold text-center text-orange-400">
-            Projects Added
-          </h1>
-          {projects.map((item) => (
-            <div
-              key={item.liveLink}
-              className="w-max text-xl relative mx-auto shadow-md  border-2 font-bold flex flex-col items-center justify-center"
-            >
-              <p>
-                {" "}
-                <span className="font-bold underline text-orange-400">
-                  IMAGE URL:
-                </span>
-                {item.image.slice(0, 27)}
-              </p>
-              <p>
-                {" "}
-                <span className="font-bold underline text-orange-400">
-                  GITHUB LINK:
-                </span>
-                {item.githubLink}
-              </p>
-              <p>
-                {" "}
-                <span className="font-bold underline text-orange-400">
-                  LIVE:
-                </span>
-                {item.liveLink}
-              </p>
-              <button
-                className="px-6 py-4 gap-2  text-white font-bold bg-orange-400 flex items-center justify-center mt-2 mb-2"
-                onClick={() => dispatch(removeProject(item.id))}
-              >
-                Remove <ImCross />
-              </button>
-            </div>
-          ))}
-        </div>
-        <div>
-          <h1 className="text-xl lg:text-4xl font-extrabold text-center text-orange-400">
-            Skills Added
-          </h1>
-          {skills.map((item) => (
-            <div
-              key={item.name}
-              className="w-max text-xl relative mx-auto shadow-md  border-2 font-bold flex flex-col items-center justify-center "
-            >
-              <p>
-                {" "}
-                <span className="font-bold underline text-orange-400">
-                  SKILL:
-                </span>
-                {item.name}
-              </p>
-              <p>
-                {item.percentage}{" "}
-                <span className="font-bold underline text-orange-400">%</span>
-              </p>
-              <button
-                className="px-6 py-4 gap-2  text-white font-bold bg-orange-400 flex items-center justify-center mt-2 mb-2 "
-                onClick={() => dispatch(removeSkill(item.id))}
-              >
-                Remove <ImCross />
-              </button>
-            </div>
-          ))}
-        </div>
       </div>
       <button onClick={() => toggleTabs()} className={codeActive}>
-        <span className="px-6 py-4 text-white font-bold rounded-lg  bg-orange-400 mt-8">
+        <span className="p-4 dark:hover:bg-orange-400 hover:bg-purple-400 bg-orange-500 dark:text-white dark:bg-[#0ea5e9] text-white font-bold rounded-full m-4">
+          <FontAwesomeIcon
+            icon={faAngleDoubleLeft}
+            className="fas fa-angle-double-left"
+          />{" "}
           Back To Form
         </span>
       </button>
