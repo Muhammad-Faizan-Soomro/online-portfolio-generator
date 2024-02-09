@@ -48,7 +48,9 @@ function Login() {
             className="form h-[100%] w-[100%] bg-gray-700 flex flex-col gap-8 items-center justify-center"
           >
             <h1 className="font-bold text-orange-400 text-2xl text-center">
-              WELCOME TO<br/>PORTFOLIO GENERATOR
+              WELCOME TO
+              <br />
+              PORTFOLIO GENERATOR
             </h1>
             <Input
               labelText="Username :"
@@ -79,7 +81,11 @@ function Login() {
               }}
             />
 
-            <Button className="w-[17rem] bg-blue-500" text="LOGIN" type="submit"/>
+            <Button
+              className="w-[70vw] max-w-xs bg-blue-500"
+              text="LOGIN"
+              type="submit"
+            />
             <p className="text-white font-bold">
               Don't Have An Account ?{" "}
               <a
@@ -91,23 +97,25 @@ function Login() {
             </p>
           </form>
         </div>
+
         <div className="container1 h-full w-full hidden sm:flex">
-          <div className="div1 h-screen w-[50%]">
+          <div className="div1 h-screen w-[50vw]">
             <div className="bubble w-full h-full bg-gray-600 rounded-br-full flex justify-center items-center dark:bg-blue-400">
-              <h1 className="text-orange-400 pr-12 pb-52 text-5xl text-center font-bold dark:text-white lg:block">
+              <h1 className="text-orange-400 pb-52 px-4 text-center text-5xl font-bold dark:text-white">
                 Welcome To Portfolio Generator
               </h1>
             </div>
           </div>
-          <div className="div2 h-screen w-[50%] flex items-center justify-center">
+          <div className="div2 h-screen w-[50vw] flex items-center justify-center">
             <form
               onSubmit={HandleSignIn}
-              className="form flex flex-col justify-center items-center gap-4 w-[500px] h-[400px] bg-white rounded-2xl shadow-gray-900 shadow-lg"
+              className="form flex flex-col justify-center items-center gap-4 w-max h-[400px] bg-white rounded-2xl shadow-gray-900 shadow-lg"
             >
               <Input
                 labelText="Username :"
                 name="username"
                 placeholder="Enter Your Username"
+                className="w-[40vw] lg:w-[30vw]"
                 onChange={(e) => {
                   setuser({
                     ...user,
@@ -121,6 +129,7 @@ function Login() {
                 type="password"
                 name="password"
                 placeholder="Enter Your Password"
+                className="w-[40vw] lg:w-[30vw]"
                 value={user.password}
                 onChange={(e) => {
                   setuser({
@@ -129,7 +138,7 @@ function Login() {
                   });
                 }}
               />
-              <Button text="LOGIN" type="submit"/>
+              <Button text="LOGIN" type="submit" className="w-[40vw] lg:w-[30vw]"/>
               <p className="dark:text-black">
                 Don't Have An Account ?
                 <a
