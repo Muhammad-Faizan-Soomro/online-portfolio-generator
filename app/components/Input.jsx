@@ -13,6 +13,7 @@ function Input({
   value,
   onChange,
   name,
+  required = false,
 }) {
   const id = useId();
   return (
@@ -35,6 +36,7 @@ function Input({
         value={value}
         aria-describedby={ariaDescribedBy}
         onChange={onChange}
+        required={required}
       />
     </div>
   );

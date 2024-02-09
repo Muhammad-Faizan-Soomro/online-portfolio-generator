@@ -304,14 +304,14 @@ export default function EditForm({ postData }) {
         </h1>
       )}
       <div className={formActive}>
-        {template == "simple" ? null : (
+        {template != "modern" ? null : (
           <>
-            <div class="flex items-center mb-2">
-              <hr class="flex-grow border-t border-green-300" />
-              <span class="px-3 text-green-500 text-lg">
+            <div className="flex items-center mb-2">
+              <hr className="flex-grow border-t border-green-300" />
+              <span className="px-3 text-green-500 text-lg">
                 Experience Section
               </span>
-              <hr class="flex-grow border-t border-green-300" />
+              <hr className="flex-grow border-t border-green-300" />
             </div>
             <ExpForm />{" "}
             {experience.length != 0 ? (
@@ -372,76 +372,72 @@ export default function EditForm({ postData }) {
             ) : (
               ""
             )}
-            <div class="flex items-center mt-4">
-              <hr class="flex-grow border-t border-green-300" />
-              <span class="px-3 text-green-500 text-lg">
+            <div className="flex items-center mt-4">
+              <hr className="flex-grow border-t border-green-300" />
+              <span className="px-3 text-green-500 text-lg">
                 Experience Section
               </span>
-              <hr class="flex-grow border-t border-green-300" />
+              <hr className="flex-grow border-t border-green-300" />
             </div>
           </>
         )}
         <br />
-        {template == "beginner" ? null : (
-          <>
-            <div class="flex items-center">
-              <hr class="flex-grow border-t border-blue-300" />
-              <span class="px-3 text-blue-500 text-lg">Skills Section</span>
-              <hr class="flex-grow border-t border-blue-300" />
-            </div>
-            <SkillForm />{" "}
-            {skills.length != 0 ? (
-              <div>
-                <h1 className="text-xl lg:text-4xl font-extrabold text-center pt-6 pb-4 text-orange-400">
-                  Skill Added
-                </h1>
-                {skills.map((item) => (
-                  <div
-                    key={item.name}
-                    className="w-fit h-fit rounded-2xl text-lg relative mx-auto shadow-black shadow-lg mb-8 p-4 gap-y-3 border-2 font-bold flex flex-col"
-                  >
-                    <p>
-                      {" "}
-                      <span className="font-bold underline text-red-500">
-                        Skill Name:
-                      </span>{" "}
-                      {item.name}
-                    </p>
-                    {item.percentage ? (
-                      <p>
-                        {" "}
-                        <span className="font-bold underline text-red-500">
-                          Skill Percentage:
-                        </span>{" "}
-                        {item.percentage} %
-                      </p>
-                    ) : (
-                      ""
-                    )}
-                    <button
-                      className="w-[10rem] pt-2 py-2 dark:hover:bg-orange-400 hover:bg-purple-400 bg-orange-500 dark:text-white dark:bg-[#0ea5e9] text-white font-bold rounded-full flex items-center justify-center gap-3"
-                      onClick={() => dispatch(removeSkill(item.id))}
-                    >
-                      Remove <ImCross />
-                    </button>
-                  </div>
-                ))}
+        <div className="flex items-center">
+          <hr className="flex-grow border-t border-blue-300" />
+          <span className="px-3 text-blue-500 text-lg">Skills Section</span>
+          <hr className="flex-grow border-t border-blue-300" />
+        </div>
+        <SkillForm />{" "}
+        {skills.length != 0 ? (
+          <div>
+            <h1 className="text-xl lg:text-4xl font-extrabold text-center pt-6 pb-4 text-orange-400">
+              Skill Added
+            </h1>
+            {skills.map((item) => (
+              <div
+                key={item.name}
+                className="w-fit h-fit rounded-2xl text-lg relative mx-auto shadow-black shadow-lg mb-8 p-4 gap-y-3 border-2 font-bold flex flex-col"
+              >
+                <p>
+                  {" "}
+                  <span className="font-bold underline text-red-500">
+                    Skill Name:
+                  </span>{" "}
+                  {item.name}
+                </p>
+                {item.percentage ? (
+                  <p>
+                    {" "}
+                    <span className="font-bold underline text-red-500">
+                      Skill Percentage:
+                    </span>{" "}
+                    {item.percentage} %
+                  </p>
+                ) : (
+                  ""
+                )}
+                <button
+                  className="w-[10rem] pt-2 py-2 dark:hover:bg-orange-400 hover:bg-purple-400 bg-orange-500 dark:text-white dark:bg-[#0ea5e9] text-white font-bold rounded-full flex items-center justify-center gap-3"
+                  onClick={() => dispatch(removeSkill(item.id))}
+                >
+                  Remove <ImCross />
+                </button>
               </div>
-            ) : (
-              ""
-            )}
-            <div class="flex items-center mt-4">
-              <hr class="flex-grow border-t border-blue-300" />
-              <span class="px-3 text-blue-500 text-lg">Skills Section</span>
-              <hr class="flex-grow border-t border-blue-300" />
-            </div>
-          </>
+            ))}
+          </div>
+        ) : (
+          ""
         )}
+        <div className="flex items-center mt-4">
+          <hr className="flex-grow border-t border-blue-300" />
+          <span className="px-3 text-blue-500 text-lg">Skills Section</span>
+          <hr className="flex-grow border-t border-blue-300" />
+        </div>
         <br />
-        <div class="flex items-center mb-2">
-          <hr class="flex-grow border-t border-red-300" />
-          <span class="px-3 text-red-500 text-lg">Projects Section</span>
-          <hr class="flex-grow border-t border-red-300" />
+        <div className="flex items-center mb-2">
+          <hr className="flex-grow border-t border-red-300" />
+          <span className="px-3 text-red-500 text-lg">Projects Section</span>
+          <hr className="flex-grow border-t border-red-300" />
         </div>
         <ProjectForm />
         {projects.length != 0 ? (
@@ -491,17 +487,17 @@ export default function EditForm({ postData }) {
         ) : (
           ""
         )}
-        <div class="flex items-center mt-4">
-          <hr class="flex-grow border-t border-red-300" />
-          <span class="px-3 text-red-500 text-lg">Projects Section</span>
-          <hr class="flex-grow border-t border-red-300" />
+        <div className="flex items-center mt-4">
+          <hr className="flex-grow border-t border-red-300" />
+          <span className="px-3 text-red-500 text-lg">Projects Section</span>
+          <hr className="flex-grow border-t border-red-300" />
         </div>
-        <div class="flex items-center mt-4 mb-4">
-          <hr class="flex-grow border-t border-black dark:border-white" />
-          <span class="px-3 text-black text-lg dark:text-white">
+        <div className="flex items-center mt-4 mb-4">
+          <hr className="flex-grow border-t border-black dark:border-white" />
+          <span className="px-3 text-black text-lg dark:text-white">
             Personal Information Section
           </span>
-          <hr class="flex-grow border-t border-black dark:border-white" />
+          <hr className="flex-grow border-t border-black dark:border-white" />
         </div>
         <form
           className="w-full h-full flex flex-col gap-3 items-center justify-center"
@@ -519,21 +515,29 @@ export default function EditForm({ postData }) {
             aria-describedby="file_input_help"
             id="file_input"
             type="file"
+            required
           />
           <br />
-          <label
-            htmlFor="file_input"
-            className="font-bold text-black text-lg dark:text-white"
-          >
-            Upload CV
-          </label>
-          <input
-            {...register("cv")}
-            aria-describedby="file_input_help"
-            id="file_input"
-            type="file"
-            className="text-orange-400 font-bold"
-          />
+          {template == "simple" ? (
+            ""
+          ) : (
+            <>
+              <label
+                htmlFor="file_input"
+                className="font-bold text-black text-lg dark:text-white"
+              >
+                Upload CV
+              </label>
+              <input
+                {...register("cv")}
+                aria-describedby="file_input_help"
+                id="file_input"
+                type="file"
+                className="text-orange-400 font-bold"
+                required
+              />{" "}
+            </>
+          )}
           <Input
             labelText="Full Name: "
             labelClassName="dark:text-white"
@@ -550,62 +554,80 @@ export default function EditForm({ postData }) {
             labelClassName="dark:text-white"
             className="w-[90vw] md:w-[60vw] dark:border-orange-400 dark:border-2 dark:focus:border-green-500"
           />
-          <Input
-            value={selfDesc}
-            placeholder="Describle Yourself In 2-3 Lines"
-            onChange={(e) => setSelfDesc(e.target.value)}
-            labelText="Self Description: "
-            labelClassName="dark:text-white"
-            className="w-[90vw] md:w-[60vw] dark:border-orange-400 dark:border-2 dark:focus:border-green-500"
-          />
-          <Input
-            value={aboutMe}
-            placeholder="Tell About Yourself In Detail"
-            onChange={(e) => setAboutMe(e.target.value)}
-            labelText="About Yourself: "
-            labelClassName="dark:text-white"
-            className="w-[90vw] md:w-[60vw] dark:border-orange-400 dark:border-2 dark:focus:border-green-500"
-          />
-          <Input
-            value={numOfProjects}
-            placeholder="Enter Number of projects you have completed"
-            onChange={(e) => setNumOfProjects(e.target.value)}
-            labelText="Number Of Projects: "
-            labelClassName="dark:text-white"
-            className="w-[90vw] md:w-[60vw] dark:border-orange-400 dark:border-2 dark:focus:border-green-500"
-          />
-          <Input
-            value={yearsOfExperience}
-            placeholder="Enter Your Years of experience"
-            onChange={(e) => setYearsOfExperience(e.target.value)}
-            labelText="Years Of Experience: "
-            labelClassName="dark:text-white"
-            className="w-[90vw] md:w-[60vw] dark:border-orange-400 dark:border-2 dark:focus:border-green-500"
-          />
-          <Input
-            value={numOfHappyClients}
-            placeholder="Enter Your Number of satisfied clients"
-            onChange={(e) => setNumOfHappyClients(e.target.value)}
-            labelText="Number Of Satisfied Clients: "
-            labelClassName="dark:text-white"
-            className="w-[90vw] md:w-[60vw] dark:border-orange-400 dark:border-2 dark:focus:border-green-500"
-          />
-          <Input
-            value={totalCustomerReviews}
-            placeholder="Enter Number of Customer Reviews You Have"
-            onChange={(e) => setTotalCustomerReviews(e.target.value)}
-            labelText="Number Of Reviews: "
-            labelClassName="dark:text-white"
-            className="w-[90vw] md:w-[60vw] dark:border-orange-400 dark:border-2 dark:focus:border-green-500"
-          />
-          <Input
-            value={facebookLink}
-            placeholder="Enter Your Facebook Profile link"
-            onChange={(e) => setFacebookLink(e.target.value)}
-            labelText="Facebook Link: "
-            labelClassName="dark:text-white"
-            className="w-[90vw] md:w-[60vw] dark:border-orange-400 dark:border-2 dark:focus:border-green-500"
-          />
+          {template == "modern" ? (
+            <>
+              <Input
+                value={selfDesc}
+                placeholder="Describle Yourself In 2-3 Lines"
+                onChange={(e) => setSelfDesc(e.target.value)}
+                labelText="Self Description: "
+                labelClassName="dark:text-white"
+                className="w-[90vw] md:w-[60vw] dark:border-orange-400 dark:border-2 dark:focus:border-green-500"
+              />
+              <Input
+                value={aboutMe}
+                placeholder="Tell About Yourself In Detail"
+                onChange={(e) => setAboutMe(e.target.value)}
+                labelText="About Yourself: "
+                labelClassName="dark:text-white"
+                className="w-[90vw] md:w-[60vw] dark:border-orange-400 dark:border-2 dark:focus:border-green-500"
+              />{" "}
+            </>
+          ) : (
+            ""
+          )}
+          {template == "simple" ? (
+            ""
+          ) : (
+            <>
+              <Input
+                value={numOfProjects}
+                placeholder="Enter Number of projects you have completed"
+                onChange={(e) => setNumOfProjects(e.target.value)}
+                labelText="Number Of Projects: "
+                labelClassName="dark:text-white"
+                className="w-[90vw] md:w-[60vw] dark:border-orange-400 dark:border-2 dark:focus:border-green-500"
+              />
+              <Input
+                value={yearsOfExperience}
+                placeholder="Enter Your Years of experience"
+                onChange={(e) => setYearsOfExperience(e.target.value)}
+                labelText="Years Of Experience: "
+                labelClassName="dark:text-white"
+                className="w-[90vw] md:w-[60vw] dark:border-orange-400 dark:border-2 dark:focus:border-green-500"
+              />
+              <Input
+                value={numOfHappyClients}
+                placeholder="Enter Your Number of satisfied clients"
+                onChange={(e) => setNumOfHappyClients(e.target.value)}
+                labelText="Number Of Satisfied Clients: "
+                labelClassName="dark:text-white"
+                className="w-[90vw] md:w-[60vw] dark:border-orange-400 dark:border-2 dark:focus:border-green-500"
+              />{" "}
+            </>
+          )}
+          {template == "modern" ? (
+            <>
+              <Input
+                value={totalCustomerReviews}
+                placeholder="Enter Number of Customer Reviews You Have"
+                onChange={(e) => setTotalCustomerReviews(e.target.value)}
+                labelText="Number Of Reviews: "
+                labelClassName="dark:text-white"
+                className="w-[90vw] md:w-[60vw] dark:border-orange-400 dark:border-2 dark:focus:border-green-500"
+              />
+              <Input
+                value={facebookLink}
+                placeholder="Enter Your Facebook Profile link"
+                onChange={(e) => setFacebookLink(e.target.value)}
+                labelText="Facebook Link: "
+                labelClassName="dark:text-white"
+                className="w-[90vw] md:w-[60vw] dark:border-orange-400 dark:border-2 dark:focus:border-green-500"
+              />
+            </>
+          ) : (
+            ""
+          )}
           <Input
             value={githubLink}
             placeholder="Enter Your Github Profile Link"
@@ -630,14 +652,28 @@ export default function EditForm({ postData }) {
             labelClassName="dark:text-white"
             className="w-[90vw] md:w-[60vw] dark:border-orange-400 dark:border-2 dark:focus:border-green-500"
           />
-          <Input
-            value={location}
-            placeholder="Enter your location e.g Karachi, Pakistan"
-            labelText="Location: "
-            labelClassName="dark:text-white"
-            className="w-[90vw] md:w-[60vw] dark:border-orange-400 dark:border-2 dark:focus:border-green-500"
-            onChange={(e) => setLocation(e.target.value)}
-          />
+          {template == "modern" ? (
+            <>
+              <Input
+                value={location}
+                placeholder="Enter your location e.g Karachi, Pakistan"
+                labelText="Location: "
+                labelClassName="dark:text-white"
+                className="w-[90vw] md:w-[60vw] dark:border-orange-400 dark:border-2 dark:focus:border-green-500"
+                onChange={(e) => setLocation(e.target.value)}
+              />
+              <Input
+                value={mobileNumber}
+                placeholder="Enter Your Contact Number"
+                labelText="Contact Number: "
+                labelClassName="dark:text-white"
+                className="w-[90vw] md:w-[60vw] dark:border-orange-400 dark:border-2 dark:focus:border-green-500"
+                onChange={(e) => setMobileNumber(e.target.value)}
+              />{" "}
+            </>
+          ) : (
+            ""
+          )}
           <Input
             value={email}
             labelText="Email: "
@@ -646,24 +682,40 @@ export default function EditForm({ postData }) {
             placeholder="Enter Your Email"
             onChange={(e) => setEmail(e.target.value)}
           />
-          <Input
-            value={mobileNumber}
-            placeholder="Enter Your Contact Number"
-            labelText="Contact Number: "
-            labelClassName="dark:text-white"
-            className="w-[90vw] md:w-[60vw] dark:border-orange-400 dark:border-2 dark:focus:border-green-500"
-            onChange={(e) => setMobileNumber(e.target.value)}
-          />
           <button
             type="submit"
             className="w-[16rem] py-4 dark:hover:bg-orange-400 hover:bg-purple-400 bg-orange-500 dark:text-white dark:bg-[#0ea5e9] text-white font-bold rounded-full disabled:bg-[#FDA172] disabled:font-normal disabled:px-3 disabled:w-[14rem] disabled:py-2 disabled:dark:bg-blue-300 flex items-center justify-center gap-2 mb-4"
             disabled={
-              fullName &&
-              workDesc &&
-              aboutMe &&
-              selfDesc &&
-              facebookLink &&
-              email
+              (template == "mini" &&
+                fullName &&
+                workDesc &&
+                numOfProjects &&
+                yearsOfExperience &&
+                numOfHappyClients &&
+                githubLink &&
+                twitterLink &&
+                linkedinLink &&
+                email) ||
+              (template == "simple" &&
+                fullName &&
+                workDesc &&
+                githubLink &&
+                twitterLink &&
+                linkedinLink &&
+                email) ||
+              (template == "modern" &&
+                fullName &&
+                aboutMe &&
+                selfDesc &&
+                workDesc &&
+                numOfProjects &&
+                yearsOfExperience &&
+                numOfHappyClients &&
+                totalCustomerReviews &&
+                githubLink &&
+                twitterLink &&
+                linkedinLink &&
+                email)
                 ? false
                 : true
             }
@@ -672,12 +724,12 @@ export default function EditForm({ postData }) {
             Proceed To Next Step <FaArrowRight />
           </button>
         </form>
-        <div class="flex items-center mb-2">
-          <hr class="flex-grow border-t border-black dark:border-white" />
-          <span class="px-3 text-black text-lg dark:text-white">
+        <div className="flex items-center mb-2">
+          <hr className="flex-grow border-t border-black dark:border-white" />
+          <span className="px-3 text-black text-lg dark:text-white">
             Personal Information Section
           </span>
-          <hr class="flex-grow border-t border-black dark:border-white" />
+          <hr className="flex-grow border-t border-black dark:border-white" />
         </div>
         {/* <button onClick={submitDataToDB}>Send to DB</button> */}
       </div>
