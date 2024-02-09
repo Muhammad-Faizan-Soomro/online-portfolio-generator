@@ -388,7 +388,7 @@ function page() {
           </div>
           <img
             className="contact__rings"
-            src="/template2/pattern-rings.svg temp2-img"
+            src="/template2/pattern-rings.svg"
             alt=""
             width="530"
             height="129"
