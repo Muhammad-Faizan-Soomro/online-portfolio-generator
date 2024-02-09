@@ -26,22 +26,19 @@ function page() {
             </h1>
           </div>
           <div className="info">
-            <p className="px-6 text-justify font-bold text-blue-900 dark:text-gray-300 ">
-              WELCOME TO PORTFOLIO GENERATOR WHERE WE EMPOWER TO SHOWCASE THEIR
-              TALENTS AND ACHIEVEMENTS THROUGH BEAUTIFUL CRAFTED PORTFOLIOS.
-              LEARN MORE ABOUT THE TEAM DRIVING THIS PLATFORM
+            <p className="px-6 text-left font-bold text-blue-900 dark:text-gray-300 ">
+              Welcome To Portfolio Generator Where We Empower You To Showcase Your
+              Talents & Achievements Through Beautifully Crafted Portfolios.
             </p>
           </div>
           <div className="info2">
             <h1 className="text-orange-400 font-bold ml-6 text-2xl underline mb-2 dark:text-white">
               OUR MISSION
             </h1>
-            <p className="px-6 text-justify font-bold   text-blue-900 dark:text-gray-300 ">
-              AT PORTFOLIO GENERATOR OUR MISSION IS TO PROVIDE A USER-FRIENDLY
-              AND INNOVATIVE PLATFORM THAT ENAVLES INDIVIDUALS TO CREATE
-              STUNNING PORTFOLIOS EFFORTLESSLY . WE BELIEVE IN THE POWER OF
-              SHOWCASING ONES UNIQUE SKILSS AND EXPERIENCES TO MAKE A LASTING
-              IMPRESSION IN THE PROFESSIONAL WORLD
+            <p className="px-6 text-left font-bold   text-blue-900 dark:text-gray-300 ">
+              At Portfolio Generator Our Mission Is To Provide a User-friendly &
+              Innovative Platform That Enables Individuals To Create Stunning
+              Portfolios Effortlessly.
             </p>
           </div>
         </div>
@@ -60,21 +57,21 @@ function page() {
               }}
             />
           </div>
-          <div className="info w-[40%] flex flex-col justify-center gap-10 pt-32">
-            <p className=" text-justify   px-4 font-bold text-xl text-[#192733] dark:text-[#94a3b8]">
-              WELCOME TO PORTFOLIO GENERATOR WHERE WE EMPOWER TO SHOWCASE THEIR
-              TALENTS AND ACHIEVEMENTS THROUGH BEAUTIFUL CRAFTED PORTFOLIOS.
-              LEARN MORE ABOUT THE TEAM DRIVING THIS PLATFORM
+          <div className="info w-[40%] flex flex-col justify-center gap-10 items-start">
+            <h1 className="text-[#ff5c35] font-bold  text-4xl underline dark:text-white">
+              About Us
+            </h1>
+            <p className=" text-left   px-4 u text-xl text-[#192733] dark:text-[#94a3b8]">
+              Welcome To Portfolio Generator Where We Empower You To Showcase Your
+              Talents & Achievements Through Beautifully Crafted Portfolios.
             </p>
             <h1 className="text-[#ff5c35] font-bold  text-4xl underline dark:text-white">
               OUR MISSION
             </h1>
-            <p className="px-4 text-justify font-bold text-xl   text-[#192733] dark:text-[#94a3b8]">
-              AT PORTFOLIO GENERATOR OUR MISSION IS TO PROVIDE A USER-FRIENDLY
-              AND INNOVATIVE PLATFORM THAT ENAVLES INDIVIDUALS TO CREATE
-              STUNNING PORTFOLIOS EFFORTLESSLY . WE BELIEVE IN THE POWER OF
-              SHOWCASING ONES UNIQUE SKILSS AND EXPERIENCES TO MAKE A LASTING
-              IMPRESSION IN THE PROFESSIONAL WORLD
+            <p className="px-4 text-left text-xl   text-[#192733] dark:text-[#94a3b8]">
+              At Portfolio Generator Our Mission Is To Provide a User-friendly &
+              Innovative Platform That Enables Individuals To Create Stunning
+              Portfolios Effortlessly.
             </p>
           </div>
         </div>
