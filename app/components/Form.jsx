@@ -3037,7 +3037,7 @@ export default function Form({
       <div class="logo-container">
         <a href=${githubLink}><i class="fab fa-github"></i></a>
         <a href=${linkedinLink}><i class="fab fa-linkedin"></i></a>
-        <a href="mailto:${twitterLink}"><i class="fab fa-twitter"></i></a>
+        <a href="${twitterLink}"><i class="fab fa-twitter"></i></a>
       </div>
     </div>
   </section>
@@ -3069,8 +3069,8 @@ export default function Form({
       .join(``)}
   </section>
   <section class="skills" id="skills">
-    <div class="wrapper">
-      <article class="frontend-skills">
+    <div class="">
+      <article class="">
         ${Object.values(skills)
           .map((skill) => `<p>${skill.name}</p>`)
           .join(``)}
