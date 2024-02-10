@@ -9,7 +9,9 @@ export async function POST(request){
     await ConnectDB();
     const {username,email,password}=await request.json();
     const existinguser= await User.findOne({username})
-    if(existinguser){
+    const existingemail = await User.findOne({email})
+
+    if(existinguser || existingemail){
         return NextResponse.json({
             message:'User Already Exsists',
             status:401
