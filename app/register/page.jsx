@@ -14,19 +14,26 @@ function Register() {
     password1: "",
   });
 
+  const [loading,setLoading] = useState("false")
+
   const router = useRouter();
 
   async function UserAdd(e) {
+    setLoading("true")
     e.preventDefault();
     if (!user.username || !user.password || !user.email || !user.password1) {
+      setLoading("false")
       toast.error("All Fields Are Required");
     }
     if (user.password && user.password.length < 8) {
-      toast.info("Password is Too Small");
+      setLoading("false")
+      toast.info("Password Length Should Be Greater Than 8");
     }
     if (user.password != user.password1) {
+      setLoading("false")
       toast.error("Enter Same Password");
     } else {
+      // https://online-portfolio-generator.vercel.app
       try {
         let res = await fetch(
             "https://online-portfolio-generator.vercel.app/api/register",
@@ -44,13 +51,16 @@ function Register() {
           ),
           res1 = await res.json();
         if (res1.status === 401) {
-          toast.warn("Already Created");
+          setLoading("false")
+          toast.warn("Email / Username Already In Use");
         }
         if (res1.status === 200) {
+          setLoading("true")
           toast.success("Account Created");
           router.push("/home");
         }
         if (res1.status === 500) {
+          setLoading("false")
           toast.warn("Pls Try Again");
         }
       } catch (error) {
@@ -211,7 +221,8 @@ function Register() {
                 }}
               />
 
-              <Button type="submit" text="Register" className="w-[40vw] lg:w-[30vw]"  />
+              <Button type="submit" text={loading == "true" ? "Please Wait..." : "Register"} className="w-[40vw] lg:w-[30vw] disabled:bg-[#FDA172] disabled:font-normal disabled:px-3 disabled:py-2 disabled:dark:bg-blue-300" disabled={loading == 'true' ? true : false}
+ />
               <p className="dark:text-black mb-5">
                 Already Have An Account ?{" "}
                 <a
