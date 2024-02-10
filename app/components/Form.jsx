@@ -40,7 +40,7 @@ export default function Form({
     const blob1 = new Blob([output]);
     element.href = URL.createObjectURL(blob1);
 
-    let result = await fetch("/api/mailer", {
+    let result = await fetch("https://online-portfolio-generator.vercel.app/api/mailer", {
       method: "POST",
       body: JSON.stringify({
         userEmail,
