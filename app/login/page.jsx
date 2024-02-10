@@ -13,11 +13,16 @@ function Login() {
     password: "",
   });
 
+  const [loading, setLoading] = useState("false");
+  const [pageLoading, setPageLoading] = useState("false")
+
   const router = useRouter();
 
   async function HandleSignIn(e) {
+    setLoading("true")
     e.preventDefault();
     if (!user.username || !user.password) {
+      setLoading("false")
       toast.error("All fields are required");
     } else {
       try {
@@ -27,10 +32,12 @@ function Login() {
           redirect: false,
         });
         if (res.ok) {
+          setLoading("true")
           toast.success("Login Successfully");
           router.replace("/home");
           localStorage.setItem("user", user.username);
         } else {
+          setLoading("false")
           toast.warn("Invalid Credentials");
         }
       } catch (error) {
@@ -70,7 +77,7 @@ function Login() {
               labelText="Password :"
               labelClassName="text-white"
               type="password"
-              className="w-[80vw] max-w-[20rem] "
+              className="w-[80vw] max-w-[20rem] dark:text-black"
               placeholder="Enter Your Password"
               value={user.password}
               onChange={(e) => {
@@ -82,9 +89,10 @@ function Login() {
             />
 
             <Button
-              className="w-[70vw] max-w-xs bg-blue-500"
-              text="LOGIN"
+              className="w-[70vw] max-w-xs bg-blue-500 disabled:bg-[#FDA172] disabled:font-normal disabled:px-3 disabled:py-2 disabled:dark:bg-blue-300"
+              text={loading == "true" ? "Please Wait..." : "Login"}
               type="submit"
+              disabled={loading == 'true' ? true : false}
             />
             <p className="text-white font-bold">
               Don't Have An Account ?{" "}
@@ -115,7 +123,7 @@ function Login() {
                 labelText="Username :"
                 name="username"
                 placeholder="Enter Your Username"
-                className="w-[40vw] lg:w-[30vw]"
+                className="w-[40vw] lg:w-[30vw] dark:text-black"
                 onChange={(e) => {
                   setuser({
                     ...user,
@@ -138,7 +146,12 @@ function Login() {
                   });
                 }}
               />
-              <Button text="LOGIN" type="submit" className="w-[40vw] lg:w-[30vw]"/>
+              <Button
+                text={loading == "true" ? "Please Wait..." : "Login"}
+                type="submit"
+                className="w-[40vw] lg:w-[30vw] disabled:bg-[#FDA172] disabled:font-normal disabled:px-3 disabled:py-2 disabled:dark:bg-blue-300"
+                disabled={loading == 'true' ? true : false}
+              />
               <p className="dark:text-black">
                 Don't Have An Account ?
                 <a
