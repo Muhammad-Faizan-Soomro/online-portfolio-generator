@@ -695,7 +695,7 @@ export default function EditForm({ postData }) {
                 email) ||
               (template == "simple" &&
                 fullName &&
-                workDesc &&
+                aboutMe &&
                 githubLink &&
                 twitterLink &&
                 linkedinLink &&
