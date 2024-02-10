@@ -187,7 +187,7 @@ export default function EditForm({ postData }) {
         : ""
     );
 
-    const cvData = data.cv[0];
+    const cvData = data.cv ? data.cv[0] : "";
     const CVFormData = new FormData();
     CVFormData.append("file", cvData);
     CVFormData.append("upload_preset", "portfolio");
@@ -504,7 +504,7 @@ export default function EditForm({ postData }) {
           onSubmit={handleSubmit(onSubmit)}
         >
           <label
-            htmlFor="file_input"
+            htmlFor="profile_input"
             className="font-bold text-black text-lg dark:text-white"
           >
             Upload Profile Picture
@@ -513,7 +513,7 @@ export default function EditForm({ postData }) {
             {...register("profile")}
             className="text-orange-400 font-bold"
             aria-describedby="file_input_help"
-            id="file_input"
+            id="profile_input"
             type="file"
             required
           />
@@ -523,7 +523,7 @@ export default function EditForm({ postData }) {
           ) : (
             <>
               <label
-                htmlFor="file_input"
+                htmlFor="cv_input"
                 className="font-bold text-black text-lg dark:text-white"
               >
                 Upload CV
@@ -531,7 +531,7 @@ export default function EditForm({ postData }) {
               <input
                 {...register("cv")}
                 aria-describedby="file_input_help"
-                id="file_input"
+                id="Cv_input"
                 type="file"
                 className="text-orange-400 font-bold"
                 required
@@ -546,33 +546,42 @@ export default function EditForm({ postData }) {
             placeholder="Enter Your Full Name"
             onChange={(e) => setFullName(e.target.value)}
           />
-          {template == 'simple' ? "" :
-          <Input
-            value={workDesc}
-            placeholder="Enter One Line About Your Work e.g Backend Developer"
-            onChange={(e) => setWorkDesc(e.target.value)}
-            labelText="Work Description: "
-            labelClassName="dark:text-white"
-            className="w-[90vw] md:w-[60vw] dark:border-orange-400 dark:border-2 dark:focus:border-green-500"
-          /> }
-          {template == "modern" ?
-              <Input
-                value={selfDesc}
-                placeholder="Describle Yourself In 2-3 Lines"
-                onChange={(e) => setSelfDesc(e.target.value)}
-                labelText="Self Description: "
-                labelClassName="dark:text-white"
-                className="w-[90vw] md:w-[60vw] dark:border-orange-400 dark:border-2 dark:focus:border-green-500"
-              /> : "" }
-          {template == 'mini' ? "" :
-              <Input
-                value={aboutMe}
-                placeholder="Tell About Yourself In Detail"
-                onChange={(e) => setAboutMe(e.target.value)}
-                labelText="About Yourself: "
-                labelClassName="dark:text-white"
-                className="w-[90vw] md:w-[60vw] dark:border-orange-400 dark:border-2 dark:focus:border-green-500"
-              /> }
+          {template == "simple" ? (
+            ""
+          ) : (
+            <Input
+              value={workDesc}
+              placeholder="Enter One Line About Your Work e.g Backend Developer"
+              onChange={(e) => setWorkDesc(e.target.value)}
+              labelText="Work Description: "
+              labelClassName="dark:text-white"
+              className="w-[90vw] md:w-[60vw] dark:border-orange-400 dark:border-2 dark:focus:border-green-500"
+            />
+          )}
+          {template == "modern" ? (
+            <Input
+              value={selfDesc}
+              placeholder="Describle Yourself In 2-3 Lines"
+              onChange={(e) => setSelfDesc(e.target.value)}
+              labelText="Self Description: "
+              labelClassName="dark:text-white"
+              className="w-[90vw] md:w-[60vw] dark:border-orange-400 dark:border-2 dark:focus:border-green-500"
+            />
+          ) : (
+            ""
+          )}
+          {template == "mini" ? (
+            ""
+          ) : (
+            <Input
+              value={aboutMe}
+              placeholder="Tell About Yourself In Detail"
+              onChange={(e) => setAboutMe(e.target.value)}
+              labelText="About Yourself: "
+              labelClassName="dark:text-white"
+              className="w-[90vw] md:w-[60vw] dark:border-orange-400 dark:border-2 dark:focus:border-green-500"
+            />
+          )}
           {template == "simple" ? (
             ""
           ) : (

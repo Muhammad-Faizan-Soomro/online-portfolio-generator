@@ -1688,8 +1688,8 @@ export default function Form({
       top: 0;
       left: 50%;
       translate: -50%;
-      width: 174px;
-      height: auto;
+      width: 250px;
+      height: 383px;
     }
 
     .hero__rings {
@@ -1757,10 +1757,10 @@ export default function Form({
 
       .hero__image {
         position: relative;
-        width: 42vw;
+        width: 50vw;
         max-width: 445px;
         /* width: 322px; */
-        height: auto;
+        height: 99vh;
         left: auto;
         right: 0;
         translate: 0;
@@ -2264,7 +2264,7 @@ export default function Form({
         <div class="hero__content">
           <picture>
             <img class="hero__image" src=${profilePicUrl} alt="picture of ${fullName}"
-              width-="174" height="383" />
+              width-="174" />
           </picture>
           <img class="hero__rings" src="https://res.cloudinary.com/dj1mhaagb/image/upload/v1707162879/pattern-rings_wxyvk8.svg" alt="" width="530" height="129" />
           <img class="hero__circle" src="https://res.cloudinary.com/dj1mhaagb/image/upload/v1707162835/pattern-circle_amu0ej.svg" alt="" width="129" height="129" />
@@ -3037,7 +3037,7 @@ export default function Form({
       <div class="logo-container">
         <a href=${githubLink}><i class="fab fa-github"></i></a>
         <a href=${linkedinLink}><i class="fab fa-linkedin"></i></a>
-        <a href="${twitterLink}"><i class="fab fa-twitter"></i></a>
+        <a href="mailto:${twitterLink}"><i class="fab fa-twitter"></i></a>
       </div>
     </div>
   </section>
