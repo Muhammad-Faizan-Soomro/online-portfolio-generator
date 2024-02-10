@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Navbar from "../components/Nnavbar";
 import Image from "next/image";
 import pic2 from "../../public/template2/preview.webp";
@@ -12,11 +12,17 @@ import Loader from "../components/Loader";
 
 import Link from "next/link";
 
-
 function Page() {
+  const [loading, setLoading] = useState("false");
   const { data: session, status } = useSession();
 
-  if (status === "loading") {
+  const changeTemplate = (temp) => {
+    localStorage.setItem("template", temp);
+    setLoading("true");
+    
+  };
+
+  if (status === "loading" || loading == 'true') {
     return (
       <div>
         <Loader />
@@ -28,7 +34,9 @@ function Page() {
     <>
       <Navbar />
       <h1 className="text-3xl font-bold text-orange-400 text-center mt-2 dark:text-white">
-        Choose A Template
+        {loading == "false"
+          ? "Choose A Template"
+          : "Please Wait, Redirecting..."}
       </h1>
 
       <div className="templates w-full h-full flex flex-col gap-10 lg:grid lg:grid-cols-3  items-center justify-start pt-10">
@@ -65,13 +73,14 @@ function Page() {
           </h1>
           <div className="hide absolute flex items-center justify-evenly w-full h-full bg-black/20  translate-y-full group-hover:translate-y-0 transition-all duration-300">
             <Link
+              onClick={() => changeTemplate("mini")}
               href="/edit"
               className="px-4 py-2 bg-gray-50 text-black font-bold rounded-md hover:scale-110"
-              onClick={() => localStorage.setItem("template", "mini")}
             >
               Select
             </Link>
             <Link
+              onClick={() => setLoading("true")}
               href={"/template5"}
               className="px-4 py-2 bg-gray-50 text-black font-bold rounded-md hover:scale-110"
             >
@@ -89,13 +98,14 @@ function Page() {
           </h1>
           <div className="hide absolute flex items-center justify-evenly w-full h-full bg-black/20  translate-y-full group-hover:translate-y-0 transition-all duration-300">
             <Link
+              onClick={() => changeTemplate("simple")}
               href="/edit"
               className="px-4 py-2 bg-gray-50 text-black font-bold rounded-md hover:scale-110"
-              onClick={() => localStorage.setItem("template", "simple")}
             >
               Select
             </Link>
             <Link
+              onClick={() => setLoading("true")}
               href={"/template2"}
               className="px-4 py-2 bg-gray-50 text-black font-bold rounded-md hover:scale-110"
             >
@@ -136,13 +146,14 @@ function Page() {
           </h1>
           <div className="hide absolute flex items-center justify-evenly w-full h-full bg-black/20  translate-y-full group-hover:translate-y-0 transition-all duration-300">
             <Link
+              onClick={() => changeTemplate("modern")}
               href={"/edit"}
               className="px-4 py-2 bg-gray-50 text-black font-bold rounded-md hover:scale-110"
-              onClick={() => localStorage.setItem("template", "modern")}
             >
               Select
             </Link>
             <Link
+              onClick={() => setLoading("true")}
               href={"/template1"}
               className="px-4 py-2 bg-gray-50 text-black font-bold rounded-md hover:scale-110"
             >
