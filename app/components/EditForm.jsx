@@ -546,6 +546,7 @@ export default function EditForm({ postData }) {
             placeholder="Enter Your Full Name"
             onChange={(e) => setFullName(e.target.value)}
           />
+          {template == 'simple' ? "" :
           <Input
             value={workDesc}
             placeholder="Enter One Line About Your Work e.g Backend Developer"
@@ -553,9 +554,8 @@ export default function EditForm({ postData }) {
             labelText="Work Description: "
             labelClassName="dark:text-white"
             className="w-[90vw] md:w-[60vw] dark:border-orange-400 dark:border-2 dark:focus:border-green-500"
-          />
-          {template == "modern" ? (
-            <>
+          /> }
+          {template == "modern" ?
               <Input
                 value={selfDesc}
                 placeholder="Describle Yourself In 2-3 Lines"
@@ -563,7 +563,8 @@ export default function EditForm({ postData }) {
                 labelText="Self Description: "
                 labelClassName="dark:text-white"
                 className="w-[90vw] md:w-[60vw] dark:border-orange-400 dark:border-2 dark:focus:border-green-500"
-              />
+              /> : "" }
+          {template == 'mini' ? "" :
               <Input
                 value={aboutMe}
                 placeholder="Tell About Yourself In Detail"
@@ -571,11 +572,7 @@ export default function EditForm({ postData }) {
                 labelText="About Yourself: "
                 labelClassName="dark:text-white"
                 className="w-[90vw] md:w-[60vw] dark:border-orange-400 dark:border-2 dark:focus:border-green-500"
-              />{" "}
-            </>
-          ) : (
-            ""
-          )}
+              /> }
           {template == "simple" ? (
             ""
           ) : (
