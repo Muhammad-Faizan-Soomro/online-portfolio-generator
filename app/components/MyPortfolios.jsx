@@ -24,6 +24,13 @@ function MyPortfolios({ data }) {
 
   const [loading, setLoading] = useState("false");
 
+
+  const changeTemplate = (temp) => {
+    localStorage.setItem("template", temp);
+    setLoading("true");
+    
+  };
+
   if(loading == 'true'){
     return(
       <div>
@@ -90,7 +97,7 @@ function MyPortfolios({ data }) {
                   },
                 }}
                 className="px-4 py-2 bg-gray-50 text-black font-bold rounded-md hover:scale-110"
-                onClick={() => localStorage.setItem("template", datas.template)}
+                onClick={() => changeTemplate(datas.template)}
               >
                 Edit
               </Link>
@@ -98,7 +105,7 @@ function MyPortfolios({ data }) {
                 className="p-2 bg-white font-bold rounded-md text-black hover:scale-110"
                 onClick={async () => {
                   setLoading("true")
-                  data = await fetch("http://localhost:3000/api/detail", {
+                  data = await fetch("https://online-portfolio-generator.vercel.app/api/detail", {
                     cache:"no-cache",
                     method: "DELETE",
                     body: JSON.stringify({
