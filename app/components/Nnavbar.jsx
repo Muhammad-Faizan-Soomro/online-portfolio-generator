@@ -13,8 +13,10 @@ import logo1 from "../../public/logodark.webp";
 import { usePathname } from "next/navigation";
 import { GiCancel } from "react-icons/gi";
 
-
 function Navbar() {
+  const [loading, setLoading] = useState("false");
+  const [pageLoading, setPageLoading] = useState("false");
+
   const pathName = usePathname();
   const [hide, sethide] = useState(true);
   const { data: session, status } = useSession();
@@ -22,13 +24,14 @@ function Navbar() {
   const user = localStorage.getItem("user");
 
   const signout = () => {
+    setLoading("true");
     const selectedTemplate = localStorage.getItem("template");
     selectedTemplate == null ? null : localStorage.removeItem("template");
     localStorage.removeItem("user");
     signOut();
   };
 
-  if (status === "loading") {
+  if (status === "loading" || pageLoading == "true") {
     return (
       <div>
         <Loader />
@@ -50,6 +53,7 @@ function Navbar() {
         <div className="flex nav w-[350px] h-16  items-center justify-center ">
           {pathName == "/home" ? (
             <Link
+              onClick={() => setPageLoading("true")}
               href="/my-portfolios"
               className="font-bold font-serif text-orange-400 hover:scale-110 text-xl dark:text-white hover:underline hover:decoration-red-400 hover:decoration-2"
             >
@@ -57,6 +61,7 @@ function Navbar() {
             </Link>
           ) : (
             <Link
+              onClick={() => setPageLoading("true")}
               href="/home"
               className="font-bold font-serif text-orange-400 hover:scale-110 text-xl dark:text-white hover:underline hover:decoration-red-400 hover:decoration-2"
             >
@@ -96,10 +101,11 @@ function Navbar() {
             />
           )}
           <button
-            className="w-[7rem] py-2 dark:hover:bg-orange-400 hover:bg-purple-400 bg-orange-500 dark:text-white dark:bg-[#0ea5e9] text-white font-bold rounded-full"
+            className="w-[7rem] py-2 dark:hover:bg-orange-400 hover:bg-purple-400 bg-orange-500 dark:text-white dark:bg-[#0ea5e9] text-white font-bold rounded-full disabled:bg-[#FDA172] disabled:w-[10rem] disabled:font-normal disabled:px-3 disabled:py-2 disabled:dark:bg-blue-300"
             onClick={() => signout()}
+            disabled={loading == "true" ? true : false}
           >
-            Logout
+            {loading == "true" ? "See You Soon!" : "Logout"}
           </button>
         </div>
       </section>
@@ -124,8 +130,12 @@ function Navbar() {
               }}
             />
           )}
-          <button aria-label="navbar" id="navbutton" onClick={() => sethide(!hide)}>
-          {hide ? <FaBars /> : <GiCancel />}
+          <button
+            aria-label="navbar"
+            id="navbutton"
+            onClick={() => sethide(!hide)}
+          >
+            {hide ? <FaBars /> : <GiCancel />}
           </button>
         </div>
       </div>
@@ -137,6 +147,7 @@ function Navbar() {
       >
         {pathName == "/home" ? (
           <Link
+            onClick={() => setPageLoading("true")}
             href="/my-portfolios"
             className="font-bold text-orange-400 text-xl dark:text-black hover:scale-110 hover:underline hover:decoration-red-400 hover:decoration-2"
           >
@@ -144,6 +155,7 @@ function Navbar() {
           </Link>
         ) : (
           <Link
+            onClick={() => setPageLoading("true")}
             href="/home"
             className="font-bold text-orange-400 text-xl dark:text-black hover:scale-110 hover:underline hover:decoration-red-400 hover:decoration-2"
           >
@@ -151,10 +163,11 @@ function Navbar() {
           </Link>
         )}
         <button
-          className="bg-orange-400 text-white font-bold dark:bg-blue-400 w-[7rem] py-2 dark:hover:bg-orange-400 hover:bg-purple-400  dark:text-white rounded-full "
+          className="bg-orange-400 text-white font-bold dark:bg-blue-400 w-[7rem] py-2 dark:hover:bg-orange-400 hover:bg-purple-400  dark:text-white rounded-full disabled:bg-[#FDA172] disabled:w-[10rem] disabled:font-normal disabled:px-3 disabled:py-2 disabled:dark:bg-blue-300"
           onClick={() => signout()}
+          disabled={loading == "true" ? true : false}
         >
-          Logout
+          {loading == "true" ? "See You Soon!" : "Logout"}
         </button>
       </div>
     </>

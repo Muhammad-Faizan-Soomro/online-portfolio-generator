@@ -13,6 +13,7 @@ import Button from "./Button";
 import { usePathname } from "next/navigation";
 
 function Navbar() {
+  const [loading, setLoading] = useState('false')
   const [hide, sethide] = useState(true);
   const { theme, setTheme } = useTheme();
   const path = usePathname();
@@ -42,9 +43,9 @@ function Navbar() {
           )}
 
           {theme === "dark" ? (
-            <LuSunMoon onClick={() => setTheme("light")} />
+            <LuSunMoon className="cursor-pointer" onClick={() => setTheme("light")} />
           ) : (
-            <FaMoon
+            <FaMoon className="cursor-pointer"
               onClick={() => {
                 setTheme("dark");
               }}
@@ -136,10 +137,11 @@ function Navbar() {
           </Link>
 
           {path == "/" ? (
-            <Link href={"/login"}>
+            <Link href={"/login"} onClick={() => setLoading("true")}>
               <Button
-                className="w-[7rem] mx-0 dark:hover:bg-orange-400 hover:bg-orange-400 bg-red-500 dark:text-white dark:bg-[#0ea5e9]"
-                text="Sign In"
+                className="w-[7rem] mx-0 dark:hover:bg-orange-400 hover:bg-orange-400 bg-red-500 dark:text-white dark:bg-[#0ea5e9] disabled:bg-[#FDA172] disabled:font-normal disabled:px-3 disabled:py-2 disabled:dark:bg-blue-300"
+                text={ loading == 'false' ? "Sign In" : "Please Wait"}
+                disabled={loading == 'false' ? false : true}
               />
             </Link>
           ) : (
@@ -155,9 +157,9 @@ function Navbar() {
           )} */}
 
           {theme === "dark" ? (
-            <LuSunMoon onClick={() => setTheme("light")} />
+            <LuSunMoon className="cursor-pointer" onClick={() => setTheme("light")} />
           ) : (
-            <FaMoon
+            <FaMoon className="cursor-pointer"
               onClick={() => {
                 setTheme("dark");
               }}

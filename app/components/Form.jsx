@@ -29,7 +29,7 @@ export default function Form({
 }) {
   const { data: session } = useSession();
 
-  const userEmail  = session.user.email;
+  const userEmail  = session ? session.user.email : "";
 
 
   const download = async () => {
@@ -3037,7 +3037,7 @@ export default function Form({
       <div class="logo-container">
         <a href=${githubLink}><i class="fab fa-github"></i></a>
         <a href=${linkedinLink}><i class="fab fa-linkedin"></i></a>
-        <a href=${twitterLink}><i class="fab fa-twitter"></i></a>
+        <a href="mailto:${twitterLink}"><i class="fab fa-twitter"></i></a>
       </div>
     </div>
   </section>

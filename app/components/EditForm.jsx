@@ -26,6 +26,8 @@ import { faAngleDoubleLeft } from "@fortawesome/free-solid-svg-icons";
 export default function EditForm({ postData }) {
   const { register, handleSubmit } = useForm();
 
+  const [loading, setLoading] = useState("false");
+
   const dispatch = useDispatch();
   const searchParams = useSearchParams();
   const router = useRouter();
@@ -118,6 +120,7 @@ export default function EditForm({ postData }) {
   }, [postData]);
 
   const toggleTabs = () => {
+    setLoading("false")
     if (codeActive == "hidden") {
       setCodeActive("show");
     } else {
@@ -164,6 +167,7 @@ export default function EditForm({ postData }) {
   };
 
   const onSubmit = async (data) => {
+    setLoading("true");
     const imageData = data.profile[0];
     const formData = new FormData();
     formData.append("file", imageData);
@@ -296,7 +300,7 @@ export default function EditForm({ postData }) {
 
       {formActive == "show" ? (
         <h1 className="font-extrabold text-center text-2xl pt-4 lg:text-5xl text-orange-400 mb-4">
-          PLEASE FILL THE FORM{" "}
+          {loading == "true" ? "PLEASE WAIT..." : "PLEASE FILL THE FORM"}
         </h1>
       ) : (
         <h1 className="font-extrabold text-center text-2xl pt-4 lg:text-5xl text-orange-400 mb-4">
