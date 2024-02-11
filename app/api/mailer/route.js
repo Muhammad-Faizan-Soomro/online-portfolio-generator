@@ -4,7 +4,7 @@ export async function POST(req, res) {
   const response = await req.json();
   let nodemailer = require("nodemailer");
   const transporter = nodemailer.createTransport({
-    port: 465,
+    port: 587,
     host: "smtp.gmail.com",
     auth: {
       user: "onlineportfoliogenerator@gmail.com",
